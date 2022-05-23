@@ -8,10 +8,9 @@
 # Below are some special values that trigger specific behavior:
 # - header: My Header  # Will insert a header with no link in the sidebar
 
-# ===== Main Landing Page ========================================
+format: jb-article
+root: index
+sections:
 - file: welcome
-
-# ===== Getting started ==========================================
 - file: course/start
-  sections:
-    - file: course/example
+- file: course/example
