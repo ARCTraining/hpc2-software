@@ -9,8 +9,7 @@
 # - header: My Header  # Will insert a header with no link in the sidebar
 
 format: jb-article
-root: index
+root: welcome
 sections:
-- file: welcome
 - file: course/start
 - file: course/example
