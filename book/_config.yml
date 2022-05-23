@@ -1,9 +1,8 @@
 # Book settings
-title: Template documentation jupyter book
+title: "HPC2: Installing and Managing Applications on the HPC"
 author: University of Leeds Research Computing Team
 logo: ./assets/img/logo/logo.png
-email: ask-rc@leeds.ac.uk
-copyright: "2020"
+copyright: "2022"
 
 # execute settings
 execute:
@@ -18,7 +17,7 @@ html:
   use_repository_button: true
   use_issues_button: true
   use_edit_page_button: true
-  baseurl                   : "https://arctraining.github.io/template-jb-docs"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  baseurl                   : "https://arctraining.github.io/hpc2-software/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   navbar_footer_text        :
     'Visit the <a href="https://arcleeds.github.io/">Research Computing Home Site</a>
     <div>
@@ -34,11 +33,8 @@ launch_buttons:
   thebelab                  : false  # Add a thebelab button to pages (requires the repository to run on Binder)
 
 repository:
-  url                       : https://github.com/ARCTraining/template-jb-docs  # The URL to your book's repository
+  url                       : https://github.com/ARCTraining/hpc2-software  # The URL to your book's repository
   path_to_book              : "book/"  # A path to your book's folder, relative to the repository root.
   branch                    : gh-pages  # Which branch of the repository should be used when creating links
 
 
-latex:
-  latex_documents:
-    targetname: leedsarcdocs.tex

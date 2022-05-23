@@ -12,6 +12,6 @@
 - file: welcome
 
 # ===== Getting started ==========================================
-- file: example_section/start
+- file: course/start
   sections:
-    - file: example_section/example
+    - file: course/example
