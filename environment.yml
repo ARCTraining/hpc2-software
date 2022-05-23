@@ -6,4 +6,4 @@ dependencies:
   - jinja2=3.0.3
   - pip=20
   - pip:
-    - jupyter-book==0.9.1
+    - jupyter-book
