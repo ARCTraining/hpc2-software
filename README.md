@@ -1,10 +1,17 @@
-# A template jupyter book documentation repository
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
-This is a template repository that can be used when generating documentation using [Jupyter-books](https://github.com/executablebooks/jupyter-book) and hosting the site via GitHub pages.
+# 👷‍♀️ HPC2: Installing and Managing Applications on the HPC 👷‍♂️
 
-## Working with this project locally
+**This project is a work in progress and is not yet in a stable state.**
 
-You can get this project working locally by using the environment.yml file to create a conda environment that contains all the dependencies required to get started.
+The home for all course notes for HPC2: Installing and managing application on the HPC Research Computing course.
+
+## Contributing to this project
+
+### Working with this project locally
+
+You will need to install the [conda package management tool](https://docs.conda.io/en/latest/) before you can get this project working locally.
+You can use the `environment.yml` file included to create a conda environment that contains all the dependencies required to get started.
 
 ```{bash}
 $ git clone https://github.com/ARCTraining/template-jb-docs.git
@@ -22,7 +29,7 @@ $ jupyter-book build book/
 ```
 ### Windows
 
-Jupyterbook now supports [Windows](https://jupyterbook.org/en/stable/advanced/windows.html) although the steps for configuring a development environment using Vagrant are available below:
+Jupyterbook now supports [Windows](https://jupyterbook.org/en/stable/advanced/windows.html) so the above steps can also be used on a Windows terminal.
 
 #### Set up a development environment using Vagrant
 
