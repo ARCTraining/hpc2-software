@@ -1,0 +1,33 @@
+# copied from https://jupyterbook.org/publish/gh-pages.html?highlight=github%20pages
+
+name: test-build
+
+# Only run this when a PR suggests changes to main branch
+on:
+  pull_request:
+    branches:
+      - main
+
+# This job installs dependencies and builds the book
+jobs:
+  deploy-book:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      # test build on multiple OS
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        environment-file: environment.yml
+        auto-activate-base: false
+        activate-environment: arcdocs-jb
+
+    # Build the book
+    - name: Build the book
+      shell: bash -l {0}
+      run: |
+        conda activate arcdocs-jb
+        jupyter-book build ./book/
+
