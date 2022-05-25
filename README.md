@@ -6,6 +6,18 @@
 
 The home for all course notes for HPC2: Installing and managing application on the HPC Research Computing course.
 
+## Lesson Format
+
+We are currently basing our lessons on the Software Carpentry format (e.g. https://swcarpentry.github.io/shell-novice/) which sets a good example of language and structure to follow.
+Currently these lessons are 25 minutes long (to facilitate a 10 minute break each hour).
+The current lesson format to follow as a guide:
+
+* Overview (questions/objectives)
+* Intro paragraph
+* Worked Examples
+* Exercises
+* Key points
+
 ## Contributing to this project
 
 ### Working with this project locally
