@@ -13,3 +13,4 @@ root: welcome
 sections:
 - file: course/start
 - file: course/example
+- file: course/spack
