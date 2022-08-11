@@ -29,10 +29,10 @@ way up what you can do with Spack, without going too far down into the details.
 If you do want to learn more about Spack, the [official Spack
 documentation](https://spack.readthedocs.io/en/latest/) is mostly excellent.
 
-- Installing Spack
-- Building a test piece of software
-- Changing the way it names modules
-- How you can tell it about bits of software you already have
-- An advanced software build example
-- Building containers with spack
-- Writing a spack rule to build a bit of software not already handled by spack
+- [Installing Spack](spack/installing)
+- [Building a test piece of software](spack/testinstall)
+- [Changing the way it names modules](spack/modules)
+- [How you can tell it about bits of software you already have](spack/existing)
+- [An advanced software build example](spack/advanced)
+- [Building containers with spack](spack/containers)
+- [Writing a spack recipe to build a bit of software not already handled by spack](spack/recipes)
