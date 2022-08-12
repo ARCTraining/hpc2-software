@@ -3,8 +3,8 @@
 In the last section we built a version of pigz, and loaded it:
 
 ```
-[scsjh@worklaptop ~]$ module add pigz-2.7-gcc-8.5.0-qkx6pxv 
-[scsjh@worklaptop ~]$ pigz --version
+[me@worklaptop ~]$ module add pigz-2.7-gcc-8.5.0-qkx6pxv 
+[me@worklaptop ~]$ pigz --version
 pigz 2.7
 ```
 
@@ -50,7 +50,7 @@ spack module tcl refresh --delete-tree -y
 Testing this out now we can see all is how we wanted it:
 ```
 $ module avail
----------- /home/scsjh/spack/share/spack/modules/linux-rhel8-haswell -----------
+---------- /home/me/spack/share/spack/modules/linux-rhel8-haswell -----------
 pigz/2.7  zlib/1.2.12  
 ```
 

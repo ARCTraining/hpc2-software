@@ -17,10 +17,10 @@ path, and then tell Spack to find it:
 
 ```
 $ spack compiler add
-==> Added 1 new compiler to /home/scsjh/.spack/linux/compilers.yaml
+==> Added 1 new compiler to /home/me/.spack/linux/compilers.yaml
     gcc@8.5.0
 ==> Compilers are defined in the following files:
-    /home/scsjh/.spack/linux/compilers.yaml
+    /home/me/.spack/linux/compilers.yaml
 ```
 
 Spack now knows about this compiler.  If this was a compiler in a module, you
@@ -61,7 +61,7 @@ configure anything by hand.  So if I load an openmpi module, and run:
 
 ```
 $ spack external find openmpi
-==> The following specs have been detected on this system and added to /home/scsjh/.spack/packages.yaml
+==> The following specs have been detected on this system and added to /home/me/.spack/packages.yaml
 -- no arch / gcc@8.5.0 ------------------------------------------
 openmpi@4.1.1
 ```
@@ -73,7 +73,7 @@ I also want it to discover cmake:
 
 ```
 $ spack external find cmake
-==> The following specs have been detected on this system and added to /home/scsjh/.spack/packages.yaml
+==> The following specs have been detected on this system and added to /home/me/.spack/packages.yaml
 cmake@3.20.2
 ```
 
@@ -149,7 +149,7 @@ $ spack install mpiwrapper
 ==> mpiwrapper: Executing phase: 'install'
 ==> mpiwrapper: Successfully installed mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
   Fetch: 0.77s.  Build: 9.74s.  Total: 10.52s.
-[+] /home/scsjh/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
+[+] /home/me/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
 ```
 
 So we've just install mpiwrapper with Spack, using dependencies already install
