@@ -39,6 +39,74 @@ Conda is widely used across scientific computing and data science based domains 
 
 ## Using conda to install packages
 
+With the Conda command line tool searching for and installing packages is can be performed with the following commands:
+- `conda search`
+- `conda install`
+
+### Searching for packages
+
+```bash
+$ conda search python
+```
+```output
+Loading channels: done
+# Name                       Version           Build  Channel             
+python                        2.7.13     hac47a24_15  pkgs/main           
+python                        2.7.13     heccc3f1_16  pkgs/main           
+...                           ...        ...          ...          
+python                        3.10.3      h12debd9_5  pkgs/main           
+python                        3.10.4      h12debd9_0  pkgs/main 
+```
+
+This command searches for packages based on the argument provided. It searches in package repositories called [Conda Channels](https://docs.conda.io/projects/conda/en/stable/user-guide/concepts/channels.html) which are remote websites where built Conda packages have been uploaded to. By default Conda uses the `defaults` channel which points to the Anaconda maintained package repository https://repo.anaconda.com/pkgs/main and https://repo.anaconda.com/pkgs/r. Other channels are also available such as [`conda-forge`](https://conda-forge.org/) and we can specify when installing packages or when searching which channels we wish to search.
+
+```bash
+$ conda search 'python[channel=conda-forge]'
+```
+```output
+Loading channels: done
+# Name                       Version           Build  Channel             
+python                         1.0.1               0  conda-forge         
+python                           1.2               0  conda-forge         
+...                           ...                ...  ...        
+python                        3.10.5 h582c2e5_0_cpython  conda-forge         
+python                        3.10.5 ha86cf86_0_cpython  conda-forge
+```
+
+You can also search for specific version requirements with `conda search`:
+
+```bash
+$ conda search 'python>=3.8'
+```
+```output
+Loading channels: done
+# Name                       Version           Build  Channel             
+python                         3.8.0      h0371630_0  pkgs/main           
+python                         3.8.0      h0371630_1  pkgs/main           
+...                           ...                ...  ...        
+python                        3.10.3      h12debd9_5  pkgs/main           
+python                        3.10.4      h12debd9_0  pkgs/main
+```
+
+You can combine the two conditions shown above (searching a specific channel and for a specific version):
+
+```bash
+$ conda search 'python[channel=conda-forge]>=3.8'
+```
+```output
+Loading channels: done
+# Name                       Version           Build  Channel             
+python                         3.8.0      h357f687_0  conda-forge         
+python                         3.8.0      h357f687_1  conda-forge         
+...                           ...                ...  ...       
+python                        3.10.5 h582c2e5_0_cpython  conda-forge         
+python                        3.10.5 ha86cf86_0_cpython  conda-forge 
+```
+
+### Installing packages
+
+
+
 ## Conda environments
 
 ## Building your own conda packages
