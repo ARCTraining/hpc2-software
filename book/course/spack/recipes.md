@@ -10,6 +10,137 @@ to take away here is that Spack already knows how to build using a number of
 common build tools, saving you having to write out raw shell commands to do the
 necessary steps.
 
+### Makefile
+
+Some builds are just a simple Makefile, but often aren't well designed to allow
+you to install it where you want, or make changes without doing raw edits to
+the Makefile.  Let's install a game that uses a simple Makefile, and see how
+this can still be quite straightforward.
+
+I've found a game, [nSnake](https://github.com/alexdantas/nSnake), and want to
+install it.  I've found the source tar file online, so let's start with
+building a config, and just go with the default of checksumming a single
+version, by pressing return when prompted.  When this completes, quit the editor.
+```
+$ spack create 'https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz'
+==> This looks like a URL for nSnake
+==> Found 3 versions of nsnake:
+  
+  3.0.0  https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
+  2.0.0  https://github.com/alexdantas/nSnake/archive/refs/tags/v2.0.0.tar.gz
+  1.7    https://github.com/alexdantas/nSnake/archive/refs/tags/v1.7.tar.gz
+
+==> How many would you like to checksum? (default is 1, q to abort) 
+==> Fetching https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
+==> This package looks like it uses the makefile build system
+==> Created template for nsnake package
+==> Created package file: /home/user/spack/var/spack/repos/builtin/packages/nsnake/package.py
+```
+
+Now let's try and build this, and see what happens.
+```
+$ spack install nsnake
+```
+
+This build errors out, with a missing dependency:
+
+```
+  >> 40    /usr/bin/ld: cannot find -lyaml-cpp
+```
+
+So, how hard is it to add a dependency into spack for this?
+
+```
+$ spack edit nsnake
+```
+
+You'll see that in the template config, it has:
+```
+    # FIXME: Add dependencies if required.
+    # depends_on("foo")
+```
+
+So let's fix that:
+```
+    depends_on("yaml-cpp")
+```
+
+So it'll now make sure that yaml-cpp is available for us, but we've not yet told it how to use it.  If you looked at the Makefile for this project, you'd see they recommend setting the environment variable LDFLAGS\_PLATFORM for any additional linker flags required.  So to tell Spack to do this, change the `def edit` section to look like this:
+```
+    def edit(self, spec, prefix):
+        env['LDFLAGS_PLATFORM'] = spec['yaml-cpp'].libs.ld_flags
+        pass
+```
+
+Let's try installing it again:
+
+```
+$ spack install nsnake
+```
+
+We fail again:
+```
+install: cannot change permissions of '/usr/bin': Operation not permitted
+```
+
+Right, so it's trying to install into /usr/bin, rather than into our Spack install directory.  With well behaved Makefiles, this will usually just work, but in this case, we need to fix it.  Reviewing the Makefile, we find that PREFIX is hardcoded into the Makefile, and can't be adjusted with an environment variable like we did before.  No problem, Spack lets you edit the Makefile.  Let's adjust our edit function:
+
+```
+    def edit(self, spec, prefix):
+        env['LDFLAGS_PLATFORM'] = spec['yaml-cpp'].libs.ld_flags
+        makefile = FileFilter('Makefile')
+        makefile.filter('PREFIX\s*=.*', 'PREFIX = ' + prefix)
+        pass
+```
+
+We've added two lines to modify the Makefile.  This creates a filter on the Makefile, which replaces the PREFIX line that's currently in there, with our adjusted one.  Let's build it again:
+
+```
+$ spack install nsnake
+```
+
+Hurrah.  The software built, and installed.  Shall we test:
+```
+$ module add nsnake
+$ nsnake
+                                       ┌──────────────────────────────────────────────────────────────────────────────┐
+                                       │__    _  _______  __    _  _______  ___   _  _______  ┌Main Menu─────────────┐│
+                                       │|  |  | ||       ||  |  | ||   _   ||   | | ||       |│Arcade Mode           ││
+                                       │|   |_| ||  _____||   |_| ||  |_|  ||   |_| ||    ___|│Level Select          ││
+                                       │|       || |_____ |       ||       ||      _||   |___ │Game Settings         ││
+                                       │|  _    ||_____  ||  _    ||       ||     |_ |    ___|│GUI Options           ││
+                                       │| | |   | _____| || | |   ||   _   ||    _  ||   |___ │Controls              ││
+                                       │|_|  |__||_______||_|  |__||__| |__||___| |_||_______|│Help                  ││
+                                       │                   o   o      o o           o         │Quit                  ││
+                                       │                   o   o      o o           o         │                      ││
+                                       │                   o   o      @ o           o  o      │                      ││
+                                       │                  oo   o        o         o oo o      │                      ││
+                                       │                  oo   o        o         o oo o      │                      ││
+                                       │                  oo   o        @         o oo o      │                      ││
+                                       │            o     oo   o                  o oo o      │                      ││
+                                       │            o     oo   o                  oooo o      │                      ││
+                                       │            o   o o@   o                  oooo o      │                      ││
+                                       │            o   o o    @                  ooo@ o      │                      ││
+                                       │            o   @ o                       ooo  @      │                      ││
+                                       │            o     @                       ooo         │                      ││
+                                       │            oo    @                       @o@         │                      ││
+                                       │            oo                             @          │                      ││
+                                       │   o        oo                                        └──────────────────────┘│
+                                       └──────────────────────────────────────────────────────────────────────────────┘
+```
+
+I think we can declare success!
+
+Now, when you think what we've done here, that's quite impressive.  We've found
+a piece of software on the Internet, and created a build config for it that
+includes downloading, building, and installing not only the software we wanted,
+but also a dependency, and installed both that software and its depdendencies
+with a single command.  We were also deliberately lazy, and didn't bother
+reading the installation instructions, and just blundered through without
+trying to get it right first time.  I'm not recommending that approach, but
+sometimes the installation documenation is pretty much non existent, so it's
+good to be able to work this way.
+
 ### CMake
 
 Let's just pick on a simple example CMake project, to show how easy life could
@@ -83,7 +214,7 @@ Computing sqrt of 10 to be 3.16228 using log
 The square root of 10 is 3.16228
 ```
 
-Further details can be found under the (CMake section)[https://spack-tutorial.readthedocs.io/en/latest/tutorial_buildsystems.html#cmake] on the Spack website.
+Further details can be found under the [CMake section](https://spack-tutorial.readthedocs.io/en/latest/tutorial_buildsystems.html#cmake) on the Spack website.
 
 ### Autotools example
 
@@ -123,7 +254,7 @@ class AutotoolsExample(AutotoolsPackage):
 
 You can install this with:
 ```
-$ spack install --overwrite autotools-example
+$ spack install autotools-example
 ```
 
 Then we can prove it worked afterwards, by loading the module and running it:
