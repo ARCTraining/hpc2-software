@@ -4,7 +4,7 @@ Installing Spack, at least in a basic form that is at least usable, is very
 straightforward.  It's literally a single command:
 
 ```
-$ git clone https://github.com/spack/spack
+git clone https://github.com/spack/spack
 ```
 
 That's it.  Now, there's more you can to do to configure it, which we'll talk
@@ -19,11 +19,11 @@ So to use it, you need to load the profile script that enables Spack.  Having
 just downloaded it as above, you can do:
 
 ```
-$ . spack/share/spack/setup-env.sh
+. spack/share/spack/setup-env.sh
 ```
 
 Spack is now alive in your terminal, and you can query available packages, or
-look at one to see what options you have for building it.  So we can have a
+look at one to see what options you have for building it.  We can now have a
 look at what packages are available to install:
 
 ```
@@ -41,8 +41,12 @@ abyss
 ...
 ```
 
-Now that's quite a list (6498 different pieces of software at the time of
+Now that's quite a list (6548 different pieces of software at the time of
 writing).
 
 So let's move on to look at the next section, where we install one to show how
 a simple package install works.
+
+### References
+
+[Basic Installation Tutorial](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html)
