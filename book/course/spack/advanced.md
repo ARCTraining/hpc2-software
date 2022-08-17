@@ -8,8 +8,8 @@ different packages if you know better than the defaults.
 ## Variants
 
 Variants are where the package has options how to build it.  Let's pick on
-`piranha` as a nice example.  You can get information on a package in Spack, which
-will tell you about how it can be built:
+`piranha` as a nice example.  You can get information on a package in Spack,
+which will tell you about how it can be built:
 
 ```bash
 $ spack info piranha
@@ -90,6 +90,28 @@ spack install piranha @develop +ipo -python build_type=Release ^boost@1.62.0+thr
 
 This would build using Boost 1.62.0, with thread support enabled.
 
+## Previewing a software install
+
+Before installing a piece of software, you can review what Spack is planning on
+doing, and which dependencies it's going to rely on.
+
+```bash
+$ spack spec atop
+Input spec
+--------------------------------
+atop
+
+Concretized
+--------------------------------
+atop@2.5.0%gcc@8.5.0 arch=linux-rhel8-haswell
+    ^ncurses@6.2%gcc@8.5.0~symlinks+termlib abi=none arch=linux-rhel8-haswell
+        ^pkgconf@1.8.0%gcc@8.5.0 arch=linux-rhel8-haswell
+    ^zlib@1.2.12%gcc@8.5.0+optimize+pic+shared patches=0d38234 arch=linux-rhel8-haswell
+```
+
+This way you can verify which versions it's expecting to use, and can adjust
+your installation parameters if anything needs changing.
+
 ## Notes
 
 In some instances you may find that Spack's desire to reuse existing modules
@@ -106,7 +128,67 @@ problem, but if you're wanting to switch between multiple variants, or with
 different compilers, you'll either want to stick with the original scheme, or
 look at alternative naming schemes that can capture the necessary detail.
 
+## Exercise
+
+Install tmux version 3.2 with UTF-8 support.
+
+<details>
+<summary>Click here to reveal solution</summary>
+
+### Solution
+
+First you need to look at the info for tmux, to find out what variants are
+available.  Some of the output below has been truncated for brevity:
+
+```bash
+$ spack info tmux
+AutotoolsPackage:   tmux
+
+Homepage: https://tmux.github.io
+
+Preferred version:
+    3.2a      https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz
+
+Safe versions:
+    master    [git] https://github.com/tmux/tmux.git on branch master
+    3.2a      https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz
+    3.2       https://github.com/tmux/tmux/releases/download/3.2/tmux-3.2.tar.gz
+
+Variants:
+    Name [Default]    When    Allowed values    Description
+    ==============    ====    ==============    ==============================================
+
+    static [off]      --      on, off           Create a static build
+    utf8proc [off]    --      on, off           Build with UTF-8 support from utf8proc library
+```
+
+You can see from this that there is indeed a version 3.2 available, and to add
+UTF-8 support, you need to enable the utf8proc feature.  That then gives an
+install command of:
+
+```bash
+spack install tmux@3.2+utf8proc
+```
+
+If you've installed this and want to verify it's worked:
+
+```bash
+$ module add tmux
+$ tmux -V
+tmux 3.2
+$ spack find -v tmux
+==> 1 installed package
+-- linux-rhel8-haswell / gcc@8.5.0 ------------------------------
+tmux@3.2~static+utf8proc
+```
+
+You can see from this that we're using the shiny new 3.2 version, and can
+confirm that it was built with UTF-8 support included.
+
+</details>
+
 ## References
 
-[Installing packages](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages)
-[Module tutorial](https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html)
+- [Basic Usage](https://spack.readthedocs.io/en/latest/basic_usage.html)
+- [Installing packages](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages)
+- [Module tutorial](https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html)

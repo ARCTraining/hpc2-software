@@ -64,6 +64,49 @@ Excellent.  To recap, by this stage we've:
 That's quite an acheivement give it doesn't really feel like we've done too
 much work yet.
 
+## Exercise
+
+Install and use the `k8` software, so we can find out the square root of 25
+using javascript.  The command you can run to test your install is:
+
+```
+k8 -e 'print( "Square root of 25 is: " + Math.sqrt(25) );'
+```
+
+<details>
+<summary>Click here to reveal solution</summary>
+
+### Solution
+
+- Install k8
+
+   ```
+   spack install k8
+   ```
+
+- Find the name of the module
+
+   ```
+   $ module avail k8
+   ---------- /home/me/spack/share/spack/modules/linux-rhel8-haswell -----------
+   k8-0.2.4-gcc-8.5.0-vdryjow
+   ```
+
+- Load the module
+
+   ```
+   module add k8-0.2.4-gcc-8.5.0-vdryjow
+   ```
+
+- Test the software
+
+   ```
+   $ k8 -e 'print( "Square root of 25 is: " + Math.sqrt(25) );'
+   Square root of 25 is: 5
+   ```
+
+</details>
+
 ## References
 
-[Installing Packages](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages)
+- [Installing Packages](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages)

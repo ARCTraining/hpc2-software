@@ -160,3 +160,29 @@ $ spack install mpiwrapper
 
 So we've just install mpiwrapper with Spack, using dependencies already install
 on the system, in seconds.  Lovely.
+
+## Exercise
+
+A common package to pull from the host system is OpenSSL, as it's almost always
+available, involves a fair few dependencies, and is frequently updated for
+security.  This last point makes it quite appealing to link against, as it
+means operating security updates will keep Spack installed software secure as
+far as OpenSSL libraries are concerned.
+
+Add this as an externally provided piece of software to Spack.
+
+<details>
+<summary>Click here to reveal solution</summary>
+
+### Solution
+
+This is actually quite straightforward, since Spack can successfully detects and add this to your `packages.yaml` file:
+
+```bash
+$ spack external find openssl
+==> The following specs have been detected on this system and added to /home/me/.spack/packages.yaml
+openssl@1.1.1k
+```
+
+</details>
+

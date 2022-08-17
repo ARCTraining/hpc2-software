@@ -68,4 +68,4 @@ Tcl system.
 
 ## References
 
-[Module files tutorial](https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html)
+- [Module files tutorial](https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html)

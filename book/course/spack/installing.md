@@ -47,6 +47,11 @@ writing).
 So let's move on to look at the next section, where we install one to show how
 a simple package install works.
 
+## Exercises
+
+In future sections there will be exercises for you to try, along with
+solutions.  For now, please just install and enable Spack on your own system.
+
 ## References
 
-[Basic Installation Tutorial](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#basic-installation-tutorial)
+- [Basic Installation Tutorial](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#basic-installation-tutorial)
