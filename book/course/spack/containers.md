@@ -18,7 +18,6 @@ spack:
   specs:
   - gromacs+mpi
   - openmpi
-
 # What I want it to create
   container:
     format: singularity
