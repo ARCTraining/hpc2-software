@@ -64,5 +64,5 @@ Excellent.  To recap, by this stage we've:
 That's quite an acheivement give it doesn't really feel like we've done too
 much work yet.
 
-## References
+### References
 [Installing Packages](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages)
