@@ -2,7 +2,7 @@
 
 So we've installed Spack, and activated it from the last section.
 
-So let's try installing a simple piece of software.  Pigz seems like a
+Let's now try installing a simple piece of software.  Pigz seems like a
 reasonable place to start (parallel gzip), as it doesn't have too many
 dependencies, so won't take long to try out:
 
@@ -30,12 +30,12 @@ $ spack install pigz
 
 That is quite wordy, but to note, it's installed pigz, and also installed a
 dependency of it, zlib.  Just asking for it to install that one package has led
-to it downloading and installing another, and it's quite happy done that
+to it downloading and installing another, and it's quite happy doing that
 without needing any guidance.
 
-Let's now see how you can load that module, and use it.  Now the first time you
-build something with spack, you have to reload the setup script to make it find
-these newly build packages.  In future this wouldn't be necessary:
+Let's now see how you can load that module, and use it.  The first time you
+build something with Spack, you have to reload the setup script to make it find
+these newly build packages.  In future this shouldn't be necessary:
 
 ```
 $ . spack/share/spack/setup-env.sh
@@ -45,20 +45,24 @@ pigz-2.7-gcc-8.5.0-qkx6pxv
 ```
 
 At this point we can see there's a module available for pigz, with a bunch of
-stuff after the version, which we'll cover later.  So I can now load this, and
+stuff after the version, which we'll cover later.  I can now load this, and
 test it to confirm it's worked:
 
 ```
-[me@worklaptop ~]$ module add pigz-2.7-gcc-8.5.0-qkx6pxv 
-[me@worklaptop ~]$ pigz --version
+$ module add pigz-2.7-gcc-8.5.0-qkx6pxv
+$ pigz --version
 pigz 2.7
 ```
 
 Excellent.  To recap, by this stage we've:
-  - Downloaded and installed Spack
-  - Used Spack to list available packages
-  - Installed a piece of sofware with Spack
-  - Used that installed piece of software
+
+- Downloaded and installed Spack
+- Used Spack to list available packages
+- Installed a piece of sofware with Spack
+- Used that installed piece of software
 
 That's quite an acheivement give it doesn't really feel like we've done too
 much work yet.
+
+## References
+[Installing Packages](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages)
