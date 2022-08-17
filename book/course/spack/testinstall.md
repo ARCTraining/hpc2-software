@@ -1,4 +1,4 @@
-## Building a test piece of software
+# Building a test piece of software
 
 So we've installed Spack, and activated it from the last section.
 
@@ -6,7 +6,7 @@ Let's now try installing a simple piece of software.  Pigz seems like a
 reasonable place to start (parallel gzip), as it doesn't have too many
 dependencies, so won't take long to try out:
 
-```
+```bash
 $ spack install pigz
 ==> Installing zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv
 ==> No binary for zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv found: installing from source
@@ -37,7 +37,7 @@ Let's now see how you can load that module, and use it.  The first time you
 build something with Spack, you have to reload the setup script to make it find
 these newly build packages.  In future this shouldn't be necessary:
 
-```
+```bash
 $ . spack/share/spack/setup-env.sh
 $ module avail pigz
 ------------------------------------------------- /tmp/spack/share/spack/modules/linux-rhel8-haswell --------------------------------------------------
@@ -48,7 +48,7 @@ At this point we can see there's a module available for pigz, with a bunch of
 stuff after the version, which we'll cover later.  I can now load this, and
 test it to confirm it's worked:
 
-```
+```bash
 $ module add pigz-2.7-gcc-8.5.0-qkx6pxv
 $ pigz --version
 pigz 2.7
@@ -64,5 +64,6 @@ Excellent.  To recap, by this stage we've:
 That's quite an acheivement give it doesn't really feel like we've done too
 much work yet.
 
-### References
+## References
+
 [Installing Packages](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages)

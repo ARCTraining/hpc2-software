@@ -1,4 +1,4 @@
-## Recipe
+# Recipes
 
 Spack helps you write your own recipes to build software that Spack doesn't
 currently know about.  This just shows a basic example of how you might do
@@ -10,7 +10,7 @@ to take away here is that Spack already knows how to build using a number of
 common build tools, saving you having to write out raw shell commands to do the
 necessary steps.
 
-### Makefile
+## Makefile
 
 Some builds are just a simple Makefile, but often aren't well designed to allow
 you to install it where you want, or make changes without doing raw edits to
@@ -21,25 +21,27 @@ I've found a game, [nSnake](https://github.com/alexdantas/nSnake), and want to
 install it.  I've found the source tar file online, so let's start with
 building a config, and just go with the default of checksumming a single
 version, by pressing return when prompted.  When this completes, quit the editor.
-```
+
+```bash
 $ spack create 'https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz'
 ==> This looks like a URL for nSnake
 ==> Found 3 versions of nsnake:
-  
+
   3.0.0  https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
   2.0.0  https://github.com/alexdantas/nSnake/archive/refs/tags/v2.0.0.tar.gz
   1.7    https://github.com/alexdantas/nSnake/archive/refs/tags/v1.7.tar.gz
 
-==> How many would you like to checksum? (default is 1, q to abort) 
+==> How many would you like to checksum? (default is 1, q to abort)
 ==> Fetching https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
 ==> This package looks like it uses the makefile build system
 ==> Created template for nsnake package
-==> Created package file: /home/user/spack/var/spack/repos/builtin/packages/nsnake/package.py
+==> Created package file: /home/me/spack/var/spack/repos/builtin/packages/nsnake/package.py
 ```
 
 Now let's try and build this, and see what happens.
-```
-$ spack install nsnake
+
+```bash
+spack install nsnake
 ```
 
 This build errors out, with a missing dependency:
@@ -50,23 +52,30 @@ This build errors out, with a missing dependency:
 
 So, how hard is it to add a dependency into spack for this?
 
-```
-$ spack edit nsnake
+```bash
+spack edit nsnake
 ```
 
 You'll see that in the template config, it has:
-```
+
+```python
     # FIXME: Add dependencies if required.
     # depends_on("foo")
 ```
 
 So let's fix that:
-```
+
+```python
     depends_on("yaml-cpp")
 ```
 
-So it'll now make sure that yaml-cpp is available for us, but we've not yet told it how to use it.  If you looked at the Makefile for this project, you'd see they recommend setting the environment variable LDFLAGS\_PLATFORM for any additional linker flags required.  So to tell Spack to do this, change the `def edit` section to look like this:
-```
+So it'll now make sure that yaml-cpp is available for us, but we've not yet
+told it how to use it.  If you looked at the Makefile for this project, you'd
+see they recommend setting the environment variable LDFLAGS\_PLATFORM for any
+additional linker flags required.  So to tell Spack to do this, change the `def
+edit` section to look like this:
+
+```python
     def edit(self, spec, prefix):
         env['LDFLAGS_PLATFORM'] = spec['yaml-cpp'].libs.ld_flags
         pass
@@ -74,18 +83,24 @@ So it'll now make sure that yaml-cpp is available for us, but we've not yet told
 
 Let's try installing it again:
 
-```
-$ spack install nsnake
+```bash
+spack install nsnake
 ```
 
 We fail again:
+
 ```
 install: cannot change permissions of '/usr/bin': Operation not permitted
 ```
 
-Right, so it's trying to install into /usr/bin, rather than into our Spack install directory.  With well behaved Makefiles, this will usually just work, but in this case, we need to fix it.  Reviewing the Makefile, we find that PREFIX is hardcoded into the Makefile, and can't be adjusted with an environment variable like we did before.  No problem, Spack lets you edit the Makefile.  Let's adjust our edit function:
+Right, so it's trying to install into /usr/bin, rather than into our Spack
+install directory.  With well behaved Makefiles, this will usually just work,
+but in this case, we need to fix it.  Reviewing the Makefile, we find that
+PREFIX is hardcoded into the Makefile, and can't be adjusted with an
+environment variable like we did before.  No problem, Spack lets you edit the
+Makefile.  Let's adjust our edit function:
 
-```
+```python
     def edit(self, spec, prefix):
         env['LDFLAGS_PLATFORM'] = spec['yaml-cpp'].libs.ld_flags
         makefile = FileFilter('Makefile')
@@ -93,14 +108,17 @@ Right, so it's trying to install into /usr/bin, rather than into our Spack insta
         pass
 ```
 
-We've added two lines to modify the Makefile.  This creates a filter on the Makefile, which replaces the PREFIX line that's currently in there, with our adjusted one.  Let's build it again:
+We've added two lines to modify the Makefile.  This creates a filter on the
+Makefile, which replaces the PREFIX line that's currently in there, with our
+adjusted one.  Let's build it again:
 
-```
-$ spack install nsnake
+```bash
+spack install nsnake
 ```
 
 Hurrah.  The software built, and installed.  Shall we test:
-```
+
+```bash
 $ module add nsnake
 $ nsnake
                                        ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -141,18 +159,19 @@ trying to get it right first time.  I'm not recommending that approach, but
 sometimes the installation documenation is pretty much non existent, so it's
 good to be able to work this way.
 
-### CMake
+## CMake
 
 Let's just pick on a simple example CMake project, to show how easy life could
 be.
 
-```
-$ spack create -t cmake https://github.com/maks-it/CMake-Tutorial
+```bash
+spack create -t cmake https://github.com/maks-it/CMake-Tutorial
 ```
 
-That creates a template configuration, that just needs a couple of edits.  It highlights sections it thinks you should  fix, with FIXME sections:
+That creates a template configuration, that just needs a couple of edits.  It
+highlights sections it thinks you should  fix, with FIXME sections:
 
-```
+```python
     # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://www.example.com"
     url = "https://github.com/maks-it/CMake-Tutorial"
@@ -177,12 +196,14 @@ I'm not going to fix all of these, but just do the bare minimum for now.
 Change `url =` to `git =` since we're just using git and haven't got a tarball
 containing this release.  Also define a version:
 
-```
+```python
 version("develop", branch="master")
 ```
-This way it knows to use the master branch to build a "develop" release.  This the leaves us with this minimal config:
 
-```
+This way it knows to use the master branch to build a "develop" release.  This
+the leaves us with this minimal config:
+
+```python
 # Copyright 2013-2022 Lawrence Livermore National Security, LLC and other
 # Spack Project Developers. See the top-level COPYRIGHT file for details.
 #
@@ -201,32 +222,34 @@ class CmakeTutorial(CMakePackage):
 
 That really is it, for a minimal CMake package.  You can install this with:
 
-```
-$ spack install cmake-tutorial
+```bash
+spack install cmake-tutorial
 ```
 
 Then we can prove it worked afterwards, by loading the module and running it:
 
-```
+```bash
 $ module add cmake-tutorial
 $ Tutorial 10
 Computing sqrt of 10 to be 3.16228 using log
 The square root of 10 is 3.16228
 ```
 
-Further details can be found under the [CMake section](https://spack-tutorial.readthedocs.io/en/latest/tutorial_buildsystems.html#cmake) on the Spack website.
+Further details can be found under the
+[CMake section](https://spack-tutorial.readthedocs.io/en/latest/tutorial_buildsystems.html#cmake)
+on the Spack website.
 
-### Autotools example
+## Autotools
 
 Here's a similarly trivial Autotools based example.  We're picking the autoreconf type, as this includes other typical steps required when using git sourced Autotools build packages:
 
-```
-$ spack create -t autoreconf https://github.com/lloydroc/autotools-example
+```bash
+spack create -t autoreconf https://github.com/lloydroc/autotools-example
 ```
 
 We make the same basic edits done in Cmake, to tell it we're using git, and which branch to use for the `develop` version.  This leaves us with:
 
-```
+```python
 # Copyright 2013-2022 Lawrence Livermore National Security, LLC and other
 # Spack Project Developers. See the top-level COPYRIGHT file for details.
 #
@@ -253,13 +276,14 @@ class AutotoolsExample(AutotoolsPackage):
 ```
 
 You can install this with:
-```
-$ spack install autotools-example
+
+```bash
+spack install autotools-example
 ```
 
 Then we can prove it worked afterwards, by loading the module and running it:
 
-```
+```bash
 $ module add autotools-example
 $ jupiter
 hello jupiter

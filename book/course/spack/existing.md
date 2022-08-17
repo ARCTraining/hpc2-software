@@ -1,21 +1,26 @@
-## Using existing software
+# Using existing software
 
 Spack by default will quite happily just build everything itself, as long as a
-limited number of system requirements are satisfied.  But you might want to use
-a compiler and MPI library from a host system.  This is often the case if
-packages take a long time to build, or if you've got access to optimised
-versions of software that you don't want to replicate yourself.
+limited number of [system requirements](https://spack.readthedocs.io/en/latest/getting_started.html#system-prerequisites)
+are satisfied.  But you might want to use a compiler and MPI library from a
+host system.  This is often the case if packages take a long time to build, or
+if you've got access to optimised versions of software that you don't want to
+replicate yourself.
 
 In these circumstances, it's useful to be able to tell Spack about existing
-software, so it can use those instead of rebuilding them.
+software, so it can use those instead of rebuilding them.  How much you tell
+Spack about your host system, and the installed software is up to you.  On one
+hand you can massively reduce how much software you need to build yourself, but
+on the other hand, you become much more dependent on the host system.  There's
+not one right answer.
 
-### Compilers
+## Compilers
 
 Compilers are a bit different to other pieces of software.  Typically the
 easiest way to get Spack to use a system compiler is to make sure it's in your
 path, and then tell Spack to find it:
 
-```
+```bash
 $ spack compiler add
 ==> Added 1 new compiler to /home/me/.spack/linux/compilers.yaml
     gcc@8.5.0
@@ -30,26 +35,27 @@ known list.
 If you want to set that as your preferred compiler, run this to edit the
 config:
 
-```
-$ spack config edit packages
+```bash
+spack config edit packages
 ```
 
 And tell it to use this compiler
-```{yaml}
+
+```yaml
 packages:
   all:
     compiler:
     - 'gcc@8.3.0' # Your preferred compiler here
 ```
 
-### Other software
+## Other software
 
 Take an example of building the software mpiwrapper.  It only needs cmake and
 openmpi as dependencies, but these themselves require lots of dependencies to
 built.  You can see what Spack would like to build:
 
-```
-$ spack spec mpiwrapper
+```bash
+spack spec mpiwrapper
 ```
 
 I'll save you all the output, but on my system, this adds up to 35 packages,
@@ -59,7 +65,7 @@ we can cut that down by using software already installed on my system.
 It can find certain software in your environment without you having to
 configure anything by hand.  So if I load an openmpi module, and run:
 
-```
+```bash
 $ spack external find openmpi
 ==> The following specs have been detected on this system and added to /home/me/.spack/packages.yaml
 -- no arch / gcc@8.5.0 ------------------------------------------
@@ -71,7 +77,7 @@ to rebuild openmpi, as long as you're happy with that version.
 
 I also want it to discover cmake:
 
-```
+```bash
 $ spack external find cmake
 ==> The following specs have been detected on this system and added to /home/me/.spack/packages.yaml
 cmake@3.20.2
@@ -81,7 +87,7 @@ If Spack wasn't able to auto detect the software, you can add it to the
 packages.yaml by hand.  For example, if I wanted to add a system installed
 libjpeg-turbo to spack, I can add a section for that into my packages.yaml:
 
-```
+```yaml
   libjpeg-turbo:
     externals:
     - spec: libjpeg-turbo@1.5.3
@@ -90,7 +96,7 @@ libjpeg-turbo to spack, I can add a section for that into my packages.yaml:
 
 My full packages.yaml now looks like this:
 
-```
+```yaml
 packages:
   openmpi:
     externals:
@@ -119,7 +125,7 @@ installation up.  Change `/usr/lib64/openmpi` to `/usr` for openmpi.
 Having told Spack about the software we want it to use from the system, let's
 look again now at building mpiwrapper, and see what that looks like:
 
-```
+```bash
 $ spack spec mpiwrapper
 Input spec
 --------------------------------
@@ -135,7 +141,7 @@ mpiwrapper@2.8.1%gcc@8.5.0~ipo build_type=RelWithDebInfo arch=linux-rhel8-haswel
 So now Spack believes that it can reuse my openmpi and cmake from the system,
 and just build the piece of software I've asked for.
 
-```
+```bash
 $ spack install mpiwrapper
 [+] /usr (external cmake-3.20.2-b2vel5wyij5d4svvpdwhyio4dwuxly3a)
 ==> openmpi@4.1.1 : has external module in ['pi/openmpi-x86_64']
