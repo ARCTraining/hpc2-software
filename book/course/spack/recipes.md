@@ -50,7 +50,8 @@ This build errors out, with a missing dependency:
   >> 40    /usr/bin/ld: cannot find -lyaml-cpp
 ```
 
-So, how hard is it to add a dependency into spack for this?
+So, how hard is it to add a dependency into spack for this, and adjust the
+build process to use it?
 
 ```bash
 spack edit nsnake
@@ -80,6 +81,9 @@ edit` section to look like this:
         env['LDFLAGS_PLATFORM'] = spec['yaml-cpp'].libs.ld_flags
         pass
 ```
+
+For those unsure of what LDFLAGS, linkers, binpaths, or anything else here is
+talking about, please refer to the [concepts section](../concepts).
 
 Let's try installing it again:
 
