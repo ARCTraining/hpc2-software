@@ -58,9 +58,60 @@ built.  You can see what Spack would like to build:
 spack spec mpiwrapper
 ```
 
-I'll save you all the output, but on my system, this adds up to 35 packages,
-which I'm sure would take a fair old amount of time to build.  So let's see if
-we can cut that down by using software already installed on my system.
+<details>
+<summary>Full spec</summary>
+
+```
+Input spec
+--------------------------------
+mpiwrapper
+
+Concretized
+--------------------------------
+mpiwrapper@2.8.1%gcc@8.5.0~ipo build_type=RelWithDebInfo arch=linux-rhel8-haswell
+    ^cmake@3.23.3%gcc@8.5.0~doc+ncurses+ownlibs~qt build_type=Release arch=linux-rhel8-haswell
+        ^ncurses@6.3%gcc@8.5.0~symlinks+termlib abi=none arch=linux-rhel8-haswell
+            ^pkgconf@1.8.0%gcc@8.5.0 arch=linux-rhel8-haswell
+        ^openssl@1.1.1q%gcc@8.5.0~docs~shared certs=mozilla patches=3fdcf2d arch=linux-rhel8-haswell
+            ^ca-certificates-mozilla@2022-07-19%gcc@8.5.0 arch=linux-rhel8-haswell
+            ^perl@5.34.1%gcc@8.5.0+cpanm+shared+threads arch=linux-rhel8-haswell
+                ^berkeley-db@18.1.40%gcc@8.5.0+cxx~docs+stl patches=b231fcc arch=linux-rhel8-haswell
+                ^bzip2@1.0.8%gcc@8.5.0~debug~pic+shared arch=linux-rhel8-haswell
+                    ^diffutils@3.8%gcc@8.5.0 arch=linux-rhel8-haswell
+                        ^libiconv@1.16%gcc@8.5.0 libs=shared,static arch=linux-rhel8-haswell
+                ^gdbm@1.19%gcc@8.5.0 arch=linux-rhel8-haswell
+                    ^readline@8.1.2%gcc@8.5.0 arch=linux-rhel8-haswell
+                ^zlib@1.2.12%gcc@8.5.0+optimize+pic+shared patches=0d38234 arch=linux-rhel8-haswell
+    ^openmpi@4.1.4%gcc@8.5.0~atomics~cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+romio+rsh~singularity+static+vt+wrapper-rpath fabrics=none schedulers=none arch=linux-rhel8-haswell
+        ^hwloc@2.8.0%gcc@8.5.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml~oneapi-level-zero~opencl+pci~rocm+shared arch=linux-rhel8-haswell
+            ^libpciaccess@0.16%gcc@8.5.0 arch=linux-rhel8-haswell
+                ^libtool@2.4.7%gcc@8.5.0 arch=linux-rhel8-haswell
+                    ^m4@1.4.19%gcc@8.5.0+sigsegv patches=9dc5fbd,bfdffa7 arch=linux-rhel8-haswell
+                        ^libsigsegv@2.13%gcc@8.5.0 arch=linux-rhel8-haswell
+                ^util-macros@1.19.3%gcc@8.5.0 arch=linux-rhel8-haswell
+            ^libxml2@2.9.13%gcc@8.5.0~python arch=linux-rhel8-haswell
+                ^xz@5.2.5%gcc@8.5.0~pic libs=shared,static arch=linux-rhel8-haswell
+        ^numactl@2.0.14%gcc@8.5.0 patches=4e1d78c,62fc8a8,ff37630 arch=linux-rhel8-haswell
+            ^autoconf@2.69%gcc@8.5.0 patches=35c4492,7793209,a49dd5b arch=linux-rhel8-haswell
+            ^automake@1.16.5%gcc@8.5.0 arch=linux-rhel8-haswell
+        ^openssh@9.0p1%gcc@8.5.0+gssapi arch=linux-rhel8-haswell
+            ^krb5@1.19.3%gcc@8.5.0+shared arch=linux-rhel8-haswell
+                ^bison@3.8.2%gcc@8.5.0 arch=linux-rhel8-haswell
+                ^gettext@0.21%gcc@8.5.0+bzip2+curses+git~libunistring+libxml2+tar+xz arch=linux-rhel8-haswell
+                    ^tar@1.34%gcc@8.5.0 zip=pigz arch=linux-rhel8-haswell
+                        ^pigz@2.7%gcc@8.5.0 arch=linux-rhel8-haswell
+                        ^zstd@1.5.2%gcc@8.5.0+programs compression=none libs=shared,static arch=linux-rhel8-haswell
+            ^libedit@3.1-20210216%gcc@8.5.0 arch=linux-rhel8-haswell
+        ^pmix@4.1.2%gcc@8.5.0~docs+pmi_backwards_compatibility~restful arch=linux-rhel8-haswell
+            ^libevent@2.1.12%gcc@8.5.0+openssl arch=linux-rhel8-haswell
+```
+
+</details>
+
+You don't need to read the full spec above, but on my system, this adds up to
+36 packages, which I'm sure would take a fair old amount of time to build.  So
+let's see if we can cut that down by using software already installed on my
+system.
 
 It can find certain software in your environment without you having to
 configure anything by hand.  So if I load an openmpi module, and run:
@@ -73,7 +124,9 @@ openmpi@4.1.1
 ```
 
 Spack is now aware of that software, so you can build against it without having
-to rebuild openmpi, as long as you're happy with that version.
+to rebuild openmpi, as long as you're happy with that version.  As you can see
+from the output, this is written into your configuration, so will be remembered
+for future runs.
 
 I also want it to discover cmake:
 
@@ -94,7 +147,7 @@ libjpeg-turbo to spack, I can add a section for that into my packages.yaml:
       prefix: /usr
 ```
 
-My full packages.yaml now looks like this:
+My full packages.yaml now looks like this, if looked at with `spack config edit packages`:
 
 ```yaml
 packages:
@@ -176,7 +229,7 @@ Add this as an externally provided piece of software to Spack.
 
 ### Solution
 
-This is actually quite straightforward, since Spack can successfully detects and add this to your `packages.yaml` file:
+This is actually quite straightforward, since Spack can successfully detect and add this to your `packages.yaml` file:
 
 ```bash
 $ spack external find openssl
