@@ -35,4 +35,5 @@ documentation](https://spack.readthedocs.io/en/latest/) is mostly excellent.
 - [How you can tell it about bits of software you already have](spack/existing)
 - [An advanced software build example](spack/advanced)
 - [Building containers with Spack](spack/containers)
+- [Using Spack to Replace Homebrew/Conda](spack/environments)
 - [Writing a Spack recipe to build a bit of software not already handled by Spack](spack/recipes)

@@ -21,4 +21,5 @@ sections:
   - file: course/spack/existing
   - file: course/spack/advanced
   - file: course/spack/containers
+  - file: course/spack/environments
   - file: course/spack/recipes
