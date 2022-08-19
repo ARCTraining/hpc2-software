@@ -21,6 +21,9 @@ spack:
 # What I want it to create
   container:
     format: singularity
+# Additional config for the build process
+  config:
+    mount proc: yes
 # Bonus OS packages I'd like installed
     os_packages:
       final:
@@ -33,7 +36,7 @@ This is single command to tell Spack to make a definition file from that yaml
 file:
 
 ```bash
-spack containerize > Singularity.def
+spack containerize > gromacs-openmpi.def
 ```
 
 ## Build a container image file
@@ -44,7 +47,7 @@ This is a fairly large and complex container, and happens to also require that
 the case with simpler containers:
 
 ```bash
-singularity build -B /proc gromacs-mpi.sif Singularity.def
+singularity build gromacs-openmpi.sif gromacs-openmpi.def
 ```
 
 ## Use that container
