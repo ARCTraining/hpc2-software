@@ -173,7 +173,10 @@ There's a whole lot of interesting stuff in there that I've not had to think
 about, as Spack has added all the details about the openmpi variant it
 discovered.  We'll cover some of this in the advanced building section.
 Annoyingly, it got one detail wrong because of how Red Hat split the
-installation up.  Change `/usr/lib64/openmpi` to `/usr` for openmpi.
+installation up.  Change `/usr/lib64/openmpi` to `/usr` for openmpi.  This
+workaround for Red Hat's odd packaging is adequate for this install, but sadly
+not for all packages, so you may find you need Spack to build its own OpenMPI
+rather than use Red Hat's version in future.
 
 Having told Spack about the software we want it to use from the system, let's
 look again now at building mpiwrapper, and see what that looks like:
