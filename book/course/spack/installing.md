@@ -4,9 +4,7 @@ Installing Spack, at least in a basic form that is at least usable, is very
 straightforward.  It's literally a single command:
 
 ```bash
-git clone https://github.com/spack/spack
-cd spack
-git checkout releases/v0.18
+git clone -b releases/v0.18 https://github.com/spack/spack
 ```
 
 That's it.  Now, there's more you can to do to configure it, which we'll talk
