@@ -5,6 +5,8 @@ straightforward.  It's literally a single command:
 
 ```bash
 git clone https://github.com/spack/spack
+cd spack
+git checkout releases/v0.18
 ```
 
 That's it.  Now, there's more you can to do to configure it, which we'll talk
