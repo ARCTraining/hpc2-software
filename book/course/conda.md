@@ -37,6 +37,15 @@ Conda is widely used across scientific computing and data science based domains 
 
 ## Installing conda
 
+You can install conda from a number of sources:
+- As part of the [Anaconda Python distribution](https://www.anaconda.com/products/distribution)
+- As part of [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+- As part of the conda-forge channel [Miniforge](https://github.com/conda-forge/miniforge) distribution
+
+Conda is cross-platform, therefore all these distributions have installers for both Windows, MacOS and Linux. For Miniconda, you visit the [Miniconda page](https://docs.conda.io/en/latest/miniconda.html) on the conda website, select the installer corresponding to your operating system and run the downloaded file on your machine. When installing Miniconda you may be prompted to select various settings during installation, our recommendation is to leave these settings as the defaults if you're unsure.
+
+If you have questions or issues installing conda locally please get in touch via the [Research Computing Contact form](https://leeds.service-now.com/it?id=sc_cat_item&sys_id=7587b2530f675f00a82247ece1050eda).
+
 ## Using conda to install packages
 
 With the Conda command line tool searching for and installing packages is can be performed with the following commands:
