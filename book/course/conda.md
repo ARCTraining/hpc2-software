@@ -105,8 +105,80 @@ python                        3.10.5 ha86cf86_0_cpython  conda-forge
 
 ### Installing packages
 
+Installing packages via conda is performed using the `install` subcommand with the format `conda install PACKAGE`, where `PACKAGE` is the name of the package you wish to install.
+
+```bash
+$ conda install python
+```
+```output
+$ conda install python
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/home01/medacola/.conda/envs/test
+
+  added / updated specs:
+    - python
 
 
-## Conda environments
+The following packages will be downloaded:
 
-## Building your own conda packages
+    package                    |            build
+    ---------------------------|-----------------
+    libsqlite-3.39.3           |       h753d276_0         789 KB  conda-forge
+    python-3.10.6              |ha86cf86_0_cpython        29.0 MB  conda-forge
+    setuptools-65.3.0          |     pyhd8ed1ab_1         782 KB  conda-forge
+    tzdata-2022c               |       h191b570_0         119 KB  conda-forge
+    xz-5.2.6                   |       h166bdaf_0         409 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        31.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-h7f98852_4
+  ca-certificates    conda-forge/linux-64::ca-certificates-2022.6.15-ha878542_0
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.36.1-hea4e1c9_2
+  libffi             conda-forge/linux-64::libffi-3.4.2-h7f98852_5
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-12.1.0-h8d9b700_16
+  libgomp            conda-forge/linux-64::libgomp-12.1.0-h8d9b700_16
+  libnsl             conda-forge/linux-64::libnsl-2.0.0-h7f98852_0
+  libsqlite          conda-forge/linux-64::libsqlite-3.39.3-h753d276_0
+  libuuid            conda-forge/linux-64::libuuid-2.32.1-h7f98852_1000
+  libzlib            conda-forge/linux-64::libzlib-1.2.12-h166bdaf_2
+  ncurses            conda-forge/linux-64::ncurses-6.3-h27087fc_1
+  openssl            conda-forge/linux-64::openssl-3.0.5-h166bdaf_1
+  pip                conda-forge/noarch::pip-22.2.2-pyhd8ed1ab_0
+  python             conda-forge/linux-64::python-3.10.6-ha86cf86_0_cpython
+  readline           conda-forge/linux-64::readline-8.1.2-h0f457ee_0
+  setuptools         conda-forge/noarch::setuptools-65.3.0-pyhd8ed1ab_1
+  tk                 conda-forge/linux-64::tk-8.6.12-h27826a3_0
+  tzdata             conda-forge/noarch::tzdata-2022c-h191b570_0
+  wheel              conda-forge/noarch::wheel-0.37.1-pyhd8ed1ab_0
+  xz                 conda-forge/linux-64::xz-5.2.6-h166bdaf_0
+
+
+Proceed ([y]/n)?
+
+```
+
+Here conda asks us if we're happy to proceed with the installation and specifies all the other packages that will be installed or updated that are required for our specified package. We confirm we wish to proceed by entering `y` and pressing Return.
+
+```output
+Proceed ([y]/n)? y
+
+Downloading and Extracting Packages
+tzdata-2022c         | 119 KB    | ############################################################################ | 100%
+setuptools-65.3.0    | 782 KB    | ############################################################################ | 100%
+python-3.10.6        | 29.0 MB   | ############################################################################ | 100%
+libsqlite-3.39.3     | 789 KB    | ############################################################################ | 100%
+xz-5.2.6             | 409 KB    | ############################################################################ | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+```
+
+This installs any packages that are currently not installed (conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).
