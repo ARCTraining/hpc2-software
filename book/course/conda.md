@@ -46,9 +46,67 @@ Conda is cross-platform, therefore all these distributions have installers for b
 
 If you have questions or issues installing conda locally please get in touch via the [Research Computing Contact form](https://leeds.service-now.com/it?id=sc_cat_item&sys_id=7587b2530f675f00a82247ece1050eda).
 
+## Conda environments
+
+As well as managing packages conda also allows you to create and manage environments. A conda environment is a directory that contains a specific set of installed packages and tools. This allows you to separate the dependencies of different projects cleanly so that you can use Python 3.7 in one conda environment to reproduce a collaborators results but use Python 3.10 in your own projects without any hassle. Conda makes it easy to switch between different environments and allows you to create and delete them as required. Conda environments also make it easier to share our environment setup between machines and with collaborators as we can export our environments into a text file.
+
+```{note} The base environment
+By default conda includes the `base` environment. This contains a starting installation of python and the dependencies of the conda tool itself. Therefore, it's **best practice** to not install packages into the `base` environment and create your own environments into which you install the tools you need.
+```
+
+### Creating environments
+
+You can create an environment with conda with the subcommand `conda create`. When creating an environment we need to give it a name, we recommend giving it a name related to the project you're going to use the environment for.
+
+```bash
+$ conda create --name py39-env python=3.9
+```
+The above command will prompt conda to create a new environment called `py39-env` and install into it `python` at version 3.9. We can specify multiple packages when creating a conda environment by separating each package name with a space.
+
+```bash
+$ conda create --name data-sci-env pandas=1.4.2 matplotlib=3.5.1 scikit-learn
+```
+
+With the above command we create a new environment but don't specify to install Python. However, because we've specified Python packages which depend on Python being installed to run conda will install the high version of Python suitable for these packages.
+
+### Activating environments
+
+To use a conda environment we need to activate it. Activating our environment does a number of steps that sets the terminal we're using up so that it can see all of the installed packages in the environment, making it ready for use.
+
+```bash
+$ conda activate data-sci-env
+
+(data-sci-env)$ 
+```
+
+You use the subcommand `conda activate ENVNAME` for environment activation, where `ENVNAME` is the name of the environment you wish to activate. You can see it has successfully activated when it returns your prompt with the environment name prepended in brackets.
+
+### Deactivating environments
+
+You can deactivate your current environment with another simple subcommand `conda deactivate`.
+
+```bash
+(data-sci-env)$ conda deactivate
+
+$
+```
+
+### Listing current environments
+
+If you ever want to see your list of current environments on your machine you can you the subcommand `conda env list`. This will return a list of the available conda environments you can use and the environment location in your filesystem.
+
+```bash
+$ conda env list
+
+py39-env                   /home/home01/arcuser/.conda/envs/py39-env
+data-sci-env               /home/home01/arcusers/.conda/envs/data-sci-env
+
+```
+
+
 ## Using conda to install packages
 
-With the Conda command line tool searching for and installing packages is can be performed with the following commands:
+With the Conda command line tool searching for and installing packages is can be performed with the following subcommands:
 - `conda search`
 - `conda install`
 
