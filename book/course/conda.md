@@ -174,58 +174,66 @@ python                        3.10.5 ha86cf86_0_cpython  conda-forge
 
 Installing packages via conda is performed using the `install` subcommand with the format `conda install PACKAGE`, where `PACKAGE` is the name of the package you wish to install.
 
+Earlier we created the `data-sci-env` and installed some useful data science packages. We've discovered we also need the `statsmodels` package for some extra work we want to do so we'll look at using `conda install` to install this package within our existing environment.
+
+To install packages into an existing environment we need to activate it with the [subcommand shown above](./#activating-environments).
+
 ```bash
-$ conda install python
+$ conda activate data-sci-env
+
+(data-sci-env)$
+```
+
+```bash
+(data-sci-env)$ conda install statsmodels
 ```
 ```output
-$ conda install python
+(data-sci-env)$ conda install statsmodels
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
 ## Package Plan ##
 
-  environment location: /home/home01/medacola/.conda/envs/test
+  environment location: /home/home01/arcuser/.conda/envs/data-sci-env
 
   added / updated specs:
-    - python
+    - statsmodels
 
 
 The following packages will be downloaded:
 
     package                    |            build
     ---------------------------|-----------------
-    libsqlite-3.39.3           |       h753d276_0         789 KB  conda-forge
-    python-3.10.6              |ha86cf86_0_cpython        29.0 MB  conda-forge
-    setuptools-65.3.0          |     pyhd8ed1ab_1         782 KB  conda-forge
-    tzdata-2022c               |       h191b570_0         119 KB  conda-forge
-    xz-5.2.6                   |       h166bdaf_0         409 KB  conda-forge
+    libopenblas-0.3.21         |pthreads_h78a6416_3        10.1 MB  conda-forge
+    numpy-1.23.2               |  py310h53a5b5f_0         7.1 MB  conda-forge
+    pandas-1.4.4               |  py310h769672d_0        12.5 MB  conda-forge
+    patsy-0.5.2                |     pyhd8ed1ab_0         188 KB  conda-forge
+    pytz-2022.2.1              |     pyhd8ed1ab_0         224 KB  conda-forge
+    scipy-1.9.1                |  py310hdfbd76f_0        26.2 MB  conda-forge
+    statsmodels-0.13.2         |  py310hde88566_0        11.2 MB  conda-forge
     ------------------------------------------------------------
-                                           Total:        31.0 MB
+                                           Total:        67.4 MB
 
 The following NEW packages will be INSTALLED:
 
-  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
-  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
-  bzip2              conda-forge/linux-64::bzip2-1.0.8-h7f98852_4
-  ca-certificates    conda-forge/linux-64::ca-certificates-2022.6.15-ha878542_0
-  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.36.1-hea4e1c9_2
-  libffi             conda-forge/linux-64::libffi-3.4.2-h7f98852_5
-  libgcc-ng          conda-forge/linux-64::libgcc-ng-12.1.0-h8d9b700_16
-  libgomp            conda-forge/linux-64::libgomp-12.1.0-h8d9b700_16
-  libnsl             conda-forge/linux-64::libnsl-2.0.0-h7f98852_0
-  libsqlite          conda-forge/linux-64::libsqlite-3.39.3-h753d276_0
-  libuuid            conda-forge/linux-64::libuuid-2.32.1-h7f98852_1000
-  libzlib            conda-forge/linux-64::libzlib-1.2.12-h166bdaf_2
-  ncurses            conda-forge/linux-64::ncurses-6.3-h27087fc_1
-  openssl            conda-forge/linux-64::openssl-3.0.5-h166bdaf_1
-  pip                conda-forge/noarch::pip-22.2.2-pyhd8ed1ab_0
-  python             conda-forge/linux-64::python-3.10.6-ha86cf86_0_cpython
-  readline           conda-forge/linux-64::readline-8.1.2-h0f457ee_0
-  setuptools         conda-forge/noarch::setuptools-65.3.0-pyhd8ed1ab_1
-  tk                 conda-forge/linux-64::tk-8.6.12-h27826a3_0
-  tzdata             conda-forge/noarch::tzdata-2022c-h191b570_0
-  wheel              conda-forge/noarch::wheel-0.37.1-pyhd8ed1ab_0
-  xz                 conda-forge/linux-64::xz-5.2.6-h166bdaf_0
+  libblas            conda-forge/linux-64::libblas-3.9.0-16_linux64_openblas
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-16_linux64_openblas
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-12.1.0-h69a702a_16
+  libgfortran5       conda-forge/linux-64::libgfortran5-12.1.0-hdcd56e2_16
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-16_linux64_openblas
+  libopenblas        conda-forge/linux-64::libopenblas-0.3.21-pthreads_h78a6416_3
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-12.1.0-ha89aaad_16
+  numpy              conda-forge/linux-64::numpy-1.23.2-py310h53a5b5f_0
+  packaging          conda-forge/noarch::packaging-21.3-pyhd8ed1ab_0
+  pandas             conda-forge/linux-64::pandas-1.4.4-py310h769672d_0
+  patsy              conda-forge/noarch::patsy-0.5.2-pyhd8ed1ab_0
+  pyparsing          conda-forge/noarch::pyparsing-3.0.9-pyhd8ed1ab_0
+  python-dateutil    conda-forge/noarch::python-dateutil-2.8.2-pyhd8ed1ab_0
+  python_abi         conda-forge/linux-64::python_abi-3.10-2_cp310
+  pytz               conda-forge/noarch::pytz-2022.2.1-pyhd8ed1ab_0
+  scipy              conda-forge/linux-64::scipy-1.9.1-py310hdfbd76f_0
+  six                conda-forge/noarch::six-1.16.0-pyh6c4a22f_0
+  statsmodels        conda-forge/linux-64::statsmodels-0.13.2-py310hde88566_0
 
 
 Proceed ([y]/n)?
@@ -238,11 +246,13 @@ Here conda asks us if we're happy to proceed with the installation and specifies
 Proceed ([y]/n)? y
 
 Downloading and Extracting Packages
-tzdata-2022c         | 119 KB    | ############################################################################ | 100%
-setuptools-65.3.0    | 782 KB    | ############################################################################ | 100%
-python-3.10.6        | 29.0 MB   | ############################################################################ | 100%
-libsqlite-3.39.3     | 789 KB    | ############################################################################ | 100%
-xz-5.2.6             | 409 KB    | ############################################################################ | 100%
+pytz-2022.2.1        | 224 KB    | ##################################### | 100%
+libopenblas-0.3.21   | 10.1 MB   | ##################################### | 100%
+scipy-1.9.1          | 26.2 MB   | ##################################### | 100%
+patsy-0.5.2          | 188 KB    | ##################################### | 100%
+statsmodels-0.13.2   | 11.2 MB   | ##################################### | 100%
+pandas-1.4.4         | 12.5 MB   | ##################################### | 100%
+numpy-1.23.2         | 7.1 MB    | ##################################### | 100%
 Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
