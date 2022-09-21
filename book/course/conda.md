@@ -6,7 +6,7 @@ Content from this lesson has been inspired and adapted from a number of sources 
 
 ## Introduction
 
-Conda is an open source package management and environment management system that runs on multiple operating systems (Windows, Linux, macOS). It's features include:
+Conda is an open source package management and environment management system that runs on multiple operating systems (Windows, Linux, macOS). Its features include:
 
 - Conda quickly installs, runs and updates packages and their dependencies. 
 - Conda easily creates, saves, loads and switches between environments on your local computer. 
