@@ -33,11 +33,14 @@ dependency of it, zlib.  Just asking for it to install that one package has led
 to it downloading and installing another, and it's quite happy doing that
 without needing any guidance.
 
-Let's now see how you can load that module, and use it.  If you're using
-[modules](https://modules.readthedocs.io/en/latest/) to access software you
-build with Spack as we are in this course, the first time you build something
-with Spack, you have to reload the setup script to make it find these newly
-build packages.  In future this shouldn't be necessary:
+Let's now see how you can load that module, and use it.  Environment Modules
+will be familiar to users of ARC, but you may not have come across them
+otherwise.  They're a way of selecting from potentially conflicting versions of
+software.  If you're using [modules](https://modules.readthedocs.io/en/latest/)
+to access software you build with Spack as we are in this course, the first
+time you build something with Spack, you have to reload the setup script to
+make it find these newly build packages.  In future this shouldn't be
+necessary:
 
 ```bash
 $ . spack/share/spack/setup-env.sh
@@ -112,3 +115,4 @@ k8 -e 'print( "Square root of 25 is: " + Math.sqrt(25) );'
 ## References
 
 - [Installing Packages](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages)
+- [Environment Modules on ARC](https://arcdocs.leeds.ac.uk/software/start.html#module-system)
