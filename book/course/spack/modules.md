@@ -11,15 +11,19 @@ pigz 2.7
 Now, it's very definitive what you're loading (pigz version 2.7 built with gcc
 8.5.0 with a hash to pin it down further), but it's a bit wordy.  This format
 of modules isn't necessarily what you want, and something cleaner is likely
-more generally useful.
+more generally useful.  Don't be bothered by the mangle of characters at the
+end (the hash).  This just precisely identifies a given build of software,
+which can be useful if you need to distinguish between two slightly different
+builds of a given piece of software.  We're going to mostly ignore this in this
+course, as we're not looking at such complex installations.
 
 One option is to simplify this a great deal, hiding a lot of that information,
 which might be appealing if you know that information is not important to you.
 So if you're using one compiler, you don't really care about the compiler used,
 you don't need the hash at the end if you're only dealing with a single variant
-(covered [later](advanced.html#variants)), and you'd probably like the modules names
-more in line with how they have traditionally been named, with the version
-separate from the package name.
+(covered [later](advanced.html#variants)), and you'd probably like the modules
+names more in line with how they have traditionally been named, with the
+version separate from the package name.
 
 There's a single file within the spack directory that defines how spack
 generates module files, and we can edit it via:
