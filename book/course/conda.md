@@ -120,6 +120,134 @@ data-sci-env               /home/home01/arcusers/.conda/envs/data-sci-env
 
 ```
 
+### Removing a Conda environment
+
+It is also possible to delete a Conda environment through the `remove` subcommand. 
+This [command is outlined below](#removing-packages) in relation to removing specific packages but can also be used to delete an entire Conda environment.
+
+To remove the `py39-env` we created earlier we use the command:
+
+```bash
+$ conda remove --name py39-env --all
+```
+```output
+Remove all packages in environment /home/home01/arcuser/.conda/envs/py39-env:
+
+
+## Package Plan ##
+
+  environment location: /home/home01/arcuser/.conda/envs/py39-env
+
+
+The following packages will be REMOVED:
+
+  _libgcc_mutex-0.1-main
+  _openmp_mutex-5.1-1_gnu
+  ca-certificates-2022.07.19-h06a4308_0
+  certifi-2022.9.14-py39h06a4308_0
+  ld_impl_linux-64-2.38-h1181459_1
+  libffi-3.3-he6710b0_2
+  libgcc-ng-11.2.0-h1234567_1
+  libgomp-11.2.0-h1234567_1
+  libstdcxx-ng-11.2.0-h1234567_1
+  ncurses-6.3-h5eee18b_3
+  openssl-1.1.1q-h7f8727e_0
+  pip-22.1.2-py39h06a4308_0
+  python-3.9.13-haa1d7c7_1
+  readline-8.1.2-h7f8727e_1
+  setuptools-63.4.1-py39h06a4308_0
+  sqlite-3.39.2-h5082296_0
+  tk-8.6.12-h1ccaba5_0
+  tzdata-2022c-h04d1e81_0
+  wheel-0.37.1-pyhd3eb1b0_0
+  xz-5.2.5-h7f8727e_1
+  zlib-1.2.12-h5eee18b_3
+
+
+Proceed ([y]/n)? 
+```
+
+Conda checks for user confirmation that we wish to proceed and outlines for us exactly which packages are being removed. 
+On proceeding with removing the environment all associated environment files and packages are deleted.
+
+```{important}
+Using `conda remove` to delete an environment is irreversible.
+You cannot undo deletion of an environment to the exact state it was in before deletion.
+However, if you have exported details of your environment it is possible to recreate it.
+```
+
+### Sharing Conda environments
+
+If you need to share a Conda environment with others or between machines its possible to use Conda to export a file containing a specification of packages installed in that environment.
+With this environment file and Conda installed on another device its possible to recreate the environment with the same specifications.
+
+Let's assume we want to share our `data-sci-env` Conda environment with others. To do this we first need to create the `environment.yml` file containing our environment specification. 
+You can create a very detailed specification that includes operating system specific hashes with the command:
+
+```bash
+$ conda activate data-sci-env
+
+(data-sci-env)$ conda env export > environment.yml
+```
+
+Above, we activate the environment we want to create an `environment.yml` file from and then use the command `conda env export`.
+This outputs the environment specification to the standard output in the terminal so to capture and write this to a file we redirect the output to `environment.yml`.
+
+This command also exports a line called `prefix:` specifying the directory location of the environment on your filesystem. 
+This isn't required when sharing your environment and should be removed, you can do this manually or use `grep` when exporting your environment.
+
+```bash
+(data-sci-env)$ conda env export | grep -v ^prefix: > environment.yml
+```
+
+We can share the `environment.yml` file with collaborators and/or commit the file to version control to ensure people can recreate the required Conda environment.
+
+You can recreate a Conda environment from a file with the following command:
+
+```bash
+$ conda env create -f environment.yml
+```
+
+Here we're specifying Conda create a new environment and using the `-f` option to specify that it creates the environment using a file with an environment specification.
+We pass the file path to the environment file as the argument following `-f`.
+
+#### Creating a cross platform environment file
+
+As noted above using `conda env export` creates a highly specific environment file, this often causes difficulties when sharing environments across operating systems as the `environment.yml` contains operating system specific hashes for each package.
+
+There are two possible methods of creating a more flexible `environment.yml`.
+
+##### 1. Using `conda env export --from-history`
+
+By default `conda env export` exports an environments entire specification, including dependencies of packages you `conda install` and their associated hashes. 
+If you use `conda env export --from-history` Conda only exports packages explicitly installed with `conda install`. 
+It does not include dependencies of those packages and therefore allows different operating systems to more flexibly install package dependencies.
+
+For the above example with `data-sci-env` we would export a more flexible `environment.yml` with:
+```bash
+(data-sci-env)$ conda env export --from-history | grep -v ^prefix: > environment.yml
+```
+
+##### 2. Manually create an `environment.yml`
+
+The other option is to manually specify the `environment.yml` file. 
+This is often more fiddly than just exporting an environment but can be preferable to ensure all the desired dependencies of your project are captured.
+Environment files are written in YAML, a markup language, and have the standard pattern of:
+```yaml
+name: data-sci-env
+channels:
+- defaults
+dependencies:
+- scikit-learn
+- matplotlib=3.5.1
+- pandas=1.4.3
+```
+Where you specify the environment name, a list of Conda channels used to install packages, and under dependencies a list of packages to be installed. You can also include version specification within the `environment.yml` allowing you to 
+
+Understanding the differences between weays to create environment files is important when you come to deciding on how best to share your project. 
+It's important to consider the balance of reproducibility and portability, `conda env export` captures the exact specification of an environment including all installed packages, their dependencies and package hashes.
+Sometimes this level of detail should be included to ensure maximum reproduciblity of a project, when looking to validate results, but it's important to also balance being able to allow people to reproduce your work on other systems.
+
 
 ## Using conda to install packages
 
