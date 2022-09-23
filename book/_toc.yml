@@ -13,6 +13,7 @@ root: welcome
 sections:
 - file: course/start
 - file: course/example
+- file: course/autotools
 - file: course/spack
   sections:
   - file: course/spack/installing
