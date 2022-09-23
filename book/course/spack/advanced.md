@@ -88,7 +88,10 @@ take our previous build even further:
 spack install piranha @develop +ipo -python build_type=Release ^boost@1.62.0+thread %gcc@11.2.1
 ```
 
-This would build using Boost 1.62.0, with thread support enabled.
+This would build using Boost 1.62.0, with thread support enabled.  Note that we
+have used a ^ to say which version of boost we want to use because it's a
+package that we depend on, whereas we have to use % to say which compiler to
+use.
 
 ## Previewing a software install
 
