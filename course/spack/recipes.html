@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Recipes &#8212; HPC2: Installing and Managing Applications on the HPC</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://arctraining.github.io/hpc2-software/course/spack/recipes.html" />
+    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Environments" href="environments.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">HPC2: Installing and Managing Applications on the HPC</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../welcome.html">
+                    HPC2: Installing and Managing Applications on the HPC
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../example.html">
+   Theory
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../spack.html">
+   Spack
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="installing.html">
+     Installing Spack
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="testinstall.html">
+     Building a test piece of software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modules.html">
+     Adjusting how we name modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="existing.html">
+     Using existing software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="advanced.html">
+     Advanced software install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="containers.html">
+     Containers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="environments.html">
+     Environments
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Recipes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Visit the <a href="https://arcleeds.github.io/">Research Computing Home Site</a> <div> This book is powered by <a href="https://jupyterbook.org">Jupyter Book</a> </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ARCTraining/hpc2-software"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/hpc2-software/issues/new?title=Issue%20on%20page%20%2Fcourse/spack/recipes.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/hpc2-software/edit/gh-pages/book/course/spack/recipes.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/course/spack/recipes.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#makefile">
+   Makefile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cmake">
+   CMake
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autotools">
+   Autotools
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Recipes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#makefile">
+   Makefile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cmake">
+   CMake
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autotools">
+   Autotools
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="recipes">
+<h1>Recipes<a class="headerlink" href="#recipes" title="Permalink to this headline">#</a></h1>
+<p>Spack helps you write your own recipes to build software that Spack doesn’t
+currently know about.  This just shows a basic example of how you might do
+this, and isn’t intended to be comprehensive.</p>
+<p>The full list of buildsystems can be found in the refences section, and we’re
+just going to run through a few simple examples.  I think the important point
+to take away here is that Spack already knows how to build using a number of
+common build tools, saving you having to write out raw shell commands to do the
+necessary steps.</p>
+<section id="makefile">
+<h2>Makefile<a class="headerlink" href="#makefile" title="Permalink to this headline">#</a></h2>
+<p>Some builds are just a simple Makefile, but often aren’t well designed to allow
+you to install it where you want, or make changes without doing raw edits to
+the Makefile.  Let’s install a game that uses a simple Makefile, and see how
+this can still be quite straightforward.</p>
+<p>I’ve found a game, <a class="reference external" href="https://github.com/alexdantas/nSnake">nSnake</a>, and want to
+install it.  I’ve found the source tar file online, so let’s start with
+building a config, and just go with the default of checksumming a single
+version, by pressing return when prompted.  When this completes, quit the editor.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack create <span class="s1">&#39;https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz&#39;</span>
+<span class="o">==</span>&gt; This looks like a URL <span class="k">for</span> <span class="nv">nSnake</span>
+<span class="o">==</span>&gt; Found <span class="m">3</span> versions of nsnake:
+
+  <span class="m">3</span>.0.0  https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
+  <span class="m">2</span>.0.0  https://github.com/alexdantas/nSnake/archive/refs/tags/v2.0.0.tar.gz
+  <span class="m">1</span>.7    https://github.com/alexdantas/nSnake/archive/refs/tags/v1.7.tar.gz
+
+<span class="o">==</span>&gt; How many would you like to checksum? <span class="o">(</span>default is <span class="m">1</span>, q to abort<span class="o">)</span>
+<span class="o">==</span>&gt; Fetching https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
+<span class="o">==</span>&gt; This package looks like it uses the makefile build <span class="nv">system</span>
+<span class="o">==</span>&gt; Created template <span class="k">for</span> nsnake <span class="nv">package</span>
+<span class="o">==</span>&gt; Created package file: /home/me/spack/var/spack/repos/builtin/packages/nsnake/package.py
+</pre></div>
+</div>
+<p>Now let’s try and build this, and see what happens.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install nsnake
+</pre></div>
+</div>
+<p>This build errors out, with a missing dependency:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">&gt;&gt;</span> <span class="mi">40</span>    <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ld</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">find</span> <span class="o">-</span><span class="n">lyaml</span><span class="o">-</span><span class="n">cpp</span>
+</pre></div>
+</div>
+<p>So, how hard is it to add a dependency into spack for this, and adjust the
+build process to use it?</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack edit nsnake
+</pre></div>
+</div>
+<p>You’ll see that in the template config, it has:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># FIXME: Add dependencies if required.</span>
+    <span class="c1"># depends_on(&quot;foo&quot;)</span>
+</pre></div>
+</div>
+<p>So let’s fix that:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;yaml-cpp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So it’ll now make sure that yaml-cpp is available for us, but we’ve not yet
+told it how to use it.  If you looked at the Makefile for this project, you’d
+see they recommend setting the environment variable LDFLAGS_PLATFORM for any
+additional linker flags required.  So to tell Spack to do this, change the <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">edit</span></code> section to look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+        <span class="n">env</span><span class="p">[</span><span class="s1">&#39;LDFLAGS_PLATFORM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spec</span><span class="p">[</span><span class="s1">&#39;yaml-cpp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">libs</span><span class="o">.</span><span class="n">ld_flags</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<p>For those unsure of what LDFLAGS, linkers, binpaths, or anything else here is
+talking about, please refer to the <span class="xref myst">concepts section</span>.</p>
+<p>Let’s try installing it again:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install nsnake
+</pre></div>
+</div>
+<p>We fail again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">install</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">change</span> <span class="n">permissions</span> <span class="n">of</span> <span class="s1">&#39;/usr/bin&#39;</span><span class="p">:</span> <span class="n">Operation</span> <span class="ow">not</span> <span class="n">permitted</span>
+</pre></div>
+</div>
+<p>Right, so it’s trying to install into /usr/bin, rather than into our Spack
+install directory.  With well behaved Makefiles, this will usually just work,
+but in this case, we need to fix it.  Reviewing the Makefile, we find that
+PREFIX is hardcoded into the Makefile, and can’t be adjusted with an
+environment variable like we did before.  No problem, Spack lets you edit the
+Makefile.  Let’s adjust our edit function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+        <span class="n">env</span><span class="p">[</span><span class="s1">&#39;LDFLAGS_PLATFORM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spec</span><span class="p">[</span><span class="s1">&#39;yaml-cpp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">libs</span><span class="o">.</span><span class="n">ld_flags</span>
+        <span class="n">makefile</span> <span class="o">=</span> <span class="n">FileFilter</span><span class="p">(</span><span class="s1">&#39;Makefile&#39;</span><span class="p">)</span>
+        <span class="n">makefile</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;PREFIX\s*=.*&#39;</span><span class="p">,</span> <span class="s1">&#39;PREFIX = &#39;</span> <span class="o">+</span> <span class="n">prefix</span><span class="p">)</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<p>We’ve added two lines to modify the Makefile.  This creates a filter on the
+Makefile, which replaces the PREFIX line that’s currently in there, with our
+adjusted one.  Let’s build it again:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install nsnake
+</pre></div>
+</div>
+<p>Hurrah.  The software built, and installed.  Shall we test:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module add nsnake
+$ nsnake
+┌──────────────────────────────────────────────────────────────────────────────┐
+│__    _  _______  __    _  _______  ___   _  _______  ┌Main Menu─────────────┐│
+│<span class="p">|</span>  <span class="p">|</span>  <span class="p">|</span> <span class="o">||</span>       <span class="o">||</span>  <span class="p">|</span>  <span class="p">|</span> <span class="o">||</span>   _   <span class="o">||</span>   <span class="p">|</span> <span class="p">|</span> <span class="o">||</span>       <span class="p">|</span>│Arcade Mode           ││
+│<span class="p">|</span>   <span class="p">|</span>_<span class="p">|</span> <span class="o">||</span>  _____<span class="o">||</span>   <span class="p">|</span>_<span class="p">|</span> <span class="o">||</span>  <span class="p">|</span>_<span class="p">|</span>  <span class="o">||</span>   <span class="p">|</span>_<span class="p">|</span> <span class="o">||</span>    ___<span class="p">|</span>│Level Select          ││
+│<span class="p">|</span>       <span class="o">||</span> <span class="p">|</span>_____ <span class="p">|</span>       <span class="o">||</span>       <span class="o">||</span>      _<span class="o">||</span>   <span class="p">|</span>___ │Game Settings         ││
+│<span class="p">|</span>  _    <span class="o">||</span>_____  <span class="o">||</span>  _    <span class="o">||</span>       <span class="o">||</span>     <span class="p">|</span>_ <span class="p">|</span>    ___<span class="p">|</span>│GUI Options           ││
+│<span class="p">|</span> <span class="p">|</span> <span class="p">|</span>   <span class="p">|</span> _____<span class="p">|</span> <span class="o">||</span> <span class="p">|</span> <span class="p">|</span>   <span class="o">||</span>   _   <span class="o">||</span>    _  <span class="o">||</span>   <span class="p">|</span>___ │Controls              ││
+│<span class="p">|</span>_<span class="p">|</span>  <span class="p">|</span>__<span class="o">||</span>_______<span class="o">||</span>_<span class="p">|</span>  <span class="p">|</span>__<span class="o">||</span>__<span class="p">|</span> <span class="p">|</span>__<span class="o">||</span>___<span class="p">|</span> <span class="p">|</span>_<span class="o">||</span>_______<span class="p">|</span>│Help                  ││
+│                   o   o      o o           o         │Quit                  ││
+│                   o   o      o o           o         │                      ││
+│                   o   o      @ o           o  o      │                      ││
+│                  oo   o        o         o oo o      │                      ││
+│                  oo   o        o         o oo o      │                      ││
+│                  oo   o        @         o oo o      │                      ││
+│            o     oo   o                  o oo o      │                      ││
+│            o     oo   o                  oooo o      │                      ││
+│            o   o o@   o                  oooo o      │                      ││
+│            o   o o    @                  ooo@ o      │                      ││
+│            o   @ o                       ooo  @      │                      ││
+│            o     @                       ooo         │                      ││
+│            oo    @                       @o@         │                      ││
+│            oo                             @          │                      ││
+│   o        oo                                        └──────────────────────┘│
+└──────────────────────────────────────────────────────────────────────────────┘
+</pre></div>
+</div>
+<p>I think we can declare success!</p>
+<p>Now, when you think what we’ve done here, that’s quite impressive.  We’ve found
+a piece of software on the Internet, and created a build config for it that
+includes downloading, building, and installing not only the software we wanted,
+but also a dependency, and installed both that software and its depdendencies
+with a single command.  We were also deliberately lazy, and didn’t bother
+reading the installation instructions, and just blundered through without
+trying to get it right first time.  I’m not recommending that approach, but
+sometimes the installation documenation is pretty much non existent, so it’s
+good to be able to work this way.</p>
+</section>
+<section id="cmake">
+<h2>CMake<a class="headerlink" href="#cmake" title="Permalink to this headline">#</a></h2>
+<p>Let’s just pick on a simple example CMake project, to show how easy life could
+be.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack create -t cmake https://github.com/maks-it/CMake-Tutorial
+</pre></div>
+</div>
+<p>That creates a template configuration, that just needs a couple of edits.  It
+highlights sections it thinks you should  fix, with FIXME sections:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># FIXME: Add a proper url for your package&#39;s homepage here.</span>
+    <span class="n">homepage</span> <span class="o">=</span> <span class="s2">&quot;https://www.example.com&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/maks-it/CMake-Tutorial&quot;</span>
+
+    <span class="c1"># FIXME: Add a list of GitHub accounts to</span>
+    <span class="c1"># notify when the package is updated.</span>
+    <span class="c1"># maintainers = [&quot;github_user1&quot;, &quot;github_user2&quot;]</span>
+
+    <span class="c1"># FIXME: Add proper versions and checksums here.</span>
+    <span class="c1"># version(&quot;1.2.3&quot;, &quot;0123456789abcdef0123456789abcdef&quot;)</span>
+
+    <span class="c1"># FIXME: Add dependencies if required.</span>
+    <span class="c1"># depends_on(&quot;foo&quot;)</span>
+
+    <span class="k">def</span> <span class="nf">cmake_args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># FIXME: Add arguments other than</span>
+        <span class="c1"># FIXME: CMAKE_INSTALL_PREFIX and CMAKE_BUILD_TYPE</span>
+        <span class="c1"># FIXME: If not needed delete this function</span>
+</pre></div>
+</div>
+<p>I’m not going to fix all of these, but just do the bare minimum for now.
+Change <code class="docutils literal notranslate"><span class="pre">url</span> <span class="pre">=</span></code> to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">=</span></code> since we’re just using git and haven’t got a tarball
+containing this release.  Also define a version:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">(</span><span class="s2">&quot;develop&quot;</span><span class="p">,</span> <span class="n">branch</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This way it knows to use the master branch to build a “develop” release.  This
+the leaves us with this minimal config:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copyright 2013-2022 Lawrence Livermore National Security, LLC and other</span>
+<span class="c1"># Spack Project Developers. See the top-level COPYRIGHT file for details.</span>
+<span class="c1">#</span>
+<span class="c1"># SPDX-License-Identifier: (Apache-2.0 OR MIT)</span>
+
+<span class="kn">from</span> <span class="nn">spack.package</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">CmakeTutorial</span><span class="p">(</span><span class="n">CMakePackage</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Demo package to show how to use Cmake&quot;&quot;&quot;</span>
+
+    <span class="n">homepage</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/maks-it/CMake-Tutorial&quot;</span>
+    <span class="n">git</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/maks-it/CMake-Tutorial&quot;</span>
+
+    <span class="n">version</span><span class="p">(</span><span class="s2">&quot;develop&quot;</span><span class="p">,</span> <span class="n">branch</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>That really is it, for a minimal CMake package.  You can install this with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install cmake-tutorial
+</pre></div>
+</div>
+<p>Then we can prove it worked afterwards, by loading the module and running it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module add cmake-tutorial
+$ Tutorial <span class="m">10</span>
+Computing sqrt of <span class="m">10</span> to be <span class="m">3</span>.16228 using log
+The square root of <span class="m">10</span> is <span class="m">3</span>.16228
+</pre></div>
+</div>
+<p>Further details can be found under the
+<a class="reference external" href="https://spack-tutorial.readthedocs.io/en/latest/tutorial_buildsystems.html#cmake">CMake section</a>
+on the Spack website.</p>
+</section>
+<section id="autotools">
+<h2>Autotools<a class="headerlink" href="#autotools" title="Permalink to this headline">#</a></h2>
+<p>Here’s a similarly trivial Autotools based example.  We’re picking the autoreconf type, as this includes other typical steps required when using git sourced Autotools build packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack create -t autoreconf https://github.com/lloydroc/autotools-example
+</pre></div>
+</div>
+<p>We make the same basic edits done in Cmake, to tell it we’re using git, and which branch to use for the <code class="docutils literal notranslate"><span class="pre">develop</span></code> version.  This leaves us with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copyright 2013-2022 Lawrence Livermore National Security, LLC and other</span>
+<span class="c1"># Spack Project Developers. See the top-level COPYRIGHT file for details.</span>
+<span class="c1">#</span>
+<span class="c1"># SPDX-License-Identifier: (Apache-2.0 OR MIT)</span>
+
+<span class="kn">from</span> <span class="nn">spack.package</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">class</span> <span class="nc">AutotoolsExample</span><span class="p">(</span><span class="n">AutotoolsPackage</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Demo package to show how to use Autotools&quot;&quot;&quot;</span>
+
+    <span class="n">homepage</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/lloydroc/autotools-example&quot;</span>
+    <span class="n">git</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/lloydroc/autotools-example&quot;</span>
+
+    <span class="n">version</span><span class="p">(</span><span class="s2">&quot;develop&quot;</span><span class="p">,</span> <span class="n">branch</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">)</span>
+
+    <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;autoconf&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">)</span>
+    <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;automake&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">)</span>
+    <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;libtool&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">)</span>
+    <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;m4&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">autoreconf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+        <span class="n">autoreconf</span><span class="p">(</span><span class="s2">&quot;--install&quot;</span><span class="p">,</span> <span class="s2">&quot;--verbose&quot;</span><span class="p">,</span> <span class="s2">&quot;--force&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can install this with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install autotools-example
+</pre></div>
+</div>
+<p>Then we can prove it worked afterwards, by loading the module and running it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module add autotools-example
+$ jupiter
+hello jupiter
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./course/spack"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="environments.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Environments</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By University of Leeds Research Computing Team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
