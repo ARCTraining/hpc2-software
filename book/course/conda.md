@@ -409,3 +409,132 @@ Executing transaction: done
 ```
 
 This installs any packages that are currently not installed (conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).
+
+
+### Removing packages
+
+Another crucial aspect of managing an environment involves removing packages. 
+Conda includes the `remove` subcommand for this operation, which allows you to specify a list of packages you wish to remove.
+You can do this within an activated environment, or specify to Conda the environment from which you want to remove packages.
+
+When creating our `data-sci-env` we installed `pandas=1.4.2`, let's imagine we made a mistake here and wanted a different version. 
+We could remove this version of pandas with the following command:
+
+```bash
+$ conda remove -n data-sci-env pandas
+```
+```output
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/home01/arcuser/.conda/envs/data-sci-env
+
+  removed specs:
+    - pandas
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    numpy-1.22.3               |  py310hfa59a62_0          10 KB
+    numpy-base-1.22.3          |  py310h9585f30_0        11.8 MB
+    ------------------------------------------------------------
+                                           Total:        11.8 MB
+
+The following packages will be REMOVED:
+
+  bottleneck-1.3.5-py310ha9d4c09_0
+  numexpr-2.8.3-py310hcea2de6_0
+  pandas-1.4.2-py310h295c915_0
+  pytz-2022.1-py310h06a4308_0
+
+The following packages will be UPDATED:
+
+  numpy                              1.21.5-py310h1794996_3 --> 1.22.3-py310hfa59a62_0
+  numpy-base                         1.21.5-py310hcba007f_3 --> 1.22.3-py310h9585f30_0
+
+
+Proceed ([y]/n)? 
+```
+
+When removing packages as with installing them Conda will ask for user confirmation to proceed. 
+As you can see in the above example, removing one package may also lead to the removal of additional packages and can cause other packages to update.
+
+With these changes made we can now install a newer version of pandas (output is not shown).
+
+```bash
+$ conda activate data-sci-env
+
+(data-sci-env)$ conda install pandas=1.4.3
+```
+
+### Updating a package
+
+The above example is slightly artificial as removing a package to install a more recent version is a long-winded way of doing things with Conda.
+If we want to update a package to a more recent version Conda provides the `update` subcommand to achieve this.
+Crucially, `conda update` will update a package to its most recent version and can't be used to specific a particular version.
+
+Let's say we wanted to update the `matplotlib` library to the most recent version in our `data-sci-env`.
+
+```bash
+$ conda activate data-sci-env
+
+(data-sci-env)$ conda update matplotlib
+```
+```output
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+## Package Plan ##
+
+  environment location: /home/home01/arcuser/.conda/envs/data-sci-env
+
+  added / updated specs:
+    - matplotlib
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    matplotlib-3.5.2           |  py310h06a4308_0           7 KB
+    matplotlib-base-3.5.2      |  py310hf590b9c_0         7.8 MB
+    ------------------------------------------------------------
+                                           Total:         7.8 MB
+
+The following packages will be UPDATED:
+
+  matplotlib                          3.5.1-py310h06a4308_1 --> 3.5.2-py310h06a4308_0
+  matplotlib-base                     3.5.1-py310ha18d171_1 --> 3.5.2-py310hf590b9c_0
+
+
+Proceed ([y]/n)? 
+```
+
+When requesting to update a package Conda will also update other dependencies of the package that you wish to update, and can potentially install new packages that are required.
+
+
+## Summary
+
+```{important}
+
+- [Introduces Conda](#introduction) as a cross-platform package and environment manager 
+- Highlights options for [how to install Conda](#installing-conda)
+- Introduces Conda environments for separating specific package dependencies on a project-by-project basis
+  - How to [create an environment using Conda](#creating-environments)
+  - How to use a created Conda environment through [environment activation](#activating-environments)
+  - Leaving an environment through [deactivation](#deactivating-environments)
+  - [Listing available Conda environments](#listing-current-environments)
+  - [Deleting Conda environments](#removing-a-conda-environment)
+  - [Exporting and sharing Conda Environments](#sharing-conda-environments)
+- Shows how Conda can be used for managing packages
+  - Using Conda to [search Conda repositories for a package](#searching-for-packages)
+  - Using Conda to [install a package](#installing-packages)
+  - Using Conda to [remove a package](#removing-packages)
+  - Using Conda to [update a package](#updating-a-package)
+
+```
