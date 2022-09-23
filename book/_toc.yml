@@ -13,3 +13,13 @@ root: welcome
 sections:
 - file: course/start
 - file: course/example
+- file: course/spack
+  sections:
+  - file: course/spack/installing
+  - file: course/spack/testinstall
+  - file: course/spack/modules
+  - file: course/spack/existing
+  - file: course/spack/advanced
+  - file: course/spack/containers
+  - file: course/spack/environments
+  - file: course/spack/recipes

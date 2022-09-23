@@ -1,4 +1,4 @@
-name: arcdocs-jb
+name: hpc2-jb
 channels:
   - defaults
 dependencies:
