@@ -5,7 +5,7 @@ limited number of [system requirements](https://spack.readthedocs.io/en/latest/g
 are satisfied.  But you might want to use a compiler and MPI library from a
 host system.  This is often the case if packages take a long time to build, or
 if you've got access to optimised versions of software that you don't want to
-replicate yourself.
+replicate yourself such as on ARC3 and ARC4.
 
 In these circumstances, it's useful to be able to tell Spack about existing
 software, so it can use those instead of rebuilding them.  How much you tell
@@ -18,7 +18,8 @@ not one right answer.
 
 Compilers are a bit different to other pieces of software.  Typically the
 easiest way to get Spack to use a system compiler is to make sure it's in your
-path, and then tell Spack to find it:
+path (either loading a module, or in this case just using the default system
+compiler - GCC 8.5.0 on RHEL8), and tell Spack to find it:
 
 ```bash
 $ spack compiler add
@@ -45,7 +46,7 @@ And tell it to use this compiler
 packages:
   all:
     compiler:
-    - 'gcc@8.3.0' # Your preferred compiler here
+    - 'gcc@8.5.0' # Your preferred compiler here
 ```
 
 ## Other software
@@ -162,13 +163,14 @@ packages:
       prefix: /usr
   all:
     compiler:
-    - gcc@8.3.0   # Your preferred compiler here
+    - gcc@8.5.0   # Your preferred compiler here
   libjpeg-turbo:
     externals:
     - spec: libjpeg-turbo@1.5.3
       prefix: /usr
 ```
 
+```{admonition} OpenMPI on Red Hat oddity
 There's a whole lot of interesting stuff in there that I've not had to think
 about, as Spack has added all the details about the openmpi variant it
 discovered.  We'll cover some of this in the advanced building section.
@@ -177,6 +179,7 @@ installation up.  Change `/usr/lib64/openmpi` to `/usr` for openmpi.  This
 workaround for Red Hat's odd packaging is adequate for this install, but sadly
 not for all packages, so you may find you need Spack to build its own OpenMPI
 rather than use Red Hat's version in future.
+```
 
 Having told Spack about the software we want it to use from the system, let's
 look again now at building mpiwrapper, and see what that looks like:
