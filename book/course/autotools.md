@@ -49,7 +49,8 @@ as is the case here.  So we just run it:
 $ ./bootstrap.sh
 ```
 
-````{toggle} Full output
+````{admonition} View full output
+:class: dropdown
 ```
 autoreconf: Entering directory `.'
 autoreconf: configure.ac: not using Gettext
@@ -85,7 +86,8 @@ scripts are present, you can instead do:
 autoreconf -fi
 ```
 
-````{toggle} Full output
+````{admonition} View full output
+:class: dropdown
 ```
 libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'aux_build'.
 libtoolize: copying file 'aux_build/ltmain.sh'
@@ -120,7 +122,8 @@ Installation directories:
                           [/usr/local]
 ```
 
-````{toggle} Full output
+````{admonition} View full output
+:class: dropdown
 ```
 $ ./configure --help
 `configure' configures breseq 0.37.1 to adapt to many kinds of systems.
@@ -248,7 +251,8 @@ program being installed separately, but it's up to you.
 ./configure --prefix=/nobackup/example/project1
 ```
 
-````{toggle} Full output
+````{admonition} View full output
+:class: dropdown
 ```
 $ ./configure --prefix=/nobackup/example/project1
 checking build system type... x86_64-pc-linux-gnu
