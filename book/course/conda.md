@@ -304,11 +304,11 @@ done
 ````
 
 With the above command we create a new environment but don't specify to install Python. 
-However, because we've specified Python packages which depend on Python being installed to run conda will install the high version of Python suitable for these packages.
+However, because we've specified Python packages which depend on Python being installed to run Conda will install the high version of Python suitable for these packages.
 
 ### Activating environments
 
-To use a conda environment we need to activate it. 
+To use a Conda environment we need to activate it. 
 Activating our environment does a number of steps that sets the terminal we're using up so that it can see all of the installed packages in the environment, making it ready for use.
 
 ```bash
@@ -331,7 +331,7 @@ You can deactivate your current environment with another simple subcommand `cond
 ### Listing current environments
 
 If you ever want to see your list of current environments on your machine you can you the subcommand `conda env list`. 
-This will return a list of the available conda environments you can use and the environment location in your filesystem.
+This will return a list of the available Conda environments you can use and the environment location in your filesystem.
 
 ```bash
 $ conda env list
@@ -505,7 +505,7 @@ It's important to consider the balance of reproducibility and portability, `cond
 Sometimes this level of detail should be included to ensure maximum reproduciblity of a project, when looking to validate results, but it's important to also balance being able to allow people to reproduce your work on other systems.
 
 
-## Using conda to install packages
+## Using Conda to install packages
 
 With the Conda command line tool searching for and installing packages is can be performed with the following subcommands:
 - `conda search`
@@ -1260,7 +1260,7 @@ Executing transaction: done
 ```
 ````
 
-This installs any packages that are currently not installed (conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).
+This installs any packages that are currently not installed (Conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).
 
 
 ### Removing packages
