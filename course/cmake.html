@@ -1,0 +1,1251 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>CMake &#8212; HPC2: Installing and Managing Applications on the HPC</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://arctraining.github.io/hpc2-software/course/cmake.html" />
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Recipes" href="spack/recipes.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">HPC2: Installing and Managing Applications on the HPC</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../welcome.html">
+                    HPC2: Installing and Managing Applications on the HPC
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="start.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="example.html">
+   Theory
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="spack.html">
+   Spack
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/installing.html">
+     Installing Spack
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/testinstall.html">
+     Building a test piece of software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/modules.html">
+     Adjusting how we name modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/existing.html">
+     Using existing software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/advanced.html">
+     Advanced software install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/containers.html">
+     Containers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/environments.html">
+     Environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/recipes.html">
+     Recipes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   CMake
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Visit the <a href="https://arcleeds.github.io/">Research Computing Home Site</a> <div> This book is powered by <a href="https://jupyterbook.org">Jupyter Book</a> </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ARCTraining/hpc2-software"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/hpc2-software/issues/new?title=Issue%20on%20page%20%2Fcourse/cmake.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/hpc2-software/edit/gh-pages/book/course/cmake.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/course/cmake.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-software-with-cmake">
+   Building software with CMake
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cloning-the-curl-source-code">
+     Cloning the cURL source code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuring-with-cmake">
+     Configuring with CMake
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-cmake-directly">
+       Using cmake directly
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-ccmake">
+       Using ccmake
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#building-cmake-configured-software">
+       Building CMake configured software
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>CMake</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-software-with-cmake">
+   Building software with CMake
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cloning-the-curl-source-code">
+     Cloning the cURL source code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuring-with-cmake">
+     Configuring with CMake
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-cmake-directly">
+       Using cmake directly
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-ccmake">
+       Using ccmake
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#building-cmake-configured-software">
+       Building CMake configured software
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="cmake">
+<h1>CMake<a class="headerlink" href="#cmake" title="Permalink to this headline">#</a></h1>
+<p>This chapter will look at using <a class="reference external" href="https://cmake.org/">CMake</a> to build software.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The steps outlined below are performed on the <a class="reference external" href="https://arcdocs.leeds.ac.uk/systems/arc4.html">ARC4</a> HPC system where CMake exists as a <a class="reference external" href="https://arcdocs.leeds.ac.uk/software/infrastructure/cmake.html">loadable module</a>.</p>
+</div>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>CMake is a collection of tools for building, testing and packaging software.
+It is open source and cross platform and supports a variety of different build tools including Make, Microsoft Visual Studio, Apple’s Xcode and others.</p>
+<p>CMake works by generating build files from a series of CMake configuration files which the relevant build tool can be used to build the software from.
+This in many cases means CMake is used to create a series of Makefiles which allow us to use GNU make to build our software.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
+<p>If you don’t have CMake installed you can download the latest version for your operating system from the <a class="reference external" href="https://cmake.org/download/">CMake website</a>.</p>
+</section>
+<section id="building-software-with-cmake">
+<h2>Building software with CMake<a class="headerlink" href="#building-software-with-cmake" title="Permalink to this headline">#</a></h2>
+<p>In the following section we’ll explore a small example of building the command line tool <a class="reference external" href="https://curl.se/">cURL</a> using CMake.
+cURL is a tool for transferring data using various network protocols and is commonly used for downloading data from the internet.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>cURL is already installed on ARC4, but we’ll look at installing our own personal version for this tutorial.</p>
+</div>
+<section id="cloning-the-curl-source-code">
+<h3>Cloning the cURL source code<a class="headerlink" href="#cloning-the-curl-source-code" title="Permalink to this headline">#</a></h3>
+<p>To get started we need to download the cURL source code. cURL is available via GitHub so we can clone the source code at the most recent tagged release with the following line.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone --single-branch --branch curl-7_85_0 https://github.com/curl/curl.git
+</pre></div>
+</div>
+<p>This will download the cURL source code with the history of the associated release. You will likely see a warning message about being in a <code class="docutils literal notranslate"><span class="pre">detached</span> <span class="pre">head</span> <span class="pre">state</span></code> which you can ignore for this tutorial.</p>
+</section>
+<section id="configuring-with-cmake">
+<h3>Configuring with CMake<a class="headerlink" href="#configuring-with-cmake" title="Permalink to this headline">#</a></h3>
+<p>Now we’ve downloaded the cURL source code we need to configure it before building using CMake.
+To do this we need to create a <code class="docutils literal notranslate"><span class="pre">build</span></code> directory that will contain all of the autogenerated build file.
+Once we’ve created a <code class="docutils literal notranslate"><span class="pre">build</span></code> directory we run <code class="docutils literal notranslate"><span class="pre">cmake</span></code> to perform the configuration steps.
+You can do this directly in the command line by running <code class="docutils literal notranslate"><span class="pre">cmake</span></code> and specifying additional options or you can use <code class="docutils literal notranslate"><span class="pre">ccmake</span></code> to do configuration interactives through a GUI-like interface.</p>
+<section id="using-cmake-directly">
+<h4>Using cmake directly<a class="headerlink" href="#using-cmake-directly" title="Permalink to this headline">#</a></h4>
+<p>Running CMake directly runs all the configuration steps and provides some output to the screen.
+We can modify CMake default behaviour by passing additional arguments to <code class="docutils literal notranslate"><span class="pre">cmake</span></code> at this stage.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> curl
+
+$ mkdir build
+
+$ <span class="nb">cd</span> build
+
+$ cmake ..
+</pre></div>
+</div>
+<p>For modern installations of CMake it is preferable to specify the source and build directories directly when running <code class="docutils literal notranslate"><span class="pre">cmake</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> curl 
+
+$ mkdir build
+
+$ cmake -S . -B build
+</pre></div>
+</div>
+<p>This command at a basic level, will detect that there are GNU Makefiles present and, using the CMakeLists.txt file, configure a series of Makefiles for building the software.
+Running this line on ARC4 will provide output similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">curl</span> <span class="n">version</span><span class="o">=</span><span class="p">[</span><span class="mf">7.85.0</span><span class="o">-</span><span class="n">DEV</span><span class="p">]</span>
+<span class="o">--</span> <span class="n">Could</span> <span class="n">NOT</span> <span class="n">find</span> <span class="n">LibPSL</span> <span class="p">(</span><span class="n">missing</span><span class="p">:</span> <span class="n">LIBPSL_LIBRARY</span> <span class="n">LIBPSL_INCLUDE_DIR</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Could</span> <span class="n">NOT</span> <span class="n">find</span> <span class="n">LibSSH2</span> <span class="p">(</span><span class="n">missing</span><span class="p">:</span> <span class="n">LIBSSH2_LIBRARY</span> <span class="n">LIBSSH2_INCLUDE_DIR</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Enabled</span> <span class="n">features</span><span class="p">:</span> <span class="n">SSL</span> <span class="n">IPv6</span> <span class="n">unixsockets</span> <span class="n">libz</span> <span class="n">AsynchDNS</span> <span class="n">Largefile</span> <span class="n">alt</span><span class="o">-</span><span class="n">svc</span> <span class="n">HSTS</span> <span class="n">NTLM</span> <span class="n">HTTPS</span><span class="o">-</span><span class="n">proxy</span>
+<span class="o">--</span> <span class="n">Enabled</span> <span class="n">protocols</span><span class="p">:</span> <span class="n">DICT</span> <span class="n">FILE</span> <span class="n">FTP</span> <span class="n">FTPS</span> <span class="n">GOPHER</span> <span class="n">GOPHERS</span> <span class="n">HTTP</span> <span class="n">HTTPS</span> <span class="n">IMAP</span> <span class="n">IMAPS</span> <span class="n">LDAP</span> <span class="n">MQTT</span> <span class="n">POP3</span> <span class="n">POP3S</span> <span class="n">RTSP</span> <span class="n">SMB</span> <span class="n">SMBS</span> <span class="n">SMTP</span> <span class="n">SMTPS</span> <span class="n">TELNET</span> <span class="n">TFTP</span>
+<span class="o">--</span> <span class="n">Enabled</span> <span class="n">SSL</span> <span class="n">backends</span><span class="p">:</span> <span class="n">OpenSSL</span>
+<span class="o">--</span> <span class="n">Configuring</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Generating</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Build</span> <span class="n">files</span> <span class="n">have</span> <span class="n">been</span> <span class="n">written</span> <span class="n">to</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">home01</span><span class="o">/</span><span class="n">arcuser</span><span class="o">/</span><span class="n">curl</span>
+</pre></div>
+</div>
+<p>As we’re doing this on ARC4 where a version of cURL is already installed we should probably make some tweaks.
+We can do this directly by passing specific arguments to <code class="docutils literal notranslate"><span class="pre">cmake</span></code>, in this example we want to specify a specific local build directory and set the name of the associated library <code class="docutils literal notranslate"><span class="pre">libcurl</span></code> that gets built to avoid conflicts with the system-installed <code class="docutils literal notranslate"><span class="pre">libcurl</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> curl
+
+$ mkdir build install
+
+$ cmake -S . -B build/ -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/install -DLIBCURL_OUTPUT_NAME<span class="o">=</span>libcurl2
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">View full output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">The</span> <span class="n">C</span> <span class="n">compiler</span> <span class="n">identification</span> <span class="ow">is</span> <span class="n">Intel</span> <span class="mf">19.0.4.20190416</span>
+<span class="o">--</span> <span class="n">Detecting</span> <span class="n">C</span> <span class="n">compiler</span> <span class="n">ABI</span> <span class="n">info</span>
+<span class="o">--</span> <span class="n">Detecting</span> <span class="n">C</span> <span class="n">compiler</span> <span class="n">ABI</span> <span class="n">info</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="k">for</span> <span class="n">working</span> <span class="n">C</span> <span class="n">compiler</span><span class="p">:</span> <span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">developers</span><span class="o">/</span><span class="n">compilers</span><span class="o">/</span><span class="n">intel</span><span class="o">/</span><span class="mf">19.0.4</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">compilers_and_libraries_2019</span><span class="mf">.4.243</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">intel64</span><span class="o">/</span><span class="n">icc</span> <span class="o">-</span> <span class="n">skipped</span>
+<span class="o">--</span> <span class="n">Detecting</span> <span class="n">C</span> <span class="nb">compile</span> <span class="n">features</span>
+<span class="o">--</span> <span class="n">Detecting</span> <span class="n">C</span> <span class="nb">compile</span> <span class="n">features</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">curl</span> <span class="n">version</span><span class="o">=</span><span class="p">[</span><span class="mf">7.85.0</span><span class="o">-</span><span class="n">DEV</span><span class="p">]</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">_no_bug</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">_no_bug</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">HAVE_SOCKADDR_IN6_SIN6_ADDR</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">HAVE_SOCKADDR_IN6_SIN6_ADDR</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Found</span> <span class="n">Perl</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">perl</span> <span class="p">(</span><span class="n">found</span> <span class="n">version</span> <span class="s2">&quot;5.16.3&quot;</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">pthread</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">pthread</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">CMAKE_HAVE_LIBC_PTHREAD</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">CMAKE_HAVE_LIBC_PTHREAD</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">pthread_create</span> <span class="ow">in</span> <span class="n">pthreads</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">pthread_create</span> <span class="ow">in</span> <span class="n">pthreads</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">pthread_create</span> <span class="ow">in</span> <span class="n">pthread</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">pthread_create</span> <span class="ow">in</span> <span class="n">pthread</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Found</span> <span class="n">Threads</span><span class="p">:</span> <span class="n">TRUE</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">connect</span> <span class="ow">in</span> <span class="n">socket</span><span class="p">;</span><span class="o">-</span><span class="n">lpthread</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">connect</span> <span class="ow">in</span> <span class="n">socket</span><span class="p">;</span><span class="o">-</span><span class="n">lpthread</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">gethostname</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">gethostname</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Found</span> <span class="n">OpenSSL</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libcrypto</span><span class="o">.</span><span class="n">so</span> <span class="p">(</span><span class="n">found</span> <span class="n">version</span> <span class="s2">&quot;1.0.2k&quot;</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">RAND_egd</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">RAND_egd</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">OPENSSL_IS_BORINGSSL</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">OPENSSL_IS_BORINGSSL</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">ldap_init</span> <span class="ow">in</span> <span class="n">ldap</span><span class="p">;</span><span class="o">-</span><span class="n">lpthread</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">SSL</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">Crypto</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">ldap_init</span> <span class="ow">in</span> <span class="n">ldap</span><span class="p">;</span><span class="o">-</span><span class="n">lpthread</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">SSL</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">Crypto</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">ber_init</span> <span class="ow">in</span> <span class="n">lber</span><span class="p">;</span><span class="n">ldap</span><span class="p">;</span><span class="o">-</span><span class="n">lpthread</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">SSL</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">Crypto</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">ber_init</span> <span class="ow">in</span> <span class="n">lber</span><span class="p">;</span><span class="n">ldap</span><span class="p">;</span><span class="o">-</span><span class="n">lpthread</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">SSL</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">Crypto</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">include</span> <span class="n">file</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">include</span> <span class="n">file</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="n">lber</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="n">lber</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">NOT_NEED_LBER_H</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">NOT_NEED_LBER_H</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">3</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ldap_ssl</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">3</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ldap_ssl</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">idn2_lookup_ul</span> <span class="ow">in</span> <span class="n">idn2</span><span class="p">;</span><span class="n">lber</span><span class="p">;</span><span class="n">ldap</span><span class="p">;</span><span class="o">-</span><span class="n">lpthread</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">SSL</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">Crypto</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">idn2_lookup_ul</span> <span class="ow">in</span> <span class="n">idn2</span><span class="p">;</span><span class="n">lber</span><span class="p">;</span><span class="n">ldap</span><span class="p">;</span><span class="o">-</span><span class="n">lpthread</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">SSL</span><span class="p">;</span><span class="n">OpenSSL</span><span class="p">::</span><span class="n">Crypto</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Found</span> <span class="n">ZLIB</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libz</span><span class="o">.</span><span class="n">so</span> <span class="p">(</span><span class="n">found</span> <span class="n">version</span> <span class="s2">&quot;1.2.7&quot;</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Could</span> <span class="n">NOT</span> <span class="n">find</span> <span class="n">LibPSL</span> <span class="p">(</span><span class="n">missing</span><span class="p">:</span> <span class="n">LIBPSL_LIBRARY</span> <span class="n">LIBPSL_INCLUDE_DIR</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Could</span> <span class="n">NOT</span> <span class="n">find</span> <span class="n">LibSSH2</span> <span class="p">(</span><span class="n">missing</span><span class="p">:</span> <span class="n">LIBSSH2_LIBRARY</span> <span class="n">LIBSSH2_INCLUDE_DIR</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">USE_UNIX_SOCKETS</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">USE_UNIX_SOCKETS</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Found</span> <span class="n">CA</span> <span class="n">bundle</span><span class="p">:</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pki</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">certs</span><span class="o">/</span><span class="n">ca</span><span class="o">-</span><span class="n">bundle</span><span class="o">.</span><span class="n">crt</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">3</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">inttypes</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">3</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">inttypes</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">4</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">filio</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">4</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">filio</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">4</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">ioctl</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">4</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">ioctl</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">5</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">param</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">5</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">param</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">6</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">poll</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">6</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">poll</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">7</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">resource</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">7</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">resource</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">8</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">select</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">8</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">select</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">9</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">socket</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">9</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">socket</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">10</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">sockio</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">10</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">sockio</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">10</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">stat</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">10</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">stat</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">11</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">time</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">11</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">time</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">12</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">types</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">12</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">types</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">13</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">un</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">13</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">un</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">14</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">utime</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">14</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">utime</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">14</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">xattr</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">14</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">xattr</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">15</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">arpa</span><span class="o">/</span><span class="n">inet</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">15</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">arpa</span><span class="o">/</span><span class="n">inet</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">16</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">arpa</span><span class="o">/</span><span class="n">tftp</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">16</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">arpa</span><span class="o">/</span><span class="n">tftp</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">17</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="k">assert</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">17</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="k">assert</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">18</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">errno</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">18</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">errno</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">19</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">fcntl</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">19</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">fcntl</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">20</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">idn2</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">20</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">idn2</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">20</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ifaddrs</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">20</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ifaddrs</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">21</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">io</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">21</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">io</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">21</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">libgen</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">21</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">libgen</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">22</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">locale</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">22</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">locale</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">23</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">net</span><span class="o">/</span><span class="k">if</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">23</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">net</span><span class="o">/</span><span class="k">if</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">24</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">netdb</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">24</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">netdb</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">25</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">netinet</span><span class="o">/</span><span class="ow">in</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">25</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">netinet</span><span class="o">/</span><span class="ow">in</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">26</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">netinet</span><span class="o">/</span><span class="n">tcp</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">26</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">netinet</span><span class="o">/</span><span class="n">tcp</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">linux</span><span class="o">/</span><span class="n">tcp</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">linux</span><span class="o">/</span><span class="n">tcp</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">27</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">poll</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">27</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">poll</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">28</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">pwd</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">28</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">pwd</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">29</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">setjmp</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">29</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">setjmp</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">30</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">signal</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">30</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">signal</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">31</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ssl</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">31</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ssl</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">31</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stdatomic</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">31</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stdatomic</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">32</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stdbool</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">32</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stdbool</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">33</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stdint</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">33</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stdint</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">34</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stdlib</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">34</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stdlib</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">35</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">35</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">36</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">strings</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">36</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">strings</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">37</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stropts</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">37</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stropts</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">37</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">termio</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">37</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">termio</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">38</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">termios</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">38</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">termios</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">39</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">39</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">40</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">unistd</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">40</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">unistd</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">41</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">utime</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">41</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">utime</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">42</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">process</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">42</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">process</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">42</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stddef</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">42</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">stddef</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">44</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">utsname</span><span class="o">.</span><span class="n">h</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="mi">44</span> <span class="n">include</span> <span class="n">files</span> <span class="n">ldap</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sys</span><span class="o">/</span><span class="n">utsname</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">size_t</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">size_t</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">ssize_t</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">ssize_t</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">long</span> <span class="n">long</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">long</span> <span class="n">long</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">long</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">long</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="nb">int</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="nb">int</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">__int64</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">__int64</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">time_t</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">time_t</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">fchmod</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">fchmod</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">basename</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">basename</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">socket</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">socket</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">select</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">select</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strdup</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strdup</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strtok_r</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strtok_r</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strcasecmp</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strcasecmp</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">stricmp</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">stricmp</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strcmpi</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strcmpi</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">alarm</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">alarm</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getppid</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getppid</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">utimes</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">utimes</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">gettimeofday</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">gettimeofday</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">closesocket</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">closesocket</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">sigsetjmp</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">sigsetjmp</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getpass_r</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getpass_r</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getpwuid</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getpwuid</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getpwuid_r</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getpwuid_r</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">geteuid</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">geteuid</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">utime</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">utime</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">gmtime_r</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">gmtime_r</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">gethostbyname_r</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">gethostbyname_r</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">signal</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">signal</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">SIGALRM</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">SIGALRM</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strtoll</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strtoll</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">_strtoi64</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">_strtoi64</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strerror_r</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">strerror_r</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">siginterrupt</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">siginterrupt</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getaddrinfo</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getaddrinfo</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">freeaddrinfo</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">freeaddrinfo</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">pipe</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">pipe</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">ftruncate</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">ftruncate</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getpeername</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getpeername</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getsockname</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getsockname</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">if_nametoindex</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">if_nametoindex</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getrlimit</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">getrlimit</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">setlocale</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">setlocale</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">setmode</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">setmode</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">setrlimit</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">setrlimit</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">mach_absolute_time</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">mach_absolute_time</span> <span class="o">-</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">inet_pton</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">inet_pton</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">fsetxattr</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">fsetxattr</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_FSETXATTR_5</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_FSETXATTR_5</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_FSETXATTR_6</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_FSETXATTR_6</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">sa_family_t</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">sa_family_t</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">ADDRESS_FAMILY</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">ADDRESS_FAMILY</span> <span class="o">-</span> <span class="n">failed</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">sigaction</span>
+<span class="o">--</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">sigaction</span> <span class="o">-</span> <span class="n">found</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_FCNTL_O_NONBLOCK</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_FCNTL_O_NONBLOCK</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTLSOCKET</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTLSOCKET</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTLSOCKET_CAMEL</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTLSOCKET_CAMEL</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTLSOCKET_CAMEL_FIONBIO</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTLSOCKET_CAMEL_FIONBIO</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTLSOCKET_FIONBIO</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTLSOCKET_FIONBIO</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTL_FIONBIO</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTL_FIONBIO</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTL_SIOCGIFADDR</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IOCTL_SIOCGIFADDR</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_SETSOCKOPT_SO_NONBLOCK</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_SETSOCKOPT_SO_NONBLOCK</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">TIME_WITH_SYS_TIME</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">TIME_WITH_SYS_TIME</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_O_NONBLOCK</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_O_NONBLOCK</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_3</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_3</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_5</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_5</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_6</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_6</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_3_REENTRANT</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_3_REENTRANT</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_5_REENTRANT</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_5_REENTRANT</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_6_REENTRANT</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GETHOSTBYNAME_R_6_REENTRANT</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IN_ADDR_T</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_IN_ADDR_T</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_BOOL_T</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_BOOL_T</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">STDC_HEADERS</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">STDC_HEADERS</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_FILE_OFFSET_BITS</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_FILE_OFFSET_BITS</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_VARIADIC_MACROS_C99</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_VARIADIC_MACROS_C99</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_VARIADIC_MACROS_GCC</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_VARIADIC_MACROS_GCC</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_ATOMIC</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_ATOMIC</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">off_t</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">off_t</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">curl_off_t</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">curl_off_t</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GLIBC_STRERROR_R</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_GLIBC_STRERROR_R</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_POSIX_STRERROR_R</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_POSIX_STRERROR_R</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_CLOCK_GETTIME_MONOTONIC</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_CLOCK_GETTIME_MONOTONIC</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_BUILTIN_AVAILABLE</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Curl</span> <span class="n">Test</span> <span class="n">HAVE_BUILTIN_AVAILABLE</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_recv</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_recv</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_recv_test</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">recv</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_send</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_send</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">size_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">socklen_t</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Failed</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="n">SOCKET</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">curl_cv_func_send_test</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Tested</span><span class="p">:</span> <span class="nb">int</span> <span class="n">send</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">HAVE_MSG_NOSIGNAL</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">HAVE_MSG_NOSIGNAL</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">HAVE_STRUCT_TIMEVAL</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">HAVE_STRUCT_TIMEVAL</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">struct</span> <span class="n">sockaddr_storage</span>
+<span class="o">--</span> <span class="n">Check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">struct</span> <span class="n">sockaddr_storage</span> <span class="o">-</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">HAVE_POLL_FINE</span>
+<span class="o">--</span> <span class="n">Performing</span> <span class="n">Test</span> <span class="n">HAVE_POLL_FINE</span> <span class="o">-</span> <span class="n">Success</span>
+<span class="o">--</span> <span class="n">Enabled</span> <span class="n">features</span><span class="p">:</span> <span class="n">SSL</span> <span class="n">IPv6</span> <span class="n">unixsockets</span> <span class="n">libz</span> <span class="n">AsynchDNS</span> <span class="n">Largefile</span> <span class="n">alt</span><span class="o">-</span><span class="n">svc</span> <span class="n">HSTS</span> <span class="n">NTLM</span> <span class="n">HTTPS</span><span class="o">-</span><span class="n">proxy</span>
+<span class="o">--</span> <span class="n">Enabled</span> <span class="n">protocols</span><span class="p">:</span> <span class="n">DICT</span> <span class="n">FILE</span> <span class="n">FTP</span> <span class="n">FTPS</span> <span class="n">GOPHER</span> <span class="n">GOPHERS</span> <span class="n">HTTP</span> <span class="n">HTTPS</span> <span class="n">IMAP</span> <span class="n">IMAPS</span> <span class="n">LDAP</span> <span class="n">MQTT</span> <span class="n">POP3</span> <span class="n">POP3S</span> <span class="n">RTSP</span> <span class="n">SMB</span> <span class="n">SMBS</span> <span class="n">SMTP</span> <span class="n">SMTPS</span> <span class="n">TELNET</span> <span class="n">TFTP</span>
+<span class="o">--</span> <span class="n">Enabled</span> <span class="n">SSL</span> <span class="n">backends</span><span class="p">:</span> <span class="n">OpenSSL</span>
+<span class="o">--</span> <span class="n">Configuring</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Generating</span> <span class="n">done</span>
+<span class="o">--</span> <span class="n">Build</span> <span class="n">files</span> <span class="n">have</span> <span class="n">been</span> <span class="n">written</span> <span class="n">to</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">home01</span><span class="o">/</span><span class="n">arcuser</span><span class="o">/</span><span class="n">curl</span><span class="o">/</span><span class="n">build</span>
+</pre></div>
+</div>
+</div>
+<p>It is normal to specify CMake options by their name with a <code class="docutils literal notranslate"><span class="pre">-D</span></code> prepended to the option name.
+By default CMake will install software in standard location on our machine, this often means locations such as <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code> which requires <code class="docutils literal notranslate"><span class="pre">sudo</span></code> rights to write to.
+Therefore, it’s often better for software we want to build just for ourselves to specify the <code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code> argument to be a local directory our user has access to.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example has been picked for it’s simplicity and doesn’t require any additional libraries that aren’t already installed and available on ARC4.
+Most software has additional dependencies that you will either need to load as a module or install separately before being able to have CMake configure successfully.
+Always be sure to check the documentation to understand what the exact requirements are for the software you’re trying to install.</p>
+</div>
+</section>
+<section id="using-ccmake">
+<h4>Using ccmake<a class="headerlink" href="#using-ccmake" title="Permalink to this headline">#</a></h4>
+<p>You can also do the CMake configuration steps using <code class="docutils literal notranslate"><span class="pre">ccmake</span></code> which provides a GUI-like interface for adjusting CMake configuration options.</p>
+<p>You can open the ccmake GUI by running the following line within the <code class="docutils literal notranslate"><span class="pre">curl</span></code> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ccmake -S . -B build
+</pre></div>
+</div>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go"> BUILD_CURL_EXE                   ON</span>
+<span class="go"> BUILD_SHARED_LIBS                ON</span>
+<span class="go"> BUILD_TESTING                    ON</span>
+<span class="go"> CMAKE_BUILD_TYPE</span>
+<span class="go"> CMAKE_INSTALL_PREFIX             /usr/local</span>
+<span class="go"> CMAKE_LBER_LIB                   lber</span>
+<span class="go"> CMAKE_LDAP_INCLUDE_DIR</span>
+<span class="go"> CMAKE_LDAP_LIB                   ldap</span>
+<span class="go"> CURL_BROTLI                      OFF</span>
+<span class="go"> CURL_CA_BUNDLE                   /etc/pki/tls/certs/ca-bundle.crt</span>
+<span class="go"> CURL_CA_BUNDLE_SET               ON</span>
+<span class="go"> CURL_CA_FALLBACK                 OFF</span>
+<span class="go"> CURL_CA_PATH                     /etc/ssl/certs</span>
+<span class="go"> CURL_CA_PATH_SET                 ON</span>
+<span class="go"> CURL_DISABLE_OPENSSL_AUTO_LOAD   OFF</span>
+<span class="go"> CURL_ENABLE_SSL                  ON</span>
+<span class="go"> CURL_LTO                         OFF</span>
+
+<span class="go">BUILD_CURL_EXE: Set to ON to build curl executable.</span>
+<span class="go">Keys: [enter] Edit an entry [d] Delete an entry             CMake Version 3.22.3</span>
+<span class="go">      [l] Show log output   [c] Configure</span>
+<span class="go">      [h] Help              [q] Quit without generating</span>
+<span class="go">      [t] Toggle advanced mode (currently off)</span>
+</pre></div>
+</div>
+<p>This provides the following interface where we can navigate through options using the arrow keys and adjust entries as required.
+Using <code class="docutils literal notranslate"><span class="pre">ccmake</span></code> is often a useful way to view all the available configuration settings for a project and adjust them as required.
+You can also use <code class="docutils literal notranslate"><span class="pre">c</span></code> to run the configuration step to check everything configures successfully before confirming you want to proceed with that configuration by pressing <code class="docutils literal notranslate"><span class="pre">g</span></code> for generate.
+If you’re using <code class="docutils literal notranslate"><span class="pre">ccmake</span></code> for this tutorial rather than <code class="docutils literal notranslate"><span class="pre">cmake</span></code> then you’ll need to adjust the settings <code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_PREFIX</span></code> to be the full path to the <code class="docutils literal notranslate"><span class="pre">install</span></code> directory we created earlier and you’ll need to adjust the <code class="docutils literal notranslate"><span class="pre">LIBCURL_OUTPUT_NAME</span></code> setting to <code class="docutils literal notranslate"><span class="pre">libcurl2</span></code>.</p>
+</section>
+<section id="building-cmake-configured-software">
+<h4>Building CMake configured software<a class="headerlink" href="#building-cmake-configured-software" title="Permalink to this headline">#</a></h4>
+<p>Now that CMake has configured everything we can proceed to building the software using GNU Make (here we pass the option <code class="docutils literal notranslate"><span class="pre">-j</span> <span class="pre">4</span></code> to use multiple threads).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> build
+
+$ make -j <span class="m">4</span>
+</pre></div>
+</div>
+<p>Once the make step completes successfully we can install the cURL executable to the previously specified install location with the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make install
+</pre></div>
+</div>
+<p>If you’ve set everything up as I have on ARC4 and run this in your /home directory your new cURL executable will be at <code class="docutils literal notranslate"><span class="pre">~/curl/install/bin</span></code>.
+However, because we already have a system-installed cURL version we need to do an extra step before testing out our newly built version of cURL.
+Crucially, we need to make the <code class="docutils literal notranslate"><span class="pre">libcurl2</span></code> library that was also built with cURL available for our new cURL executable to use.
+If we try and run our new cURL without doing this step we get the following error:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ~/curl/build/bin/curl --version
+</pre></div>
+</div>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">/home/home01/arcuser/curl/install/bin/curl: error while loading shared libraries: libcurl2.so: cannot open shared object file: No such file or directory</span>
+</pre></div>
+</div>
+<p>This is because <code class="docutils literal notranslate"><span class="pre">libcurl2</span></code> is not available to use via the associated environment variable.
+To solve this we need to update the <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> variable to include the directory containing <code class="docutils literal notranslate"><span class="pre">libcurl2.so</span></code>.
+We do this by appending a directory path to the colon-separated <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> variable.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="s2">&quot;LD_LIBRARY_PATH=</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/curl/install/lib64&quot;</span>
+
+$ ~/curl/build/bin/curl --version
+</pre></div>
+</div>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">curl 7.85.0-DEV (Linux) libcurl/7.85.0-DEV OpenSSL/1.0.2k-fips zlib/1.2.7</span>
+<span class="go">Release-Date: [unreleased]</span>
+<span class="go">Protocols: dict file ftp ftps gopher gophers http https imap imaps ldap mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp</span>
+<span class="go">Features: alt-svc AsynchDNS HSTS HTTPS-proxy IPv6 Largefile libz NTLM SSL UnixSockets</span>
+</pre></div>
+</div>
+<p>So after adding the directory location containing our <code class="docutils literal notranslate"><span class="pre">libcurl2.so</span></code> file our newly created cURL executable is able to find it’s associated library and run correctly.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Editing variables like this during a shell session do not persist between shell sessions.
+In order to keep these changes between different shell sessions you will need to add the above <code class="docutils literal notranslate"><span class="pre">export</span></code> line the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> login script that exists in your home directory.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>Introduces CMake tool for configuring build systems</p></li>
+<li><p>Linked to CMake download page for installation steps</p></li>
+<li><p>Showcased an example of deploying <code class="docutils literal notranslate"><span class="pre">curl</span></code> using CMake</p>
+<ul>
+<li><p>Included how to configure specific settings using <code class="docutils literal notranslate"><span class="pre">-D</span></code> option</p></li>
+<li><p>Highlighted using <code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code> for appropriate installation of software locally</p></li>
+<li><p>Showed steps to build software using GNU Make after configuring with CMake</p></li>
+<li><p>Highlighted modifying <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> for locally installed software and libraries</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./course"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="spack/recipes.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Recipes</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By University of Leeds Research Computing Team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
