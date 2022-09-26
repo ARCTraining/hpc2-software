@@ -465,6 +465,17 @@ still up to you at this point to either run the software directly from this
 location, or update you environment variables to make this software generally
 available to you.  Details on this is covered in the [Concepts section](concepts).
 
+
+## Summary
+
+```{important}
+- Introduces Autotools for configuring build systems
+- Showcased an example of deploying `breseq` using Autotools
+    - Showed how to find what options are available when configuring
+    - Highlighted using `--prefix` for appropriate installation of software locally
+    - Showed steps to build and install using GNU Make after configuring with Autotools
+```
+
 # References
 
 [Autotools](https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html)
