@@ -73,12 +73,235 @@ When creating an environment we need to give it a name; we recommend giving it a
 ```bash
 $ conda create --name py39-env python=3.9
 ```
+````{admonition} View full output
+:class: dropdown
+```
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.12.0
+  latest version: 4.14.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/home01/arcuser/.conda/envs/py39-env
+
+  added / updated specs:
+    - python=3.9
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2022.07.19-h06a4308_0
+  certifi            pkgs/main/linux-64::certifi-2022.9.14-py39h06a4308_0
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.38-h1181459_1
+  libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_2
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-11.2.0-h1234567_1
+  libgomp            pkgs/main/linux-64::libgomp-11.2.0-h1234567_1
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-11.2.0-h1234567_1
+  ncurses            pkgs/main/linux-64::ncurses-6.3-h5eee18b_3
+  openssl            pkgs/main/linux-64::openssl-1.1.1q-h7f8727e_0
+  pip                pkgs/main/linux-64::pip-22.1.2-py39h06a4308_0
+  python             pkgs/main/linux-64::python-3.9.13-haa1d7c7_1
+  readline           pkgs/main/linux-64::readline-8.1.2-h7f8727e_1
+  setuptools         pkgs/main/linux-64::setuptools-63.4.1-py39h06a4308_0
+  sqlite             pkgs/main/linux-64::sqlite-3.39.2-h5082296_0
+  tk                 pkgs/main/linux-64::tk-8.6.12-h1ccaba5_0
+  tzdata             pkgs/main/noarch::tzdata-2022c-h04d1e81_0
+  wheel              pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0
+  xz                 pkgs/main/linux-64::xz-5.2.5-h7f8727e_1
+  zlib               pkgs/main/linux-64::zlib-1.2.12-h5eee18b_3
+
+
+Proceed ([y]/n)? y
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate py39-env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+```
+````
+
 The above command will prompt conda to create a new environment called `py39-env` and install into it `python` at version 3.9. 
 We can specify multiple packages when creating a conda environment by separating each package name with a space.
 
 ```bash
 $ conda create --name data-sci-env pandas=1.4.2 matplotlib=3.5.1 scikit-learn
 ```
+````{admonition} View full output
+:class: dropdown
+```
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.12.0
+  latest version: 4.14.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/home01/arcuser/.conda/envs/data-sci-env
+
+  added / updated specs:
+    - matplotlib=3.5.1
+    - pandas=1.4.2
+    - scikit-learn
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu
+  blas               pkgs/main/linux-64::blas-1.0-mkl
+  bottleneck         pkgs/main/linux-64::bottleneck-1.3.5-py310ha9d4c09_0
+  brotli             pkgs/main/linux-64::brotli-1.0.9-h5eee18b_7
+  brotli-bin         pkgs/main/linux-64::brotli-bin-1.0.9-h5eee18b_7
+  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h7b6447c_0
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2022.07.19-h06a4308_0
+  certifi            pkgs/main/linux-64::certifi-2022.9.14-py310h06a4308_0
+  cycler             pkgs/main/noarch::cycler-0.11.0-pyhd3eb1b0_0
+  dbus               pkgs/main/linux-64::dbus-1.13.18-hb2f20db_0
+  expat              pkgs/main/linux-64::expat-2.4.4-h295c915_0
+  fftw               pkgs/main/linux-64::fftw-3.3.9-h27cfd23_1
+  fontconfig         pkgs/main/linux-64::fontconfig-2.13.1-h6c09931_0
+  fonttools          pkgs/main/noarch::fonttools-4.25.0-pyhd3eb1b0_0
+  freetype           pkgs/main/linux-64::freetype-2.11.0-h70c0345_0
+  giflib             pkgs/main/linux-64::giflib-5.2.1-h7b6447c_0
+  glib               pkgs/main/linux-64::glib-2.69.1-h4ff587b_1
+  gst-plugins-base   pkgs/main/linux-64::gst-plugins-base-1.14.0-h8213a91_2
+  gstreamer          pkgs/main/linux-64::gstreamer-1.14.0-h28cd5cc_2
+  icu                pkgs/main/linux-64::icu-58.2-he6710b0_3
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2021.4.0-h06a4308_3561
+  joblib             pkgs/main/noarch::joblib-1.1.0-pyhd3eb1b0_0
+  jpeg               pkgs/main/linux-64::jpeg-9e-h7f8727e_0
+  kiwisolver         pkgs/main/linux-64::kiwisolver-1.4.2-py310h295c915_0
+  krb5               pkgs/main/linux-64::krb5-1.19.2-hac12032_0
+  lcms2              pkgs/main/linux-64::lcms2-2.12-h3be6417_0
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.38-h1181459_1
+  lerc               pkgs/main/linux-64::lerc-3.0-h295c915_0
+  libbrotlicommon    pkgs/main/linux-64::libbrotlicommon-1.0.9-h5eee18b_7
+  libbrotlidec       pkgs/main/linux-64::libbrotlidec-1.0.9-h5eee18b_7
+  libbrotlienc       pkgs/main/linux-64::libbrotlienc-1.0.9-h5eee18b_7
+  libclang           pkgs/main/linux-64::libclang-10.0.1-default_hb85057a_2
+  libdeflate         pkgs/main/linux-64::libdeflate-1.8-h7f8727e_5
+  libedit            pkgs/main/linux-64::libedit-3.1.20210910-h7f8727e_0
+  libevent           pkgs/main/linux-64::libevent-2.1.12-h8f2d780_0
+  libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_2
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-11.2.0-h1234567_1
+  libgfortran-ng     pkgs/main/linux-64::libgfortran-ng-11.2.0-h00389a5_1
+  libgfortran5       pkgs/main/linux-64::libgfortran5-11.2.0-h1234567_1
+  libgomp            pkgs/main/linux-64::libgomp-11.2.0-h1234567_1
+  libllvm10          pkgs/main/linux-64::libllvm10-10.0.1-hbcb73fb_5
+  libpng             pkgs/main/linux-64::libpng-1.6.37-hbc83047_0
+  libpq              pkgs/main/linux-64::libpq-12.9-h16c4e8d_3
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-11.2.0-h1234567_1
+  libtiff            pkgs/main/linux-64::libtiff-4.4.0-hecacb30_0
+  libuuid            pkgs/main/linux-64::libuuid-1.0.3-h7f8727e_2
+  libwebp            pkgs/main/linux-64::libwebp-1.2.2-h55f646e_0
+  libwebp-base       pkgs/main/linux-64::libwebp-base-1.2.2-h7f8727e_0
+  libxcb             pkgs/main/linux-64::libxcb-1.15-h7f8727e_0
+  libxkbcommon       pkgs/main/linux-64::libxkbcommon-1.0.1-hfa300c1_0
+  libxml2            pkgs/main/linux-64::libxml2-2.9.14-h74e7548_0
+  libxslt            pkgs/main/linux-64::libxslt-1.1.35-h4e12654_0
+  lz4-c              pkgs/main/linux-64::lz4-c-1.9.3-h295c915_1
+  matplotlib         pkgs/main/linux-64::matplotlib-3.5.1-py310h06a4308_1
+  matplotlib-base    pkgs/main/linux-64::matplotlib-base-3.5.1-py310ha18d171_1
+  mkl                pkgs/main/linux-64::mkl-2021.4.0-h06a4308_640
+  mkl-service        pkgs/main/linux-64::mkl-service-2.4.0-py310h7f8727e_0
+  mkl_fft            pkgs/main/linux-64::mkl_fft-1.3.1-py310hd6ae3a3_0
+  mkl_random         pkgs/main/linux-64::mkl_random-1.2.2-py310h00e6091_0
+  munkres            pkgs/main/noarch::munkres-1.1.4-py_0
+  ncurses            pkgs/main/linux-64::ncurses-6.3-h5eee18b_3
+  nspr               pkgs/main/linux-64::nspr-4.33-h295c915_0
+  nss                pkgs/main/linux-64::nss-3.74-h0370c37_0
+  numexpr            pkgs/main/linux-64::numexpr-2.8.3-py310hcea2de6_0
+  numpy              pkgs/main/linux-64::numpy-1.21.5-py310h1794996_3
+  numpy-base         pkgs/main/linux-64::numpy-base-1.21.5-py310hcba007f_3
+  openssl            pkgs/main/linux-64::openssl-1.1.1q-h7f8727e_0
+  packaging          pkgs/main/noarch::packaging-21.3-pyhd3eb1b0_0
+  pandas             pkgs/main/linux-64::pandas-1.4.2-py310h295c915_0
+  pcre               pkgs/main/linux-64::pcre-8.45-h295c915_0
+  pillow             pkgs/main/linux-64::pillow-9.2.0-py310hace64e9_1
+  pip                pkgs/main/linux-64::pip-22.1.2-py310h06a4308_0
+  ply                pkgs/main/linux-64::ply-3.11-py310h06a4308_0
+  pyparsing          pkgs/main/linux-64::pyparsing-3.0.9-py310h06a4308_0
+  pyqt               pkgs/main/linux-64::pyqt-5.15.7-py310h6a678d5_1
+  pyqt5-sip          pkgs/main/linux-64::pyqt5-sip-12.11.0-py310h6a678d5_1
+  python             pkgs/main/linux-64::python-3.10.4-h12debd9_0
+  python-dateutil    pkgs/main/noarch::python-dateutil-2.8.2-pyhd3eb1b0_0
+  pytz               pkgs/main/linux-64::pytz-2022.1-py310h06a4308_0
+  qt-main            pkgs/main/linux-64::qt-main-5.15.2-h327a75a_7
+  qt-webengine       pkgs/main/linux-64::qt-webengine-5.15.9-hd2b0992_4
+  qtwebkit           pkgs/main/linux-64::qtwebkit-5.212-h4eab89a_4
+  readline           pkgs/main/linux-64::readline-8.1.2-h7f8727e_1
+  scikit-learn       pkgs/main/linux-64::scikit-learn-1.1.1-py310h6a678d5_0
+  scipy              pkgs/main/linux-64::scipy-1.7.3-py310h1794996_2
+  setuptools         pkgs/main/linux-64::setuptools-63.4.1-py310h06a4308_0
+  sip                pkgs/main/linux-64::sip-6.6.2-py310h6a678d5_0
+  six                pkgs/main/noarch::six-1.16.0-pyhd3eb1b0_1
+  sqlite             pkgs/main/linux-64::sqlite-3.39.2-h5082296_0
+  threadpoolctl      pkgs/main/noarch::threadpoolctl-2.2.0-pyh0d69192_0
+  tk                 pkgs/main/linux-64::tk-8.6.12-h1ccaba5_0
+  toml               pkgs/main/noarch::toml-0.10.2-pyhd3eb1b0_0
+  tornado            pkgs/main/linux-64::tornado-6.2-py310h5eee18b_0
+  tzdata             pkgs/main/noarch::tzdata-2022c-h04d1e81_0
+  wheel              pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0
+  xz                 pkgs/main/linux-64::xz-5.2.5-h7f8727e_1
+  zlib               pkgs/main/linux-64::zlib-1.2.12-h5eee18b_3
+  zstd               pkgs/main/linux-64::zstd-1.5.2-ha4553b6_0
+
+
+Proceed ([y]/n)? y
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: / 
+
+    Installed package of scikit-learn can be accelerated using scikit-learn-intelex.
+    More details are available here: https://intel.github.io/scikit-learn-intelex
+
+    For example:
+
+        $ conda install scikit-learn-intelex
+        $ python -m sklearnex my_application.py
+
+    
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate data-sci-env2
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+```
+````
 
 With the above command we create a new environment but don't specify to install Python. 
 However, because we've specified Python packages which depend on Python being installed to run conda will install the high version of Python suitable for these packages.
@@ -112,11 +335,14 @@ This will return a list of the available conda environments you can use and the 
 
 ```bash
 $ conda env list
-
+```
+````{admonition} View full output
+:class: dropdown
+```
 py39-env                   /home/home01/arcuser/.conda/envs/py39-env
 data-sci-env               /home/home01/arcusers/.conda/envs/data-sci-env
-
 ```
+````
 
 ### Removing a Conda environment
 
@@ -128,7 +354,9 @@ To remove the `py39-env` we created earlier we use the command:
 ```bash
 $ conda remove --name py39-env --all
 ```
-```output
+````{admonition} View full output
+:class: dropdown
+```
 Remove all packages in environment /home/home01/arcuser/.conda/envs/py39-env:
 
 
@@ -164,6 +392,7 @@ The following packages will be REMOVED:
 
 Proceed ([y]/n)? 
 ```
+````
 
 Conda checks for user confirmation that we wish to proceed and outlines for us exactly which packages are being removed. 
 On proceeding with removing the environment all associated environment files and packages are deleted.
@@ -205,6 +434,35 @@ You can recreate a Conda environment from a file with the following command:
 ```bash
 $ conda env create -f environment.yml
 ```
+````{admonition} View full output
+:class: dropdown
+```
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.12.0
+  latest version: 4.14.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate py39-env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+```
+````
 
 Here we're specifying Conda create a new environment and using the `-f` option to specify that it creates the environment using a file with an environment specification.
 We pass the file path to the environment file as the argument following `-f`.
@@ -258,15 +516,154 @@ With the Conda command line tool searching for and installing packages is can be
 ```bash
 $ conda search python
 ```
-```output
+````{admonition} View full output
+:class: dropdown
+```
 Loading channels: done
 # Name                       Version           Build  Channel             
 python                        2.7.13     hac47a24_15  pkgs/main           
 python                        2.7.13     heccc3f1_16  pkgs/main           
-...                           ...        ...          ...          
+python                        2.7.13     hfff3488_13  pkgs/main           
+python                        2.7.14     h1571d57_29  pkgs/main           
+python                        2.7.14     h1571d57_30  pkgs/main           
+python                        2.7.14     h1571d57_31  pkgs/main           
+python                        2.7.14     h1aa7481_19  pkgs/main           
+python                        2.7.14     h435b27a_18  pkgs/main           
+python                        2.7.14     h89e7a4a_22  pkgs/main           
+python                        2.7.14     h91f54f5_26  pkgs/main           
+python                        2.7.14     h931c8b0_15  pkgs/main           
+python                        2.7.14     h9b67528_20  pkgs/main           
+python                        2.7.14     ha6fc286_23  pkgs/main           
+python                        2.7.14     hc2b0042_21  pkgs/main           
+python                        2.7.14     hdd48546_24  pkgs/main           
+python                        2.7.14     hf918d8d_16  pkgs/main           
+python                        2.7.15      h1571d57_0  pkgs/main           
+python                        2.7.15      h77bded6_1  pkgs/main           
+python                        2.7.15      h77bded6_2  pkgs/main           
+python                        2.7.15      h9bab390_2  pkgs/main           
+python                        2.7.15      h9bab390_4  pkgs/main           
+python                        2.7.15      h9bab390_6  pkgs/main           
+python                        2.7.16      h8b3fad2_1  pkgs/main           
+python                        2.7.16      h8b3fad2_2  pkgs/main           
+python                        2.7.16      h8b3fad2_3  pkgs/main           
+python                        2.7.16      h8b3fad2_4  pkgs/main           
+python                        2.7.16      h8b3fad2_5  pkgs/main           
+python                        2.7.16      h9bab390_0  pkgs/main           
+python                        2.7.16      h9bab390_6  pkgs/main           
+python                        2.7.16      h9bab390_7  pkgs/main           
+python                        2.7.17      h9bab390_0  pkgs/main           
+python                        2.7.18      h02575d3_0  pkgs/main           
+python                        2.7.18      h15b4118_1  pkgs/main           
+python                        2.7.18      ha1903f6_2  pkgs/main           
+python                         3.5.4     h00c01ad_19  pkgs/main           
+python                         3.5.4     h0b4c808_22  pkgs/main           
+python                         3.5.4     h2170f06_12  pkgs/main           
+python                         3.5.4     h3075507_18  pkgs/main           
+python                         3.5.4     h417fded_24  pkgs/main           
+python                         3.5.4     h56e0582_23  pkgs/main           
+python                         3.5.4     h72f0b78_15  pkgs/main           
+python                         3.5.4     hb43c6bb_21  pkgs/main           
+python                         3.5.4     hc053d89_14  pkgs/main           
+python                         3.5.4     hc3d631a_27  pkgs/main           
+python                         3.5.4     he2c66cf_20  pkgs/main           
+python                         3.5.5      hc3d631a_0  pkgs/main           
+python                         3.5.5      hc3d631a_1  pkgs/main           
+python                         3.5.5      hc3d631a_3  pkgs/main           
+python                         3.5.5      hc3d631a_4  pkgs/main           
+python                         3.5.6      h12debd9_1  pkgs/main           
+python                         3.5.6      hc3d631a_0  pkgs/main           
+python                         3.6.2     h02fb82a_12  pkgs/main           
+python                         3.6.2     h0b30769_14  pkgs/main           
+python                         3.6.2     h33255ae_18  pkgs/main           
+python                         3.6.2     hca45abc_19  pkgs/main           
+python                         3.6.2     hdfe5801_15  pkgs/main           
+python                         3.6.3      h0ef2715_3  pkgs/main           
+python                         3.6.3      h1284df2_4  pkgs/main           
+python                         3.6.3      h6c0c0dc_5  pkgs/main           
+python                         3.6.3      hc9025b9_1  pkgs/main           
+python                         3.6.3      hcad60d5_0  pkgs/main           
+python                         3.6.3      hefd0734_2  pkgs/main           
+python                         3.6.4      hc3d631a_0  pkgs/main           
+python                         3.6.4      hc3d631a_1  pkgs/main           
+python                         3.6.4      hc3d631a_3  pkgs/main           
+python                         3.6.5      hc3d631a_0  pkgs/main           
+python                         3.6.5      hc3d631a_1  pkgs/main           
+python                         3.6.5      hc3d631a_2  pkgs/main           
+python                         3.6.6      h6e4f718_2  pkgs/main           
+python                         3.6.6      hc3d631a_0  pkgs/main           
+python                         3.6.7      h0371630_0  pkgs/main           
+python                         3.6.8      h0371630_0  pkgs/main           
+python                         3.6.9      h265db76_0  pkgs/main           
+python                        3.6.10      h0371630_0  pkgs/main           
+python                        3.6.10      h191fe78_1  pkgs/main           
+python                        3.6.10      h7579374_2  pkgs/main           
+python                        3.6.10      hcf32534_1  pkgs/main           
+python                        3.6.12      hcff3b4d_2  pkgs/main           
+python                        3.6.13      h12debd9_1  pkgs/main           
+python                        3.6.13      hdb3f193_0  pkgs/main           
+python                         3.7.0      h6e4f718_3  pkgs/main           
+python                         3.7.0      hc3d631a_0  pkgs/main           
+python                         3.7.1      h0371630_3  pkgs/main           
+python                         3.7.1      h0371630_7  pkgs/main           
+python                         3.7.2      h0371630_0  pkgs/main           
+python                         3.7.3      h0371630_0  pkgs/main           
+python                         3.7.4      h265db76_0  pkgs/main           
+python                         3.7.4      h265db76_1  pkgs/main           
+python                         3.7.5      h0371630_0  pkgs/main           
+python                         3.7.6      h0371630_2  pkgs/main           
+python                         3.7.7 h191fe78_0_cpython  pkgs/main           
+python                         3.7.7 hcf32534_0_cpython  pkgs/main           
+python                         3.7.7      hcff3b4d_4  pkgs/main           
+python                         3.7.7      hcff3b4d_5  pkgs/main           
+python                         3.7.9      h7579374_0  pkgs/main           
+python                        3.7.10      h12debd9_4  pkgs/main           
+python                        3.7.10      hdb3f193_0  pkgs/main           
+python                        3.7.11      h12debd9_0  pkgs/main           
+python                        3.7.13      h12debd9_0  pkgs/main           
+python                         3.8.0      h0371630_0  pkgs/main           
+python                         3.8.0      h0371630_1  pkgs/main           
+python                         3.8.0      h0371630_2  pkgs/main           
+python                         3.8.1      h0371630_1  pkgs/main           
+python                         3.8.2      h191fe78_0  pkgs/main           
+python                         3.8.2      hcf32534_0  pkgs/main           
+python                         3.8.2     hcff3b4d_13  pkgs/main           
+python                         3.8.2     hcff3b4d_14  pkgs/main           
+python                         3.8.3      hcff3b4d_0  pkgs/main           
+python                         3.8.3      hcff3b4d_2  pkgs/main           
+python                         3.8.5      h7579374_1  pkgs/main           
+python                         3.8.5      hcff3b4d_0  pkgs/main           
+python                         3.8.8      hdb3f193_4  pkgs/main           
+python                         3.8.8      hdb3f193_5  pkgs/main           
+python                        3.8.10      h12debd9_8  pkgs/main           
+python                        3.8.10      hdb3f193_7  pkgs/main           
+python                        3.8.11 h12debd9_0_cpython  pkgs/main           
+python                        3.8.12      h12debd9_0  pkgs/main           
+python                        3.8.13      h12debd9_0  pkgs/main           
+python                         3.9.0      hcff3b4d_1  pkgs/main           
+python                         3.9.0      hdb3f193_2  pkgs/main           
+python                         3.9.1      hdb3f193_2  pkgs/main           
+python                         3.9.2      hdb3f193_0  pkgs/main           
+python                         3.9.4      hdb3f193_0  pkgs/main           
+python                         3.9.5      h12debd9_4  pkgs/main           
+python                         3.9.5      hdb3f193_3  pkgs/main           
+python                         3.9.6      h12debd9_0  pkgs/main           
+python                         3.9.6      h12debd9_1  pkgs/main           
+python                         3.9.7      h12debd9_1  pkgs/main           
+python                        3.9.11      h12debd9_1  pkgs/main           
+python                        3.9.11      h12debd9_2  pkgs/main           
+python                        3.9.12      h12debd9_0  pkgs/main           
+python                        3.9.12      h12debd9_1  pkgs/main           
+python                        3.9.13      haa1d7c7_1  pkgs/main           
+python                        3.10.0      h12debd9_0  pkgs/main           
+python                        3.10.0      h12debd9_1  pkgs/main           
+python                        3.10.0      h12debd9_2  pkgs/main           
+python                        3.10.0      h12debd9_4  pkgs/main           
+python                        3.10.0      h12debd9_5  pkgs/main           
+python                        3.10.0      h151d27f_3  pkgs/main           
 python                        3.10.3      h12debd9_5  pkgs/main           
-python                        3.10.4      h12debd9_0  pkgs/main 
+python                        3.10.4      h12debd9_0  pkgs/main  
 ```
+````
 
 This command searches for packages based on the argument provided. 
 It searches in package repositories called [Conda Channels](https://docs.conda.io/projects/conda/en/stable/user-guide/concepts/channels.html) which are remote websites where built Conda packages have been uploaded to. 
@@ -276,45 +673,502 @@ Other channels are also available such as [`conda-forge`](https://conda-forge.or
 ```bash
 $ conda search 'python[channel=conda-forge]'
 ```
-```output
+````{admonition} View full output
+:class: dropdown
+```
 Loading channels: done
 # Name                       Version           Build  Channel             
 python                         1.0.1               0  conda-forge         
 python                           1.2               0  conda-forge         
-...                           ...                ...  ...        
+python                           1.3               0  conda-forge         
+python                           1.4               0  conda-forge         
+python                         1.5.2               0  conda-forge         
+python                           1.6               0  conda-forge         
+python                           2.0               0  conda-forge         
+python                         2.6.9               0  conda-forge         
+python                        2.7.12               0  conda-forge         
+python                        2.7.12               1  conda-forge         
+python                        2.7.12               2  conda-forge         
+python                        2.7.13               0  conda-forge         
+python                        2.7.13               1  conda-forge         
+python                        2.7.14               0  conda-forge         
+python                        2.7.14               1  conda-forge         
+python                        2.7.14               2  conda-forge         
+python                        2.7.14               3  conda-forge         
+python                        2.7.14               4  conda-forge         
+python                        2.7.14               5  conda-forge         
+python                        2.7.15               0  conda-forge         
+python                        2.7.15      h33da82c_1  conda-forge         
+python                        2.7.15      h33da82c_3  conda-forge         
+python                        2.7.15      h33da82c_4  conda-forge         
+python                        2.7.15      h33da82c_5  conda-forge         
+python                        2.7.15      h33da82c_6  conda-forge         
+python                        2.7.15   h5a48372_1009  conda-forge         
+python                        2.7.15 h5a48372_1010_cpython  conda-forge         
+python                        2.7.15 h5a48372_1011_cpython  conda-forge         
+python                        2.7.15   h721da81_1008  conda-forge         
+python                        2.7.15   h938d71a_1001  conda-forge         
+python                        2.7.15   h938d71a_1002  conda-forge         
+python                        2.7.15   h938d71a_1003  conda-forge         
+python                        2.7.15   h938d71a_1004  conda-forge         
+python                        2.7.15   h938d71a_1005  conda-forge         
+python                        2.7.15   h938d71a_1006  conda-forge         
+python                        2.7.15      h9fef7bc_0  conda-forge         
+python                         3.4.5               0  conda-forge         
+python                         3.4.5               1  conda-forge         
+python                         3.4.5               2  conda-forge         
+python                         3.5.1               0  conda-forge         
+python                         3.5.1               1  conda-forge         
+python                         3.5.2               0  conda-forge         
+python                         3.5.2               1  conda-forge         
+python                         3.5.2               2  conda-forge         
+python                         3.5.2               4  conda-forge         
+python                         3.5.2               5  conda-forge         
+python                         3.5.3               0  conda-forge         
+python                         3.5.3               1  conda-forge         
+python                         3.5.3               2  conda-forge         
+python                         3.5.3               3  conda-forge         
+python                         3.5.4               0  conda-forge         
+python                         3.5.4               1  conda-forge         
+python                         3.5.4               2  conda-forge         
+python                         3.5.4               3  conda-forge         
+python                         3.5.5               0  conda-forge         
+python                         3.5.5               1  conda-forge         
+python                         3.5.5      h5001a0f_2  conda-forge         
+python                       3.6.0a3               0  conda-forge         
+python                       3.6.0a4               0  conda-forge         
+python                       3.6.0b1               0  conda-forge         
+python                       3.6.0b2               0  conda-forge         
+python                       3.6.0b2               1  conda-forge         
+python                       3.6.0b3               0  conda-forge         
+python                       3.6.0b4               0  conda-forge         
+python                      3.6.0rc1               0  conda-forge         
+python                         3.6.0               0  conda-forge         
+python                         3.6.0               1  conda-forge         
+python                         3.6.0               2  conda-forge         
+python                         3.6.1               0  conda-forge         
+python                         3.6.1               1  conda-forge         
+python                         3.6.1               2  conda-forge         
+python                         3.6.1               3  conda-forge         
+python                         3.6.2               0  conda-forge         
+python                         3.6.3               0  conda-forge         
+python                         3.6.3               1  conda-forge         
+python                         3.6.3               2  conda-forge         
+python                         3.6.3               3  conda-forge         
+python                         3.6.3               4  conda-forge         
+python                         3.6.4               0  conda-forge         
+python                         3.6.5               0  conda-forge         
+python                         3.6.5               1  conda-forge         
+python                         3.6.6      h5001a0f_0  conda-forge         
+python                         3.6.6      h5001a0f_2  conda-forge         
+python                         3.6.6      h5001a0f_3  conda-forge         
+python                         3.6.6   hd21baee_1000  conda-forge         
+python                         3.6.6   hd21baee_1001  conda-forge         
+python                         3.6.6   hd21baee_1002  conda-forge         
+python                         3.6.6   hd21baee_1003  conda-forge         
+python                         3.6.7   h357f687_1005  conda-forge         
+python                         3.6.7   h357f687_1006  conda-forge         
+python                         3.6.7 h357f687_1008_cpython  conda-forge         
+python                         3.6.7   h381d211_1004  conda-forge         
+python                         3.6.7      h5001a0f_0  conda-forge         
+python                         3.6.7      h5001a0f_1  conda-forge         
+python                         3.6.7   hd21baee_1000  conda-forge         
+python                         3.6.7   hd21baee_1001  conda-forge         
+python                         3.6.7   hd21baee_1002  conda-forge         
+python                         3.6.9       0_73_pypy  conda-forge         
+python                         3.6.9       2_73_pypy  conda-forge         
+python                         3.6.9       3_73_pypy  conda-forge         
+python                         3.6.9 h9d8adfe_0_cpython  conda-forge         
+python                        3.6.10 h8356626_1010_cpython  conda-forge         
+python                        3.6.10 h8356626_1011_cpython  conda-forge         
+python                        3.6.10 h9d8adfe_1009_cpython  conda-forge         
+python                        3.6.10 he5300dc_1010_cpython  conda-forge         
+python                        3.6.10 he5300dc_1011_cpython  conda-forge         
+python                        3.6.11 h425cb1d_0_cpython  conda-forge         
+python                        3.6.11 h425cb1d_1_cpython  conda-forge         
+python                        3.6.11 h425cb1d_2_cpython  conda-forge         
+python                        3.6.11 h4d41432_0_cpython  conda-forge         
+python                        3.6.11 h4d41432_1_cpython  conda-forge         
+python                        3.6.11 h4d41432_2_cpython  conda-forge         
+python                        3.6.11 h6f2ec95_0_cpython  conda-forge         
+python                        3.6.11 h6f2ec95_1_cpython  conda-forge         
+python                        3.6.11 h6f2ec95_2_cpython  conda-forge         
+python                        3.6.11 hffdb5ce_3_cpython  conda-forge         
+python                        3.6.12       4_73_pypy  conda-forge         
+python                        3.6.12       5_73_pypy  conda-forge         
+python                        3.6.12 hffdb5ce_0_cpython  conda-forge         
+python                        3.6.13 hb7a2778_1_cpython  conda-forge         
+python                        3.6.13 hb7a2778_2_cpython  conda-forge         
+python                        3.6.13 hffdb5ce_0_cpython  conda-forge         
+python                        3.6.15 hb7a2778_0_cpython  conda-forge         
+python                         3.7.0      h5001a0f_0  conda-forge         
+python                         3.7.0      h5001a0f_1  conda-forge         
+python                         3.7.0      h5001a0f_4  conda-forge         
+python                         3.7.0      h5001a0f_6  conda-forge         
+python                         3.7.0   hd21baee_1002  conda-forge         
+python                         3.7.0   hd21baee_1003  conda-forge         
+python                         3.7.0   hd21baee_1004  conda-forge         
+python                         3.7.0   hd21baee_1005  conda-forge         
+python                         3.7.0   hd21baee_1006  conda-forge         
+python                         3.7.0      hfd72cd7_0  conda-forge         
+python                         3.7.1   h381d211_1002  conda-forge         
+python                         3.7.1   h381d211_1003  conda-forge         
+python                         3.7.1      h5001a0f_0  conda-forge         
+python                         3.7.1   hd21baee_1000  conda-forge         
+python                         3.7.1   hd21baee_1001  conda-forge         
+python                         3.7.2      h381d211_0  conda-forge         
+python                         3.7.3      h33d41f4_1  conda-forge         
+python                         3.7.3      h357f687_2  conda-forge         
+python                         3.7.3      h5b0a415_0  conda-forge         
+python                         3.7.5 hffdb5ce_0_cpython  conda-forge         
+python                         3.7.6 cpython_h8356626_6  conda-forge         
+python                         3.7.6 cpython_he5300dc_6  conda-forge         
+python                         3.7.6      h357f687_1  conda-forge         
+python                         3.7.6      h357f687_2  conda-forge         
+python                         3.7.6 h357f687_3_cpython  conda-forge         
+python                         3.7.6 h357f687_4_cpython  conda-forge         
+python                         3.7.6 h8356626_5_cpython  conda-forge         
+python                         3.7.6 he5300dc_5_cpython  conda-forge         
+python                         3.7.8 h425cb1d_0_cpython  conda-forge         
+python                         3.7.8 h425cb1d_1_cpython  conda-forge         
+python                         3.7.8 h4d41432_0_cpython  conda-forge         
+python                         3.7.8 h4d41432_1_cpython  conda-forge         
+python                         3.7.8 h6238437_2_cpython  conda-forge         
+python                         3.7.8 h6f2ec95_0_cpython  conda-forge         
+python                         3.7.8 h6f2ec95_1_cpython  conda-forge         
+python                         3.7.8 h8bdb77d_2_cpython  conda-forge         
+python                         3.7.8 hdad413e_2_cpython  conda-forge         
+python                         3.7.8 hffdb5ce_3_cpython  conda-forge         
+python                         3.7.9       4_73_pypy  conda-forge         
+python                         3.7.9       5_73_pypy  conda-forge         
+python                         3.7.9 hffdb5ce_0_cpython  conda-forge         
+python                         3.7.9 hffdb5ce_100_cpython  conda-forge         
+python                        3.7.10       0_73_pypy  conda-forge         
+python                        3.7.10       1_73_pypy  conda-forge         
+python                        3.7.10 hb7a2778_101_cpython  conda-forge         
+python                        3.7.10 hb7a2778_102_cpython  conda-forge         
+python                        3.7.10 hb7a2778_103_cpython  conda-forge         
+python                        3.7.10 hb7a2778_104_cpython  conda-forge         
+python                        3.7.10 hf930737_102_cpython  conda-forge         
+python                        3.7.10 hf930737_103_cpython  conda-forge         
+python                        3.7.10 hf930737_104_cpython  conda-forge         
+python                        3.7.10 hffdb5ce_100_cpython  conda-forge         
+python                        3.7.12       0_73_pypy  conda-forge         
+python                        3.7.12 hb7a2778_100_cpython  conda-forge         
+python                        3.7.12 hf930737_100_cpython  conda-forge         
+python                         3.8.0      h357f687_0  conda-forge         
+python                         3.8.0      h357f687_1  conda-forge         
+python                         3.8.0      h357f687_2  conda-forge         
+python                         3.8.0      h357f687_3  conda-forge         
+python                         3.8.0      h357f687_4  conda-forge         
+python                         3.8.0      h357f687_5  conda-forge         
+python                         3.8.1      h357f687_1  conda-forge         
+python                         3.8.1      h357f687_2  conda-forge         
+python                         3.8.2 h8356626_5_cpython  conda-forge         
+python                         3.8.2 h8356626_6_cpython  conda-forge         
+python                         3.8.2 h8356626_7_cpython  conda-forge         
+python                         3.8.2 h9d8adfe_4_cpython  conda-forge         
+python                         3.8.2 he5300dc_5_cpython  conda-forge         
+python                         3.8.2 he5300dc_6_cpython  conda-forge         
+python                         3.8.2 he5300dc_7_cpython  conda-forge         
+python                         3.8.3 cpython_h8356626_0  conda-forge         
+python                         3.8.3 cpython_he5300dc_0  conda-forge         
+python                         3.8.4 cpython_h425cb1d_0  conda-forge         
+python                         3.8.4 cpython_h6f2ec95_0  conda-forge         
+python                         3.8.5 cpython_h425cb1d_0  conda-forge         
+python                         3.8.5 cpython_h4d41432_0  conda-forge         
+python                         3.8.5 cpython_h6f2ec95_0  conda-forge         
+python                         3.8.5      h1103e12_2  conda-forge         
+python                         3.8.5 h1103e12_3_cpython  conda-forge         
+python                         3.8.5 h1103e12_4_cpython  conda-forge         
+python                         3.8.5 h1103e12_5_cpython  conda-forge         
+python                         3.8.5 h1103e12_6_cpython  conda-forge         
+python                         3.8.5 h1103e12_7_cpython  conda-forge         
+python                         3.8.5 h1103e12_8_cpython  conda-forge         
+python                         3.8.5 h1103e12_9_cpython  conda-forge         
+python                         3.8.5 h425cb1d_1_cpython  conda-forge         
+python                         3.8.5 h425cb1d_2_cpython  conda-forge         
+python                         3.8.5 h4d41432_1_cpython  conda-forge         
+python                         3.8.5 h4d41432_2_cpython  conda-forge         
+python                         3.8.5 h6f2ec95_1_cpython  conda-forge         
+python                         3.8.5 h6f2ec95_2_cpython  conda-forge         
+python                         3.8.6 h852b56e_0_cpython  conda-forge         
+python                         3.8.6 hffdb5ce_1_cpython  conda-forge         
+python                         3.8.6 hffdb5ce_2_cpython  conda-forge         
+python                         3.8.6 hffdb5ce_3_cpython  conda-forge         
+python                         3.8.6 hffdb5ce_4_cpython  conda-forge         
+python                         3.8.6 hffdb5ce_5_cpython  conda-forge         
+python                         3.8.8 hffdb5ce_0_cpython  conda-forge         
+python                        3.8.10 h49503c6_1_cpython  conda-forge         
+python                        3.8.10 hb7a2778_2_cpython  conda-forge         
+python                        3.8.10 hffdb5ce_0_cpython  conda-forge         
+python                        3.8.12       0_73_pypy  conda-forge         
+python                        3.8.12 h0744224_3_cpython  conda-forge         
+python                        3.8.12 ha38a3c6_3_cpython  conda-forge         
+python                        3.8.12 hb7a2778_0_cpython  conda-forge         
+python                        3.8.12 hb7a2778_1_cpython  conda-forge         
+python                        3.8.12 hb7a2778_2_cpython  conda-forge         
+python                        3.8.12 hf930737_1_cpython  conda-forge         
+python                        3.8.12 hf930737_2_cpython  conda-forge         
+python                        3.8.13       0_73_pypy  conda-forge         
+python                        3.8.13 h582c2e5_0_cpython  conda-forge         
+python                        3.8.13 ha86cf86_0_cpython  conda-forge         
+python                         3.9.0 h2a148a8_4_cpython  conda-forge         
+python                         3.9.0 h852b56e_1_cpython  conda-forge         
+python                         3.9.0 h852b56e_2_cpython  conda-forge         
+python                         3.9.0 h852b56e_3_cpython  conda-forge         
+python                         3.9.0 hffdb5ce_5_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_0_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_1_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_2_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_3_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_4_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_5_cpython  conda-forge         
+python                         3.9.2 hffdb5ce_0_cpython  conda-forge         
+python                         3.9.4 hffdb5ce_0_cpython  conda-forge         
+python                         3.9.5 h49503c6_0_cpython  conda-forge         
+python                         3.9.6 h49503c6_0_cpython  conda-forge         
+python                         3.9.6 h49503c6_1_cpython  conda-forge         
+python                         3.9.7 h49503c6_0_cpython  conda-forge         
+python                         3.9.7 hb7a2778_1_cpython  conda-forge         
+python                         3.9.7 hb7a2778_2_cpython  conda-forge         
+python                         3.9.7 hb7a2778_3_cpython  conda-forge         
+python                         3.9.7 hf930737_3_cpython  conda-forge         
+python                         3.9.9 h543edf9_0_cpython  conda-forge         
+python                         3.9.9 h62f1059_0_cpython  conda-forge         
+python                        3.9.10       0_73_pypy  conda-forge         
+python                        3.9.10 h85951f9_0_cpython  conda-forge         
+python                        3.9.10 h85951f9_1_cpython  conda-forge         
+python                        3.9.10 h85951f9_2_cpython  conda-forge         
+python                        3.9.10 hc74c709_0_cpython  conda-forge         
+python                        3.9.10 hc74c709_1_cpython  conda-forge         
+python                        3.9.10 hc74c709_2_cpython  conda-forge         
+python                        3.9.12       0_73_pypy  conda-forge         
+python                        3.9.12 h2660328_0_cpython  conda-forge         
+python                        3.9.12 h2660328_1_cpython  conda-forge         
+python                        3.9.12 h9a8a25e_0_cpython  conda-forge         
+python                        3.9.12 h9a8a25e_1_cpython  conda-forge         
+python                        3.9.13 h2660328_0_cpython  conda-forge         
+python                        3.9.13 h9a8a25e_0_cpython  conda-forge         
+python                        3.10.0 h543edf9_1_cpython  conda-forge         
+python                        3.10.0 h543edf9_2_cpython  conda-forge         
+python                        3.10.0 h543edf9_3_cpython  conda-forge         
+python                        3.10.0 h62f1059_1_cpython  conda-forge         
+python                        3.10.0 h62f1059_2_cpython  conda-forge         
+python                        3.10.0 h62f1059_3_cpython  conda-forge         
+python                        3.10.1 h543edf9_0_cpython  conda-forge         
+python                        3.10.1 h543edf9_1_cpython  conda-forge         
+python                        3.10.1 h543edf9_2_cpython  conda-forge         
+python                        3.10.1 h62f1059_0_cpython  conda-forge         
+python                        3.10.1 h62f1059_1_cpython  conda-forge         
+python                        3.10.1 h62f1059_2_cpython  conda-forge         
+python                        3.10.2 h543edf9_0_cpython  conda-forge         
+python                        3.10.2 h62f1059_0_cpython  conda-forge         
+python                        3.10.2 h85951f9_1_cpython  conda-forge         
+python                        3.10.2 h85951f9_2_cpython  conda-forge         
+python                        3.10.2 h85951f9_3_cpython  conda-forge         
+python                        3.10.2 h85951f9_4_cpython  conda-forge         
+python                        3.10.2 hc74c709_1_cpython  conda-forge         
+python                        3.10.2 hc74c709_2_cpython  conda-forge         
+python                        3.10.2 hc74c709_3_cpython  conda-forge         
+python                        3.10.2 hc74c709_4_cpython  conda-forge         
+python                        3.10.4 h2660328_0_cpython  conda-forge         
+python                        3.10.4 h9a8a25e_0_cpython  conda-forge         
 python                        3.10.5 h582c2e5_0_cpython  conda-forge         
-python                        3.10.5 ha86cf86_0_cpython  conda-forge
+python                        3.10.5 ha86cf86_0_cpython  conda-forge         
+python                        3.10.6 h582c2e5_0_cpython  conda-forge         
+python                        3.10.6 ha86cf86_0_cpython  conda-forge   
 ```
-
+````
 You can also search for specific version requirements with `conda search`:
 
 ```bash
 $ conda search 'python>=3.8'
 ```
-```output
+````{admonition} View full output
+:class: dropdown
+```
 Loading channels: done
 # Name                       Version           Build  Channel             
 python                         3.8.0      h0371630_0  pkgs/main           
 python                         3.8.0      h0371630_1  pkgs/main           
-...                           ...                ...  ...        
+python                         3.8.0      h0371630_2  pkgs/main           
+python                         3.8.1      h0371630_1  pkgs/main           
+python                         3.8.2      h191fe78_0  pkgs/main           
+python                         3.8.2      hcf32534_0  pkgs/main           
+python                         3.8.2     hcff3b4d_13  pkgs/main           
+python                         3.8.2     hcff3b4d_14  pkgs/main           
+python                         3.8.3      hcff3b4d_0  pkgs/main           
+python                         3.8.3      hcff3b4d_2  pkgs/main           
+python                         3.8.5      h7579374_1  pkgs/main           
+python                         3.8.5      hcff3b4d_0  pkgs/main           
+python                         3.8.8      hdb3f193_4  pkgs/main           
+python                         3.8.8      hdb3f193_5  pkgs/main           
+python                        3.8.10      h12debd9_8  pkgs/main           
+python                        3.8.10      hdb3f193_7  pkgs/main           
+python                        3.8.11 h12debd9_0_cpython  pkgs/main           
+python                        3.8.12      h12debd9_0  pkgs/main           
+python                        3.8.13      h12debd9_0  pkgs/main           
+python                         3.9.0      hcff3b4d_1  pkgs/main           
+python                         3.9.0      hdb3f193_2  pkgs/main           
+python                         3.9.1      hdb3f193_2  pkgs/main           
+python                         3.9.2      hdb3f193_0  pkgs/main           
+python                         3.9.4      hdb3f193_0  pkgs/main           
+python                         3.9.5      h12debd9_4  pkgs/main           
+python                         3.9.5      hdb3f193_3  pkgs/main           
+python                         3.9.6      h12debd9_0  pkgs/main           
+python                         3.9.6      h12debd9_1  pkgs/main           
+python                         3.9.7      h12debd9_1  pkgs/main           
+python                        3.9.11      h12debd9_1  pkgs/main           
+python                        3.9.11      h12debd9_2  pkgs/main           
+python                        3.9.12      h12debd9_0  pkgs/main           
+python                        3.9.12      h12debd9_1  pkgs/main           
+python                        3.9.13      haa1d7c7_1  pkgs/main           
+python                        3.10.0      h12debd9_0  pkgs/main           
+python                        3.10.0      h12debd9_1  pkgs/main           
+python                        3.10.0      h12debd9_2  pkgs/main           
+python                        3.10.0      h12debd9_4  pkgs/main           
+python                        3.10.0      h12debd9_5  pkgs/main           
+python                        3.10.0      h151d27f_3  pkgs/main           
 python                        3.10.3      h12debd9_5  pkgs/main           
 python                        3.10.4      h12debd9_0  pkgs/main
 ```
+````
 
 You can combine the two conditions shown above (searching a specific channel and for a specific version):
 
 ```bash
 $ conda search 'python[channel=conda-forge]>=3.8'
 ```
-```output
+````{admonition} View full output
+:class: dropdown
+```
 Loading channels: done
 # Name                       Version           Build  Channel             
 python                         3.8.0      h357f687_0  conda-forge         
 python                         3.8.0      h357f687_1  conda-forge         
-...                           ...                ...  ...       
+python                         3.8.0      h357f687_2  conda-forge         
+python                         3.8.0      h357f687_3  conda-forge         
+python                         3.8.0      h357f687_4  conda-forge         
+python                         3.8.0      h357f687_5  conda-forge         
+python                         3.8.1      h357f687_1  conda-forge         
+python                         3.8.1      h357f687_2  conda-forge         
+python                         3.8.2 h8356626_5_cpython  conda-forge         
+python                         3.8.2 h8356626_6_cpython  conda-forge         
+python                         3.8.2 h8356626_7_cpython  conda-forge         
+python                         3.8.2 h9d8adfe_4_cpython  conda-forge         
+python                         3.8.2 he5300dc_5_cpython  conda-forge         
+python                         3.8.2 he5300dc_6_cpython  conda-forge         
+python                         3.8.2 he5300dc_7_cpython  conda-forge         
+python                         3.8.3 cpython_h8356626_0  conda-forge         
+python                         3.8.3 cpython_he5300dc_0  conda-forge         
+python                         3.8.4 cpython_h425cb1d_0  conda-forge         
+python                         3.8.4 cpython_h6f2ec95_0  conda-forge         
+python                         3.8.5 cpython_h425cb1d_0  conda-forge         
+python                         3.8.5 cpython_h4d41432_0  conda-forge         
+python                         3.8.5 cpython_h6f2ec95_0  conda-forge         
+python                         3.8.5      h1103e12_2  conda-forge         
+python                         3.8.5 h1103e12_3_cpython  conda-forge         
+python                         3.8.5 h1103e12_4_cpython  conda-forge         
+python                         3.8.5 h1103e12_5_cpython  conda-forge         
+python                         3.8.5 h1103e12_6_cpython  conda-forge         
+python                         3.8.5 h1103e12_7_cpython  conda-forge         
+python                         3.8.5 h1103e12_8_cpython  conda-forge         
+python                         3.8.5 h1103e12_9_cpython  conda-forge         
+python                         3.8.5 h425cb1d_1_cpython  conda-forge         
+python                         3.8.5 h425cb1d_2_cpython  conda-forge         
+python                         3.8.5 h4d41432_1_cpython  conda-forge         
+python                         3.8.5 h4d41432_2_cpython  conda-forge         
+python                         3.8.5 h6f2ec95_1_cpython  conda-forge         
+python                         3.8.5 h6f2ec95_2_cpython  conda-forge         
+python                         3.8.6 h852b56e_0_cpython  conda-forge         
+python                         3.8.6 hffdb5ce_1_cpython  conda-forge         
+python                         3.8.6 hffdb5ce_2_cpython  conda-forge         
+python                         3.8.6 hffdb5ce_3_cpython  conda-forge         
+python                         3.8.6 hffdb5ce_4_cpython  conda-forge         
+python                         3.8.6 hffdb5ce_5_cpython  conda-forge         
+python                         3.8.8 hffdb5ce_0_cpython  conda-forge         
+python                        3.8.10 h49503c6_1_cpython  conda-forge         
+python                        3.8.10 hb7a2778_2_cpython  conda-forge         
+python                        3.8.10 hffdb5ce_0_cpython  conda-forge         
+python                        3.8.12       0_73_pypy  conda-forge         
+python                        3.8.12 h0744224_3_cpython  conda-forge         
+python                        3.8.12 ha38a3c6_3_cpython  conda-forge         
+python                        3.8.12 hb7a2778_0_cpython  conda-forge         
+python                        3.8.12 hb7a2778_1_cpython  conda-forge         
+python                        3.8.12 hb7a2778_2_cpython  conda-forge         
+python                        3.8.12 hf930737_1_cpython  conda-forge         
+python                        3.8.12 hf930737_2_cpython  conda-forge         
+python                        3.8.13       0_73_pypy  conda-forge         
+python                        3.8.13 h582c2e5_0_cpython  conda-forge         
+python                        3.8.13 ha86cf86_0_cpython  conda-forge         
+python                         3.9.0 h2a148a8_4_cpython  conda-forge         
+python                         3.9.0 h852b56e_1_cpython  conda-forge         
+python                         3.9.0 h852b56e_2_cpython  conda-forge         
+python                         3.9.0 h852b56e_3_cpython  conda-forge         
+python                         3.9.0 hffdb5ce_5_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_0_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_1_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_2_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_3_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_4_cpython  conda-forge         
+python                         3.9.1 hffdb5ce_5_cpython  conda-forge         
+python                         3.9.2 hffdb5ce_0_cpython  conda-forge         
+python                         3.9.4 hffdb5ce_0_cpython  conda-forge         
+python                         3.9.5 h49503c6_0_cpython  conda-forge         
+python                         3.9.6 h49503c6_0_cpython  conda-forge         
+python                         3.9.6 h49503c6_1_cpython  conda-forge         
+python                         3.9.7 h49503c6_0_cpython  conda-forge         
+python                         3.9.7 hb7a2778_1_cpython  conda-forge         
+python                         3.9.7 hb7a2778_2_cpython  conda-forge         
+python                         3.9.7 hb7a2778_3_cpython  conda-forge         
+python                         3.9.7 hf930737_3_cpython  conda-forge         
+python                         3.9.9 h543edf9_0_cpython  conda-forge         
+python                         3.9.9 h62f1059_0_cpython  conda-forge         
+python                        3.9.10       0_73_pypy  conda-forge         
+python                        3.9.10 h85951f9_0_cpython  conda-forge         
+python                        3.9.10 h85951f9_1_cpython  conda-forge         
+python                        3.9.10 h85951f9_2_cpython  conda-forge         
+python                        3.9.10 hc74c709_0_cpython  conda-forge         
+python                        3.9.10 hc74c709_1_cpython  conda-forge         
+python                        3.9.10 hc74c709_2_cpython  conda-forge         
+python                        3.9.12       0_73_pypy  conda-forge         
+python                        3.9.12 h2660328_0_cpython  conda-forge         
+python                        3.9.12 h2660328_1_cpython  conda-forge         
+python                        3.9.12 h9a8a25e_0_cpython  conda-forge         
+python                        3.9.12 h9a8a25e_1_cpython  conda-forge         
+python                        3.9.13 h2660328_0_cpython  conda-forge         
+python                        3.9.13 h9a8a25e_0_cpython  conda-forge         
+python                        3.10.0 h543edf9_1_cpython  conda-forge         
+python                        3.10.0 h543edf9_2_cpython  conda-forge         
+python                        3.10.0 h543edf9_3_cpython  conda-forge         
+python                        3.10.0 h62f1059_1_cpython  conda-forge         
+python                        3.10.0 h62f1059_2_cpython  conda-forge         
+python                        3.10.0 h62f1059_3_cpython  conda-forge         
+python                        3.10.1 h543edf9_0_cpython  conda-forge         
+python                        3.10.1 h543edf9_1_cpython  conda-forge         
+python                        3.10.1 h543edf9_2_cpython  conda-forge         
+python                        3.10.1 h62f1059_0_cpython  conda-forge         
+python                        3.10.1 h62f1059_1_cpython  conda-forge         
+python                        3.10.1 h62f1059_2_cpython  conda-forge         
+python                        3.10.2 h543edf9_0_cpython  conda-forge         
+python                        3.10.2 h62f1059_0_cpython  conda-forge         
+python                        3.10.2 h85951f9_1_cpython  conda-forge         
+python                        3.10.2 h85951f9_2_cpython  conda-forge         
+python                        3.10.2 h85951f9_3_cpython  conda-forge         
+python                        3.10.2 h85951f9_4_cpython  conda-forge         
+python                        3.10.2 hc74c709_1_cpython  conda-forge         
+python                        3.10.2 hc74c709_2_cpython  conda-forge         
+python                        3.10.2 hc74c709_3_cpython  conda-forge         
+python                        3.10.2 hc74c709_4_cpython  conda-forge         
+python                        3.10.4 h2660328_0_cpython  conda-forge         
+python                        3.10.4 h9a8a25e_0_cpython  conda-forge         
 python                        3.10.5 h582c2e5_0_cpython  conda-forge         
-python                        3.10.5 ha86cf86_0_cpython  conda-forge 
+python                        3.10.5 ha86cf86_0_cpython  conda-forge         
+python                        3.10.6 h582c2e5_0_cpython  conda-forge         
+python                        3.10.6 ha86cf86_0_cpython  conda-forge   
 ```
+````
 
 ### Installing packages
 
@@ -330,7 +1184,9 @@ $ conda activate data-sci-env
 
 (data-sci-env)$ conda install statsmodels
 ```
-```output
+````{admonition} View full output
+:class: dropdown
+```
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
@@ -379,13 +1235,15 @@ The following NEW packages will be INSTALLED:
 
 
 Proceed ([y]/n)?
-
 ```
+````
 
-Here conda asks us if we're happy to proceed with the installation and specifies all the other packages that will be installed or updated that are required for our specified package. 
+Conda will always prompt the user if we're happy to proceed with the installation and specifies all the other packages that will be installed or updated that are required for our specified package. 
 We confirm we wish to proceed by entering `y` and pressing Return.
 
-```output
+````{admonition} View full output
+:class: dropdown
+```
 Proceed ([y]/n)? y
 
 Downloading and Extracting Packages
@@ -400,6 +1258,7 @@ Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
 ```
+````
 
 This installs any packages that are currently not installed (conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).
 
@@ -416,7 +1275,9 @@ We could remove this version of pandas with the following command:
 ```bash
 $ conda remove -n data-sci-env pandas
 ```
-```output
+````{admonition} View full output
+:class: dropdown
+```
 Collecting package metadata (repodata.json): done
 Solving environment: done
 
@@ -452,17 +1313,12 @@ The following packages will be UPDATED:
 
 Proceed ([y]/n)? 
 ```
+````
 
 When removing packages as with installing them Conda will ask for user confirmation to proceed. 
 As you can see in the above example, removing one package may also lead to the removal of additional packages and can cause other packages to update.
 
-With these changes made we can now install a newer version of pandas (output is not shown).
-
-```bash
-$ conda activate data-sci-env
-
-(data-sci-env)$ conda install pandas=1.4.3
-```
+With these changes made we can now install a newer version of pandas using `conda install`.
 
 ### Updating a package
 
@@ -477,7 +1333,9 @@ $ conda activate data-sci-env
 
 (data-sci-env)$ conda update matplotlib
 ```
-```output
+````{admonition} View full output
+:class: dropdown
+```
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
@@ -507,6 +1365,7 @@ The following packages will be UPDATED:
 
 Proceed ([y]/n)? 
 ```
+````
 
 When requesting to update a package Conda will also update other dependencies of the package that you wish to update, and can potentially install new packages that are required.
 
