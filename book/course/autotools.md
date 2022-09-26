@@ -83,7 +83,7 @@ This sorts everything out ready for us to configure it.  If neither of these
 scripts are present, you can instead do:
 
 ```bash
-autoreconf -fi
+$ autoreconf -fi
 ```
 
 ````{admonition} View full output
@@ -107,12 +107,14 @@ extern/samtools-1.3.1/Makefile.am: installing 'aux_build/depcomp'
 ```
 ````
 
+```{note}
 This often results in exactly the same outcome, but the authors may have added
 other things into the bootstrap script, so if present it's wise to use it.
+```
 
 # Configure the software
 
-Running the configure script first lets your find out what options you have
+Running the configure script first lets you find out what options you have
 (trimmed down output show below):
 
 ```bash
@@ -248,7 +250,7 @@ installing software for a given project in one location, rather than each
 program being installed separately, but it's up to you.
 
 ```bash
-./configure --prefix=/nobackup/example/project1
+$ ./configure --prefix=/nobackup/example/project1
 ```
 
 ````{admonition} View full output
@@ -433,38 +435,43 @@ config.status: executing depfiles commands
 You'll then got a lot of output showing it testing your system and ensuring it
 can find all the bits it needs.
 
+If it doesn't find what it needs, you need to look at the options provided by
+`--help` or look into setting standard environment variables like
+CPATH/LIBRARY_PATH, as covered in the [Theory section](theory).
+
 ## Building
 
-Assuming everything's gone well so far, building the software is just a case of:
+Assuming everything's gone well so far with configure, it will have now written out a top level Makefile, which contains the necessary steps to build and install your software.  Building the software is now just a case of:
 
 ```bash
-make
+$ make
 ```
 
 If you're running on a multicore machine, you can ask it to run several build
 jobs in parallel.  For example, to build using 8 cores:
 
 ```bash
-make -j 8
+$ make -j 8
 ```
 
+```{note}
 Poorly written makefiles will sometimes build incorrectly when built in
-parallel, but you'd normally fine just running make again afterwards would
-complete the build.
+parallel, but you'd normally be fine just running `make` again afterwards which
+would complete the build.
+```
 
 ## Install
 
-Once build, to install it at the location you requested:
+Once built, to install it at the location you requested:
 
 ```bash
-make install
+$ make install
 ```
 
 There you have it.  Your software is installed at the location you asked.  It's
 still up to you at this point to either run the software directly from this
 location, or update you environment variables to make this software generally
-available to you.  Details on this is covered in the [Concepts section](concepts).
-
+available to you.  Details on this is covered in the [Theory section](theory).
 
 ## Summary
 
