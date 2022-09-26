@@ -24,4 +24,5 @@ sections:
   - file: course/spack/containers
   - file: course/spack/environments
   - file: course/spack/recipes
+- file: course/conda
 - file: course/cmake
