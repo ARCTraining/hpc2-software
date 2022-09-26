@@ -95,8 +95,9 @@ $ mkdir build install
 
 $ cmake -S . -B build/ -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DLIBCURL_OUTPUT_NAME=libcurl2
 ```
-```{admonition} View full output
+````{admonition} View full output
 :class: dropdown
+```
 -- The C compiler identification is Intel 19.0.4.20190416
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
@@ -584,6 +585,7 @@ $ cmake -S . -B build/ -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DLIBCURL_OUTPUT_NA
 -- Generating done
 -- Build files have been written to: /home/home01/arcuser/curl/build
 ```
+````
 
 It is normal to specify CMake options by their name with a `-D` prepended to the option name.
 By default CMake will install software in standard location on our machine, this often means locations such as `/usr/local` which requires `sudo` rights to write to.
@@ -661,7 +663,7 @@ If we try and run our new cURL without doing this step we get the following erro
 $ ~/curl/build/bin/curl --version
 ```
 ```output
-/home/home01/arcuser/curl/build/bin/curl: error while loading shared libraries: libcurl2.so: cannot open shared object file: No such file or directory
+/home/home01/arcuser/curl/install/bin/curl: error while loading shared libraries: libcurl2.so: cannot open shared object file: No such file or directory
 ```
 
 This is because `libcurl2` is not available to use via the associated environment variable. 
