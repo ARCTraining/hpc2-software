@@ -2,7 +2,7 @@
 
 Content from this lesson has been inspired and adapted from a number of sources including:
 - [Conda documentation](https://docs.conda.io/en/latest/)
-- [Carpentries Incubator: Introduction to conda for data scientists](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/)
+- [Carpentries Incubator: Introduction to Conda for data scientists](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/)
 
 ## Introduction
 
@@ -49,7 +49,7 @@ Conda is cross-platform, therefore all these distributions have installers for b
 For Miniconda, you visit the [Miniconda page](https://docs.conda.io/en/latest/miniconda.html) on the conda website, select the installer corresponding to your operating system and run the downloaded file on your machine. 
 When installing Miniconda you may be prompted to select various settings during installation, our recommendation is to leave these settings as the defaults if you're unsure.
 
-If you have questions or issues installing conda locally please get in touch via the [Research Computing Contact form](https://leeds.service-now.com/it?id=sc_cat_item&sys_id=7587b2530f675f00a82247ece1050eda).
+If you have questions or issues installing Conda locally please get in touch via the [Research Computing Contact form](https://leeds.service-now.com/it?id=sc_cat_item&sys_id=7587b2530f675f00a82247ece1050eda).
 
 ## Conda environments
 
@@ -59,7 +59,7 @@ This allows you to separate the dependencies of different projects cleanly so fo
 Conda makes it easy to switch between different environments and allows you to create and delete them as required. 
 Conda environments also make it easier to share our environment setup between machines and with collaborators as we can export our environments into a text file.
 
-```{note} The base environment
+```{admonition} The base environment
 By default conda includes the `base` environment. 
 This contains a starting installation of python and the dependencies of the conda tool itself. 
 Therefore, it's **best practice** to not install packages into the `base` environment and create your own environments into which you install the tools you need.
@@ -68,7 +68,7 @@ Therefore, it's **best practice** to not install packages into the `base` enviro
 ### Creating environments
 
 You can create an environment with conda with the subcommand `conda create`. 
-When creating an environment we need to give it a name, we recommend giving it a name related to the project you're going to use the environment for.
+When creating an environment we need to give it a name; we recommend giving it a name related to the project you're going to use the environment for.
 
 ```bash
 $ conda create --name py39-env python=3.9
@@ -103,8 +103,6 @@ You can deactivate your current environment with another simple subcommand `cond
 
 ```bash
 (data-sci-env)$ conda deactivate
-
-$
 ```
 
 ### Listing current environments
@@ -320,24 +318,19 @@ python                        3.10.5 ha86cf86_0_cpython  conda-forge
 
 ### Installing packages
 
-Installing packages via conda is performed using the `install` subcommand with the format `conda install PACKAGE`, where `PACKAGE` is the name of the package you wish to install. 
+Installing packages via Conda is performed using the `install` subcommand with the format `conda install PACKAGE`, where `PACKAGE` is the name of the package you wish to install. 
 
 Earlier we created the `data-sci-env` and installed some useful data science packages. 
 We've discovered we also need the `statsmodels` package for some extra work we want to do so we'll look at using `conda install` to install this package within our existing environment.
 
-To install packages into an existing environment we need to activate it with the [subcommand shown above](./#activating-environments).
+To install packages into an existing environment we need to activate it with the [subcommand shown above](#activating-environments).
 
 ```bash
 $ conda activate data-sci-env
 
-(data-sci-env)$
-```
-
-```bash
 (data-sci-env)$ conda install statsmodels
 ```
 ```output
-(data-sci-env)$ conda install statsmodels
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
