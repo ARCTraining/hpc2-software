@@ -38,15 +38,15 @@ Conda is widely used across scientific computing and data science based domains 
 - The cross platform nature of Conda allows for users to more easily share the environments. This helps researchers share their computational environment along side their data and analysis, helping improve the reproducibility of their research
 - Conda also provides access to widely used machine learning and data science libraries such as TensorFlow, SciPy, NumPy that are available as pre-configured, hardware specific packages (such as GPU-enabled TensorFlow) allowing for code to be as performant as possible
 
-## Installing conda
+## Installing Conda
 
-You can install conda from a number of sources:
+You can install Conda from a number of sources:
 - As part of the [Anaconda Python distribution](https://www.anaconda.com/products/distribution)
 - As part of [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 - As part of the conda-forge channel [Miniforge](https://github.com/conda-forge/miniforge) distribution
 
 Conda is cross-platform, therefore all these distributions have installers for both Windows, MacOS and Linux. 
-For Miniconda, you visit the [Miniconda page](https://docs.conda.io/en/latest/miniconda.html) on the conda website, select the installer corresponding to your operating system and run the downloaded file on your machine. 
+For Miniconda, you visit the [Miniconda page](https://docs.conda.io/en/latest/miniconda.html) on the Conda website, select the installer corresponding to your operating system and run the downloaded file on your machine. 
 When installing Miniconda you may be prompted to select various settings during installation, our recommendation is to leave these settings as the defaults if you're unsure.
 
 If you have questions or issues installing Conda locally please get in touch via the [Research Computing Contact form](https://leeds.service-now.com/it?id=sc_cat_item&sys_id=7587b2530f675f00a82247ece1050eda).
@@ -60,14 +60,14 @@ Conda makes it easy to switch between different environments and allows you to c
 Conda environments also make it easier to share our environment setup between machines and with collaborators as we can export our environments into a text file.
 
 ```{admonition} The base environment
-By default conda includes the `base` environment. 
-This contains a starting installation of python and the dependencies of the conda tool itself. 
+By default Conda includes the `base` environment. 
+This contains a starting installation of Python and the dependencies of the Conda tool itself. 
 Therefore, it's **best practice** to not install packages into the `base` environment and create your own environments into which you install the tools you need.
 ```
 
 ### Creating environments
 
-You can create an environment with conda with the subcommand `conda create`. 
+You can create an environment with Conda with the subcommand `conda create`. 
 When creating an environment we need to give it a name; we recommend giving it a name related to the project you're going to use the environment for.
 
 ```bash
@@ -139,8 +139,8 @@ Executing transaction: done
 ```
 ````
 
-The above command will prompt conda to create a new environment called `py39-env` and install into it `python` at version 3.9. 
-We can specify multiple packages when creating a conda environment by separating each package name with a space.
+The above command will prompt Conda to create a new environment called `py39-env` and install into it `python` at version 3.9. 
+We can specify multiple packages when creating a Conda environment by separating each package name with a space.
 
 ```bash
 $ conda create --name data-sci-env pandas=1.4.2 matplotlib=3.5.1 scikit-learn
