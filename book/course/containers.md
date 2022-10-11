@@ -20,7 +20,11 @@ the kernel.  So if you use a container technology on Linux, and your host
 operating system runs Linux with a 4.18 kernel, then that's what everything
 inside your container sees as well.  This is quite different to running an
 actual virtual machine, where what's seen by running code can be entirely
-different to the hypervisor's operating system.
+different to the hypervisor's operating system.  Additionally, with a virtual
+machine, you have to choose how much RAM you allocate when you start it up,
+unlike a container which case use all of the host system's memory, in the same
+way a normal process can.  This lack of total containment also means you get
+full access to the network and GPUs of the host.
 
 ## Why do I want a container?
 
@@ -115,6 +119,9 @@ HPC, but with a software environment we've brought with us from elsewhere.  In
 the example we just used `run` which executes a predefined piece of software
 within the container, but you are not limited to only running the command set
 when the container was created.
+
+Note that you normally have read only access to the container, and only have
+write access to directories of the host mapped into the container.
 
 ## What else can I do with containers?
 
@@ -248,6 +255,29 @@ singularity run lolcow_latest.sif
 # Run a custom command inside the container
 singularity exec lolcow_latest.sif fortune
 ```
+
+## Bonus section
+
+There's more content we'd like to include than we've really got time for, but
+some bonus content is available here.
+
+````{admonition} Sandboxes
+:class: dropdown
+
+When writing a recipe you may find it hard to come up with a working recipe first time.  This is where sandboxes can come in handy.  If you create a sandbox, rather than creating an image file, it writes out the files into a directory, and you can then have a container run in this directory, but with write access, which you do not normally have.  So you write your basic recipe, and build the container like this:
+
+```bash
+$ singularity build --sandbox lolcow lolcow.def
+```
+
+Now we can have a session within it:
+
+```bash
+$ singularity shell --fakeroot --writable lolcow
+```
+
+You can now experiment inside this sandbox to work out what you need for your recipe.
+````
 
 ## References
 
