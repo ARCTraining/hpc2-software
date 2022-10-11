@@ -66,7 +66,7 @@ things are working:
 # Load the legacy singularity module
 $ module add singularity
 
-# Download a simple container:
+# Download a simple container
 $ singularity pull docker://godlovedc/lolcow
 
 # Run it
