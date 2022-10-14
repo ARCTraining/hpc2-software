@@ -61,7 +61,7 @@ Singularity, we'll only be looking at Apptainer, but have tended to use the
 compatibility.  Anywhere we use the `singularity` command, you could instead
 use `apptainer`.
 
-## Examples of running containers
+## Example of running a container
 
 It's always good to do something simple to start iwht, to prove to yourself
 things are working:
@@ -282,3 +282,28 @@ You can now experiment inside this sandbox to work out what you need for your re
 ## References
 
 [Apptainer Documentation](https://apptainer.org/docs/user/main/)
+
+## Summary
+
+```{important}
+- [What are containers](#what-are-containers)?
+- [Why do I want a container](#why-do-i-want-a-container)?
+- [Can I use Docker on HPC](#can-i-use-docker-on-hpc)?
+- [Singularity vs Apptainer](#singularity-vs-apptainer)
+- [Example of running a container](#example-of-running-a-container) and a look into the steps involved:
+    - [Pulling a container image down from Docker Hub](#pulling-a-container-down-from-docker-hub)
+    - [Converting it into a SIF image](#converting-it-into-a-sif-image)
+    - [Running software within a container](#running-software-within-a-container)
+- What else can I do with containers?
+  - [Access host storage within a container](#access-host-storage-within-a-container)
+  - [Run an alternative command within a container](#run-an-alternative-command-within-a-container)
+  - [Have an interactive shell inside the container](#have-an-interactive-shell-inside-the-container)
+  - [Use GPUs within a container](#use-gpus-within-a-container)
+- Building a container
+  - [Creating a recipe](#creating-a-recipe)
+  - [Generate a SIF image from a recipe](#generate-a-sif-image-from-a-recipe)
+  - [Test the image we've created](#test-the-image-we-ve-created)
+- [Submitting jobs with containers](#submitting-jobs-with-containers)
+- Bonus section
+  - [Sandboxes](#sandboxes)
+```
