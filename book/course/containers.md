@@ -212,6 +212,26 @@ From: ubuntu:16.04
 
 This container starts with a Docker container (Ubuntu 16.04), and installs a few necessary packages.  The it defines what happens when we run it: `fortune | cowsay | lolcat`.
 
+### Converting a Dockerfile to a Singularity recipe
+
+There's a tool written in Python that allows you to convert from a Dockerfile into a Singularity format file.  Whilst not perfect, this often allows for simple creations of images, where no prebuilt Docker image exists:
+
+```bash
+# Load anaconda
+$ module add anaconda
+
+# Install spython (only need to do this once)
+$ pip install spython --user
+
+# Download an example Dockerfile
+$ wget https://raw.githubusercontent.com/GodloveD/lolcow/master/Dockerfile
+
+# Convert it into Singularity format
+$ spython recipe Dockerfile lolcow.def
+```
+
+Then you could proceed to build it into a SIF file as show below.
+
 ### Generate a SIF image from a recipe
 
 ```bash
@@ -301,6 +321,7 @@ You can now experiment inside this sandbox to work out what you need for your re
   - [Use GPUs within a container](#use-gpus-within-a-container)
 - Building a container
   - [Creating a recipe](#creating-a-recipe)
+  - [Converting a Dockerfile to a Singularity recipe](#converting-a-dockerfile-to-a-singularity-recipe)
   - [Generate a SIF image from a recipe](#generate-a-sif-image-from-a-recipe)
   - [Test the image we've created](#test-the-image-we-ve-created)
 - [Submitting jobs with containers](#submitting-jobs-with-containers)
