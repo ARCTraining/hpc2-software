@@ -210,7 +210,7 @@ From: ubuntu:16.04
   fortune | cowsay | lolcat
 ```
 
-This container starts with a Docker container (Ubuntu 16.04), and installs a few necessary packages.  The it defines what happens when we run it: `fortune | cowsay | lolcat`.
+This container starts with a Docker container (Ubuntu 16.04), and installs a few necessary packages.  Then it defines what happens when we run it: `fortune | cowsay | lolcat`.
 
 ### Converting a Dockerfile to a Singularity recipe
 
