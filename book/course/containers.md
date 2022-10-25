@@ -63,7 +63,7 @@ use `apptainer`.
 
 ## Example of running a container
 
-It's always good to do something simple to start iwht, to prove to yourself
+It's always good to do something simple to start with, to prove to yourself
 things are working:
 
 ```bash
