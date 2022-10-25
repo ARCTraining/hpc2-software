@@ -136,7 +136,7 @@ them.  If you wanted /data to be visible inside the container, you can just do:
 $ singularity run -B /data example.sif
 ```
 
-Or if you wanted to make something visible somewhere else (so /data outside
+Or if you wanted to make something visible somewhere else (so `/data` outside
 is presented within the container as /scratch):
 
 ```bash
