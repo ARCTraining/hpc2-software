@@ -94,7 +94,7 @@ It might not look on the face of it that this is very impressive, but we've just
 
 - pulled down a container from docker hub
 - converted it into a SIF image
-- run a piece of software, within an Ubuntu container
+- run a piece of software, within an Ubuntu container on a CentOS host 
 
 ### What do those steps mean?
 
