@@ -30,7 +30,7 @@ full access to the network and GPUs of the host.
 
 One of the problems with running software on different systems is that it can
 be hard work recreating the software environment across systems, where you may
-be running a different distribution.  By using a container, you can spend the
+be running a different operating system distribution.  By using a container, you can spend the
 effort once to create the software environment, and share that image and
 use it on quite different systems.  By also publishing the recipe, you make it
 very clear how you created this software environment, making it much easier to
