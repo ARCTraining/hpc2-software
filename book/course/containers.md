@@ -116,7 +116,7 @@ When you come to use a container, you can run software inside the container,
 but also see file shares outside the container, and access resources like
 network and GPU of the host machine.  This allows us to use all the power of an
 HPC, but with a software environment we've brought with us from elsewhere.  In
-the example we just used `run` which executes a predefined piece of software
+the example we used `run` which executes a predefined piece of software
 within the container, but you are not limited to only running the command set
 when the container was created.
 
