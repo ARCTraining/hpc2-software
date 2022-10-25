@@ -100,7 +100,7 @@ It might not look on the face of it that this is very impressive, but we've just
 
 #### Pulling a container image down from Docker Hub
 
-Docker Hub is a repository of containers.  Pulling down a container involves
+Docker Hub is a repository of containers, also known as a container registry.  Pulling down a container involves
 pulling down the pieces of this container image over to your machine.
 
 #### Converting it into a SIF image
