@@ -22,7 +22,7 @@ inside your container sees as well.  This is quite different to running an
 actual virtual machine, where what's seen by running code can be entirely
 different to the hypervisor's operating system.  Additionally, with a virtual
 machine, you have to choose how much RAM you allocate when you start it up,
-unlike a container which case use all of the host system's memory, in the same
+unlike a container which can use all of the host system's memory, in the same
 way a normal process can.  This lack of total containment also means you get
 full access to the network and GPUs of the host.
 
