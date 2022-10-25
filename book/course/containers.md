@@ -129,7 +129,7 @@ to directories of the host mapped into the container.
 
 ### Access host storage within a container
 
-By default with Apptainer, your home directory and /tmp are mapped into the
+By default with Apptainer, your home directory and `/tmp` are mapped into the
 container.  On ARC4 we also default to mapping /nobackup and /local inside the
 container.  If you want other directories to be mapped, you have to ask for
 them.  If you wanted /data to be visible inside the container, you can just do:
