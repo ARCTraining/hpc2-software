@@ -120,8 +120,10 @@ the example we used `run` which executes a predefined piece of software
 within the container, but you are not limited to only running the command set
 when the container was created.
 
-Note that you normally have read only access to the container, and only have
-write access to directories of the host mapped into the container.
+```{note}
+You normally have read only access to the container, and only have write access
+to directories of the host mapped into the container.
+```
 
 ## What else can I do with containers?
 
