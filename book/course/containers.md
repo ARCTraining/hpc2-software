@@ -137,7 +137,7 @@ $ singularity run -B /data example.sif
 ```
 
 Or if you wanted to make something visible somewhere else (so `/data` outside
-is presented within the container as /scratch):
+is presented within the container as `/scratch`):
 
 ```bash
 $ singularity run -B /data:scratch example.sif
