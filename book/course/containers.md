@@ -38,7 +38,7 @@ update this in future.
 
 ## Can I use Docker on HPC?
 
-No.
+**No.**
 
 That's the short answer.  The longer answer is, you generally shouldn't want
 to.  Docker is excellent for running web services in containerised
