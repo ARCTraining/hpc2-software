@@ -140,7 +140,7 @@ Or if you wanted to make something visible somewhere else (so `/data` outside
 is presented within the container as `/scratch`):
 
 ```bash
-$ singularity run -B /data:scratch example.sif
+$ singularity run -B /data:/scratch example.sif
 ```
 
 ### Run an alternative command within a container
