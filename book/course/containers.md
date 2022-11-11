@@ -59,7 +59,8 @@ equally apply to Singularity.  Whilst there remains a community edition of
 Singularity, we'll only be looking at Apptainer, but have tended to use the
 `singularity` command line, which is still provided for backwards
 compatibility.  Anywhere we use the `singularity` command, you could instead
-use `apptainer`.
+use `apptainer`, unless you're using an older install of singularity, where
+only `singularity` will work.
 
 ## Example of running a container
 
@@ -67,8 +68,8 @@ It's always good to do something simple to start with, to prove to yourself
 things are working:
 
 ```bash
-# Load the legacy singularity module
-$ module add singularity
+# Load the apptainer module
+$ module add apptainer
 
 # Download a simple container
 $ singularity pull docker://godlovedc/lolcow
