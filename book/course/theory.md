@@ -21,6 +21,7 @@ Open research, reproducibility, easier to support, productivity reinventing the 
 ### Further reading
 * HPC0 slides
 * HPC1 slides
+* Arcdocs (links from previous training)
 
 ### Types of files
 #### Intro
