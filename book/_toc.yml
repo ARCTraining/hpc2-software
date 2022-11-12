@@ -12,7 +12,7 @@ format: jb-article
 root: welcome
 sections:
 - file: course/start
-- file: course/example
+- file: course/theory
 - file: course/autotools
 - file: course/containers
 - file: course/spack
