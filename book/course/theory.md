@@ -18,6 +18,9 @@ Open research, reproducibility, easier to support, productivity reinventing the 
 * Jobs (queue, interactive)
 * File systems (nobackup / home)
 * Common Commands
+### Further reading
+* HPC0 slides
+* HPC1 slides
 
 ### Types of files
 #### Intro
