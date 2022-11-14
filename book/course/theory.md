@@ -13,8 +13,8 @@ This lesson provides background on HPC systems and the software and tools that a
 * Package Managers
 * Environments
 
-## HPC Systems
-### HPC0/HPC1 Recap
+## HPC Systems (split into HPC and Linux ???)
+### HPC0/HPC1 Recap (TOO WORDY !!)
 
 HPC (High Performance Computers) systems can be used for:
 * **High Performance** - A few jobs at a time that run on many processes in parallel across CPU's and nodes.
@@ -101,18 +101,20 @@ Some languages are capable of being compiled or run through an interpreter.
 * Installing ?
 
 ## Package Managers
-### Examples
-* conda
-* pip
-* spack
-### Usage
-* searching
-* downloads
-* installs/removes
-* upgrades/downgrades
-* dependancies
-* versions
-* varients
+
+Package managers are used to manage applications, tools and libraries as packages. Packages  are archives (often compressed files like zip) and can contain any combination of software, libraries and their metadata.
+
+Packages managers keep track of the packages (and their versions/varients) available, installed and their dependencies.
+
+  they usually allow the following functionality:
+
+* Searching (for both online repositories and installed)
+* Downloading from package repositories.
+* installation and removal of packages.
+* Upgrading/downgrading package versions.
+* Installation and removal of dependancies.
+
+The most commonly used package managers on ARC3/ARC4 are conda and pip.
 
 ## Environments
 
@@ -166,5 +168,5 @@ ARC3 and ARC4 provides Anaconda as the primary tool for managing environments, o
 * https://arcdocs.leeds.ac.uk/software/infrastructure/singularity.html
 * https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html
 * https://carpentries-incubator.github.io/python-intermediate-development/12-virtual-environments/
-* [SWD2 Containers](containers.html)
+* [SWD2 Containers](containers)
 * [SWD2 Conda Environments](conda.html#conda-environments)
