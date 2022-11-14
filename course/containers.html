@@ -720,14 +720,15 @@ equally apply to Singularity.  Whilst there remains a community edition of
 Singularity, we’ll only be looking at Apptainer, but have tended to use the
 <code class="docutils literal notranslate"><span class="pre">singularity</span></code> command line, which is still provided for backwards
 compatibility.  Anywhere we use the <code class="docutils literal notranslate"><span class="pre">singularity</span></code> command, you could instead
-use <code class="docutils literal notranslate"><span class="pre">apptainer</span></code>.</p>
+use <code class="docutils literal notranslate"><span class="pre">apptainer</span></code>, unless you’re using an older install of singularity, where
+only <code class="docutils literal notranslate"><span class="pre">singularity</span></code> will work.</p>
 </section>
 <section id="example-of-running-a-container">
 <h2>Example of running a container<a class="headerlink" href="#example-of-running-a-container" title="Permalink to this headline">#</a></h2>
 <p>It’s always good to do something simple to start with, to prove to yourself
 things are working:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the legacy singularity module</span>
-$ module add singularity
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the apptainer module</span>
+$ module add apptainer
 
 <span class="c1"># Download a simple container</span>
 $ singularity pull docker://godlovedc/lolcow
