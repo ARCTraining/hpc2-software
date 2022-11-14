@@ -16,12 +16,11 @@ At the end of this workshop, learners will be able to:
 2. [ ] Understand the how filesystem configuration and environment variables relate to software
 3. [ ] Develop hands on experience with:
     1. [ ] Building software using GNU Autotools
-    2. [ ] Using spack package manager
-    3. [ ] Using conda package manager
-    4. [ ] Building software using cmake
-    5. [ ] Building software using RPMs
-    6. [ ] Interacting and using singularity/Apptainer containers
-    7. [ ] Building personal modules on HPC
+    2. [ ] Using conda package manager
+    3. [ ] Building software using cmake
+    4. [ ] Interacting and using singularity/Apptainer containers
+    5. [ ] Using spack package manager
+    6. [ ] Building personal modules on HPC
 
 ## Prerequisites
 
