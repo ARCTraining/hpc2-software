@@ -55,7 +55,6 @@ In addition most HPC systems provide module systems to load and manage software 
 HPC0 HPC1 provide introduction to commands such as cd (change directory) sort, cut, wc (word count), tail, for loops, qsub (submitted jobs), qstat (job status).
 ```
 
-
 ### Further reading
 * HPC0 slides - https://bit.ly/hpc0linux
 * HPC1 slides - https://bit.ly/hpc1intro
@@ -64,14 +63,15 @@ HPC0 HPC1 provide introduction to commands such as cd (change directory) sort, c
 * https://en.wikipedia.org/wiki/High-performance_computing
 
 ### Types of files (WHERE DOES THIS FIT ???????????????)
-#### Intro
-#### Example
-* Libraries
-* executables
-* configuration files
-* scripts
-* include
-* headers
+
+There are numerous file types you need to be aware of when using and developing code for HPC.
+Below are the key types of files:
+
+* executables - these types of files contain compiled binary code. When opened, the operating system will execute the instructions of the code to run the program.
+* Libraries - these files usually contain compiled code, but cannot be directly run (they can also contain data, templates, documentation). They provide interfaces to be accessed from an existing running program. Libraries are useful for sharing common functionality between different programs.
+* configuration - these files contain strutured data that programs use to  configure parameters and settings to use during execution.
+* scripts and code - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (BASH, python), code files need to be pre compiled to run (C, Java)
+* headers - These are a specific type of include file that that contains declarations and interfaces, but do not provide any implementations. They are programmers to create standardised, compatible data structures and code.
 
 ## 	Build tools
 ### Intro
