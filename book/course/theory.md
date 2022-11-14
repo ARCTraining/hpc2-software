@@ -25,7 +25,9 @@ HPC system cosists of nodes, which are computers connected together as one big s
 
 Each node in ARC3/ARC4 has multple processors which have multiple cores, allowing many processes to run in parallel.
 
-Note: Software and code usually has to be specifically configured to run multiple processors and use MPI to run across multiple nodes at once.
+```{note}
+Software and code usually has to be specifically configured to run multiple processors and use MPI to run across multiple nodes at once.
+```
 
 Most HPC systems, including ARC3/ARC4, use Linux.
 HPC systems do not have GUIs like Windows or a Mac and they are shared systems with monitored and controlled resources (CPU, memory, time, storage)
@@ -45,10 +47,14 @@ The home directory is your personal directory that you login in to by default.
 
 ARC3/ARC4 provide /nobackup as temporary high speed storage to use for your jobs.
 
-Linux provides a full set of standard commands are used to manage and manipulate files and directories.
-In addition HPC systems provide module systems to load and manage software and libraries and also tools to manage and submit jobs.
+Most HPC systems provides a useful set of standard Linux commands to manage and manipulate files and directories.
 
-Note: HPC0 HPC1 provide introduction to commands such as cd (change directory) sort, cut, wc (word count), tail, for loops, qsub (submitted jobs), qstat (job status).
+In addition most HPC systems provide module systems to load and manage software and libraries, and also tools to manage and submit jobs.
+
+```{note}
+HPC0 HPC1 provide introduction to commands such as cd (change directory) sort, cut, wc (word count), tail, for loops, qsub (submitted jobs), qstat (job status).
+```
+
 
 ### Further reading
 * HPC0 slides - https://bit.ly/hpc0linux
@@ -86,8 +92,11 @@ Some languages are capable of being compiled or run through an interpreter.
 * mpi
 * cpython
 
-* Configuration -scripts,  mangers ( (configuration options, build location)
-* Packagers
+### Configuration managers
+(configuration options, build location)
+
+### Packagers
+   
 * Testing ?
 * Installing ?
 
@@ -106,30 +115,52 @@ Some languages are capable of being compiled or run through an interpreter.
 * varients
 
 ## Environments
-###	Different levels of abstraction
+
+Environments provide different levels of abstraction to run your software and code in, these include:
 * Machines (physical and virtual)
 * Containers
 * Virtual Environments
 
+### Physical Machines
+This refers to your physical devices such as laptops, PCs, phones, tablets.
+
+They utilise an **Operating System** (eg Windows, Mac, Android Linux) to control the hardware resources (CPU, storage, memory) to access data and run software and your code.
+
 ### Virtual Machines
-#### What are Virtual machines
-* HyperV
-* KVM
-#### Examples
-* HyperV
-* Quemu
-* Virtual Box
-* WSL2
+
+```{Note}
+ARC3/ARC4 cannot run virtual machines.
+```
+
+Virtual machines reffer to applications (and system level hypervisors) that provide a software representation of hardware to run guest machines.
+
+It is possible to create and run multiple guest machines on a single host.
+
+The guest machines can use different virtual hardware to the host phyiscal machine and any operating system that supports the virtual harware.
 
 ### Containers
-#### What are containers
-#### Examples
-* Docker
-* Apptainer/Singularity
+
+Containers are an Operating System level virtualisation that provides isolated instances.
+They utilise the host operating sytem's kernel and access to (usually a limited set of) hardware resources (memory, CPU, storage, input devices).
+
+Containers have less overheard (often no noticable performance loss) due to not needing to emulate any hardware, more flexible and require less storage and configuration.
+
+ARC3 and ARC4 support Singularity and Apptainer (the new sucessor to Singularity) container tools. They support the import and running of Docker containers.
 
 ### Virtual Environments
-#### What are Virtual Enviroments
+
+
+
 #### Examples
 * conda
 * pyenv
 * spack ??
+
+### Further reading
+
+* https://en.wikipedia.org/wiki/Virtual_machine
+* https://arcdocs.leeds.ac.uk/software/infrastructure/singularity.html
+* https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html
+* https://carpentries-incubator.github.io/python-intermediate-development/12-virtual-environments/
+* [SWD2 Containers](containers.html)
+* [SWD2 Conda Environments](conda.html#conda-environments)
