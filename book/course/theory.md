@@ -11,6 +11,26 @@ Open research, reproducibility, easier to support, productivity reinventing the 
 
 ## Fundamentals
 ### HPC0/HPC1 Recap
+
+HPC systems can be used for:
+# High Performance - A few jobs at a time that run on many processes in parallel across CPU's and nodes.
+# High Throughput - running many different jobs that use few processes on one node each.
+# ARC3 and ARC4 both use a mix of both.
+
+HPC system cosists of nodes, which are computers connected together as one big system.
+
+Most HPC systems, including ARC3/ARC4 use Linux.
+All HPC systems use commandline user interfaces (shells), the most common shell used in Linux systems is bash.
+
+They do not have GUIs like Windows or a Mac
+The compute nodes are not directly acessible and must be accessed using batch jobs (submitted as job scripts).
+
+Login nodes are provided to setup and configure software, code and data.
+
+
+The filesytem uses forward slashes and is structured starting with root directory. 
+
+The home directory is your personal directory that you login in to by default.
 * General HPC Architecture (Login Nodes, Nodes, GPU)
 * Throughtput
 * Paralalisation MPI
