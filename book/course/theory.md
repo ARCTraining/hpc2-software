@@ -121,6 +121,8 @@ Environments provide different levels of abstraction to run your software and co
 * Containers
 * Virtual Environments
 
+They are extremely useful for helping make your projects reproducible, maintain compatibility and concistancy for your projects.
+
 ### Physical Machines
 This refers to your physical devices such as laptops, PCs, phones, tablets.
 
@@ -149,16 +151,18 @@ ARC3 and ARC4 support Singularity and Apptainer (the new sucessor to Singularity
 
 ### Virtual Environments
 
+Virtual Environments are environments for managing isolated sets of user software (tools and libraries).
+These are usually managed by a tool such as Anaconda or virtualenv.
 
+Each environemt created can have its own set of software and when combined with package management can specify specific (or minimum or maximum) versions of some (or all) applications and libraries.
 
-#### Examples
-* conda
-* pyenv
-* spack ??
+ARC3 and ARC4 provides Anaconda as the primary tool for managing environments, others (such as virtualenv for python) as available or installable.
 
 ### Further reading
 
 * https://en.wikipedia.org/wiki/Virtual_machine
+* https://en.wikipedia.org/wiki/OS-level_virtualization
+* 
 * https://arcdocs.leeds.ac.uk/software/infrastructure/singularity.html
 * https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html
 * https://carpentries-incubator.github.io/python-intermediate-development/12-virtual-environments/
