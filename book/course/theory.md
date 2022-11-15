@@ -77,16 +77,17 @@ Below are the key types of files:
 * Libraries - these files usually contain compiled code, but cannot be directly run (they can also contain data, templates, documentation). They provide interfaces to be accessed from an existing running program. Libraries are useful for sharing common functionality between different programs.
 * configuration - these files contain strutured data that programs use to  configure parameters and settings to use during execution.
 * scripts and code - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (BASH, python), code files need to be pre compiled to run (C, Java)
-* headers - These are a specific type of include file that that contains declarations and interfaces, but do not provide any implementations. They are programmers to create standardised, compatible data structures and code.
+* headers - These are a specific type of include file that that specify declarations and interfaces, but do not provide any implementations . They allow programmers to create standardised, compatible data structures and reusable code.
 
 ## Build tools
 
 Build tools is a generic term for any programs and tools used to build software. Building software can include steps such as configuration, compiling, testing, packaging.
 
-Example of some buildtools:
+Common buildtools :
 
-* autotools - a build system to help make portal Unix-like software.
-* cmake - a build file generator for different build environments and platforms.
+* autotools - is a set of build tools to help make portal Unix-like software.
+* cmake - is a cross platform build automation tool, to support the creation of configurations for build tools.
+* Make - the traditional unix/Linux build tool.
 
 ### Compilers
 
@@ -94,7 +95,7 @@ A compiler is a program which translates source code written in a programming la
 
 ARC3 and ARC3 have the [intel](https://arcdocs.leeds.ac.uk/software/compilers/intel.html) compiler set as default, with the [GNU](https://arcdocs.leeds.ac.uk/software/compilers/gnu.html) and [LLVM](https://arcdocs.leeds.ac.uk/software/compilers/llvm.html) compilers being popular alternatives available on the module system.
 
-### Interpreters
+#### Interpreters
 
 An interpreter compiles and executes source code directly. They generall runs code slower than a compiled executable as it has to compile code every time the code is run, but there are optimisations such as bytecode compilation and caching that can vastly improve performance.
 
@@ -102,12 +103,15 @@ Python is a popular interpretated language and the most common interpretor is th
 
 Some languages are capable of being compiled or run through an interpreter.
 
-### Configuration managers
+### Build Configuration
 
-(configuration options, build location)
+Tools like cmake can be used to create different platform specific for different build tools configurations.
 
-### Packagers
+Configuration files usually contain locations of the source code, output locations, of existing components (libraries, assets such as help documentation, data).
 
+They can contain options for conditional builds such as for debug and release builds and for additional features to take advantage of optional components  such as input/output format/interfaces or hardware - such as GPUs.
+
+* Packaging ?
 * Testing ?
 * Installing ?
 
