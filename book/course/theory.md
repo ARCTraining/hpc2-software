@@ -1,22 +1,27 @@
 # Theory
 
 ## Introduction
-### Why 
+
+### Why
 
 HPC systems are used to provide lots of fast computing resource that is available 24/7 and managed.
 
 This lesson provides background on HPC systems and the software and tools that are commonly used on the Universities HPC systems.
 
 ### Overview of topics
+
 * HPC Systems
+* Linux ????
 * Build Tools
 * Package Managers
-* Environments
+* Environments (Virtual Environments ???)
 
 ## HPC Systems (split into HPC and Linux ???)
+
 ### HPC0/HPC1 Recap (TOO WORDY !!)
 
 HPC (High Performance Computers) systems can be used for:
+
 * **High Performance** - A few jobs at a time that run on many processes in parallel across CPU's and nodes.
 * **High Throughput** - running many different jobs that use few processes on one node each.
 * ARC3 and ARC4 both use a mix of both.
@@ -56,11 +61,12 @@ HPC0 HPC1 provide introduction to commands such as cd (change directory) sort, c
 ```
 
 ### Further reading
-* HPC0 slides - https://bit.ly/hpc0linux
-* HPC1 slides - https://bit.ly/hpc1intro
-* Arcdocs - https://arcdocs.leeds.ac.uk/
-* Arc website - https://arc.leeds.ac.uk/
-* https://en.wikipedia.org/wiki/High-performance_computing
+
+* HPC0 slides - <https://bit.ly/hpc0linux>
+* HPC1 slides - <https://bit.ly/hpc1intro>
+* Arcdocs - <https://arcdocs.leeds.ac.uk/>
+* Arc website - <https://arc.leeds.ac.uk/>
+* <https://en.wikipedia.org/wiki/High-performance_computing>
 
 ### Types of files (WHERE DOES THIS FIT ???????????????)
 
@@ -73,30 +79,35 @@ Below are the key types of files:
 * scripts and code - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (BASH, python), code files need to be pre compiled to run (C, Java)
 * headers - These are a specific type of include file that that contains declarations and interfaces, but do not provide any implementations. They are programmers to create standardised, compatible data structures and code.
 
-## 	Build tools
-### Intro
+## Build tools
+
 Build tools is a generic term for any programs and tools used to build software. Building software can include steps such as configuration, compiling, testing, packaging.
 
-### Examples
-autotools (*nix build system), cmake(build file generator for different build environments))
-### Compilers and interpreters
+Example of some buildtools:
+
+* autotools - a build system to help make portal Unix-like software.
+* cmake - a build file generator for different build environments and platforms.
+
+### Compilers
 
 A compiler is a program which translates source code written in a programming language into target code. This is typically into machine code to create an executable program.
 
+ARC3 and ARC3 have the [intel](https://arcdocs.leeds.ac.uk/software/compilers/intel.html) compiler set as default, with the [GNU](https://arcdocs.leeds.ac.uk/software/compilers/gnu.html) and [LLVM](https://arcdocs.leeds.ac.uk/software/compilers/llvm.html) compilers being popular alternatives available on the module system.
+
+### Interpreters
+
 An interpreter compiles and executes source code directly. They generall runs code slower than a compiled executable as it has to compile code every time the code is run, but there are optimisations such as bytecode compilation and caching that can vastly improve performance.
 
+Python is a popular interpretated language and the most common interpretor is the default, [CPython](https://en.wikipedia.org/wiki/CPython).
+
 Some languages are capable of being compiled or run through an interpreter.
-#### Examples
-* gnu
-* intel
-* mpi
-* cpython
 
 ### Configuration managers
+
 (configuration options, build location)
 
 ### Packagers
-   
+
 * Testing ?
 * Installing ?
 
@@ -114,11 +125,15 @@ Packages managers keep track of the packages (and their versions/varients) avail
 * Upgrading/downgrading package versions.
 * Installation and removal of dependancies.
 
-The most commonly used package managers on ARC3/ARC4 are conda and pip.
+The most commonly used package managers on ARC3/ARC4 are anaconda and pip.
+
+* [Anaconda](https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html) is a environment and package manager, primarily for python and r.
+* [pip](https://en.wikipedia.org/wiki/Pip_(package_manager)) is the package manager for python.
 
 ## Environments
 
 Environments provide different levels of abstraction to run your software and code in, these include:
+
 * Machines (physical and virtual)
 * Containers
 * Virtual Environments
@@ -126,6 +141,7 @@ Environments provide different levels of abstraction to run your software and co
 They are extremely useful for helping make your projects reproducible, maintain compatibility and concistancy for your projects.
 
 ### Physical Machines
+
 This refers to your physical devices such as laptops, PCs, phones, tablets.
 
 They utilise an **Operating System** (eg Windows, Mac, Android Linux) to control the hardware resources (CPU, storage, memory) to access data and run software and your code.
@@ -162,11 +178,11 @@ ARC3 and ARC4 provides Anaconda as the primary tool for managing environments, o
 
 ### Further reading
 
-* https://en.wikipedia.org/wiki/Virtual_machine
-* https://en.wikipedia.org/wiki/OS-level_virtualization
-* 
-* https://arcdocs.leeds.ac.uk/software/infrastructure/singularity.html
-* https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html
-* https://carpentries-incubator.github.io/python-intermediate-development/12-virtual-environments/
+* <https://en.wikipedia.org/wiki/Virtual_machine>
+* <https://en.wikipedia.org/wiki/OS-level_virtualization>
+*
+* <https://arcdocs.leeds.ac.uk/software/infrastructure/singularity.html>
+* <https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html>
+* <https://carpentries-incubator.github.io/python-intermediate-development/12-virtual-environments/>
 * [SWD2 Containers](containers)
 * [SWD2 Conda Environments](conda.html#conda-environments)
