@@ -11,7 +11,7 @@ This lesson provides supporting information to the tools used to use, build and 
 * Linux ????
 * Build Tools
 * Package Managers
-* Environments (Virtual Environments ???)
+* Platforms
 
 ### Types of files (WHERE DOES THIS FIT ???????????????)
 
@@ -20,6 +20,10 @@ Below are the key types of files:
 
 * executables - these types of files contain compiled binary code. When opened, the operating system will execute the instructions of the code to run the program.
 * Libraries - these files usually contain compiled code, but cannot be directly run (they can also contain data, templates, documentation). They provide interfaces to be accessed from an existing running program. Libraries are useful for sharing common functionality between different programs.
+```{Note}
+The term Library is also used for the name of a collection of related files, such as in /usr/share or as a package, eg tensorflow.
+```
+
 * configuration - these files contain strutured data that programs use to  configure parameters and settings to use during execution.
 * scripts and code - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (BASH, python), code files need to be pre compiled to run (C, Java)
 * headers - These are a specific type of include file that that specify declarations and interfaces, but do not provide any implementations . They allow programmers to create standardised, compatible data structures and reusable code.
@@ -79,9 +83,9 @@ The most commonly used package managers on ARC3/ARC4 are anaconda and pip.
 * [Anaconda](https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html) is a environment and package manager, primarily for python and r.
 * [pip](https://en.wikipedia.org/wiki/Pip_(package_manager)) is the package manager for python.
 
-## Environments
+## Platforms
 
-Environments provide different levels of abstraction to run your software and code in, these include:
+The platforms mentioned below provide different levels of abstraction to run your software and code in, these include:
 
 * Machines (physical and virtual)
 * Containers
