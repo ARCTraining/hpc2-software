@@ -40,6 +40,18 @@ Conda is widely used across scientific computing and data science based domains 
 
 ## Installing Conda
 
+### On ARC
+
+We provide a module for anaconda, meaning you don't need to install it
+yourself, but you do need to take additional steps to avoid it filling up your
+home directory when you create additional environments.
+
+[Using conda on ARC](https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html)
+
+You also can just install miniconda in /nobackup if you prefer.
+
+### On another system
+
 You can install Conda from a number of sources:
 - As part of the [Anaconda Python distribution](https://www.anaconda.com/products/distribution)
 - As part of [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
