@@ -32,12 +32,10 @@ The term library is also used in computing for the name of a collection of relat
 ```
 
 * **configuration** - these files contain strutured data that programs use to configure parameters and settings to use during execution.
-* **scripts and code** - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (Bash, Python), code files need to be compiled to run (C, Java)
+* **scripts and code** - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (Bash, Python), code files need to be compiled to run (C, Java).
 * **headers** - These are a specific type of include file that that specify declarations and interfaces, but do not provide any implementations . They allow programmers to create standardised, compatible data structures and reusable code.
 
-### File locations
-
-#### Path environment variables
+### Path environment variables
 
 These variables list common locations of files and are used by the system to lookup requested executables and libraries, without the need to provide the full path, which reduces the amount of configuration that would be required to run the same software on different systems.
 
@@ -47,10 +45,9 @@ These variables list common locations of files and are used by the system to loo
 Installation of, or enabling software may add additional locations to PATH or LD_LIBRARY_PATH variables.
 Users can modify these variables for their own user (not system wide), this may need to be done if you are building software yourself.
 
-#### Locations for building and running your own code
+### Locations for building and running your own code
 
-* locally -
-* HPC
+The best locations for building and running your code are your home directory (or sub directory) where your user usually has full permissions to run and manage files eg  `/home/username/` or other user writable folders such as `/nobackup/username` on ARC3/ARC3.
 
 ## Software
 
@@ -63,7 +60,7 @@ Users can modify these variables for their own user (not system wide), this may 
 
 ### Installing software
 
-Software usually requires installation before it can be run.
+Software usually requires installation before it can be run. This is usually by one of the following methods:
 
 * executable installer
 * package file install
@@ -89,10 +86,10 @@ Package managers keep track of packages and all of their versions/variants, both
 They usually allow the following functionality:
 
 * Searching (for both online repositories and installed)
-* Downloading from package repositories.
-* installation and removal of packages.
-* Upgrading/downgrading package versions.
-* Installation and removal of dependancies.
+* Downloading from package repositories
+* Installation and removal of packages
+* Upgrading/downgrading package versions
+* Installation and removal of dependancies
 
 The most commonly used package managers on ARC3/ARC4 are conda (distributed through Anaconda) and pip.
 
