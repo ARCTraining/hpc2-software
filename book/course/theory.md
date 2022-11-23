@@ -6,12 +6,12 @@ This introductory lesson is a small set of computing theory and background infor
 
 It provides supporting information to the tools used to run, build and maintain software on the University's HPC systems.
 
-### Topics
+### Objectives
 
-* Files
-* Software
-* Build Tools
-* Platforms
+* Explain different types of files, environment variables and where to run your code.
+* Explain about different methods to install and manage software.
+* Explain the different steps and supporting tools in building software.
+* Cover the different types of platforms you can utilise to build and run software on.
 
 ## Files
 
@@ -47,7 +47,7 @@ Users can modify these variables for their own user (not system wide), this may 
 
 ### Locations for building and running your own code
 
-The best locations for building and running your code are your home directory (or sub directory) where your user usually has full permissions to run and manage files eg  `/home/username/` or other user writable folders such as `/nobackup/username` on ARC3/ARC3.
+The best locations for building and running your code are your home directory (or sub directory) where your user usually has full permissions to run and manage files eg  `/home/username/` or other user writable/executable directories such as `/nobackup/username` on ARC3/ARC3.
 
 ## Software
 
@@ -191,13 +191,31 @@ Each environment created can have its own set of software and when combined with
 
 ARC3 and ARC4 provides the Anaconda module (that contains `conda` as the primary tool for managing environments, although others (such as virtualenv for Python) are available or installable.
 
-### Further reading
+## Summary
 
-* <https://en.wikipedia.org/wiki/Virtual_machine>
-* <https://en.wikipedia.org/wiki/OS-level_virtualization>
-*
-* <https://arcdocs.leeds.ac.uk/software/infrastructure/singularity.html>
-* <https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html>
-* <https://carpentries-incubator.github.io/python-intermediate-development/12-virtual-environments/>
-* [SWD2 Containers](containers)
-* [SWD2 Conda Environments](conda.html#conda-environments)
+```{important}
+
+* Common types of software files are executables, libraries, configuration, scripts and code.
+* Path environment variables list common locations of executables and libraries so they can located in a standard method across different systems.
+* Users should usually build and run code from user writable/executable directories (eg home directory).
+* Software usually requires installation before it can be run.
+* Package managers are used to manage and maintain software.
+* Build tools can be used to compile, configure and package software.
+* Machines (physical and virtual), Containers and Virtual Environments provide different levels of abstraction to run your code in.
+
+```
+
+## Further reading
+
+* Computer files - <https://en.wikipedia.org/wiki/Computer_file>*
+* Paths - <https://unix.stackexchange.com/a/45106>
+* Home directory - <https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/home.html>
+* Software - <https://en.wikipedia.org/wiki/Software>
+* Package managers - <https://en.wikipedia.org/wiki/Package_manager>
+* Building Software - <https://en.wikipedia.org/wiki/Software_build>
+* Compilers - <https://en.wikipedia.org/wiki/Compiler>
+* Virtual Machines - <https://en.wikipedia.org/wiki/Virtual_machine>
+* Containers - <https://en.wikipedia.org/wiki/OS-level_virtualization>
+* Singularity - <https://arcdocs.leeds.ac.uk/software/infrastructure/singularity.html>
+* Anaconda - <https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html>
+* Virtual Environments - <https://carpentries-incubator.github.io/python-intermediate-development/12-virtual-environments/>
