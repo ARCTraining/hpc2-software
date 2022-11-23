@@ -15,20 +15,19 @@ At the end of this workshop, learners will be able to:
 1. [ ] Understand what an executable is 
 2. [ ] Understand the how filesystem configuration and environment variables relate to software
 3. [ ] Develop hands on experience with:
-    1. [ ] Building software using GNU Autotools
-    2. [ ] Using conda package manager
-    3. [ ] Building software using cmake
-    4. [ ] Interacting and using singularity/Apptainer containers
-    5. [ ] Using spack package manager
-    6. [ ] Building personal modules on HPC
+    1. [ ] Using Conda package manager
+    2. [ ] Building software using GNU Autotools
+    3. [ ] Building software using CMake
+    4. [ ] Using Singularity/Apptainer containers
+    5. [ ] Using Spack package manager
 
 ## Prerequisites
 
-We recommend that attendees have a working knowledge of the Unix shell (although this is not essential) and an overview of the High Performance Computing service at Leeds. The course [HPC1: Introduction to high performance computing at Leeds](https://arc.leeds.ac.uk/training/courses/hpc1/) is a prerequisite. If you are unfamilair with the unix shell we would encourage you to attend [HPC0: Introduction to Command Line Linux](https://arc.leeds.ac.uk/training/courses/hpc0/).
+We recommend that attendees have a working knowledge of the Unix shell (although this is not essential) and an overview of the High Performance Computing service at Leeds. The course [HPC1: Introduction to high performance computing at Leeds](https://arc.leeds.ac.uk/training/courses/hpc1/) is a prerequisite. If you are unfamilair with the Unix shell we would encourage you to attend [HPC0: Introduction to Command Line Linux](https://arc.leeds.ac.uk/training/courses/hpc0/).
 
 ## Duration
 
-1/2 day
+Two three hour sessions
 
 ## Frequency
 
