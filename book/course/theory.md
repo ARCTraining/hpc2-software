@@ -6,7 +6,7 @@ This introductory lesson is a small set of computing theory and backgroud inform
 
 It provides supporting information to the tools used to run, build and maintain software on the Universities HPC systems.
 
-### Overview of topics
+### Topics
 
 * Files
 * Software
@@ -25,7 +25,7 @@ There are numerous file types you need to be aware of when using and developing 
 Below are the key types of files:
 
 * executables - these types of files contain compiled binary code. When opened, the operating system will execute the instructions of the code to run the program.
-* Libraries - these files usually contain compiled code, but cannot be directly run (they can also contain data, templates, documentation). They provide interfaces to be accessed from an existing running program. Libraries are useful for sharing common functionality between different programs.
+* Libraries - In programming, a library contains common functions that can be reused in programs.
 
 ```{Note}
 The term Library is also used for the name of a collection of related files, such as in /usr/share or as a package, eg tensorflow.
@@ -46,9 +46,9 @@ The term Library is also used for the name of a collection of related files, suc
 
 ### Software locations
 
-* (standard linux) locations
-* library paths
-* user locations
+* (standard linux/HPC) softwarelocations.
+* library paths - environment variables such as PATH LD_LIBRARY_PATH
+* Locations for building software locally v locations on HPC)
 
 ### Installing software
 
