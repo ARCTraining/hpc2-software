@@ -13,7 +13,9 @@ root: welcome
 sections:
 - file: course/start
 - file: course/theory
+- file: course/conda
 - file: course/autotools
+- file: course/cmake
 - file: course/containers
 - file: course/spack
   sections:
@@ -25,5 +27,4 @@ sections:
   - file: course/spack/containers
   - file: course/spack/environments
   - file: course/spack/recipes
-- file: course/conda
-- file: course/cmake
+
