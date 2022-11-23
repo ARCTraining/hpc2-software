@@ -4,7 +4,7 @@
 
 This introductory lesson is a small set of computing theory and backgroud information tailored to introduce you to the terminology and technologies that will be covered by further lessons in this course.
 
-It provides supporting information to the tools used to run, build and maintain software on the Universities HPC systems.
+It provides supporting information to the tools used to run, build and maintain software on the university's HPC systems.
 
 ### Topics
 
@@ -31,8 +31,8 @@ Below are the key types of files:
 The term Library is also used for the name of a collection of related files, such as in /usr/share or as a package, eg tensorflow.
 ```
 
-* configuration - these files contain strutured data that programs use to  configure parameters and settings to use during execution.
-* scripts and code - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (BASH, python), code files need to be pre compiled to run (C, Java)
+* configuration - these files contain strutured data that programs use to configure parameters and settings to use during execution.
+* scripts and code - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (Bash, Python), code files need to be compiled to run (C, Java)
 * headers - These are a specific type of include file that that specify declarations and interfaces, but do not provide any implementations . They allow programmers to create standardised, compatible data structures and reusable code.
 
 ## Software
@@ -57,13 +57,13 @@ Software usually requires installation before it can be run.
 * executable installer
 * package file install
 * archive with instructions of how to extract and install and run.
-* Source archives with build instructions and scripts.
+* source archives with build instructions and scripts.
 
 ```{Note}
 It's possible to have an executable program or script that can be run directly without installation.
 ```
 
-Executable installers, may not include dependancies (other files required to run), these could be provided by default by the Operating System or may require installing seperatly.
+Executable installers, may not include dependencies (other files required to run); these could be provided by default by the Operating System or may require installing separately.
 
 ### Package Managers
 
@@ -73,9 +73,9 @@ Packages are archives (often compressed files like zip) and can contain any comb
 
 Packages are collected and maintained together as distributions (eg conda-forge).
 
-Packages managers keep track of the packages (and their versions/varients) available, installed and their dependencies.
+Package managers keep track of packages and all of their versions/variants, both installed and available to be installed, along with their dependencies.
 
-  they usually allow the following functionality:
+They usually allow the following functionality:
 
 * Searching (for both online repositories and installed)
 * Downloading from package repositories.
@@ -85,8 +85,8 @@ Packages managers keep track of the packages (and their versions/varients) avail
 
 The most commonly used package managers on ARC3/ARC4 are anaconda and pip.
 
-* [Anaconda](https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html) is a environment and package manager, primarily for python and r.
-* [pip](https://en.wikipedia.org/wiki/Pip_(package_manager)) is the package manager for python.
+* [Anaconda](https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html) is an environment and package manager, primarily for Python and R.
+* [pip](https://en.wikipedia.org/wiki/Pip_(package_manager)) is a package manager for Python.
 
 ## Build tools
 
@@ -94,64 +94,64 @@ Build tools is a generic term for any programs and tools used to build software.
 
 Common buildtools :
 
-* autotools - is a set of build tools to help make portal Unix-like software.
-* cmake - is a cross platform build automation tool, to support the creation of configurations for build tools.
-* Make - the traditional unix/Linux build tool.
+* Autotools - is a set of build tools to help make portal Unix-like software.
+* CMake - is a cross platform build automation tool, to support the creation of configurations for build tools.
+* Make - the traditional Unix/Linux build tool.
 
 ### Compilers
 
 A compiler is a program which translates source code written in a programming language into target code. This is typically into machine code to create an executable program.
 
-ARC3 and ARC3 have the [intel](https://arcdocs.leeds.ac.uk/software/compilers/intel.html) compiler set as default, with the [GNU](https://arcdocs.leeds.ac.uk/software/compilers/gnu.html) and [LLVM](https://arcdocs.leeds.ac.uk/software/compilers/llvm.html) compilers being popular alternatives available on the module system.
+ARC3 and ARC4 have the [Intel](https://arcdocs.leeds.ac.uk/software/compilers/intel.html) compiler set as default, with the [GNU](https://arcdocs.leeds.ac.uk/software/compilers/gnu.html) and [LLVM](https://arcdocs.leeds.ac.uk/software/compilers/llvm.html) compilers being popular alternatives available on the module system.
 
 #### Interpreters
 
-An interpreter compiles and executes source code directly. They generall runs code slower than a compiled executable as it has to compile code every time the code is run, but there are optimisations such as bytecode compilation and caching that can vastly improve performance.
+An interpreter reads and executes source code directly. They generally runs code slower than a compiled executable as it has to compile code every time the code is run, but there are optimisations such as bytecode compilation and caching that can vastly improve performance.
 
-Python is a popular interpretated language and the most common interpretor is the default, [CPython](https://en.wikipedia.org/wiki/CPython).
+Python is a popular interpreted language and the most common interpreter is the default, [CPython](https://en.wikipedia.org/wiki/CPython).
 
 Some languages are capable of being compiled or run through an interpreter.
 
 ### Build Configuration
 
-Tools like cmake can be used to create different platform specific for different build tools configurations.
+Tools like CMake can be used to create different platform specific for different build tools configurations.
 
 Configuration files usually contain locations of the source code, output locations, of existing components (libraries, assets such as help documentation, data).
 
-They can contain options for conditional builds such as for debug and release builds and for additional features to take advantage of optional components  such as input/output format/interfaces or hardware - such as GPUs.
+They can contain options for conditional builds such as for debug and release builds and for additional features to take advantage of optional components such as input/output format/interfaces or hardware - such as GPUs.
 
 ### Packaging
 
 ```{Note}
 Users do not have sufficent permissions to install system packages on our HPC systems.
-Containers provide a mechanism for users to install system packages is a user managed environment.
+Containers provide a mechanism for users to install system packages in a user managed environment.
 ```
 
-Linux and package distribtions usually provide tools to automate (many steps) the process of creating software packages from source, this will include steps to, compile source code, package the files required  and test the package is installable/removable.
+Linux and package distribtions usually provide tools to automate many steps of the process of creating software packages from source; this will include steps to compile source code, package the files required and test the package is installable/removable.
 
 ### Distribution
 
 There is usually little need to distribute built academic code.
 
-If you want to distribute your source code, you can use online repositories such as github. These can be linked into open research repositories like Zenodo.
+If you want to distribute your source code, you can use online repositories such as GitHub. These can be linked into open research repositories like Zenodo.
 
-Containers (and their defintions) are a popular way of distributing ready to run environments.
+Containers (and their definitions) are a popular way of distributing ready to run environments.
 
 ## Platforms
 
-The platforms mentioned below provide different levels of abstraction to run your software and code in, these include:
+The platforms mentioned below provide different levels of abstraction to run your software and code in.  These include:
 
 * Machines (physical and virtual)
 * Containers
 * Virtual Environments
 
-They are extremely useful for helping make your projects reproducible, maintain compatibility and concistancy for your projects.
+They are extremely useful for helping make your projects reproducible, and also maintain compatibility and consistency for your projects.
 
 ### Physical Machines
 
 This refers to your physical devices such as laptops, PCs, phones, tablets.
 
-They utilise an **Operating System** (eg Windows, Mac, Android Linux) to control the hardware resources (CPU, storage, memory) to access data and run software and your code.
+They utilise an **Operating System** (eg Windows, OSX, Android Linux) to control the hardware resources (CPU, storage, memory) to access data and run software and your code.
 
 ### Virtual Machines
 
@@ -159,18 +159,18 @@ They utilise an **Operating System** (eg Windows, Mac, Android Linux) to control
 ARC3/ARC4 cannot run virtual machines.
 ```
 
-Virtual machines reffer to applications (and system level hypervisors) that provide a software representation of hardware to run guest machines.
+Virtual machines refer to applications (and system level hypervisors) that provide a software representation of hardware to run guest machines.
 
 It is possible to create and run multiple guest machines on a single host.
 
-The guest machines can use different virtual hardware to the host phyiscal machine and any operating system that supports the virtual harware.
+The guest machines can use different virtual hardware to the host phyiscal machine and any operating system that supports the virtual hardware.
 
 ### Containers
 
 Containers are an Operating System level virtualisation that provides isolated instances.
-They utilise the host operating sytem's kernel and access to (usually a limited set of) hardware resources (memory, CPU, storage, input devices).
+They utilise the host operating system's kernel and provide access to (usually a limited set of) hardware resources (memory, CPU, storage, input devices).
 
-Containers have less overheard (often no noticable performance loss) due to not needing to emulate any hardware, more flexible and require less storage and configuration.
+Containers have less overhead (often no noticeable performance loss) due to not needing to emulate any hardware, are more flexible and require less storage and configuration.
 
 ARC3 and ARC4 support Singularity and Apptainer (the new successor to Singularity) container tools. They support the import and running of Docker containers.
 
@@ -181,7 +181,7 @@ These are usually managed by a tool such as Anaconda or virtualenv.
 
 Each environemt created can have its own set of software and when combined with package management can specify specific (or minimum or maximum) versions of some (or all) applications and libraries.
 
-ARC3 and ARC4 provides Anaconda as the primary tool for managing environments, others (such as virtualenv for python) as available or installable.
+ARC3 and ARC4 provides Anaconda as the primary tool for managing environments, although others (such as virtualenv for Python) are available or installable.
 
 ### Further reading
 
