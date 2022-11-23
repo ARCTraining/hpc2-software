@@ -2,24 +2,40 @@
 
 ## Introduction
 
-### Why
+This introductory lesson is a small set of computing theory and backgroud information tailored to introduce you to the terminology and technologies that will be covered by further lessons in this course.
 
-This lesson provides supporting information to the tools used to use, build and maintain software on the Universities HPC systems by introducing you to the terminology and technologies that will be covered by further lessons in this course.
+It provides supporting information to the tools used to run, build and maintain software on the Universities HPC systems.
 
 ### Overview of topics
 
-* Linux ????
+* Files and Software
 * Build Tools
-* Package Managers
 * Platforms
 
-### Types of files (WHERE DOES THIS FIT ???????????????)
+## Files and Software
+
+### What is Software ?
+
+* Software is the name given to executable computer programmes.
+* Software can include one or more executable, library, configuration, data, asset  files.
+* Software can be run by the user or automatically by the Operating System 
+* 
+* Multiple pieces of software can be packaged together such as the Anaconda installer or Microsoft Office.
+
+### Software locations
+
+* (standard linux) locations
+* library paths
+* user locations
+
+### Types of files
 
 There are numerous file types you need to be aware of when using and developing code for HPC.
 Below are the key types of files:
 
 * executables - these types of files contain compiled binary code. When opened, the operating system will execute the instructions of the code to run the program.
 * Libraries - these files usually contain compiled code, but cannot be directly run (they can also contain data, templates, documentation). They provide interfaces to be accessed from an existing running program. Libraries are useful for sharing common functionality between different programs.
+
 ```{Note}
 The term Library is also used for the name of a collection of related files, such as in /usr/share or as a package, eg tensorflow.
 ```
@@ -27,6 +43,44 @@ The term Library is also used for the name of a collection of related files, suc
 * configuration - these files contain strutured data that programs use to  configure parameters and settings to use during execution.
 * scripts and code - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (BASH, python), code files need to be pre compiled to run (C, Java)
 * headers - These are a specific type of include file that that specify declarations and interfaces, but do not provide any implementations . They allow programmers to create standardised, compatible data structures and reusable code.
+
+### Installing software
+
+Software usually requires installation before it can be run.
+
+* executable installer
+* package file install
+* archive with instructions of how to extract and install and run.
+* Source archives with build instructions and scripts.
+
+```{Note}
+It's possible to have an executable program or script that can be run directly without installation.
+```
+
+Executable installers, may not include dependancies (other files required to run), these could be provided by default by the Operating System or may require installing seperatly.
+
+### Package Managers
+
+Package managers are used to manage applications, tools and libraries as packages.
+
+Packages are archives (often compressed files like zip) and can contain any combination of software, libraries and their metadata.
+
+Packages are collected and maintained together as distributions (eg conda-forge).
+
+Packages managers keep track of the packages (and their versions/varients) available, installed and their dependencies.
+
+  they usually allow the following functionality:
+
+* Searching (for both online repositories and installed)
+* Downloading from package repositories.
+* installation and removal of packages.
+* Upgrading/downgrading package versions.
+* Installation and removal of dependancies.
+
+The most commonly used package managers on ARC3/ARC4 are anaconda and pip.
+
+* [Anaconda](https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html) is a environment and package manager, primarily for python and r.
+* [pip](https://en.wikipedia.org/wiki/Pip_(package_manager)) is the package manager for python.
 
 ## Build tools
 
@@ -60,28 +114,20 @@ Configuration files usually contain locations of the source code, output locatio
 
 They can contain options for conditional builds such as for debug and release builds and for additional features to take advantage of optional components  such as input/output format/interfaces or hardware - such as GPUs.
 
-* Packaging ?
-* Testing ?
-* Installing ?
+### Packaging
 
-## Package Managers
+```{Note}
+Users do not have sufficent permissions to install system packages on our HPC systems.
+Containers provide a mechanism for users to install system packages is a user managed environment.
+```
 
-Package managers are used to manage applications, tools and libraries as packages. Packages  are archives (often compressed files like zip) and can contain any combination of software, libraries and their metadata.
+Linux and package distribtions usually provide tools to automate (many steps) the process of creating software packages from source, this will include steps to, compile source code, package the files required  and test the package is installable/removable.
 
-Packages managers keep track of the packages (and their versions/varients) available, installed and their dependencies.
+### Distribution
 
-  they usually allow the following functionality:
-
-* Searching (for both online repositories and installed)
-* Downloading from package repositories.
-* installation and removal of packages.
-* Upgrading/downgrading package versions.
-* Installation and removal of dependancies.
-
-The most commonly used package managers on ARC3/ARC4 are anaconda and pip.
-
-* [Anaconda](https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html) is a environment and package manager, primarily for python and r.
-* [pip](https://en.wikipedia.org/wiki/Pip_(package_manager)) is the package manager for python.
+There is usually little need to distribute built academic code.
+If you want to distribute your source code, you can use online repositories such as github. These can be linked into open research repositories like Zenodo.
+Containers (and their defintions) are a popular way of distributing ready to run environments.
 
 ## Platforms
 
