@@ -8,24 +8,16 @@ It provides supporting information to the tools used to run, build and maintain 
 
 ### Overview of topics
 
-* Files and Software
+* Files
+* Software
 * Build Tools
 * Platforms
 
-## Files and Software
+## Files
 
-### What is Software ?
+Files are structures designed to contain information, such as text, executable code, images, video.
 
-* Software is the name given to executable computer programs.
-* Software can include one or more executable, library, configuration, data, asset  files.
-* Software can be run by the user or automatically by the Operating System.
-* Multiple pieces of software can be packaged together such as the Anaconda installer or Microsoft Office.
-
-### Software locations
-
-* (standard linux) locations
-* library paths
-* user locations
+Operating Systems include tools to read, copy, modify and delete files.
 
 ### Types of files
 
@@ -42,6 +34,21 @@ The term Library is also used for the name of a collection of related files, suc
 * configuration - these files contain strutured data that programs use to  configure parameters and settings to use during execution.
 * scripts and code - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (BASH, python), code files need to be pre compiled to run (C, Java)
 * headers - These are a specific type of include file that that specify declarations and interfaces, but do not provide any implementations . They allow programmers to create standardised, compatible data structures and reusable code.
+
+## Software
+
+### What is Software ?
+
+* Software is the name given to executable computer programs.
+* Software can include one or more executable, library, configuration, data, asset  files.
+* Software can be run by the user or automatically by the Operating System.
+* Multiple pieces of software can be packaged together such as the Anaconda installer or Microsoft Office.
+
+### Software locations
+
+* (standard linux) locations
+* library paths
+* user locations
 
 ### Installing software
 
