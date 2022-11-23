@@ -16,7 +16,7 @@ It provides supporting information to the tools used to run, build and maintain 
 
 ### What is Software ?
 
-* Software is the name given to executable computer programmes.
+* Software is the name given to executable computer programs.
 * Software can include one or more executable, library, configuration, data, asset  files.
 * Software can be run by the user or automatically by the Operating System.
 * Multiple pieces of software can be packaged together such as the Anaconda installer or Microsoft Office.
