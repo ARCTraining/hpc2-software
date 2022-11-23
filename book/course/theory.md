@@ -2,9 +2,9 @@
 
 ## Introduction
 
-This introductory lesson is a small set of computing theory and backgroud information tailored to introduce you to the terminology and technologies that will be covered by further lessons in this course.
+This introductory lesson is a small set of computing theory and background information tailored to introduce you to the terminology and technologies that will be covered by further lessons in this course.
 
-It provides supporting information to the tools used to run, build and maintain software on the university's HPC systems.
+It provides supporting information to the tools used to run, build and maintain software on the University's HPC systems.
 
 ### Topics
 
@@ -17,7 +17,7 @@ It provides supporting information to the tools used to run, build and maintain 
 
 Files are structures designed to contain information, such as text, executable code, images, video.
 
-Operating Systems include tools to read, copy, modify and delete files.
+Operating systems include tools to read, copy, modify and delete files.
 
 ### Types of files
 
@@ -54,11 +54,11 @@ Users can modify these variables for their own user (not system wide), this may 
 
 ## Software
 
-### What is Software ?
+### What is software?
 
 * Software is the name given to executable computer programs.
 * Software can include one or more executable, library, configuration, data, asset  files.
-* Software can be run by the user or automatically by the Operating System.
+* Software can be run by the user or automatically by the operating system.
 * Multiple pieces of software can be packaged together such as the Anaconda installer or Microsoft Office.
 
 ### Installing software
@@ -74,7 +74,7 @@ Software usually requires installation before it can be run.
 It's possible to have an executable program or script that can be run directly without installation.
 ```
 
-Executable installers, may not include dependencies (other files required to run); these could be provided by default by the Operating System or may require installing separately.
+Executable installers, may not include dependencies (other files required to run); these could be provided by default by the operating system or may require installing separately.
 
 ### Package Managers
 
@@ -94,7 +94,7 @@ They usually allow the following functionality:
 * Upgrading/downgrading package versions.
 * Installation and removal of dependancies.
 
-The most commonly used package managers on ARC3/ARC4 are anaconda and pip.
+The most commonly used package managers on ARC3/ARC4 are conda (distributed through Anaconda) and pip.
 
 * [Anaconda](https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html) is an environment and package manager, primarily for Python and R.
 * [pip](https://en.wikipedia.org/wiki/Pip_(package_manager)) is a package manager for Python.
@@ -103,9 +103,9 @@ The most commonly used package managers on ARC3/ARC4 are anaconda and pip.
 
 Build tools is a generic term for any programs and tools used to build software. Building software can include steps such as configuration, compiling, testing, packaging.
 
-Common buildtools :
+Common buildtools:
 
-* Autotools - is a set of build tools to help make portal Unix-like software.
+* Autotools - is a set of build tools to help make portable Unix-like software.
 * CMake - is a cross platform build automation tool, to support the creation of configurations for build tools.
 * Make - the traditional Unix/Linux build tool.
 
@@ -117,7 +117,7 @@ ARC3 and ARC4 have the [Intel](https://arcdocs.leeds.ac.uk/software/compilers/in
 
 #### Interpreters
 
-An interpreter reads and executes source code directly. They generally runs code slower than a compiled executable as it has to compile code every time the code is run, but there are optimisations such as bytecode compilation and caching that can vastly improve performance.
+An interpreter reads and executes source code directly. They generally run code slower than a compiled executable as it has to compile code every time the code is run, but there are optimisations such as bytecode compilation and caching that can vastly improve performance.
 
 Python is a popular interpreted language and the most common interpreter is the default, [CPython](https://en.wikipedia.org/wiki/CPython).
 
@@ -134,17 +134,17 @@ They can contain options for conditional builds such as for debug and release bu
 ### Packaging
 
 ```{Note}
-Users do not have sufficent permissions to install system packages on our HPC systems.
+Users do not have sufficient permissions to install system packages on our HPC systems.
 Containers provide a mechanism for users to install system packages in a user managed environment.
 ```
 
-Linux and package distribtions usually provide tools to automate many steps of the process of creating software packages from source; this will include steps to compile source code, package the files required and test the package is installable/removable.
+Linux and package distributions usually provide tools to automate many steps of the process of creating software packages from source; this will include steps to compile source code, package the files required and test the package is installable/removable.
 
 ### Distribution
 
 There is usually little need to distribute built academic code.
 
-If you want to distribute your source code, you can use online repositories such as GitHub. These can be linked into open research repositories like Zenodo.
+If you want to distribute your source code, you can use online repositories such as [GitHub](https://github.com/). These can be linked into open research repositories like [Zenodo](https://zenodo.org/).
 
 Containers (and their definitions) are a popular way of distributing ready to run environments.
 
@@ -178,21 +178,21 @@ The guest machines can use different virtual hardware to the host phyiscal machi
 
 ### Containers
 
-Containers are an Operating System level virtualisation that provides isolated instances.
+Containers are an operating system level virtualisation that provides isolated instances.
 They utilise the host operating system's kernel and provide access to (usually a limited set of) hardware resources (memory, CPU, storage, input devices).
 
 Containers have less overhead (often no noticeable performance loss) due to not needing to emulate any hardware, are more flexible and require less storage and configuration.
 
-ARC3 and ARC4 support Singularity and Apptainer (the new successor to Singularity) container tools. They support the import and running of Docker containers.
+ARC3 and ARC4 support [Singularity](https://en.wikipedia.org/wiki/Singularity_(software)) and [Apptainer](https://apptainer.org/) (the new successor to Singularity) container tools. They support the import and running of [Docker](https://www.docker.com/) containers.
 
 ### Virtual Environments
 
 Virtual Environments are environments for managing isolated sets of user software (tools and libraries).
-These are usually managed by a tool such as Anaconda or virtualenv.
+These are usually managed by a tool such as `conda` or `virtualenv`.
 
-Each environemt created can have its own set of software and when combined with package management can specify specific (or minimum or maximum) versions of some (or all) applications and libraries.
+Each environment created can have its own set of software and when combined with package management can specify specific (or minimum or maximum) versions of some (or all) applications and libraries.
 
-ARC3 and ARC4 provides Anaconda as the primary tool for managing environments, although others (such as virtualenv for Python) are available or installable.
+ARC3 and ARC4 provides the Anaconda module (that contains `conda` as the primary tool for managing environments, although others (such as virtualenv for Python) are available or installable.
 
 ### Further reading
 
