@@ -172,7 +172,7 @@ They utilise the host operating sytem's kernel and access to (usually a limited 
 
 Containers have less overheard (often no noticable performance loss) due to not needing to emulate any hardware, more flexible and require less storage and configuration.
 
-ARC3 and ARC4 support Singularity and Apptainer (the new sucessor to Singularity) container tools. They support the import and running of Docker containers.
+ARC3 and ARC4 support Singularity and Apptainer (the new successor to Singularity) container tools. They support the import and running of Docker containers.
 
 ### Virtual Environments
 
