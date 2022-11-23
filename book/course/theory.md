@@ -18,8 +18,7 @@ It provides supporting information to the tools used to run, build and maintain 
 
 * Software is the name given to executable computer programmes.
 * Software can include one or more executable, library, configuration, data, asset  files.
-* Software can be run by the user or automatically by the Operating System 
-* 
+* Software can be run by the user or automatically by the Operating System.
 * Multiple pieces of software can be packaged together such as the Anaconda installer or Microsoft Office.
 
 ### Software locations
@@ -126,7 +125,9 @@ Linux and package distribtions usually provide tools to automate (many steps) th
 ### Distribution
 
 There is usually little need to distribute built academic code.
+
 If you want to distribute your source code, you can use online repositories such as github. These can be linked into open research repositories like Zenodo.
+
 Containers (and their defintions) are a popular way of distributing ready to run environments.
 
 ## Platforms
