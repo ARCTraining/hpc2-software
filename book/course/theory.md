@@ -24,16 +24,33 @@ Operating Systems include tools to read, copy, modify and delete files.
 There are numerous file types you need to be aware of when using and developing code for HPC.
 Below are the key types of files:
 
-* executables - these types of files contain compiled binary code. When opened, the operating system will execute the instructions of the code to run the program.
-* Libraries - In programming, a library contains common functions that can be reused in programs.
+* **executables** - these types of files contain compiled binary code. When opened, the operating system will execute the instructions of the code to run the program.
+* **libraries** - In programming, a library contains common functions that can be reused in programs.
 
 ```{Note}
-The term Library is also used for the name of a collection of related files, such as in /usr/share or as a package, eg tensorflow.
+The term library is also used in computing for the name of a collection of related files, such as in /usr/share or as a package, eg tensorflow.
 ```
 
-* configuration - these files contain strutured data that programs use to configure parameters and settings to use during execution.
-* scripts and code - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (Bash, Python), code files need to be compiled to run (C, Java)
-* headers - These are a specific type of include file that that specify declarations and interfaces, but do not provide any implementations . They allow programmers to create standardised, compatible data structures and reusable code.
+* **configuration** - these files contain strutured data that programs use to configure parameters and settings to use during execution.
+* **scripts and code** - these files contain code (instructions) that form (a part of) a program. Generally scripts can be run directly (Bash, Python), code files need to be compiled to run (C, Java)
+* **headers** - These are a specific type of include file that that specify declarations and interfaces, but do not provide any implementations . They allow programmers to create standardised, compatible data structures and reusable code.
+
+### File locations
+
+#### Path environment variables
+
+These variables list common locations of files and are used by the system to lookup requested executables and libraries, without the need to provide the full path, which reduces the amount of configuration that would be required to run the same software on different systems.
+
+* PATH - When you execute a program by giving its name, the shell looks it up in the directories listed in the `PATH` variable e.g. `/home/username/bin:/usr/local/bin:/usr/bin:/bin`
+* LD_LIBRARY_PATH - when a program requests a library the dynamic loader will look in the directories listed in the LD_LIBRARY_PATH variable e.g. `/usr/local/lib:/usr/lib:/lib`
+
+Installation of, or enabling software may add additional locations to PATH or LD_LIBRARY_PATH variables.
+Users can modify these variables for their own user (not system wide), this may need to be done if you are building software yourself.
+
+#### Locations for building and running your own code
+
+* locally -
+* HPC
 
 ## Software
 
@@ -43,12 +60,6 @@ The term Library is also used for the name of a collection of related files, suc
 * Software can include one or more executable, library, configuration, data, asset  files.
 * Software can be run by the user or automatically by the Operating System.
 * Multiple pieces of software can be packaged together such as the Anaconda installer or Microsoft Office.
-
-### Software locations
-
-* (standard linux/HPC) softwarelocations.
-* library paths - environment variables such as PATH LD_LIBRARY_PATH
-* Locations for building software locally v locations on HPC)
 
 ### Installing software
 
