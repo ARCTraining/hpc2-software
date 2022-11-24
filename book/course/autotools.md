@@ -21,9 +21,9 @@ I'm picking on something from GitHub that includes all these steps.
 This could be downloading and extracting a tarball:
 
 ```
-$ wget https://github.com/barricklab/breseq/releases/download/v0.37.1/breseq-0.37.1-Linux-x86_64.tar.gz
-$ tar xf breseq-0.37.1-Linux-x86_64.tar.gz
-$ cd breseq-0.37.1-Linux-x86_64/
+$ wget https://github.com/barricklab/breseq/releases/download/v0.37.1/breseq-0.37.1-Source.tar.gz
+$ tar xf breseq-0.37.1-Source.tar.gz
+$ cd breseq-0.37.1
 $ ls configure
 configure
 ```
