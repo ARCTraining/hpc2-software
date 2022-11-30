@@ -19,7 +19,8 @@ So to use it, you need to load the profile script that enables Spack.  Having
 just downloaded it as above, you can do:
 
 ```bash
-. spack/share/spack/setup-env.sh
+$ module add anaconda
+$ . spack/share/spack/setup-env.sh
 ```
 
 Spack is now alive in your terminal, and you can query available packages, or
