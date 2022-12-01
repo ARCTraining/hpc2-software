@@ -7,7 +7,16 @@ straightforward.  It's literally a single command:
 git clone https://github.com/spack/spack
 ```
 
-That's it.  Now, there's more you can to do to configure it, which we'll talk
+At its simplest, that's all you need to do.  For this course we're going to
+deliberately pick a specific stable version:
+
+```bash
+$ cd spack
+$ git checkout releases/v0.19
+$ cd ..
+```
+
+Now, there's more you can to do to configure it, which we'll talk
 about later, but as far as the initial installation, that's it.  But let's
 deliberately do a little bit more in this installation section, just so we
 convince ourselves that we've really done it.  We'll go over it in more detail
