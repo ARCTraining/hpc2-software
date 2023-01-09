@@ -728,26 +728,26 @@ only <code class="docutils literal notranslate"><span class="pre">singularity</s
 <p>It’s always good to do something simple to start with, to prove to yourself
 things are working:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the apptainer module</span>
-$ module add apptainer
+$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>apptainer
 
 <span class="c1"># Download a simple container</span>
-$ singularity pull docker://godlovedc/lolcow
+$<span class="w"> </span>singularity<span class="w"> </span>pull<span class="w"> </span>docker://godlovedc/lolcow
 
 <span class="c1"># Run it</span>
-$ singularity run lolcow_latest.sif
-INFO:    Using cached SIF image
- _________________________________________
-/ This night methinks is but the daylight <span class="se">\</span>
-<span class="p">|</span> sick.                                   <span class="p">|</span>
-<span class="p">|</span>                                         <span class="p">|</span>
-<span class="p">|</span> -- William Shakespeare, <span class="s2">&quot;The Merchant   |</span>
-<span class="s2">\ of Venice&quot;</span>                              /
- -----------------------------------------
-        <span class="se">\ </span>  ^__^
-         <span class="se">\ </span> <span class="o">(</span>oo<span class="o">)</span><span class="se">\_</span>______
-            <span class="o">(</span>__<span class="o">)</span><span class="se">\ </span>      <span class="o">)</span><span class="se">\/\</span>
-                <span class="o">||</span>----w <span class="p">|</span>
-                <span class="o">||</span>     <span class="o">||</span>
+$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>lolcow_latest.sif
+INFO:<span class="w">    </span>Using<span class="w"> </span>cached<span class="w"> </span>SIF<span class="w"> </span>image
+<span class="w"> </span>_________________________________________
+/<span class="w"> </span>This<span class="w"> </span>night<span class="w"> </span>methinks<span class="w"> </span>is<span class="w"> </span>but<span class="w"> </span>the<span class="w"> </span>daylight<span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>sick.<span class="w">                                   </span><span class="p">|</span>
+<span class="p">|</span><span class="w">                                         </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>--<span class="w"> </span>William<span class="w"> </span>Shakespeare,<span class="w"> </span><span class="s2">&quot;The Merchant   |</span>
+<span class="s2">\ of Venice&quot;</span><span class="w">                              </span>/
+<span class="w"> </span>-----------------------------------------
+<span class="w">        </span><span class="se">\ </span><span class="w">  </span>^__^
+<span class="w">         </span><span class="se">\ </span><span class="w"> </span><span class="o">(</span>oo<span class="o">)</span><span class="se">\_</span>______
+<span class="w">            </span><span class="o">(</span>__<span class="o">)</span><span class="se">\ </span><span class="w">      </span><span class="o">)</span><span class="se">\/\</span>
+<span class="w">                </span><span class="o">||</span>----w<span class="w"> </span><span class="p">|</span>
+<span class="w">                </span><span class="o">||</span><span class="w">     </span><span class="o">||</span>
 </pre></div>
 </div>
 <p>It might not look on the face of it that this is very impressive, but we’ve just:</p>
@@ -795,25 +795,25 @@ to directories of the host mapped into the container.</p>
 container.  On ARC4 we also default to mapping <code class="docutils literal notranslate"><span class="pre">/nobackup</span></code> and <code class="docutils literal notranslate"><span class="pre">/local</span></code> inside the
 container.  If you want other directories to be mapped, you have to ask for
 them.  If you wanted <code class="docutils literal notranslate"><span class="pre">/data</span></code> to be visible inside the container, you can just do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity run -B /data example.sif
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>-B<span class="w"> </span>/data<span class="w"> </span>example.sif
 </pre></div>
 </div>
 <p>Or if you wanted to make something visible somewhere else (so <code class="docutils literal notranslate"><span class="pre">/data</span></code> outside
 is presented within the container as <code class="docutils literal notranslate"><span class="pre">/scratch</span></code>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity run -B /data:/scratch example.sif
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>-B<span class="w"> </span>/data:/scratch<span class="w"> </span>example.sif
 </pre></div>
 </div>
 </section>
 <section id="run-an-alternative-command-within-a-container">
 <h3>Run an alternative command within a container<a class="headerlink" href="#run-an-alternative-command-within-a-container" title="Permalink to this headline">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity <span class="nb">exec</span> example.sif cat /etc/issue
-Ubuntu <span class="m">16</span>.04.3 LTS <span class="se">\n</span> <span class="se">\l</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>example.sif<span class="w"> </span>cat<span class="w"> </span>/etc/issue
+Ubuntu<span class="w"> </span><span class="m">16</span>.04.3<span class="w"> </span>LTS<span class="w"> </span><span class="se">\n</span><span class="w"> </span><span class="se">\l</span>
 </pre></div>
 </div>
 </section>
 <section id="have-an-interactive-shell-inside-the-container">
 <h3>Have an interactive shell inside the container<a class="headerlink" href="#have-an-interactive-shell-inside-the-container" title="Permalink to this headline">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity shell example.sif
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>example.sif
 </pre></div>
 </div>
 </section>
@@ -823,7 +823,7 @@ Ubuntu <span class="m">16</span>.04.3 LTS <span class="se">\n</span> <span class
 the host system into the container.  In this way we can have a container that
 supports GPUs without the pain of having to have all the right drivers included
 within it.  At runtime you just do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity run --nv example.sif
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>--nv<span class="w"> </span>example.sif
 </pre></div>
 </div>
 <p>All available Nvidia GPUs are then visible to the container, along with the
@@ -870,23 +870,23 @@ From: ubuntu:16.04
 <h3>Converting a Dockerfile to a Singularity recipe<a class="headerlink" href="#converting-a-dockerfile-to-a-singularity-recipe" title="Permalink to this headline">#</a></h3>
 <p>There’s a tool written in Python that allows you to convert from a Dockerfile into a Singularity format file.  Whilst not perfect, this often allows for simple creations of images, where no prebuilt Docker image exists:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load anaconda</span>
-$ module add anaconda
+$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>anaconda
 
 <span class="c1"># Install spython (only need to do this once)</span>
-$ pip install spython --user
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>spython<span class="w"> </span>--user
 
 <span class="c1"># Download an example Dockerfile</span>
-$ wget https://raw.githubusercontent.com/GodloveD/lolcow/master/Dockerfile
+$<span class="w"> </span>wget<span class="w"> </span>https://raw.githubusercontent.com/GodloveD/lolcow/master/Dockerfile
 
 <span class="c1"># Convert it into Singularity format</span>
-$ spython recipe Dockerfile lolcow.def
+$<span class="w"> </span>spython<span class="w"> </span>recipe<span class="w"> </span>Dockerfile<span class="w"> </span>lolcow.def
 </pre></div>
 </div>
 <p>Then you could proceed to build it into a SIF file as show below.</p>
 </section>
 <section id="generate-a-sif-image-from-a-recipe">
 <h3>Generate a SIF image from a recipe<a class="headerlink" href="#generate-a-sif-image-from-a-recipe" title="Permalink to this headline">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity build lolcow.sif lolcow.def
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>lolcow.sif<span class="w"> </span>lolcow.def
 </pre></div>
 </div>
 </section>
@@ -935,11 +935,11 @@ some bonus content is available here.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Sandboxes</p>
 <p>When writing a recipe you may find it hard to come up with a working recipe first time.  This is where sandboxes can come in handy.  If you create a sandbox, rather than creating an image file, it writes out the files into a directory, and you can then have a container run in this directory, but with write access, which you do not normally have.  So you write your basic recipe, and build the container like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity build --sandbox lolcow lolcow.def
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>--sandbox<span class="w"> </span>lolcow<span class="w"> </span>lolcow.def
 </pre></div>
 </div>
 <p>Now we can have a session within it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity shell --fakeroot --writable lolcow
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>--fakeroot<span class="w"> </span>--writable<span class="w"> </span>lolcow
 </pre></div>
 </div>
 <p>You can now experiment inside this sandbox to work out what you need for your recipe.</p>

@@ -752,7 +752,7 @@ Therefore, it’s <strong>best practice</strong> to not install packages into th
 <h3>Creating environments<a class="headerlink" href="#creating-environments" title="Permalink to this headline">#</a></h3>
 <p>You can create an environment with Conda with the subcommand <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code>.
 When creating an environment we need to give it a name; we recommend giving it a name related to the project you’re going to use the environment for.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda create --name py39-env <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>py39-env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -822,7 +822,7 @@ Executing transaction: done
 </div>
 <p>The above command will prompt Conda to create a new environment called <code class="docutils literal notranslate"><span class="pre">py39-env</span></code> and install into it <code class="docutils literal notranslate"><span class="pre">python</span></code> at version 3.9.
 We can specify multiple packages when creating a Conda environment by separating each package name with a space.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda create --name data-sci-env <span class="nv">pandas</span><span class="o">=</span><span class="m">1</span>.4.2 <span class="nv">matplotlib</span><span class="o">=</span><span class="m">3</span>.5.1 scikit-learn
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>data-sci-env<span class="w"> </span><span class="nv">pandas</span><span class="o">=</span><span class="m">1</span>.4.2<span class="w"> </span><span class="nv">matplotlib</span><span class="o">=</span><span class="m">3</span>.5.1<span class="w"> </span>scikit-learn
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -989,9 +989,9 @@ However, because we’ve specified Python packages which depend on Python being 
 <h3>Activating environments<a class="headerlink" href="#activating-environments" title="Permalink to this headline">#</a></h3>
 <p>To use a Conda environment we need to activate it.
 Activating our environment does a number of steps that sets the terminal we’re using up so that it can see all of the installed packages in the environment, making it ready for use.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda activate data-sci-env
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
 
-<span class="o">(</span>data-sci-env<span class="o">)</span>$ 
+<span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>
 </pre></div>
 </div>
 <p>You use the subcommand <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">ENVNAME</span></code> for environment activation, where <code class="docutils literal notranslate"><span class="pre">ENVNAME</span></code> is the name of the environment you wish to activate.
@@ -1000,7 +1000,7 @@ You can see it has successfully activated when it returns your prompt with the e
 <section id="deactivating-environments">
 <h3>Deactivating environments<a class="headerlink" href="#deactivating-environments" title="Permalink to this headline">#</a></h3>
 <p>You can deactivate your current environment with another simple subcommand <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>data-sci-env<span class="o">)</span>$ conda deactivate
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>deactivate
 </pre></div>
 </div>
 </section>
@@ -1008,7 +1008,7 @@ You can see it has successfully activated when it returns your prompt with the e
 <h3>Listing current environments<a class="headerlink" href="#listing-current-environments" title="Permalink to this headline">#</a></h3>
 <p>If you ever want to see your list of current environments on your machine you can you the subcommand <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code>.
 This will return a list of the available Conda environments you can use and the environment location in your filesystem.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda env list
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span>list
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -1024,7 +1024,7 @@ This will return a list of the available Conda environments you can use and the 
 <p>It is also possible to delete a Conda environment through the <code class="docutils literal notranslate"><span class="pre">remove</span></code> subcommand.
 This <a class="reference external" href="#removing-packages">command is outlined below</a> in relation to removing specific packages but can also be used to delete an entire Conda environment.</p>
 <p>To remove the <code class="docutils literal notranslate"><span class="pre">py39-env</span></code> we created earlier we use the command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda remove --name py39-env --all
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>remove<span class="w"> </span>--name<span class="w"> </span>py39-env<span class="w"> </span>--all
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -1081,21 +1081,21 @@ However, if you have exported details of your environment it is possible to recr
 With this environment file and Conda installed on another device its possible to recreate the environment with the same specifications.</p>
 <p>Let’s assume we want to share our <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> Conda environment with others. To do this we first need to create the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file containing our environment specification.
 You can create a very detailed specification that includes operating system specific hashes with the command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda activate data-sci-env
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
 
-<span class="o">(</span>data-sci-env<span class="o">)</span>$ conda env <span class="nb">export</span> &gt; environment.yml
+<span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&gt;<span class="w"> </span>environment.yml
 </pre></div>
 </div>
 <p>Above, we activate the environment we want to create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file from and then use the command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code>.
 This outputs the environment specification to the standard output in the terminal so to capture and write this to a file we redirect the output to <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>.</p>
 <p>This command also exports a line called <code class="docutils literal notranslate"><span class="pre">prefix:</span></code> specifying the directory location of the environment on your filesystem.
 This isn’t required when sharing your environment and should be removed, you can do this manually or use <code class="docutils literal notranslate"><span class="pre">grep</span></code> when exporting your environment.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>data-sci-env<span class="o">)</span>$ conda env <span class="nb">export</span> <span class="p">|</span> grep -v ^prefix: &gt; environment.yml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>^prefix:<span class="w"> </span>&gt;<span class="w"> </span>environment.yml
 </pre></div>
 </div>
 <p>We can share the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file with collaborators and/or commit the file to version control to ensure people can recreate the required Conda environment.</p>
 <p>You can recreate a Conda environment from a file with the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda env create -f environment.yml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -1139,7 +1139,7 @@ We pass the file path to the environment file as the argument following <code cl
 If you use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span> <span class="pre">--from-history</span></code> Conda only exports packages explicitly installed with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>.
 It does not include dependencies of those packages and therefore allows different operating systems to more flexibly install package dependencies.</p>
 <p>For the above example with <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> we would export a more flexible <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>data-sci-env<span class="o">)</span>$ conda env <span class="nb">export</span> --from-history <span class="p">|</span> grep -v ^prefix: &gt; environment.yml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--from-history<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>^prefix:<span class="w"> </span>&gt;<span class="w"> </span>environment.yml
 </pre></div>
 </div>
 </section>
@@ -1148,13 +1148,13 @@ It does not include dependencies of those packages and therefore allows differen
 <p>The other option is to manually specify the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file.
 This is often more fiddly than just exporting an environment but can be preferable to ensure all the desired dependencies of your project are captured.
 Environment files are written in YAML, a markup language, and have the standard pattern of:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-sci-env</span><span class="w"></span>
-<span class="nt">channels</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">defaults</span><span class="w"></span>
-<span class="nt">dependencies</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scikit-learn</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matplotlib=3.5.1</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas=1.4.3</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-sci-env</span>
+<span class="nt">channels</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">defaults</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scikit-learn</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matplotlib=3.5.1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas=1.4.3</span>
 </pre></div>
 </div>
 <p>Where you specify the environment name, a list of Conda channels used to install packages, and under dependencies a list of packages to be installed. You can also include version specification within the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> allowing you to</p>
@@ -1174,7 +1174,7 @@ Sometimes this level of detail should be included to ensure maximum reproducibli
 </ul>
 <section id="searching-for-packages">
 <h3>Searching for packages<a class="headerlink" href="#searching-for-packages" title="Permalink to this headline">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda search python
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>search<span class="w"> </span>python
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -1329,7 +1329,7 @@ Sometimes this level of detail should be included to ensure maximum reproducibli
 It searches in package repositories called <a class="reference external" href="https://docs.conda.io/projects/conda/en/stable/user-guide/concepts/channels.html">Conda Channels</a> which are remote websites where built Conda packages have been uploaded to.
 By default Conda uses the <code class="docutils literal notranslate"><span class="pre">defaults</span></code> channel which points to the Anaconda maintained package repository <a class="reference external" href="https://repo.anaconda.com/pkgs/main">https://repo.anaconda.com/pkgs/main</a> and <a class="reference external" href="https://repo.anaconda.com/pkgs/r">https://repo.anaconda.com/pkgs/r</a>.
 Other channels are also available such as <a class="reference external" href="https://conda-forge.org/"><code class="docutils literal notranslate"><span class="pre">conda-forge</span></code></a> and we can specify when installing packages or when searching which channels we wish to search.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda search <span class="s1">&#39;python[channel=conda-forge]&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>search<span class="w"> </span><span class="s1">&#39;python[channel=conda-forge]&#39;</span>
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -1640,7 +1640,7 @@ Other channels are also available such as <a class="reference external" href="ht
 </div>
 </div>
 <p>You can also search for specific version requirements with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda search <span class="s1">&#39;python&gt;=3.8&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>search<span class="w"> </span><span class="s1">&#39;python&gt;=3.8&#39;</span>
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -1693,7 +1693,7 @@ Other channels are also available such as <a class="reference external" href="ht
 </div>
 </div>
 <p>You can combine the two conditions shown above (searching a specific channel and for a specific version):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda search <span class="s1">&#39;python[channel=conda-forge]&gt;=3.8&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>search<span class="w"> </span><span class="s1">&#39;python[channel=conda-forge]&gt;=3.8&#39;</span>
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -1832,9 +1832,9 @@ Other channels are also available such as <a class="reference external" href="ht
 <p>Earlier we created the <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> and installed some useful data science packages.
 We’ve discovered we also need the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package for some extra work we want to do so we’ll look at using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> to install this package within our existing environment.</p>
 <p>To install packages into an existing environment we need to activate it with the <a class="reference external" href="#activating-environments">subcommand shown above</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda activate data-sci-env
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
 
-<span class="o">(</span>data-sci-env<span class="o">)</span>$ conda install statsmodels
+<span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>statsmodels
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -1919,7 +1919,7 @@ Conda includes the <code class="docutils literal notranslate"><span class="pre">
 You can do this within an activated environment, or specify to Conda the environment from which you want to remove packages.</p>
 <p>When creating our <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> we installed <code class="docutils literal notranslate"><span class="pre">pandas=1.4.2</span></code>, let’s imagine we made a mistake here and wanted a different version.
 We could remove this version of pandas with the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda remove -n data-sci-env pandas
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>remove<span class="w"> </span>-n<span class="w"> </span>data-sci-env<span class="w"> </span>pandas
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -1971,9 +1971,9 @@ As you can see in the above example, removing one package may also lead to the r
 If we want to update a package to a more recent version Conda provides the <code class="docutils literal notranslate"><span class="pre">update</span></code> subcommand to achieve this.
 Crucially, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span></code> will update a package to its most recent version and can’t be used to specific a particular version.</p>
 <p>Let’s say we wanted to update the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library to the most recent version in our <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda activate data-sci-env
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
 
-<span class="o">(</span>data-sci-env<span class="o">)</span>$ conda update matplotlib
+<span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>update<span class="w"> </span>matplotlib
 </pre></div>
 </div>
 <div class="dropdown admonition">

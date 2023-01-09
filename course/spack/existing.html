@@ -485,11 +485,11 @@ not one right answer.</p>
 easiest way to get Spack to use a system compiler is to make sure it’s in your
 path (either loading a module, or in this case just using the default system
 compiler - GCC 8.5.0 on RHEL8), and tell Spack to find it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack compiler <span class="nv">add</span>
-<span class="o">==</span>&gt; Added <span class="m">1</span> new compiler to /home/me/.spack/linux/compilers.yaml
-    gcc@8.5.0
-<span class="o">==</span>&gt; Compilers are defined <span class="k">in</span> the following files:
-    /home/me/.spack/linux/compilers.yaml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>compiler<span class="w"> </span><span class="nv">add</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Added<span class="w"> </span><span class="m">1</span><span class="w"> </span>new<span class="w"> </span>compiler<span class="w"> </span>to<span class="w"> </span>/home/me/.spack/linux/compilers.yaml
+<span class="w">    </span>gcc@8.5.0
+<span class="o">==</span>&gt;<span class="w"> </span>Compilers<span class="w"> </span>are<span class="w"> </span>defined<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>files:
+<span class="w">    </span>/home/me/.spack/linux/compilers.yaml
 </pre></div>
 </div>
 <p>Spack now knows about this compiler.  If this was a compiler in a module, you
@@ -497,14 +497,14 @@ can just load the module beforehand, and Spack will add that compiler to its
 known list.</p>
 <p>If you want to set that as your preferred compiler, run this to edit the
 config:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack config edit packages
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>config<span class="w"> </span>edit<span class="w"> </span>packages
 </pre></div>
 </div>
 <p>And tell it to use this compiler</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">packages</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">all</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">compiler</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;gcc@8.5.0&#39;</span><span class="w"> </span><span class="c1"># Your preferred compiler here</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">packages</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">all</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">compiler</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;gcc@8.5.0&#39;</span><span class="w"> </span><span class="c1"># Your preferred compiler here</span>
 </pre></div>
 </div>
 </section>
@@ -513,7 +513,7 @@ config:</p>
 <p>Take an example of building the software mpiwrapper.  It only needs cmake and
 openmpi as dependencies, but these themselves require lots of dependencies to
 built.  You can see what Spack would like to build:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack spec mpiwrapper
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>spec<span class="w"> </span>mpiwrapper
 </pre></div>
 </div>
 <details>
@@ -569,9 +569,9 @@ let’s see if we can cut that down by using software already installed on my
 system.</p>
 <p>It can find certain software in your environment without you having to
 configure anything by hand.  So if I load an openmpi module, and run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack external find <span class="nv">openmpi</span>
-<span class="o">==</span>&gt; The following specs have been detected on this system and added to /home/me/.spack/packages.yaml
--- no arch / gcc@8.5.0 ------------------------------------------
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>external<span class="w"> </span>find<span class="w"> </span><span class="nv">openmpi</span>
+<span class="o">==</span>&gt;<span class="w"> </span>The<span class="w"> </span>following<span class="w"> </span>specs<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>detected<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>system<span class="w"> </span>and<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>/home/me/.spack/packages.yaml
+--<span class="w"> </span>no<span class="w"> </span>arch<span class="w"> </span>/<span class="w"> </span>gcc@8.5.0<span class="w"> </span>------------------------------------------
 openmpi@4.1.1
 </pre></div>
 </div>
@@ -580,38 +580,38 @@ to rebuild openmpi, as long as you’re happy with that version.  As you can see
 from the output, this is written into your configuration, so will be remembered
 for future runs.</p>
 <p>I also want it to discover cmake:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack external find <span class="nv">cmake</span>
-<span class="o">==</span>&gt; The following specs have been detected on this system and added to /home/me/.spack/packages.yaml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>external<span class="w"> </span>find<span class="w"> </span><span class="nv">cmake</span>
+<span class="o">==</span>&gt;<span class="w"> </span>The<span class="w"> </span>following<span class="w"> </span>specs<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>detected<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>system<span class="w"> </span>and<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>/home/me/.spack/packages.yaml
 cmake@3.20.2
 </pre></div>
 </div>
 <p>If Spack wasn’t able to auto detect the software, you can add it to the
 packages.yaml by hand.  For example, if I wanted to add a system installed
 libjpeg-turbo to spack, I can add a section for that into my packages.yaml:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">libjpeg-turbo</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">externals</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libjpeg-turbo@1.5.3</span><span class="w"></span>
-<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">libjpeg-turbo</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">externals</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libjpeg-turbo@1.5.3</span>
+<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr</span>
 </pre></div>
 </div>
 <p>My full packages.yaml now looks like this, if looked at with <code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">config</span> <span class="pre">edit</span> <span class="pre">packages</span></code>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">packages</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">openmpi</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">externals</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openmpi@4.1.1%gcc@8.5.0+atomics~cuda+cxx~cxx_exceptions+java~memchecker+pmi~static~wrapper-rpath</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">fabrics=ofi,psm2,ucx schedulers=slurm</span><span class="w"></span>
-<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/lib64/openmpi</span><span class="w"></span>
-<span class="w">  </span><span class="nt">cmake</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">externals</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cmake@3.20.2</span><span class="w"></span>
-<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr</span><span class="w"></span>
-<span class="w">  </span><span class="nt">all</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">compiler</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcc@8.5.0</span><span class="w">   </span><span class="c1"># Your preferred compiler here</span><span class="w"></span>
-<span class="w">  </span><span class="nt">libjpeg-turbo</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">externals</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libjpeg-turbo@1.5.3</span><span class="w"></span>
-<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">packages</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">openmpi</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">externals</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openmpi@4.1.1%gcc@8.5.0+atomics~cuda+cxx~cxx_exceptions+java~memchecker+pmi~static~wrapper-rpath</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">fabrics=ofi,psm2,ucx schedulers=slurm</span>
+<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/lib64/openmpi</span>
+<span class="w">  </span><span class="nt">cmake</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">externals</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cmake@3.20.2</span>
+<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr</span>
+<span class="w">  </span><span class="nt">all</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">compiler</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcc@8.5.0</span><span class="w">   </span><span class="c1"># Your preferred compiler here</span>
+<span class="w">  </span><span class="nt">libjpeg-turbo</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">externals</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libjpeg-turbo@1.5.3</span>
+<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr</span>
 </pre></div>
 </div>
 <div class="admonition-openmpi-on-red-hat-oddity admonition">
@@ -627,34 +627,34 @@ rather than use Red Hat’s version in future.</p>
 </div>
 <p>Having told Spack about the software we want it to use from the system, let’s
 look again now at building mpiwrapper, and see what that looks like:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack spec mpiwrapper
-Input spec
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>spec<span class="w"> </span>mpiwrapper
+Input<span class="w"> </span>spec
 --------------------------------
 mpiwrapper
 
 Concretized
 --------------------------------
-mpiwrapper@2.8.1%gcc@8.5.0~ipo <span class="nv">build_type</span><span class="o">=</span>RelWithDebInfo <span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
-    ^cmake@3.20.2%gcc@8.5.0~doc+ncurses+ownlibs~qt <span class="nv">build_type</span><span class="o">=</span>Release <span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
-    ^openmpi@4.1.1%gcc@8.5.0+atomics~cuda+cxx~cxx_exceptions~gpfs~internal-hwloc+java~legacylaunchers~lustre~memchecker+pmi+romio+rsh~singularity~static+vt~wrapper-rpath <span class="nv">fabrics</span><span class="o">=</span>ofi,psm2,ucx <span class="nv">schedulers</span><span class="o">=</span>slurm <span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
+mpiwrapper@2.8.1%gcc@8.5.0~ipo<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>RelWithDebInfo<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
+<span class="w">    </span>^cmake@3.20.2%gcc@8.5.0~doc+ncurses+ownlibs~qt<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>Release<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
+<span class="w">    </span>^openmpi@4.1.1%gcc@8.5.0+atomics~cuda+cxx~cxx_exceptions~gpfs~internal-hwloc+java~legacylaunchers~lustre~memchecker+pmi+romio+rsh~singularity~static+vt~wrapper-rpath<span class="w"> </span><span class="nv">fabrics</span><span class="o">=</span>ofi,psm2,ucx<span class="w"> </span><span class="nv">schedulers</span><span class="o">=</span>slurm<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
 </pre></div>
 </div>
 <p>So now Spack believes that it can reuse my openmpi and cmake from the system,
 and just build the piece of software I’ve asked for.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack install mpiwrapper
-<span class="o">[</span>+<span class="o">]</span> /usr <span class="o">(</span>external cmake-3.20.2-b2vel5wyij5d4svvpdwhyio4dwuxly3a<span class="o">)</span>
-<span class="o">==</span>&gt; openmpi@4.1.1 : has external module <span class="k">in</span> <span class="o">[</span><span class="s1">&#39;pi/openmpi-x86_64&#39;</span><span class="o">]</span>
-<span class="o">[</span>+<span class="o">]</span> /usr <span class="o">(</span>external openmpi-4.1.1-motfvxmtmqhhzqizmifts2lz5hx5x3t6<span class="o">)</span>
-<span class="o">==</span>&gt; Installing mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
-<span class="o">==</span>&gt; No binary <span class="k">for</span> mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq found: installing from <span class="nb">source</span>
-<span class="o">==</span>&gt; Fetching https://mirror.spack.io/_source-cache/archive/e6/e6fc1c08ad778675e5b58b91b4658b12e3f985c6d4c5c2c3e9ed35986146780e.tar.gz
-<span class="o">==</span>&gt; No patches needed <span class="k">for</span> <span class="nv">mpiwrapper</span>
-<span class="o">==</span>&gt; mpiwrapper: Executing phase: <span class="s1">&#39;cmake&#39;</span>
-<span class="o">==</span>&gt; mpiwrapper: Executing phase: <span class="s1">&#39;build&#39;</span>
-<span class="o">==</span>&gt; mpiwrapper: Executing phase: <span class="s1">&#39;install&#39;</span>
-<span class="o">==</span>&gt; mpiwrapper: Successfully installed mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
-  Fetch: <span class="m">0</span>.77s.  Build: <span class="m">9</span>.74s.  Total: <span class="m">10</span>.52s.
-<span class="o">[</span>+<span class="o">]</span> /home/me/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>install<span class="w"> </span>mpiwrapper
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/usr<span class="w"> </span><span class="o">(</span>external<span class="w"> </span>cmake-3.20.2-b2vel5wyij5d4svvpdwhyio4dwuxly3a<span class="o">)</span>
+<span class="o">==</span>&gt;<span class="w"> </span>openmpi@4.1.1<span class="w"> </span>:<span class="w"> </span>has<span class="w"> </span>external<span class="w"> </span>module<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">[</span><span class="s1">&#39;pi/openmpi-x86_64&#39;</span><span class="o">]</span>
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/usr<span class="w"> </span><span class="o">(</span>external<span class="w"> </span>openmpi-4.1.1-motfvxmtmqhhzqizmifts2lz5hx5x3t6<span class="o">)</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/e6/e6fc1c08ad778675e5b58b91b4658b12e3f985c6d4c5c2c3e9ed35986146780e.tar.gz
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>patches<span class="w"> </span>needed<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">mpiwrapper</span>
+<span class="o">==</span>&gt;<span class="w"> </span>mpiwrapper:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;cmake&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>mpiwrapper:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;build&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>mpiwrapper:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>mpiwrapper:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
+<span class="w">  </span>Fetch:<span class="w"> </span><span class="m">0</span>.77s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">9</span>.74s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">10</span>.52s.
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/home/me/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
 </pre></div>
 </div>
 <p>So we’ve just install mpiwrapper with Spack, using dependencies already install
@@ -673,8 +673,8 @@ far as OpenSSL libraries are concerned.</p>
 <section id="solution">
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
 <p>This is actually quite straightforward, since Spack can successfully detect and add this to your <code class="docutils literal notranslate"><span class="pre">packages.yaml</span></code> file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack external find <span class="nv">openssl</span>
-<span class="o">==</span>&gt; The following specs have been detected on this system and added to /home/me/.spack/packages.yaml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>external<span class="w"> </span>find<span class="w"> </span><span class="nv">openssl</span>
+<span class="o">==</span>&gt;<span class="w"> </span>The<span class="w"> </span>following<span class="w"> </span>specs<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>detected<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>system<span class="w"> </span>and<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>/home/me/.spack/packages.yaml
 openssl@1.1.1k
 </pre></div>
 </div>

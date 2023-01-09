@@ -472,21 +472,21 @@ Here’s I’m saying I want spack to install gromacs with MPI enabled, and
 OpenMPI.  I want it to create the container for Singularity/Apptainer, and I
 want it to make sure the libgomp1 package is installed onto the OS.</p>
 <p>spack.yaml:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">spack</span><span class="p">:</span><span class="w"></span>
-<span class="c1"># What I want Spack to install</span><span class="w"></span>
-<span class="w">  </span><span class="nt">specs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gromacs+mpi</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openmpi</span><span class="w"></span>
-<span class="c1"># What I want it to create</span><span class="w"></span>
-<span class="w">  </span><span class="nt">container</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">singularity</span><span class="w"></span>
-<span class="c1"># Additional config for the build process</span><span class="w"></span>
-<span class="w">  </span><span class="nt">config</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">mount proc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"></span>
-<span class="c1"># Bonus OS packages I&#39;d like installed</span><span class="w"></span>
-<span class="w">    </span><span class="nt">os_packages</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">final</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libgomp1</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">spack</span><span class="p">:</span>
+<span class="c1"># What I want Spack to install</span>
+<span class="w">  </span><span class="nt">specs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gromacs+mpi</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openmpi</span>
+<span class="c1"># What I want it to create</span>
+<span class="w">  </span><span class="nt">container</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">singularity</span>
+<span class="c1"># Additional config for the build process</span>
+<span class="w">  </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">mount proc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="c1"># Bonus OS packages I&#39;d like installed</span>
+<span class="w">    </span><span class="nt">os_packages</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">final</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libgomp1</span>
 </pre></div>
 </div>
 </section>
@@ -494,7 +494,7 @@ want it to make sure the libgomp1 package is installed onto the OS.</p>
 <h2>Create a Singularity definition file<a class="headerlink" href="#create-a-singularity-definition-file" title="Permalink to this headline">#</a></h2>
 <p>This is single command to tell Spack to make a definition file from that yaml
 file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack containerize &gt; gromacs-openmpi.def
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>containerize<span class="w"> </span>&gt;<span class="w"> </span>gromacs-openmpi.def
 </pre></div>
 </div>
 </section>
@@ -504,30 +504,30 @@ file:</p>
 This is a fairly large and complex container, and happens to also require that
 /proc is bind mounted into the container to make this work, but that won’t be
 the case with simpler containers:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity build gromacs-openmpi.sif gromacs-openmpi.def
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity<span class="w"> </span>build<span class="w"> </span>gromacs-openmpi.sif<span class="w"> </span>gromacs-openmpi.def
 </pre></div>
 </div>
 </section>
 <section id="use-that-container">
 <h2>Use that container<a class="headerlink" href="#use-that-container" title="Permalink to this headline">#</a></h2>
 <p>As a proof of life, let’s run gromacs from within that container:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mpirun -np <span class="m">4</span> singularity run gromacs-mpi.sif gmx_mpi
-INFO:    underlay of /etc/localtime required more than <span class="m">50</span> <span class="o">(</span><span class="m">65</span><span class="o">)</span> <span class="nb">bind</span> mounts
-INFO:    underlay of /etc/localtime required more than <span class="m">50</span> <span class="o">(</span><span class="m">65</span><span class="o">)</span> <span class="nb">bind</span> mounts
-INFO:    underlay of /etc/localtime required more than <span class="m">50</span> <span class="o">(</span><span class="m">65</span><span class="o">)</span> <span class="nb">bind</span> mounts
-INFO:    underlay of /etc/localtime required more than <span class="m">50</span> <span class="o">(</span><span class="m">65</span><span class="o">)</span> <span class="nb">bind</span> mounts
-                    :-<span class="o">)</span> GROMACS - gmx_mpi, <span class="m">2022</span>.2-spack <span class="o">(</span>-:
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>gromacs-mpi.sif<span class="w"> </span>gmx_mpi
+INFO:<span class="w">    </span>underlay<span class="w"> </span>of<span class="w"> </span>/etc/localtime<span class="w"> </span>required<span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="o">(</span><span class="m">65</span><span class="o">)</span><span class="w"> </span><span class="nb">bind</span><span class="w"> </span>mounts
+INFO:<span class="w">    </span>underlay<span class="w"> </span>of<span class="w"> </span>/etc/localtime<span class="w"> </span>required<span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="o">(</span><span class="m">65</span><span class="o">)</span><span class="w"> </span><span class="nb">bind</span><span class="w"> </span>mounts
+INFO:<span class="w">    </span>underlay<span class="w"> </span>of<span class="w"> </span>/etc/localtime<span class="w"> </span>required<span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="o">(</span><span class="m">65</span><span class="o">)</span><span class="w"> </span><span class="nb">bind</span><span class="w"> </span>mounts
+INFO:<span class="w">    </span>underlay<span class="w"> </span>of<span class="w"> </span>/etc/localtime<span class="w"> </span>required<span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="o">(</span><span class="m">65</span><span class="o">)</span><span class="w"> </span><span class="nb">bind</span><span class="w"> </span>mounts
+<span class="w">                    </span>:-<span class="o">)</span><span class="w"> </span>GROMACS<span class="w"> </span>-<span class="w"> </span>gmx_mpi,<span class="w"> </span><span class="m">2022</span>.2-spack<span class="w"> </span><span class="o">(</span>-:
 
-Executable:   /opt/software/linux-ubuntu18.04-skylake_avx512/gcc-7.5.0/gromacs-2022.2-un4jbsm6hv5x6542ffwjs5h4lscftflw/bin/gmx_mpi
-Data prefix:  /opt/software/linux-ubuntu18.04-skylake_avx512/gcc-7.5.0/gromacs-2022.2-un4jbsm6hv5x6542ffwjs5h4lscftflw
-Working dir:  /home/me/gromacs-singularity
-Command line:
-  gmx_mpi
+Executable:<span class="w">   </span>/opt/software/linux-ubuntu18.04-skylake_avx512/gcc-7.5.0/gromacs-2022.2-un4jbsm6hv5x6542ffwjs5h4lscftflw/bin/gmx_mpi
+Data<span class="w"> </span>prefix:<span class="w">  </span>/opt/software/linux-ubuntu18.04-skylake_avx512/gcc-7.5.0/gromacs-2022.2-un4jbsm6hv5x6542ffwjs5h4lscftflw
+Working<span class="w"> </span>dir:<span class="w">  </span>/home/me/gromacs-singularity
+Command<span class="w"> </span>line:
+<span class="w">  </span>gmx_mpi
 
 SYNOPSIS
 
-gmx <span class="o">[</span>-<span class="o">[</span>no<span class="o">]</span>h<span class="o">]</span> <span class="o">[</span>-<span class="o">[</span>no<span class="o">]</span>quiet<span class="o">]</span> <span class="o">[</span>-<span class="o">[</span>no<span class="o">]</span>version<span class="o">]</span> <span class="o">[</span>-<span class="o">[</span>no<span class="o">]</span>copyright<span class="o">]</span> <span class="o">[</span>-nice &lt;int&gt;<span class="o">]</span>
-    <span class="o">[</span>-<span class="o">[</span>no<span class="o">]</span>backup<span class="o">]</span>
+gmx<span class="w"> </span><span class="o">[</span>-<span class="o">[</span>no<span class="o">]</span>h<span class="o">]</span><span class="w"> </span><span class="o">[</span>-<span class="o">[</span>no<span class="o">]</span>quiet<span class="o">]</span><span class="w"> </span><span class="o">[</span>-<span class="o">[</span>no<span class="o">]</span>version<span class="o">]</span><span class="w"> </span><span class="o">[</span>-<span class="o">[</span>no<span class="o">]</span>copyright<span class="o">]</span><span class="w"> </span><span class="o">[</span>-nice<span class="w"> </span>&lt;int&gt;<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>-<span class="o">[</span>no<span class="o">]</span>backup<span class="o">]</span>
 ...
 </pre></div>
 </div>

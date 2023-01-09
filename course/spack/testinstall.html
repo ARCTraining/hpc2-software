@@ -461,25 +461,25 @@ title="Print to PDF"
 <p>Let’s now try installing a simple piece of software.  Pigz seems like a
 reasonable place to start (parallel gzip), as it doesn’t have too many
 dependencies, so won’t take long to try out:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack install <span class="nv">pigz</span>
-<span class="o">==</span>&gt; Installing zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv
-<span class="o">==</span>&gt; No binary <span class="k">for</span> zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv found: installing from <span class="nb">source</span>
-<span class="o">==</span>&gt; Fetching https://mirror.spack.io/_source-cache/archive/91/91844808532e5ce316b3c010929493c0244f3d37593afd6de04f71821d5136d9.tar.gz
-<span class="o">==</span>&gt; Applied patch /home/me/spack/var/spack/repos/builtin/packages/zlib/configure-cc.patch
-<span class="o">==</span>&gt; zlib: Executing phase: <span class="s1">&#39;install&#39;</span>
-<span class="o">==</span>&gt; zlib: Successfully installed zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv
-  Fetch: <span class="m">0</span>.24s.  Build: <span class="m">5</span>.79s.  Total: <span class="m">6</span>.02s.
-<span class="o">[</span>+<span class="o">]</span> /home/me/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv
-<span class="o">==</span>&gt; Installing pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy
-<span class="o">==</span>&gt; No binary <span class="k">for</span> pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy found: installing from <span class="nb">source</span>
-<span class="o">==</span>&gt; Fetching https://mirror.spack.io/_source-cache/archive/d2/d2045087dae5e9482158f1f1c0f21c7d3de6f7cdc7cc5848bdabda544e69aa58.tar.gz
-<span class="o">==</span>&gt; No patches needed <span class="k">for</span> <span class="nv">pigz</span>
-<span class="o">==</span>&gt; pigz: Executing phase: <span class="s1">&#39;edit&#39;</span>
-<span class="o">==</span>&gt; pigz: Executing phase: <span class="s1">&#39;build&#39;</span>
-<span class="o">==</span>&gt; pigz: Executing phase: <span class="s1">&#39;install&#39;</span>
-<span class="o">==</span>&gt; pigz: Successfully installed pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy
-  Fetch: <span class="m">0</span>.67s.  Build: <span class="m">2</span>.23s.  Total: <span class="m">2</span>.89s.
-<span class="o">[</span>+<span class="o">]</span> /home/me/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>install<span class="w"> </span><span class="nv">pigz</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/91/91844808532e5ce316b3c010929493c0244f3d37593afd6de04f71821d5136d9.tar.gz
+<span class="o">==</span>&gt;<span class="w"> </span>Applied<span class="w"> </span>patch<span class="w"> </span>/home/me/spack/var/spack/repos/builtin/packages/zlib/configure-cc.patch
+<span class="o">==</span>&gt;<span class="w"> </span>zlib:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>zlib:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv
+<span class="w">  </span>Fetch:<span class="w"> </span><span class="m">0</span>.24s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">5</span>.79s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">6</span>.02s.
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/home/me/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/d2/d2045087dae5e9482158f1f1c0f21c7d3de6f7cdc7cc5848bdabda544e69aa58.tar.gz
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>patches<span class="w"> </span>needed<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">pigz</span>
+<span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;edit&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;build&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy
+<span class="w">  </span>Fetch:<span class="w"> </span><span class="m">0</span>.67s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">2</span>.23s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">2</span>.89s.
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/home/me/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy
 </pre></div>
 </div>
 <p>That is quite wordy, but to note, it’s installed pigz, and also installed a
@@ -494,18 +494,18 @@ to access software you build with Spack as we are in this course, the first
 time you build something with Spack, you have to reload the setup script to
 make it find these newly build packages.  In future this shouldn’t be
 necessary:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ . spack/share/spack/setup-env.sh
-$ module avail pigz
-------------------------------------------------- /tmp/spack/share/spack/modules/linux-rhel8-haswell --------------------------------------------------
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>.<span class="w"> </span>spack/share/spack/setup-env.sh
+$<span class="w"> </span>module<span class="w"> </span>avail<span class="w"> </span>pigz
+-------------------------------------------------<span class="w"> </span>/tmp/spack/share/spack/modules/linux-rhel8-haswell<span class="w"> </span>--------------------------------------------------
 pigz-2.7-gcc-8.5.0-qkx6pxv
 </pre></div>
 </div>
 <p>At this point we can see there’s a module available for pigz, with a bunch of
 stuff after the version, which we’ll cover later.  I can now load this, and
 test it to confirm it’s worked:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module add pigz-2.7-gcc-8.5.0-qkx6pxv
-$ pigz --version
-pigz <span class="m">2</span>.7
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz-2.7-gcc-8.5.0-qkx6pxv
+$<span class="w"> </span>pigz<span class="w"> </span>--version
+pigz<span class="w"> </span><span class="m">2</span>.7
 </pre></div>
 </div>
 <p>Excellent.  To recap, by this stage we’ve:</p>

@@ -470,23 +470,23 @@ this can still be quite straightforward.</p>
 install it.  I’ve found the source tar file online, so let’s start with
 building a config, and just go with the default of checksumming a single
 version, by pressing return when prompted.  When this completes, quit the editor.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack create <span class="s1">&#39;https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz&#39;</span>
-<span class="o">==</span>&gt; This looks like a URL <span class="k">for</span> <span class="nv">nSnake</span>
-<span class="o">==</span>&gt; Found <span class="m">3</span> versions of nsnake:
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>create<span class="w"> </span><span class="s1">&#39;https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>This<span class="w"> </span>looks<span class="w"> </span>like<span class="w"> </span>a<span class="w"> </span>URL<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">nSnake</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Found<span class="w"> </span><span class="m">3</span><span class="w"> </span>versions<span class="w"> </span>of<span class="w"> </span>nsnake:
 
-  <span class="m">3</span>.0.0  https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
-  <span class="m">2</span>.0.0  https://github.com/alexdantas/nSnake/archive/refs/tags/v2.0.0.tar.gz
-  <span class="m">1</span>.7    https://github.com/alexdantas/nSnake/archive/refs/tags/v1.7.tar.gz
+<span class="w">  </span><span class="m">3</span>.0.0<span class="w">  </span>https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
+<span class="w">  </span><span class="m">2</span>.0.0<span class="w">  </span>https://github.com/alexdantas/nSnake/archive/refs/tags/v2.0.0.tar.gz
+<span class="w">  </span><span class="m">1</span>.7<span class="w">    </span>https://github.com/alexdantas/nSnake/archive/refs/tags/v1.7.tar.gz
 
-<span class="o">==</span>&gt; How many would you like to checksum? <span class="o">(</span>default is <span class="m">1</span>, q to abort<span class="o">)</span>
-<span class="o">==</span>&gt; Fetching https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
-<span class="o">==</span>&gt; This package looks like it uses the makefile build <span class="nv">system</span>
-<span class="o">==</span>&gt; Created template <span class="k">for</span> nsnake <span class="nv">package</span>
-<span class="o">==</span>&gt; Created package file: /home/me/spack/var/spack/repos/builtin/packages/nsnake/package.py
+<span class="o">==</span>&gt;<span class="w"> </span>How<span class="w"> </span>many<span class="w"> </span>would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>to<span class="w"> </span>checksum?<span class="w"> </span><span class="o">(</span>default<span class="w"> </span>is<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>q<span class="w"> </span>to<span class="w"> </span>abort<span class="o">)</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
+<span class="o">==</span>&gt;<span class="w"> </span>This<span class="w"> </span>package<span class="w"> </span>looks<span class="w"> </span>like<span class="w"> </span>it<span class="w"> </span>uses<span class="w"> </span>the<span class="w"> </span>makefile<span class="w"> </span>build<span class="w"> </span><span class="nv">system</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Created<span class="w"> </span>template<span class="w"> </span><span class="k">for</span><span class="w"> </span>nsnake<span class="w"> </span><span class="nv">package</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Created<span class="w"> </span>package<span class="w"> </span>file:<span class="w"> </span>/home/me/spack/var/spack/repos/builtin/packages/nsnake/package.py
 </pre></div>
 </div>
 <p>Now let’s try and build this, and see what happens.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install nsnake
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>nsnake
 </pre></div>
 </div>
 <p>This build errors out, with a missing dependency:</p>
@@ -495,7 +495,7 @@ version, by pressing return when prompted.  When this completes, quit the editor
 </div>
 <p>So, how hard is it to add a dependency into spack for this, and adjust the
 build process to use it?</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack edit nsnake
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>edit<span class="w"> </span>nsnake
 </pre></div>
 </div>
 <p>You’ll see that in the template config, it has:</p>
@@ -519,7 +519,7 @@ additional linker flags required.  So to tell Spack to do this, change the <code
 <p>For those unsure of what LDFLAGS, linkers, binpaths, or anything else here is
 talking about, please refer to the <span class="xref myst">concepts section</span>.</p>
 <p>Let’s try installing it again:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install nsnake
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>nsnake
 </pre></div>
 </div>
 <p>We fail again:</p>
@@ -542,35 +542,35 @@ Makefile.  Let’s adjust our edit function:</p>
 <p>We’ve added two lines to modify the Makefile.  This creates a filter on the
 Makefile, which replaces the PREFIX line that’s currently in there, with our
 adjusted one.  Let’s build it again:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install nsnake
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>nsnake
 </pre></div>
 </div>
 <p>Hurrah.  The software built, and installed.  Shall we test:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module add nsnake
-$ nsnake
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>nsnake
+$<span class="w"> </span>nsnake
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│__    _  _______  __    _  _______  ___   _  _______  ┌Main Menu─────────────┐│
-│<span class="p">|</span>  <span class="p">|</span>  <span class="p">|</span> <span class="o">||</span>       <span class="o">||</span>  <span class="p">|</span>  <span class="p">|</span> <span class="o">||</span>   _   <span class="o">||</span>   <span class="p">|</span> <span class="p">|</span> <span class="o">||</span>       <span class="p">|</span>│Arcade Mode           ││
-│<span class="p">|</span>   <span class="p">|</span>_<span class="p">|</span> <span class="o">||</span>  _____<span class="o">||</span>   <span class="p">|</span>_<span class="p">|</span> <span class="o">||</span>  <span class="p">|</span>_<span class="p">|</span>  <span class="o">||</span>   <span class="p">|</span>_<span class="p">|</span> <span class="o">||</span>    ___<span class="p">|</span>│Level Select          ││
-│<span class="p">|</span>       <span class="o">||</span> <span class="p">|</span>_____ <span class="p">|</span>       <span class="o">||</span>       <span class="o">||</span>      _<span class="o">||</span>   <span class="p">|</span>___ │Game Settings         ││
-│<span class="p">|</span>  _    <span class="o">||</span>_____  <span class="o">||</span>  _    <span class="o">||</span>       <span class="o">||</span>     <span class="p">|</span>_ <span class="p">|</span>    ___<span class="p">|</span>│GUI Options           ││
-│<span class="p">|</span> <span class="p">|</span> <span class="p">|</span>   <span class="p">|</span> _____<span class="p">|</span> <span class="o">||</span> <span class="p">|</span> <span class="p">|</span>   <span class="o">||</span>   _   <span class="o">||</span>    _  <span class="o">||</span>   <span class="p">|</span>___ │Controls              ││
-│<span class="p">|</span>_<span class="p">|</span>  <span class="p">|</span>__<span class="o">||</span>_______<span class="o">||</span>_<span class="p">|</span>  <span class="p">|</span>__<span class="o">||</span>__<span class="p">|</span> <span class="p">|</span>__<span class="o">||</span>___<span class="p">|</span> <span class="p">|</span>_<span class="o">||</span>_______<span class="p">|</span>│Help                  ││
-│                   o   o      o o           o         │Quit                  ││
-│                   o   o      o o           o         │                      ││
-│                   o   o      @ o           o  o      │                      ││
-│                  oo   o        o         o oo o      │                      ││
-│                  oo   o        o         o oo o      │                      ││
-│                  oo   o        @         o oo o      │                      ││
-│            o     oo   o                  o oo o      │                      ││
-│            o     oo   o                  oooo o      │                      ││
-│            o   o o@   o                  oooo o      │                      ││
-│            o   o o    @                  ooo@ o      │                      ││
-│            o   @ o                       ooo  @      │                      ││
-│            o     @                       ooo         │                      ││
-│            oo    @                       @o@         │                      ││
-│            oo                             @          │                      ││
-│   o        oo                                        └──────────────────────┘│
+│__<span class="w">    </span>_<span class="w">  </span>_______<span class="w">  </span>__<span class="w">    </span>_<span class="w">  </span>_______<span class="w">  </span>___<span class="w">   </span>_<span class="w">  </span>_______<span class="w">  </span>┌Main<span class="w"> </span>Menu─────────────┐│
+│<span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="o">||</span><span class="w">       </span><span class="o">||</span><span class="w">  </span><span class="p">|</span><span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="o">||</span><span class="w">   </span>_<span class="w">   </span><span class="o">||</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">||</span><span class="w">       </span><span class="p">|</span>│Arcade<span class="w"> </span>Mode<span class="w">           </span>││
+│<span class="p">|</span><span class="w">   </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="o">||</span><span class="w">  </span>_____<span class="o">||</span><span class="w">   </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="o">||</span><span class="w">  </span><span class="p">|</span>_<span class="p">|</span><span class="w">  </span><span class="o">||</span><span class="w">   </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="o">||</span><span class="w">    </span>___<span class="p">|</span>│Level<span class="w"> </span>Select<span class="w">          </span>││
+│<span class="p">|</span><span class="w">       </span><span class="o">||</span><span class="w"> </span><span class="p">|</span>_____<span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="o">||</span><span class="w">       </span><span class="o">||</span><span class="w">      </span>_<span class="o">||</span><span class="w">   </span><span class="p">|</span>___<span class="w"> </span>│Game<span class="w"> </span>Settings<span class="w">         </span>││
+│<span class="p">|</span><span class="w">  </span>_<span class="w">    </span><span class="o">||</span>_____<span class="w">  </span><span class="o">||</span><span class="w">  </span>_<span class="w">    </span><span class="o">||</span><span class="w">       </span><span class="o">||</span><span class="w">     </span><span class="p">|</span>_<span class="w"> </span><span class="p">|</span><span class="w">    </span>___<span class="p">|</span>│GUI<span class="w"> </span>Options<span class="w">           </span>││
+│<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w"> </span>_____<span class="p">|</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="o">||</span><span class="w">   </span>_<span class="w">   </span><span class="o">||</span><span class="w">    </span>_<span class="w">  </span><span class="o">||</span><span class="w">   </span><span class="p">|</span>___<span class="w"> </span>│Controls<span class="w">              </span>││
+│<span class="p">|</span>_<span class="p">|</span><span class="w">  </span><span class="p">|</span>__<span class="o">||</span>_______<span class="o">||</span>_<span class="p">|</span><span class="w">  </span><span class="p">|</span>__<span class="o">||</span>__<span class="p">|</span><span class="w"> </span><span class="p">|</span>__<span class="o">||</span>___<span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="o">||</span>_______<span class="p">|</span>│Help<span class="w">                  </span>││
+│<span class="w">                   </span>o<span class="w">   </span>o<span class="w">      </span>o<span class="w"> </span>o<span class="w">           </span>o<span class="w">         </span>│Quit<span class="w">                  </span>││
+│<span class="w">                   </span>o<span class="w">   </span>o<span class="w">      </span>o<span class="w"> </span>o<span class="w">           </span>o<span class="w">         </span>│<span class="w">                      </span>││
+│<span class="w">                   </span>o<span class="w">   </span>o<span class="w">      </span>@<span class="w"> </span>o<span class="w">           </span>o<span class="w">  </span>o<span class="w">      </span>│<span class="w">                      </span>││
+│<span class="w">                  </span>oo<span class="w">   </span>o<span class="w">        </span>o<span class="w">         </span>o<span class="w"> </span>oo<span class="w"> </span>o<span class="w">      </span>│<span class="w">                      </span>││
+│<span class="w">                  </span>oo<span class="w">   </span>o<span class="w">        </span>o<span class="w">         </span>o<span class="w"> </span>oo<span class="w"> </span>o<span class="w">      </span>│<span class="w">                      </span>││
+│<span class="w">                  </span>oo<span class="w">   </span>o<span class="w">        </span>@<span class="w">         </span>o<span class="w"> </span>oo<span class="w"> </span>o<span class="w">      </span>│<span class="w">                      </span>││
+│<span class="w">            </span>o<span class="w">     </span>oo<span class="w">   </span>o<span class="w">                  </span>o<span class="w"> </span>oo<span class="w"> </span>o<span class="w">      </span>│<span class="w">                      </span>││
+│<span class="w">            </span>o<span class="w">     </span>oo<span class="w">   </span>o<span class="w">                  </span>oooo<span class="w"> </span>o<span class="w">      </span>│<span class="w">                      </span>││
+│<span class="w">            </span>o<span class="w">   </span>o<span class="w"> </span>o@<span class="w">   </span>o<span class="w">                  </span>oooo<span class="w"> </span>o<span class="w">      </span>│<span class="w">                      </span>││
+│<span class="w">            </span>o<span class="w">   </span>o<span class="w"> </span>o<span class="w">    </span>@<span class="w">                  </span>ooo@<span class="w"> </span>o<span class="w">      </span>│<span class="w">                      </span>││
+│<span class="w">            </span>o<span class="w">   </span>@<span class="w"> </span>o<span class="w">                       </span>ooo<span class="w">  </span>@<span class="w">      </span>│<span class="w">                      </span>││
+│<span class="w">            </span>o<span class="w">     </span>@<span class="w">                       </span>ooo<span class="w">         </span>│<span class="w">                      </span>││
+│<span class="w">            </span>oo<span class="w">    </span>@<span class="w">                       </span>@o@<span class="w">         </span>│<span class="w">                      </span>││
+│<span class="w">            </span>oo<span class="w">                             </span>@<span class="w">          </span>│<span class="w">                      </span>││
+│<span class="w">   </span>o<span class="w">        </span>oo<span class="w">                                        </span>└──────────────────────┘│
 └──────────────────────────────────────────────────────────────────────────────┘
 </pre></div>
 </div>
@@ -589,7 +589,7 @@ good to be able to work this way.</p>
 <h2>CMake<a class="headerlink" href="#cmake" title="Permalink to this headline">#</a></h2>
 <p>Let’s just pick on a simple example CMake project, to show how easy life could
 be.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack create -t cmake https://github.com/maks-it/CMake-Tutorial
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>create<span class="w"> </span>-t<span class="w"> </span>cmake<span class="w"> </span>https://github.com/maks-it/CMake-Tutorial
 </pre></div>
 </div>
 <p>That creates a template configuration, that just needs a couple of edits.  It
@@ -630,7 +630,7 @@ the leaves us with this minimal config:</p>
 <span class="kn">from</span> <span class="nn">spack.package</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">class</span> <span class="nc">CmakeTutorial</span><span class="p">(</span><span class="n">CMakePackage</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Demo package to show how to use Cmake&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Demo package to show how to use Cmake&quot;&quot;&quot;</span>
 
     <span class="n">homepage</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/maks-it/CMake-Tutorial&quot;</span>
     <span class="n">git</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/maks-it/CMake-Tutorial&quot;</span>
@@ -639,14 +639,14 @@ the leaves us with this minimal config:</p>
 </pre></div>
 </div>
 <p>That really is it, for a minimal CMake package.  You can install this with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install cmake-tutorial
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>cmake-tutorial
 </pre></div>
 </div>
 <p>Then we can prove it worked afterwards, by loading the module and running it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module add cmake-tutorial
-$ Tutorial <span class="m">10</span>
-Computing sqrt of <span class="m">10</span> to be <span class="m">3</span>.16228 using log
-The square root of <span class="m">10</span> is <span class="m">3</span>.16228
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>cmake-tutorial
+$<span class="w"> </span>Tutorial<span class="w"> </span><span class="m">10</span>
+Computing<span class="w"> </span>sqrt<span class="w"> </span>of<span class="w"> </span><span class="m">10</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span><span class="m">3</span>.16228<span class="w"> </span>using<span class="w"> </span>log
+The<span class="w"> </span>square<span class="w"> </span>root<span class="w"> </span>of<span class="w"> </span><span class="m">10</span><span class="w"> </span>is<span class="w"> </span><span class="m">3</span>.16228
 </pre></div>
 </div>
 <p>Further details can be found under the
@@ -656,7 +656,7 @@ on the Spack website.</p>
 <section id="autotools">
 <h2>Autotools<a class="headerlink" href="#autotools" title="Permalink to this headline">#</a></h2>
 <p>Here’s a similarly trivial Autotools based example.  We’re picking the autoreconf type, as this includes other typical steps required when using git sourced Autotools build packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack create -t autoreconf https://github.com/lloydroc/autotools-example
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>create<span class="w"> </span>-t<span class="w"> </span>autoreconf<span class="w"> </span>https://github.com/lloydroc/autotools-example
 </pre></div>
 </div>
 <p>We make the same basic edits done in Cmake, to tell it we’re using git, and which branch to use for the <code class="docutils literal notranslate"><span class="pre">develop</span></code> version.  This leaves us with:</p>
@@ -669,7 +669,7 @@ on the Spack website.</p>
 
 
 <span class="k">class</span> <span class="nc">AutotoolsExample</span><span class="p">(</span><span class="n">AutotoolsPackage</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Demo package to show how to use Autotools&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Demo package to show how to use Autotools&quot;&quot;&quot;</span>
 
     <span class="n">homepage</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/lloydroc/autotools-example&quot;</span>
     <span class="n">git</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/lloydroc/autotools-example&quot;</span>
@@ -686,13 +686,13 @@ on the Spack website.</p>
 </pre></div>
 </div>
 <p>You can install this with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install autotools-example
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>autotools-example
 </pre></div>
 </div>
 <p>Then we can prove it worked afterwards, by loading the module and running it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module add autotools-example
-$ jupiter
-hello jupiter
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>autotools-example
+$<span class="w"> </span>jupiter
+hello<span class="w"> </span>jupiter
 </pre></div>
 </div>
 </section>

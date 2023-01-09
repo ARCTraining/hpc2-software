@@ -516,44 +516,44 @@ different packages if you know better than the defaults.</p>
 <p>Variants are where the package has options how to build it.  Let’s pick on
 <code class="docutils literal notranslate"><span class="pre">piranha</span></code> as a nice example.  You can get information on a package in Spack,
 which will tell you about how it can be built:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack info piranha
-CMakePackage:   piranha
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>info<span class="w"> </span>piranha
+CMakePackage:<span class="w">   </span>piranha
 
 Description:
-    Piranha is a computer-algebra library <span class="k">for</span> the symbolic manipulation of
-    sparse multivariate polynomials and other closely-related symbolic
-    objects <span class="o">(</span>such as Poisson series<span class="o">)</span>.
+<span class="w">    </span>Piranha<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>computer-algebra<span class="w"> </span>library<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>symbolic<span class="w"> </span>manipulation<span class="w"> </span>of
+<span class="w">    </span>sparse<span class="w"> </span>multivariate<span class="w"> </span>polynomials<span class="w"> </span>and<span class="w"> </span>other<span class="w"> </span>closely-related<span class="w"> </span>symbolic
+<span class="w">    </span>objects<span class="w"> </span><span class="o">(</span>such<span class="w"> </span>as<span class="w"> </span>Poisson<span class="w"> </span>series<span class="o">)</span>.
 
-Homepage: https://bluescarni.github.io/piranha/sphinx/
+Homepage:<span class="w"> </span>https://bluescarni.github.io/piranha/sphinx/
 
-Preferred version:
-    <span class="m">0</span>.5        https://github.com/bluescarni/piranha/archive/v0.5.tar.gz
+Preferred<span class="w"> </span>version:
+<span class="w">    </span><span class="m">0</span>.5<span class="w">        </span>https://github.com/bluescarni/piranha/archive/v0.5.tar.gz
 
-Safe versions:
-    develop    <span class="o">[</span>git<span class="o">]</span> https://github.com/bluescarni/piranha.git on branch master
-    <span class="m">0</span>.5        https://github.com/bluescarni/piranha/archive/v0.5.tar.gz
+Safe<span class="w"> </span>versions:
+<span class="w">    </span>develop<span class="w">    </span><span class="o">[</span>git<span class="o">]</span><span class="w"> </span>https://github.com/bluescarni/piranha.git<span class="w"> </span>on<span class="w"> </span>branch<span class="w"> </span>master
+<span class="w">    </span><span class="m">0</span>.5<span class="w">        </span>https://github.com/bluescarni/piranha/archive/v0.5.tar.gz
 
-Deprecated versions:
-    None
+Deprecated<span class="w"> </span>versions:
+<span class="w">    </span>None
 
 Variants:
-    Name <span class="o">[</span>Default<span class="o">]</span>                 When    Allowed values          <span class="nv">Description</span>
-    <span class="o">===========================</span>    <span class="o">====</span>    <span class="o">====================</span>    <span class="o">==================================</span>
+<span class="w">    </span>Name<span class="w"> </span><span class="o">[</span>Default<span class="o">]</span><span class="w">                 </span>When<span class="w">    </span>Allowed<span class="w"> </span>values<span class="w">          </span><span class="nv">Description</span>
+<span class="w">    </span><span class="o">===========================</span><span class="w">    </span><span class="o">====</span><span class="w">    </span><span class="o">====================</span><span class="w">    </span><span class="o">==================================</span>
 
-    build_type <span class="o">[</span>RelWithDebInfo<span class="o">]</span>    --      Debug, Release,         CMake build <span class="nb">type</span>
-                                           RelWithDebInfo,
-                                           MinSizeRel
-    ipo <span class="o">[</span>off<span class="o">]</span>                      --      on, off                 CMake interprocedural optimization
-    python <span class="o">[</span>on<span class="o">]</span>                    --      on, off                 Build the Python bindings
+<span class="w">    </span>build_type<span class="w"> </span><span class="o">[</span>RelWithDebInfo<span class="o">]</span><span class="w">    </span>--<span class="w">      </span>Debug,<span class="w"> </span>Release,<span class="w">         </span>CMake<span class="w"> </span>build<span class="w"> </span><span class="nb">type</span>
+<span class="w">                                           </span>RelWithDebInfo,
+<span class="w">                                           </span>MinSizeRel
+<span class="w">    </span>ipo<span class="w"> </span><span class="o">[</span>off<span class="o">]</span><span class="w">                      </span>--<span class="w">      </span>on,<span class="w"> </span>off<span class="w">                 </span>CMake<span class="w"> </span>interprocedural<span class="w"> </span>optimization
+<span class="w">    </span>python<span class="w"> </span><span class="o">[</span>on<span class="o">]</span><span class="w">                    </span>--<span class="w">      </span>on,<span class="w"> </span>off<span class="w">                 </span>Build<span class="w"> </span>the<span class="w"> </span>Python<span class="w"> </span>bindings
 
-Build Dependencies:
-    boost  bzip2  cmake  gmp  mpfr  python
+Build<span class="w"> </span>Dependencies:
+<span class="w">    </span>boost<span class="w">  </span>bzip2<span class="w">  </span>cmake<span class="w">  </span>gmp<span class="w">  </span>mpfr<span class="w">  </span>python
 
-Link Dependencies:
-    boost  bzip2  gmp  mpfr
+Link<span class="w"> </span>Dependencies:
+<span class="w">    </span>boost<span class="w">  </span>bzip2<span class="w">  </span>gmp<span class="w">  </span>mpfr
 
-Run Dependencies:
-    python
+Run<span class="w"> </span>Dependencies:
+<span class="w">    </span>python
 </pre></div>
 </div>
 <p>From this you can see that there’s lots of versions available, and there’s a
@@ -561,7 +561,7 @@ number of variants listed, along with dependencies.  Let’s say I wanted to
 build the develop version, and we want ipo to be on, python off, and a
 build_type of Release.  Basically, be as awkward as possible and change
 everything:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install piranha @develop +ipo -python <span class="nv">build_type</span><span class="o">=</span>Release
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>piranha<span class="w"> </span>@develop<span class="w"> </span>+ipo<span class="w"> </span>-python<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>Release
 </pre></div>
 </div>
 <p>There we’re just turned on a feature (ipo), turned off a feature (python), and
@@ -573,7 +573,7 @@ of packages.</p>
 <h2>Compilers<a class="headerlink" href="#compilers" title="Permalink to this headline">#</a></h2>
 <p>You may want to build a package with a different compiler.  Let’s say I have
 gcc&#64;11.2.1 available:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install piranha @develop +ipo -python <span class="nv">build_type</span><span class="o">=</span>Release %gcc@11.2.1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>piranha<span class="w"> </span>@develop<span class="w"> </span>+ipo<span class="w"> </span>-python<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>Release<span class="w"> </span>%gcc@11.2.1
 </pre></div>
 </div>
 <p>Now Spack will happily rebuild that specific variant you’ve asked for, with the
@@ -583,7 +583,7 @@ compiler you’ve asked for.</p>
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">#</a></h2>
 <p>You can also specify particular versions and variants of dependencies.  We can
 take our previous build even further:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install piranha @develop +ipo -python <span class="nv">build_type</span><span class="o">=</span>Release ^boost@1.62.0+thread %gcc@11.2.1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>piranha<span class="w"> </span>@develop<span class="w"> </span>+ipo<span class="w"> </span>-python<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>Release<span class="w"> </span>^boost@1.62.0+thread<span class="w"> </span>%gcc@11.2.1
 </pre></div>
 </div>
 <p>This would build using Boost 1.62.0, with thread support enabled.  Note that we
@@ -595,17 +595,17 @@ use.</p>
 <h2>Previewing a software install<a class="headerlink" href="#previewing-a-software-install" title="Permalink to this headline">#</a></h2>
 <p>Before installing a piece of software, you can review what Spack is planning on
 doing, and which dependencies it’s going to rely on.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack spec atop
-Input spec
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>spec<span class="w"> </span>atop
+Input<span class="w"> </span>spec
 --------------------------------
 atop
 
 Concretized
 --------------------------------
-atop@2.5.0%gcc@8.5.0 <span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
-    ^ncurses@6.2%gcc@8.5.0~symlinks+termlib <span class="nv">abi</span><span class="o">=</span>none <span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
-        ^pkgconf@1.8.0%gcc@8.5.0 <span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
-    ^zlib@1.2.12%gcc@8.5.0+optimize+pic+shared <span class="nv">patches</span><span class="o">=</span>0d38234 <span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
+atop@2.5.0%gcc@8.5.0<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
+<span class="w">    </span>^ncurses@6.2%gcc@8.5.0~symlinks+termlib<span class="w"> </span><span class="nv">abi</span><span class="o">=</span>none<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
+<span class="w">        </span>^pkgconf@1.8.0%gcc@8.5.0<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
+<span class="w">    </span>^zlib@1.2.12%gcc@8.5.0+optimize+pic+shared<span class="w"> </span><span class="nv">patches</span><span class="o">=</span>0d38234<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
 </pre></div>
 </div>
 <p>This way you can verify which versions it’s expecting to use, and can adjust
@@ -635,40 +635,40 @@ look at alternative naming schemes that can capture the necessary detail.</p>
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
 <p>First you need to look at the info for tmux, to find out what variants are
 available.  Some of the output below has been truncated for brevity:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ spack info tmux
-AutotoolsPackage:   tmux
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>info<span class="w"> </span>tmux
+AutotoolsPackage:<span class="w">   </span>tmux
 
-Homepage: https://tmux.github.io
+Homepage:<span class="w"> </span>https://tmux.github.io
 
-Preferred version:
-    <span class="m">3</span>.2a      https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz
+Preferred<span class="w"> </span>version:
+<span class="w">    </span><span class="m">3</span>.2a<span class="w">      </span>https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz
 
-Safe versions:
-    master    <span class="o">[</span>git<span class="o">]</span> https://github.com/tmux/tmux.git on branch master
-    <span class="m">3</span>.2a      https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz
-    <span class="m">3</span>.2       https://github.com/tmux/tmux/releases/download/3.2/tmux-3.2.tar.gz
+Safe<span class="w"> </span>versions:
+<span class="w">    </span>master<span class="w">    </span><span class="o">[</span>git<span class="o">]</span><span class="w"> </span>https://github.com/tmux/tmux.git<span class="w"> </span>on<span class="w"> </span>branch<span class="w"> </span>master
+<span class="w">    </span><span class="m">3</span>.2a<span class="w">      </span>https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz
+<span class="w">    </span><span class="m">3</span>.2<span class="w">       </span>https://github.com/tmux/tmux/releases/download/3.2/tmux-3.2.tar.gz
 
 Variants:
-    Name <span class="o">[</span>Default<span class="o">]</span>    When    Allowed values    <span class="nv">Description</span>
-    <span class="o">==============</span>    <span class="o">====</span>    <span class="o">==============</span>    <span class="o">==============================================</span>
+<span class="w">    </span>Name<span class="w"> </span><span class="o">[</span>Default<span class="o">]</span><span class="w">    </span>When<span class="w">    </span>Allowed<span class="w"> </span>values<span class="w">    </span><span class="nv">Description</span>
+<span class="w">    </span><span class="o">==============</span><span class="w">    </span><span class="o">====</span><span class="w">    </span><span class="o">==============</span><span class="w">    </span><span class="o">==============================================</span>
 
-    static <span class="o">[</span>off<span class="o">]</span>      --      on, off           Create a static build
-    utf8proc <span class="o">[</span>off<span class="o">]</span>    --      on, off           Build with UTF-8 support from utf8proc library
+<span class="w">    </span>static<span class="w"> </span><span class="o">[</span>off<span class="o">]</span><span class="w">      </span>--<span class="w">      </span>on,<span class="w"> </span>off<span class="w">           </span>Create<span class="w"> </span>a<span class="w"> </span>static<span class="w"> </span>build
+<span class="w">    </span>utf8proc<span class="w"> </span><span class="o">[</span>off<span class="o">]</span><span class="w">    </span>--<span class="w">      </span>on,<span class="w"> </span>off<span class="w">           </span>Build<span class="w"> </span>with<span class="w"> </span>UTF-8<span class="w"> </span>support<span class="w"> </span>from<span class="w"> </span>utf8proc<span class="w"> </span>library
 </pre></div>
 </div>
 <p>You can see from this that there is indeed a version 3.2 available, and to add
 UTF-8 support, you need to enable the utf8proc feature.  That then gives an
 install command of:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack install tmux@3.2+utf8proc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>tmux@3.2+utf8proc
 </pre></div>
 </div>
 <p>If you’ve installed this and want to verify it’s worked:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module add tmux
-$ tmux -V
-tmux <span class="m">3</span>.2
-$ spack find -v <span class="nv">tmux</span>
-<span class="o">==</span>&gt; <span class="m">1</span> installed package
--- linux-rhel8-haswell / gcc@8.5.0 ------------------------------
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>tmux
+$<span class="w"> </span>tmux<span class="w"> </span>-V
+tmux<span class="w"> </span><span class="m">3</span>.2
+$<span class="w"> </span>spack<span class="w"> </span>find<span class="w"> </span>-v<span class="w"> </span><span class="nv">tmux</span>
+<span class="o">==</span>&gt;<span class="w"> </span><span class="m">1</span><span class="w"> </span>installed<span class="w"> </span>package
+--<span class="w"> </span>linux-rhel8-haswell<span class="w"> </span>/<span class="w"> </span>gcc@8.5.0<span class="w"> </span>------------------------------
 tmux@3.2~static+utf8proc
 </pre></div>
 </div>

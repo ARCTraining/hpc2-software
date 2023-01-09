@@ -548,7 +548,7 @@ cURL is a tool for transferring data using various network protocols and is comm
 <section id="cloning-the-curl-source-code">
 <h3>Cloning the cURL source code<a class="headerlink" href="#cloning-the-curl-source-code" title="Permalink to this headline">#</a></h3>
 <p>To get started we need to download the cURL source code. cURL is available via GitHub so we can clone the source code at the most recent tagged release with the following line.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone --single-branch --branch curl-7_85_0 https://github.com/curl/curl.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--single-branch<span class="w"> </span>--branch<span class="w"> </span>curl-7_85_0<span class="w"> </span>https://github.com/curl/curl.git
 </pre></div>
 </div>
 <p>This will download the cURL source code with the history of the associated release. You will likely see a warning message about being in a <code class="docutils literal notranslate"><span class="pre">detached</span> <span class="pre">head</span> <span class="pre">state</span></code> which you can ignore for this tutorial.</p>
@@ -563,21 +563,21 @@ You can do this directly in the command line by running <code class="docutils li
 <h4>Using cmake directly<a class="headerlink" href="#using-cmake-directly" title="Permalink to this headline">#</a></h4>
 <p>Running CMake directly runs all the configuration steps and provides some output to the screen.
 We can modify CMake default behaviour by passing additional arguments to <code class="docutils literal notranslate"><span class="pre">cmake</span></code> at this stage.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> curl
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>curl
 
-$ mkdir build
+$<span class="w"> </span>mkdir<span class="w"> </span>build
 
-$ <span class="nb">cd</span> build
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
 
-$ cmake ..
+$<span class="w"> </span>cmake<span class="w"> </span>..
 </pre></div>
 </div>
 <p>For modern installations of CMake it is preferable to specify the source and build directories directly when running <code class="docutils literal notranslate"><span class="pre">cmake</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> curl 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>curl<span class="w"> </span>
 
-$ mkdir build
+$<span class="w"> </span>mkdir<span class="w"> </span>build
 
-$ cmake -S . -B build
+$<span class="w"> </span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build
 </pre></div>
 </div>
 <p>This command at a basic level, will detect that there are GNU Makefiles present and, using the CMakeLists.txt file, configure a series of Makefiles for building the software.
@@ -595,11 +595,11 @@ Running this line on ARC4 will provide output similar to this:</p>
 </div>
 <p>As we’re doing this on ARC4 where a version of cURL is already installed we should probably make some tweaks.
 We can do this directly by passing specific arguments to <code class="docutils literal notranslate"><span class="pre">cmake</span></code>, in this example we want to specify a specific local build directory and set the name of the associated library <code class="docutils literal notranslate"><span class="pre">libcurl</span></code> that gets built to avoid conflicts with the system-installed <code class="docutils literal notranslate"><span class="pre">libcurl</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> curl
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>curl
 
-$ mkdir build install
+$<span class="w"> </span>mkdir<span class="w"> </span>build<span class="w"> </span>install
 
-$ cmake -S . -B build/ -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/install -DLIBCURL_OUTPUT_NAME<span class="o">=</span>libcurl2
+$<span class="w"> </span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build/<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/install<span class="w"> </span>-DLIBCURL_OUTPUT_NAME<span class="o">=</span>libcurl2
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -1107,7 +1107,7 @@ Always be sure to check the documentation to understand what the exact requireme
 <h4>Using ccmake<a class="headerlink" href="#using-ccmake" title="Permalink to this headline">#</a></h4>
 <p>You can also do the CMake configuration steps using <code class="docutils literal notranslate"><span class="pre">ccmake</span></code> which provides a GUI-like interface for adjusting CMake configuration options.</p>
 <p>You can open the ccmake GUI by running the following line within the <code class="docutils literal notranslate"><span class="pre">curl</span></code> directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ccmake -S . -B build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ccmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build
 </pre></div>
 </div>
 <div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go"> BUILD_CURL_EXE                   ON</span>
@@ -1143,20 +1143,20 @@ If you’re using <code class="docutils literal notranslate"><span class="pre">c
 <section id="building-cmake-configured-software">
 <h4>Building CMake configured software<a class="headerlink" href="#building-cmake-configured-software" title="Permalink to this headline">#</a></h4>
 <p>Now that CMake has configured everything we can proceed to building the software using GNU Make (here we pass the option <code class="docutils literal notranslate"><span class="pre">-j</span> <span class="pre">4</span></code> to use multiple threads).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
 
-$ make -j <span class="m">4</span>
+$<span class="w"> </span>make<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span>
 </pre></div>
 </div>
 <p>Once the make step completes successfully we can install the cURL executable to the previously specified install location with the command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>install
 </pre></div>
 </div>
 <p>If you’ve set everything up as I have on ARC4 and run this in your /home directory your new cURL executable will be at <code class="docutils literal notranslate"><span class="pre">~/curl/install/bin</span></code>.
 However, because we already have a system-installed cURL version we need to do an extra step before testing out our newly built version of cURL.
 Crucially, we need to make the <code class="docutils literal notranslate"><span class="pre">libcurl2</span></code> library that was also built with cURL available for our new cURL executable to use.
 If we try and run our new cURL without doing this step we get the following error:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ~/curl/build/bin/curl --version
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>~/curl/build/bin/curl<span class="w"> </span>--version
 </pre></div>
 </div>
 <div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">/home/home01/arcuser/curl/install/bin/curl: error while loading shared libraries: libcurl2.so: cannot open shared object file: No such file or directory</span>
@@ -1165,9 +1165,9 @@ If we try and run our new cURL without doing this step we get the following erro
 <p>This is because <code class="docutils literal notranslate"><span class="pre">libcurl2</span></code> is not available to use via the associated environment variable.
 To solve this we need to update the <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> variable to include the directory containing <code class="docutils literal notranslate"><span class="pre">libcurl2.so</span></code>.
 We do this by appending a directory path to the colon-separated <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> variable.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="s2">&quot;LD_LIBRARY_PATH=</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/curl/install/lib64&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="s2">&quot;LD_LIBRARY_PATH=</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/curl/install/lib64&quot;</span>
 
-$ ~/curl/build/bin/curl --version
+$<span class="w"> </span>~/curl/build/bin/curl<span class="w"> </span>--version
 </pre></div>
 </div>
 <div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">curl 7.85.0-DEV (Linux) libcurl/7.85.0-DEV OpenSSL/1.0.2k-fips zlib/1.2.7</span>

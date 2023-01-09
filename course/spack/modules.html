@@ -434,9 +434,9 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="adjusting-how-we-name-modules">
 <h1>Adjusting how we name modules<a class="headerlink" href="#adjusting-how-we-name-modules" title="Permalink to this headline">#</a></h1>
 <p>In the last section we built a version of pigz, and loaded it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module add pigz-2.7-gcc-8.5.0-qkx6pxv
-$ pigz --version
-pigz <span class="m">2</span>.7
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz-2.7-gcc-8.5.0-qkx6pxv
+$<span class="w"> </span>pigz<span class="w"> </span>--version
+pigz<span class="w"> </span><span class="m">2</span>.7
 </pre></div>
 </div>
 <p>Now, it’s very definitive what you’re loading (pigz version 2.7 built with gcc
@@ -456,16 +456,16 @@ names more in line with how they have traditionally been named, with the
 version separate from the package name.</p>
 <p>There’s a single file within the spack directory that defines how spack
 generates module files, and we can edit it via:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack config edit modules
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>config<span class="w"> </span>edit<span class="w"> </span>modules
 </pre></div>
 </div>
 <p>A basic starting point might be the following:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">modules</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">tcl</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">hash_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
-<span class="w">      </span><span class="nt">projections</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">all</span><span class="p">:</span><span class="w">  </span><span class="s">&#39;{name}/{version}&#39;</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">modules</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tcl</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">hash_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">      </span><span class="nt">projections</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">all</span><span class="p">:</span><span class="w">  </span><span class="s">&#39;{name}/{version}&#39;</span>
 </pre></div>
 </div>
 <p>Here we’re saying that we want the default module files that use tcl (the
@@ -474,13 +474,13 @@ model we’re used to on other systems.  Quit and save that file, and we’ve to
 Spack how we’d like these modules to be built in future, but existing modules
 would still use the old scheme.  We can tell it to rebuild the modulefiles, and
 delete existing files:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack module tcl refresh --delete-tree -y
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>module<span class="w"> </span>tcl<span class="w"> </span>refresh<span class="w"> </span>--delete-tree<span class="w"> </span>-y
 </pre></div>
 </div>
 <p>Testing this out now we can see all is how we wanted it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ module avail
----------- /home/me/spack/share/spack/modules/linux-rhel8-haswell -----------
-pigz/2.7  zlib/1.2.12
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>avail
+----------<span class="w"> </span>/home/me/spack/share/spack/modules/linux-rhel8-haswell<span class="w"> </span>-----------
+pigz/2.7<span class="w">  </span>zlib/1.2.12
 </pre></div>
 </div>
 <p>We now have tidy module files, named in a nice simple fashion, which is

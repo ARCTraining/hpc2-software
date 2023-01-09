@@ -529,9 +529,9 @@ I’m picking on something from GitHub that includes all these steps.</p>
 <section id="download-your-software">
 <h2>Download your software<a class="headerlink" href="#download-your-software" title="Permalink to this headline">#</a></h2>
 <p>This could be downloading and extracting a tarball:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://github.com/barricklab/breseq/releases/download/v0.37.1/breseq-0.37.1-Linux-x86_64.tar.gz
-$ tar xf breseq-0.37.1-Linux-x86_64.tar.gz
-$ cd breseq-0.37.1-Linux-x86_64/
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://github.com/barricklab/breseq/releases/download/v0.37.1/breseq-0.37.1-Source.tar.gz
+$ tar xf breseq-0.37.1-Source.tar.gz
+$ cd breseq-0.37.1
 $ ls configure
 configure
 </pre></div>
@@ -551,7 +551,7 @@ ls: cannot access &#39;configure&#39;: No such file or directory
 <p>With this git example, we see there is no configure script present, so we need
 to generate it.  Sometimes you’re provided with a <a class="reference external" href="http://bootstrap.sh">bootstrap.sh</a> or <a class="reference external" href="http://autogen.sh">autogen.sh</a>,
 as is the case here.  So we just run it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./bootstrap.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./bootstrap.sh
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -585,7 +585,7 @@ autoreconf: Leaving directory `.&#39;
 </div>
 <p>This sorts everything out ready for us to configure it.  If neither of these
 scripts are present, you can instead do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ autoreconf -fi
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>autoreconf<span class="w"> </span>-fi
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -619,10 +619,10 @@ other things into the bootstrap script, so if present it’s wise to use it.</p>
 <h1>Configure the software<a class="headerlink" href="#configure-the-software" title="Permalink to this headline">#</a></h1>
 <p>Running the configure script first lets you find out what options you have
 (trimmed down output show below):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./configure --help
-Installation directories:
-  --prefix<span class="o">=</span>PREFIX         install architecture-independent files <span class="k">in</span> PREFIX
-                          <span class="o">[</span>/usr/local<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./configure<span class="w"> </span>--help
+Installation<span class="w"> </span>directories:
+<span class="w">  </span>--prefix<span class="o">=</span>PREFIX<span class="w">         </span>install<span class="w"> </span>architecture-independent<span class="w"> </span>files<span class="w"> </span><span class="k">in</span><span class="w"> </span>PREFIX
+<span class="w">                          </span><span class="o">[</span>/usr/local<span class="o">]</span>
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -748,7 +748,7 @@ are used by the build script.  In this example, we’re just going to tell it
 where we’d like it installed to, and nothing else.  Typically I’d advise
 installing software for a given project in one location, rather than each
 program being installed separately, but it’s up to you.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./configure --prefix<span class="o">=</span>/nobackup/example/project1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./configure<span class="w"> </span>--prefix<span class="o">=</span>/nobackup/example/project1
 </pre></div>
 </div>
 <div class="dropdown admonition">
@@ -937,12 +937,12 @@ CPATH/LIBRARY_PATH, as covered in the <a class="reference internal" href="theory
 <section id="building">
 <h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">#</a></h2>
 <p>Assuming everything’s gone well so far with configure, it will have now written out a top level Makefile, which contains the necessary steps to build and install your software.  Building the software is now just a case of:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make
 </pre></div>
 </div>
 <p>If you’re running on a multicore machine, you can ask it to run several build
 jobs in parallel.  For example, to build using 8 cores:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make -j <span class="m">8</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>-j<span class="w"> </span><span class="m">8</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -955,7 +955,7 @@ would complete the build.</p>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">#</a></h2>
 <p>Once built, to install it at the location you requested:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>install
 </pre></div>
 </div>
 <p>There you have it.  Your software is installed at the location you asked.  It’s

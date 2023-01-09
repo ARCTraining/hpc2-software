@@ -461,17 +461,17 @@ making a single coherent collection.</p>
 <p>Here’s a minimal workflow for creating an environment:</p>
 <ul>
 <li><p>Create a blank environment</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack env create myenv
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>myenv
 </pre></div>
 </div>
 </li>
 <li><p>Add a list of software to it</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack -e myenv add bash@5 python py-numpy py-scipy py-matplotlib
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>-e<span class="w"> </span>myenv<span class="w"> </span>add<span class="w"> </span>bash@5<span class="w"> </span>python<span class="w"> </span>py-numpy<span class="w"> </span>py-scipy<span class="w"> </span>py-matplotlib
 </pre></div>
 </div>
 </li>
 <li><p>Tweak the config if required</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack -e myenv config edit
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>-e<span class="w"> </span>myenv<span class="w"> </span>config<span class="w"> </span>edit
 </pre></div>
 </div>
 </li>
@@ -479,7 +479,7 @@ making a single coherent collection.</p>
 <p>I’m changing <code class="docutils literal notranslate"><span class="pre">unify</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> for this install, but please review the references for more information on options.</p>
 <ul>
 <li><p>Validate the installation</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack -e myenv concretize
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>-e<span class="w"> </span>myenv<span class="w"> </span>concretize
 </pre></div>
 </div>
 </li>
@@ -489,7 +489,7 @@ the spec resolves all the dependecies and shows you what Spack believes is
 required to satisfy you requirements.</p>
 <ul>
 <li><p>Build and install the software</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack -e myenv install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>-e<span class="w"> </span>myenv<span class="w"> </span>install
 </pre></div>
 </div>
 </li>
@@ -501,19 +501,19 @@ software, and external software you’ve told it to use.</p>
 <h2>Using an environment<a class="headerlink" href="#using-an-environment" title="Permalink to this headline">#</a></h2>
 <p>Again, this feels very familiar to people used to Conda; you have to activate
 an environment before using it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack env activate myenv
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>env<span class="w"> </span>activate<span class="w"> </span>myenv
 </pre></div>
 </div>
 <p>Once activated, you can confirm that it’s really live:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ which bash
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>which<span class="w"> </span>bash
 ~/spack/var/spack/environments/myenv/.spack-env/view/bin/bash
-$ bash --version
-wGNU bash, version <span class="m">5</span>.1.8<span class="o">(</span><span class="m">1</span><span class="o">)</span>-release <span class="o">(</span>x86_64-pc-linux-gnu<span class="o">)</span>
-Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2020</span> Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version <span class="m">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;
+$<span class="w"> </span>bash<span class="w"> </span>--version
+wGNU<span class="w"> </span>bash,<span class="w"> </span>version<span class="w"> </span><span class="m">5</span>.1.8<span class="o">(</span><span class="m">1</span><span class="o">)</span>-release<span class="w"> </span><span class="o">(</span>x86_64-pc-linux-gnu<span class="o">)</span>
+Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2020</span><span class="w"> </span>Free<span class="w"> </span>Software<span class="w"> </span>Foundation,<span class="w"> </span>Inc.
+License<span class="w"> </span>GPLv3+:<span class="w"> </span>GNU<span class="w"> </span>GPL<span class="w"> </span>version<span class="w"> </span><span class="m">3</span><span class="w"> </span>or<span class="w"> </span>later<span class="w"> </span>&lt;http://gnu.org/licenses/gpl.html&gt;
 
-This is free software<span class="p">;</span> you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
+This<span class="w"> </span>is<span class="w"> </span>free<span class="w"> </span>software<span class="p">;</span><span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>free<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>and<span class="w"> </span>redistribute<span class="w"> </span>it.
+There<span class="w"> </span>is<span class="w"> </span>NO<span class="w"> </span>WARRANTY,<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>extent<span class="w"> </span>permitted<span class="w"> </span>by<span class="w"> </span>law.
 </pre></div>
 </div>
 </section>
