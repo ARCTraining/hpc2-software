@@ -1,9 +1,8 @@
 name: hpc2-jb
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - python=3.9
   - jinja2=3.0.3
-  - pip=20
-  - pip:
-    - jupyter-book==0.13.1
+  - jupyter-book==0.15.1
