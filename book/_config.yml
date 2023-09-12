@@ -1,12 +1,12 @@
 # Book settings
-title: "HPC2: Installing and Managing Applications on the HPC"
-author: University of Leeds Research Computing Team
-logo: ./assets/img/logo/logo.png
-copyright: "2022"
+title                       : "HPC2: Installing and Managing Applications on the HPC"
+author                      : University of Leeds Research Computing Team
+logo                        : ./assets/img/logo/logo.png
+copyright                   : "2023"
 
 # execute settings
 execute:
-  execute_notebooks: auto
+  execute_notebooks         : auto
 
 # HTML-specific settings
 html:
@@ -14,16 +14,10 @@ html:
   navbar_number_sections    : False  # Add a number to each section in your left navbar
   google_analytics_id       : ""  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
-  use_repository_button: true
-  use_issues_button: true
-  use_edit_page_button: true
+  use_repository_button     : true
+  use_issues_button         : true
+  use_edit_page_button      : true
   baseurl                   : "https://arctraining.github.io/hpc2-software/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
-  navbar_footer_text        :
-    'Visit the <a href="https://arcleeds.github.io/">Research Computing Home Site</a>
-    <div>
-    This book is powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-    </div>'  # Will be displayed underneath the left navbar.
-
 
 # Launch button settings
 launch_buttons:
@@ -36,5 +30,3 @@ repository:
   url                       : https://github.com/ARCTraining/hpc2-software  # The URL to your book's repository
   path_to_book              : "book/"  # A path to your book's folder, relative to the repository root.
   branch                    : gh-pages  # Which branch of the repository should be used when creating links
-
-

@@ -26,4 +26,5 @@ sections:
   - file: course/spack/containers
   - file: course/spack/environments
   - file: course/spack/recipes
-
+- url: https://arc.leeds.ac.uk
+  title: Research Computing Website
