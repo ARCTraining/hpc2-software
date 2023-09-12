@@ -43,11 +43,10 @@ update this in future.
 That's the short answer.  The longer answer is, you generally shouldn't want
 to.  Docker is excellent for running web services in containerised
 environments, but doesn't really have a security model that suits HPC, due to
-the way it works.  Singularity/Apptainer solve this by allowing you to use
-Docker containers, but via a tool that uses an alternative security model,
-where containers run with the permissions of the user who is running them.
-That makes them perfect for HPC, where we want all your work to run as your
-user.
+the way it works.  Apptainer solves this by allowing you to use Docker
+containers, but via a tool that uses an alternative security model, where
+containers run with the permissions of the user who is running them.  That
+makes them perfect for HPC, where we want all your work to run as your user.
 
 ## Singularity vs Apptainer
 
@@ -56,11 +55,9 @@ source version, then a while after a fork after a slight disagreement, and
 Apptainer was born.  Apptainer has been developed from Singularity, and we'll
 only be looking at Apptainer in this course, but much of what's listed will
 equally apply to Singularity.  Whilst there remains a community edition of
-Singularity, we'll only be looking at Apptainer, but have tended to use the
-`singularity` command line, which is still provided for backwards
-compatibility.  Anywhere we use the `singularity` command, you could instead
-use `apptainer`, unless you're using an older install of singularity, where
-only `singularity` will work.
+Singularity, we'll only be looking at Apptainer.
+Singularity provides a `singularity` command instead of `apptainer`, which
+mostly behaves the same.  Apptainer provides both for backwards compatibility.
 
 ## Example of running a container
 
@@ -72,10 +69,10 @@ things are working:
 $ module add apptainer
 
 # Download a simple container
-$ singularity pull docker://godlovedc/lolcow
+$ apptainer pull docker://godlovedc/lolcow
 
 # Run it
-$ singularity run lolcow_latest.sif
+$ apptainer run lolcow_latest.sif
 INFO:    Using cached SIF image
  _________________________________________
 / This night methinks is but the daylight \
@@ -136,27 +133,27 @@ container.  If you want other directories to be mapped, you have to ask for
 them.  If you wanted `/data` to be visible inside the container, you can just do:
 
 ```bash
-$ singularity run -B /data example.sif
+$ apptainer run -B /data example.sif
 ```
 
 Or if you wanted to make something visible somewhere else (so `/data` outside
 is presented within the container as `/scratch`):
 
 ```bash
-$ singularity run -B /data:/scratch example.sif
+$ apptainer run -B /data:/scratch example.sif
 ```
 
 ### Run an alternative command within a container
 
 ```bash
-$ singularity exec example.sif cat /etc/issue
+$ apptainer exec example.sif cat /etc/issue
 Ubuntu 16.04.3 LTS \n \l
 ```
 
 ### Have an interactive shell inside the container
 
 ```bash
-$ singularity shell example.sif
+$ apptainer shell example.sif
 ```
 
 ### Use GPUs within a container
@@ -167,7 +164,7 @@ supports GPUs without the pain of having to have all the right drivers included
 within it.  At runtime you just do:
 
 ```bash
-$ singularity run --nv example.sif
+$ apptainer run --nv example.sif
 ```
 
 All available Nvidia GPUs are then visible to the container, along with the
@@ -238,13 +235,13 @@ Then you could proceed to build it into a SIF file as show below.
 ### Generate a SIF image from a recipe
 
 ```bash
-$ singularity build lolcow.sif lolcow.def
+$ apptainer build lolcow.sif lolcow.def
 ```
 
 ### Test the image we've created
 
 ```
-$ singularity run lolcow.sif
+$ apptainer run lolcow.sif
 / Q: How did you get into artificial   \
 | intelligence? A: Seemed logical -- I |
 \ didn't have any real intelligence.   /
@@ -273,10 +270,10 @@ is using them interactively.  Here's an example job submission:
 module add apptainer
 
 # Run the default command in the container
-singularity run lolcow_latest.sif
+apptainer run lolcow_latest.sif
 
 # Run a custom command inside the container
-singularity exec lolcow_latest.sif fortune
+apptainer exec lolcow_latest.sif fortune
 ```
 
 ## Bonus section
@@ -290,13 +287,13 @@ some bonus content is available here.
 When writing a recipe you may find it hard to come up with a working recipe first time.  This is where sandboxes can come in handy.  If you create a sandbox, rather than creating an image file, it writes out the files into a directory, and you can then have a container run in this directory, but with write access, which you do not normally have.  So you write your basic recipe, and build the container like this:
 
 ```bash
-$ singularity build --sandbox lolcow lolcow.def
+$ apptainer build --sandbox lolcow lolcow.def
 ```
 
 Now we can have a session within it:
 
 ```bash
-$ singularity shell --fakeroot --writable lolcow
+$ apptainer shell --fakeroot --writable lolcow
 ```
 
 You can now experiment inside this sandbox to work out what you need for your recipe.
