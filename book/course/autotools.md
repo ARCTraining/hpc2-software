@@ -486,3 +486,4 @@ available to you.  Details on this is covered in the [Theory section](theory).
 # References
 
 [Autotools](https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html)
+[GNU Make](https://www.gnu.org/software/make/)
