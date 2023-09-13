@@ -1,48 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Containers &#8212; HPC2: Installing and Managing Applications on the HPC</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,63 +61,95 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'course/containers';</script>
     <link rel="canonical" href="https://arctraining.github.io/hpc2-software/course/containers.html" />
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Spack" href="spack.html" />
     <link rel="prev" title="CMake" href="cmake.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../welcome.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">HPC2: Installing and Managing Applications on the HPC</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -116,561 +159,281 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="start.html">
-   Overview
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="theory.html">
-   Theory
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="conda.html">
-   Conda package manager
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="autotools.html">
-   Autotools
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="cmake.html">
-   CMake
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Containers
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="spack.html">
-   Spack
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="spack/installing.html">
-     Installing Spack
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="spack/testinstall.html">
-     Building a test piece of software
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="spack/modules.html">
-     Adjusting how we name modules
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="spack/existing.html">
-     Using existing software
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="spack/advanced.html">
-     Advanced software install
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="spack/containers.html">
-     Containers
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="spack/environments.html">
-     Environments
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="spack/recipes.html">
-     Recipes
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda.html">Conda package manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autotools.html">Autotools</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Containers</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="spack.html">Spack</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="spack/installing.html">Installing Spack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack/testinstall.html">Building a test piece of software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack/modules.html">Adjusting how we name modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack/existing.html">Using existing software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack/advanced.html">Advanced software install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack/containers.html">Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack/environments.html">Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spack/recipes.html">Recipes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://arc.leeds.ac.uk">Research Computing Website</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Visit the <a href="https://arcleeds.github.io/">Research Computing Home Site</a> <div> This book is powered by <a href="https://jupyterbook.org">Jupyter Book</a> </div>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ARCTraining/hpc2-software" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ARCTraining/hpc2-software/edit/gh-pages/book/course/containers.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ARCTraining/hpc2-software/issues/new?title=Issue%20on%20page%20%2Fcourse/containers.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
 
 
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/course/containers.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
   </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/ARCTraining/hpc2-software"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/ARCTraining/hpc2-software/issues/new?title=Issue%20on%20page%20%2Fcourse/containers.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/ARCTraining/hpc2-software/edit/gh-pages/book/course/containers.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/course/containers.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-are-containers">
-   What are containers?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-do-i-want-a-container">
-   Why do I want a container?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#can-i-use-docker-on-hpc">
-   Can I use Docker on HPC?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#singularity-vs-apptainer">
-   Singularity vs Apptainer
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-of-running-a-container">
-   Example of running a container
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-do-those-steps-mean">
-     What do those steps mean?
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pulling-a-container-image-down-from-docker-hub">
-       Pulling a container image down from Docker Hub
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#converting-it-into-a-sif-image">
-       Converting it into a SIF image
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#running-software-within-a-container">
-       Running software within a container
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-else-can-i-do-with-containers">
-   What else can I do with containers?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#access-host-storage-within-a-container">
-     Access host storage within a container
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-an-alternative-command-within-a-container">
-     Run an alternative command within a container
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#have-an-interactive-shell-inside-the-container">
-     Have an interactive shell inside the container
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#use-gpus-within-a-container">
-     Use GPUs within a container
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#building-a-container">
-   Building a container
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creating-a-recipe">
-     Creating a recipe
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#converting-a-dockerfile-to-a-singularity-recipe">
-     Converting a Dockerfile to a Singularity recipe
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generate-a-sif-image-from-a-recipe">
-     Generate a SIF image from a recipe
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#test-the-image-we-ve-created">
-     Test the image we’ve created
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#submitting-jobs-with-containers">
-   Submitting jobs with containers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bonus-section">
-   Bonus section
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Containers</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-are-containers">
-   What are containers?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-do-i-want-a-container">
-   Why do I want a container?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#can-i-use-docker-on-hpc">
-   Can I use Docker on HPC?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#singularity-vs-apptainer">
-   Singularity vs Apptainer
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-of-running-a-container">
-   Example of running a container
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-do-those-steps-mean">
-     What do those steps mean?
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pulling-a-container-image-down-from-docker-hub">
-       Pulling a container image down from Docker Hub
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#converting-it-into-a-sif-image">
-       Converting it into a SIF image
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#running-software-within-a-container">
-       Running software within a container
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-else-can-i-do-with-containers">
-   What else can I do with containers?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#access-host-storage-within-a-container">
-     Access host storage within a container
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-an-alternative-command-within-a-container">
-     Run an alternative command within a container
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#have-an-interactive-shell-inside-the-container">
-     Have an interactive shell inside the container
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#use-gpus-within-a-container">
-     Use GPUs within a container
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#building-a-container">
-   Building a container
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creating-a-recipe">
-     Creating a recipe
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#converting-a-dockerfile-to-a-singularity-recipe">
-     Converting a Dockerfile to a Singularity recipe
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generate-a-sif-image-from-a-recipe">
-     Generate a SIF image from a recipe
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#test-the-image-we-ve-created">
-     Test the image we’ve created
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#submitting-jobs-with-containers">
-   Submitting jobs with containers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bonus-section">
-   Bonus section
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Containers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-containers">What are containers?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-i-want-a-container">Why do I want a container?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#can-i-use-docker-on-hpc">Can I use Docker on HPC?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity-vs-apptainer">Singularity vs Apptainer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-running-a-container">Example of running a container</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-those-steps-mean">What do those steps mean?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-a-container-image-down-from-docker-hub">Pulling a container image down from Docker Hub</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-it-into-a-sif-image">Converting it into a SIF image</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-software-within-a-container">Running software within a container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-else-can-i-do-with-containers">What else can I do with containers?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-host-storage-within-a-container">Access host storage within a container</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-an-alternative-command-within-a-container">Run an alternative command within a container</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#have-an-interactive-shell-inside-the-container">Have an interactive shell inside the container</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-gpus-within-a-container">Use GPUs within a container</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-container">Building a container</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-recipe">Creating a recipe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-a-dockerfile-to-a-singularity-recipe">Converting a Dockerfile to a Singularity recipe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-sif-image-from-a-recipe">Generate a SIF image from a recipe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-image-we-ve-created">Test the image we’ve created</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-jobs-with-containers">Submitting jobs with containers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-section">Bonus section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="containers">
-<h1>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">#</a></h1>
+<h1>Containers<a class="headerlink" href="#containers" title="Permalink to this heading">#</a></h1>
 <section id="what-are-containers">
-<h2>What are containers?<a class="headerlink" href="#what-are-containers" title="Permalink to this headline">#</a></h2>
+<span id="containers-what"></span><h2>What are containers?<a class="headerlink" href="#what-are-containers" title="Permalink to this heading">#</a></h2>
 <p>Containers are a bit like VMs, but less contained than that.  It probably helps
 to look at a diagram to help understand the limits of containers, compared to
 virtual machines:</p>
@@ -689,7 +452,7 @@ way a normal process can.  This lack of total containment also means you get
 full access to the network and GPUs of the host.</p>
 </section>
 <section id="why-do-i-want-a-container">
-<h2>Why do I want a container?<a class="headerlink" href="#why-do-i-want-a-container" title="Permalink to this headline">#</a></h2>
+<span id="containers-why"></span><h2>Why do I want a container?<a class="headerlink" href="#why-do-i-want-a-container" title="Permalink to this heading">#</a></h2>
 <p>One of the problems with running software on different systems is that it can
 be hard work recreating the software environment across systems, where you may
 be running a different operating system distribution.  By using a container, you can spend the
@@ -699,42 +462,39 @@ very clear how you created this software environment, making it much easier to
 update this in future.</p>
 </section>
 <section id="can-i-use-docker-on-hpc">
-<h2>Can I use Docker on HPC?<a class="headerlink" href="#can-i-use-docker-on-hpc" title="Permalink to this headline">#</a></h2>
+<span id="containers-docker-hpc"></span><h2>Can I use Docker on HPC?<a class="headerlink" href="#can-i-use-docker-on-hpc" title="Permalink to this heading">#</a></h2>
 <p><strong>No.</strong></p>
 <p>That’s the short answer.  The longer answer is, you generally shouldn’t want
 to.  Docker is excellent for running web services in containerised
 environments, but doesn’t really have a security model that suits HPC, due to
-the way it works.  Singularity/Apptainer solve this by allowing you to use
-Docker containers, but via a tool that uses an alternative security model,
-where containers run with the permissions of the user who is running them.
-That makes them perfect for HPC, where we want all your work to run as your
-user.</p>
+the way it works.  Apptainer solves this by allowing you to use Docker
+containers, but via a tool that uses an alternative security model, where
+containers run with the permissions of the user who is running them.  That
+makes them perfect for HPC, where we want all your work to run as your user.</p>
 </section>
 <section id="singularity-vs-apptainer">
-<h2>Singularity vs Apptainer<a class="headerlink" href="#singularity-vs-apptainer" title="Permalink to this headline">#</a></h2>
+<span id="containers-singularity-vs-apptainer"></span><h2>Singularity vs Apptainer<a class="headerlink" href="#singularity-vs-apptainer" title="Permalink to this heading">#</a></h2>
 <p>First there was Singularity, then there was commercialisation that kept an open
 source version, then a while after a fork after a slight disagreement, and
 Apptainer was born.  Apptainer has been developed from Singularity, and we’ll
 only be looking at Apptainer in this course, but much of what’s listed will
 equally apply to Singularity.  Whilst there remains a community edition of
-Singularity, we’ll only be looking at Apptainer, but have tended to use the
-<code class="docutils literal notranslate"><span class="pre">singularity</span></code> command line, which is still provided for backwards
-compatibility.  Anywhere we use the <code class="docutils literal notranslate"><span class="pre">singularity</span></code> command, you could instead
-use <code class="docutils literal notranslate"><span class="pre">apptainer</span></code>, unless you’re using an older install of singularity, where
-only <code class="docutils literal notranslate"><span class="pre">singularity</span></code> will work.</p>
+Singularity, we’ll only be looking at Apptainer.
+Singularity provides a <code class="docutils literal notranslate"><span class="pre">singularity</span></code> command instead of <code class="docutils literal notranslate"><span class="pre">apptainer</span></code>, which
+mostly behaves the same.  Apptainer provides both for backwards compatibility.</p>
 </section>
 <section id="example-of-running-a-container">
-<h2>Example of running a container<a class="headerlink" href="#example-of-running-a-container" title="Permalink to this headline">#</a></h2>
+<span id="containers-example"></span><h2>Example of running a container<a class="headerlink" href="#example-of-running-a-container" title="Permalink to this heading">#</a></h2>
 <p>It’s always good to do something simple to start with, to prove to yourself
 things are working:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the apptainer module</span>
 $<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>apptainer
 
 <span class="c1"># Download a simple container</span>
-$<span class="w"> </span>singularity<span class="w"> </span>pull<span class="w"> </span>docker://godlovedc/lolcow
+$<span class="w"> </span>apptainer<span class="w"> </span>pull<span class="w"> </span>docker://godlovedc/lolcow
 
 <span class="c1"># Run it</span>
-$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>lolcow_latest.sif
+$<span class="w"> </span>apptainer<span class="w"> </span>run<span class="w"> </span>lolcow_latest.sif
 INFO:<span class="w">    </span>Using<span class="w"> </span>cached<span class="w"> </span>SIF<span class="w"> </span>image
 <span class="w"> </span>_________________________________________
 /<span class="w"> </span>This<span class="w"> </span>night<span class="w"> </span>methinks<span class="w"> </span>is<span class="w"> </span>but<span class="w"> </span>the<span class="w"> </span>daylight<span class="w"> </span><span class="se">\</span>
@@ -757,21 +517,21 @@ INFO:<span class="w">    </span>Using<span class="w"> </span>cached<span class="
 <li><p>run a piece of software, within an Ubuntu container on a CentOS host</p></li>
 </ul>
 <section id="what-do-those-steps-mean">
-<h3>What do those steps mean?<a class="headerlink" href="#what-do-those-steps-mean" title="Permalink to this headline">#</a></h3>
+<h3>What do those steps mean?<a class="headerlink" href="#what-do-those-steps-mean" title="Permalink to this heading">#</a></h3>
 <section id="pulling-a-container-image-down-from-docker-hub">
-<h4>Pulling a container image down from Docker Hub<a class="headerlink" href="#pulling-a-container-image-down-from-docker-hub" title="Permalink to this headline">#</a></h4>
+<span id="containers-pulling-from-docker"></span><h4>Pulling a container image down from Docker Hub<a class="headerlink" href="#pulling-a-container-image-down-from-docker-hub" title="Permalink to this heading">#</a></h4>
 <p>Docker Hub is a repository of containers, also known as a container registry.  Pulling down a container involves
 pulling down the pieces of this container image over to your machine.</p>
 </section>
 <section id="converting-it-into-a-sif-image">
-<h4>Converting it into a SIF image<a class="headerlink" href="#converting-it-into-a-sif-image" title="Permalink to this headline">#</a></h4>
+<span id="containers-converting-to-sif"></span><h4>Converting it into a SIF image<a class="headerlink" href="#converting-it-into-a-sif-image" title="Permalink to this heading">#</a></h4>
 <p>Docker uses a container format that involves a number of layers, that add up
 together to form your final container image.  Singularity uses a different
 format SIF, which is a single file that contains everything you need to run
 your container.</p>
 </section>
 <section id="running-software-within-a-container">
-<h4>Running software within a container<a class="headerlink" href="#running-software-within-a-container" title="Permalink to this headline">#</a></h4>
+<span id="containers-running-within"></span><h4>Running software within a container<a class="headerlink" href="#running-software-within-a-container" title="Permalink to this heading">#</a></h4>
 <p>When you come to use a container, you can run software inside the container,
 but also see file shares outside the container, and access resources like
 network and GPU of the host machine.  This allows us to use all the power of an
@@ -788,42 +548,42 @@ to directories of the host mapped into the container.</p>
 </section>
 </section>
 <section id="what-else-can-i-do-with-containers">
-<h2>What else can I do with containers?<a class="headerlink" href="#what-else-can-i-do-with-containers" title="Permalink to this headline">#</a></h2>
+<h2>What else can I do with containers?<a class="headerlink" href="#what-else-can-i-do-with-containers" title="Permalink to this heading">#</a></h2>
 <section id="access-host-storage-within-a-container">
-<h3>Access host storage within a container<a class="headerlink" href="#access-host-storage-within-a-container" title="Permalink to this headline">#</a></h3>
+<span id="containers-host-storage"></span><h3>Access host storage within a container<a class="headerlink" href="#access-host-storage-within-a-container" title="Permalink to this heading">#</a></h3>
 <p>By default with Apptainer, your home directory and <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> are mapped into the
 container.  On ARC4 we also default to mapping <code class="docutils literal notranslate"><span class="pre">/nobackup</span></code> and <code class="docutils literal notranslate"><span class="pre">/local</span></code> inside the
 container.  If you want other directories to be mapped, you have to ask for
 them.  If you wanted <code class="docutils literal notranslate"><span class="pre">/data</span></code> to be visible inside the container, you can just do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>-B<span class="w"> </span>/data<span class="w"> </span>example.sif
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>run<span class="w"> </span>-B<span class="w"> </span>/data<span class="w"> </span>example.sif
 </pre></div>
 </div>
 <p>Or if you wanted to make something visible somewhere else (so <code class="docutils literal notranslate"><span class="pre">/data</span></code> outside
 is presented within the container as <code class="docutils literal notranslate"><span class="pre">/scratch</span></code>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>-B<span class="w"> </span>/data:/scratch<span class="w"> </span>example.sif
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>run<span class="w"> </span>-B<span class="w"> </span>/data:/scratch<span class="w"> </span>example.sif
 </pre></div>
 </div>
 </section>
 <section id="run-an-alternative-command-within-a-container">
-<h3>Run an alternative command within a container<a class="headerlink" href="#run-an-alternative-command-within-a-container" title="Permalink to this headline">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>example.sif<span class="w"> </span>cat<span class="w"> </span>/etc/issue
+<span id="containers-run-alternative-command"></span><h3>Run an alternative command within a container<a class="headerlink" href="#run-an-alternative-command-within-a-container" title="Permalink to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>example.sif<span class="w"> </span>cat<span class="w"> </span>/etc/issue
 Ubuntu<span class="w"> </span><span class="m">16</span>.04.3<span class="w"> </span>LTS<span class="w"> </span><span class="se">\n</span><span class="w"> </span><span class="se">\l</span>
 </pre></div>
 </div>
 </section>
 <section id="have-an-interactive-shell-inside-the-container">
-<h3>Have an interactive shell inside the container<a class="headerlink" href="#have-an-interactive-shell-inside-the-container" title="Permalink to this headline">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>example.sif
+<span id="containers-shell"></span><h3>Have an interactive shell inside the container<a class="headerlink" href="#have-an-interactive-shell-inside-the-container" title="Permalink to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>shell<span class="w"> </span>example.sif
 </pre></div>
 </div>
 </section>
 <section id="use-gpus-within-a-container">
-<h3>Use GPUs within a container<a class="headerlink" href="#use-gpus-within-a-container" title="Permalink to this headline">#</a></h3>
+<span id="containers-gpu"></span><h3>Use GPUs within a container<a class="headerlink" href="#use-gpus-within-a-container" title="Permalink to this heading">#</a></h3>
 <p>Singularity has a lovely way of pulling drivers and libraries for the GPU from
 the host system into the container.  In this way we can have a container that
 supports GPUs without the pain of having to have all the right drivers included
 within it.  At runtime you just do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>--nv<span class="w"> </span>example.sif
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>run<span class="w"> </span>--nv<span class="w"> </span>example.sif
 </pre></div>
 </div>
 <p>All available Nvidia GPUs are then visible to the container, along with the
@@ -832,7 +592,7 @@ need to be included within the container.</p>
 </section>
 </section>
 <section id="building-a-container">
-<h2>Building a container<a class="headerlink" href="#building-a-container" title="Permalink to this headline">#</a></h2>
+<h2>Building a container<a class="headerlink" href="#building-a-container" title="Permalink to this heading">#</a></h2>
 <p>Now, what if an existing Docker container doesn’t exist, and I want to build
 myself a container?</p>
 <p>With Singularity, you needed root access, or a special tweak made to allow you
@@ -845,7 +605,7 @@ system, we should be able to enable Apptainer on your machine now, if it’s not
 already available.</p>
 <p>This is also now available on ARC4.</p>
 <section id="creating-a-recipe">
-<h3>Creating a recipe<a class="headerlink" href="#creating-a-recipe" title="Permalink to this headline">#</a></h3>
+<span id="containers-recipe"></span><h3>Creating a recipe<a class="headerlink" href="#creating-a-recipe" title="Permalink to this heading">#</a></h3>
 <p>A recipe lists all the steps needed to make a container, and also what happens
 when we run a container.  I’m starting with a fairly silly little example.
 Let’s create a file called lolcow.def:</p>
@@ -867,7 +627,7 @@ From: ubuntu:16.04
 <p>This container starts with a Docker container (Ubuntu 16.04), and installs a few necessary packages.  Then it defines what happens when we run it: <code class="docutils literal notranslate"><span class="pre">fortune</span> <span class="pre">|</span> <span class="pre">cowsay</span> <span class="pre">|</span> <span class="pre">lolcat</span></code>.</p>
 </section>
 <section id="converting-a-dockerfile-to-a-singularity-recipe">
-<h3>Converting a Dockerfile to a Singularity recipe<a class="headerlink" href="#converting-a-dockerfile-to-a-singularity-recipe" title="Permalink to this headline">#</a></h3>
+<span id="containers-convert-from-dockerfile"></span><h3>Converting a Dockerfile to a Singularity recipe<a class="headerlink" href="#converting-a-dockerfile-to-a-singularity-recipe" title="Permalink to this heading">#</a></h3>
 <p>There’s a tool written in Python that allows you to convert from a Dockerfile into a Singularity format file.  Whilst not perfect, this often allows for simple creations of images, where no prebuilt Docker image exists:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load anaconda</span>
 $<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>anaconda
@@ -885,14 +645,14 @@ $<span class="w"> </span>spython<span class="w"> </span>recipe<span class="w"> <
 <p>Then you could proceed to build it into a SIF file as show below.</p>
 </section>
 <section id="generate-a-sif-image-from-a-recipe">
-<h3>Generate a SIF image from a recipe<a class="headerlink" href="#generate-a-sif-image-from-a-recipe" title="Permalink to this headline">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>lolcow.sif<span class="w"> </span>lolcow.def
+<span id="containers-generate-sif"></span><h3>Generate a SIF image from a recipe<a class="headerlink" href="#generate-a-sif-image-from-a-recipe" title="Permalink to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>build<span class="w"> </span>lolcow.sif<span class="w"> </span>lolcow.def
 </pre></div>
 </div>
 </section>
 <section id="test-the-image-we-ve-created">
-<h3>Test the image we’ve created<a class="headerlink" href="#test-the-image-we-ve-created" title="Permalink to this headline">#</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ singularity run lolcow.sif
+<span id="containers-test"></span><h3>Test the image we’ve created<a class="headerlink" href="#test-the-image-we-ve-created" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apptainer run lolcow.sif
 / Q: How did you get into artificial   \
 | intelligence? A: Seemed logical -- I |
 \ didn&#39;t have any real intelligence.   /
@@ -907,7 +667,7 @@ $<span class="w"> </span>spython<span class="w"> </span>recipe<span class="w"> <
 </section>
 </section>
 <section id="submitting-jobs-with-containers">
-<h2>Submitting jobs with containers<a class="headerlink" href="#submitting-jobs-with-containers" title="Permalink to this headline">#</a></h2>
+<span id="containers-submit-job"></span><h2>Submitting jobs with containers<a class="headerlink" href="#submitting-jobs-with-containers" title="Permalink to this heading">#</a></h2>
 <p>There’s no great difference with submitting jobs to use containers than there
 is using them interactively.  Here’s an example job submission:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run with the current working directory</span>
@@ -921,70 +681,70 @@ is using them interactively.  Here’s an example job submission:</p>
 <span class="n">module</span> <span class="n">add</span> <span class="n">apptainer</span>
 
 <span class="c1"># Run the default command in the container</span>
-<span class="n">singularity</span> <span class="n">run</span> <span class="n">lolcow_latest</span><span class="o">.</span><span class="n">sif</span>
+<span class="n">apptainer</span> <span class="n">run</span> <span class="n">lolcow_latest</span><span class="o">.</span><span class="n">sif</span>
 
 <span class="c1"># Run a custom command inside the container</span>
-<span class="n">singularity</span> <span class="n">exec</span> <span class="n">lolcow_latest</span><span class="o">.</span><span class="n">sif</span> <span class="n">fortune</span>
+<span class="n">apptainer</span> <span class="n">exec</span> <span class="n">lolcow_latest</span><span class="o">.</span><span class="n">sif</span> <span class="n">fortune</span>
 </pre></div>
 </div>
 </section>
 <section id="bonus-section">
-<h2>Bonus section<a class="headerlink" href="#bonus-section" title="Permalink to this headline">#</a></h2>
+<h2>Bonus section<a class="headerlink" href="#bonus-section" title="Permalink to this heading">#</a></h2>
 <p>There’s more content we’d like to include than we’ve really got time for, but
 some bonus content is available here.</p>
-<div class="dropdown admonition">
+<div class="dropdown admonition" id="containers-sandbox">
 <p class="admonition-title">Sandboxes</p>
 <p>When writing a recipe you may find it hard to come up with a working recipe first time.  This is where sandboxes can come in handy.  If you create a sandbox, rather than creating an image file, it writes out the files into a directory, and you can then have a container run in this directory, but with write access, which you do not normally have.  So you write your basic recipe, and build the container like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>--sandbox<span class="w"> </span>lolcow<span class="w"> </span>lolcow.def
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>build<span class="w"> </span>--sandbox<span class="w"> </span>lolcow<span class="w"> </span>lolcow.def
 </pre></div>
 </div>
 <p>Now we can have a session within it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>--fakeroot<span class="w"> </span>--writable<span class="w"> </span>lolcow
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>shell<span class="w"> </span>--fakeroot<span class="w"> </span>--writable<span class="w"> </span>lolcow
 </pre></div>
 </div>
 <p>You can now experiment inside this sandbox to work out what you need for your recipe.</p>
 </div>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://apptainer.org/docs/user/main/">Apptainer Documentation</a></p>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="simple">
-<li><p><a class="reference external" href="#what-are-containers">What are containers</a>?</p></li>
-<li><p><a class="reference external" href="#why-do-i-want-a-container">Why do I want a container</a>?</p></li>
-<li><p><a class="reference external" href="#can-i-use-docker-on-hpc">Can I use Docker on HPC</a>?</p></li>
-<li><p><a class="reference external" href="#singularity-vs-apptainer">Singularity vs Apptainer</a></p></li>
-<li><p><a class="reference external" href="#example-of-running-a-container">Example of running a container</a> and a look into the steps involved:</p>
+<li><p><a class="reference internal" href="#containers-what"><span class="std std-ref">What are containers</span></a>?</p></li>
+<li><p><a class="reference internal" href="#containers-why"><span class="std std-ref">Why do I want a container</span></a>?</p></li>
+<li><p><a class="reference internal" href="#containers-docker-hpc"><span class="std std-ref">Can I use Docker on HPC</span></a>?</p></li>
+<li><p><a class="reference internal" href="#containers-singularity-vs-apptainer"><span class="std std-ref">Singularity vs Apptainer</span></a></p></li>
+<li><p><a class="reference internal" href="#containers-example"><span class="std std-ref">Example of running a container</span></a> and a look into the steps involved:</p>
 <ul>
-<li><p><a class="reference external" href="#pulling-a-container-down-from-docker-hub">Pulling a container image down from Docker Hub</a></p></li>
-<li><p><a class="reference external" href="#converting-it-into-a-sif-image">Converting it into a SIF image</a></p></li>
-<li><p><a class="reference external" href="#running-software-within-a-container">Running software within a container</a></p></li>
+<li><p><a class="reference internal" href="#containers-pulling-from-docker"><span class="std std-ref">Pulling a container image down from Docker Hub</span></a></p></li>
+<li><p><a class="reference internal" href="#containers-converting-to-sif"><span class="std std-ref">Converting it into a SIF image</span></a></p></li>
+<li><p><a class="reference internal" href="#containers-running-within"><span class="std std-ref">Running software within a container</span></a></p></li>
 </ul>
 </li>
 <li><p>What else can I do with containers?</p>
 <ul>
-<li><p><a class="reference external" href="#access-host-storage-within-a-container">Access host storage within a container</a></p></li>
-<li><p><a class="reference external" href="#run-an-alternative-command-within-a-container">Run an alternative command within a container</a></p></li>
-<li><p><a class="reference external" href="#have-an-interactive-shell-inside-the-container">Have an interactive shell inside the container</a></p></li>
-<li><p><a class="reference external" href="#use-gpus-within-a-container">Use GPUs within a container</a></p></li>
+<li><p><a class="reference internal" href="#containers-host-storage"><span class="std std-ref">Access host storage within a container</span></a></p></li>
+<li><p><a class="reference internal" href="#containers-run-alternative-command"><span class="std std-ref">Run an alternative command within a container</span></a></p></li>
+<li><p><a class="reference internal" href="#containers-shell"><span class="std std-ref">Have an interactive shell inside the container</span></a></p></li>
+<li><p><a class="reference internal" href="#containers-gpu"><span class="std std-ref">Use GPUs within a container</span></a></p></li>
 </ul>
 </li>
 <li><p>Building a container</p>
 <ul>
-<li><p><a class="reference external" href="#creating-a-recipe">Creating a recipe</a></p></li>
-<li><p><a class="reference external" href="#converting-a-dockerfile-to-a-singularity-recipe">Converting a Dockerfile to a Singularity recipe</a></p></li>
-<li><p><a class="reference external" href="#generate-a-sif-image-from-a-recipe">Generate a SIF image from a recipe</a></p></li>
-<li><p><a class="reference external" href="#test-the-image-we-ve-created">Test the image we’ve created</a></p></li>
+<li><p><a class="reference internal" href="#containers-recipe"><span class="std std-ref">Creating a recipe</span></a></p></li>
+<li><p><a class="reference internal" href="#containers-convert-from-dockerfile"><span class="std std-ref">Converting a Dockerfile to a Singularity recipe</span></a></p></li>
+<li><p><a class="reference internal" href="#containers-generate-sif"><span class="std std-ref">Generate a SIF image from a recipe</span></a></p></li>
+<li><p><a class="reference internal" href="#containers-test"><span class="std std-ref">Test the image we’ve created</span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#submitting-jobs-with-containers">Submitting jobs with containers</a></p></li>
+<li><p><a class="reference internal" href="#containers-submit-job"><span class="std std-ref">Submitting jobs with containers</span></a></p></li>
 <li><p>Bonus section</p>
 <ul>
-<li><p><a class="reference external" href="#sandboxes">Sandboxes</a></p></li>
+<li><p><a class="reference internal" href="#containers-sandbox"><span class="std std-ref">Sandboxes</span></a></p></li>
 </ul>
 </li>
 </ul>
@@ -1004,7 +764,7 @@ some bonus content is available here.</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./course"
         },
         predefinedOutput: true
@@ -1012,50 +772,135 @@ some bonus content is available here.</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="cmake.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">CMake</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cmake.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">CMake</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="spack.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="spack.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Spack</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By University of Leeds Research Computing Team<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-containers">What are containers?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-i-want-a-container">Why do I want a container?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#can-i-use-docker-on-hpc">Can I use Docker on HPC?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity-vs-apptainer">Singularity vs Apptainer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-running-a-container">Example of running a container</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-those-steps-mean">What do those steps mean?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-a-container-image-down-from-docker-hub">Pulling a container image down from Docker Hub</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-it-into-a-sif-image">Converting it into a SIF image</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-software-within-a-container">Running software within a container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-else-can-i-do-with-containers">What else can I do with containers?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-host-storage-within-a-container">Access host storage within a container</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-an-alternative-command-within-a-container">Run an alternative command within a container</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#have-an-interactive-shell-inside-the-container">Have an interactive shell inside the container</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-gpus-within-a-container">Use GPUs within a container</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-container">Building a container</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-recipe">Creating a recipe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-a-dockerfile-to-a-singularity-recipe">Converting a Dockerfile to a Singularity recipe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-sif-image-from-a-recipe">Generate a SIF image from a recipe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-image-we-ve-created">Test the image we’ve created</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-jobs-with-containers">Submitting jobs with containers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-section">Bonus section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By University of Leeds Research Computing Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -83,7 +83,7 @@ edit` section to look like this:
 ```
 
 For those unsure of what LDFLAGS, linkers, binpaths, or anything else here is
-talking about, please refer to the [concepts section](../concepts).
+talking about, please refer to the [theory section](../theory).
 
 Let's try installing it again:
 
