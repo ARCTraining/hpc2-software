@@ -159,6 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Conda package manager</a></li>
 <li class="toctree-l1"><a class="reference internal" href="autotools.html">Autotools</a></li>
@@ -177,7 +178,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="spack/recipes.html">Recipes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="https://arc.leeds.ac.uk">Research Computing Website</a></li>
 </ul>
 
     </div>
@@ -437,7 +437,7 @@ document.write(`
 <li><p><a class="reference external" href="https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/">Carpentries Incubator: Introduction to Conda for data scientists</a></p></li>
 </ul>
 <section id="introduction">
-<span id="id1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>Conda is an open source package management and environment management system that runs on multiple operating systems (Windows, Linux, macOS). Its features include:</p>
 <ul class="simple">
 <li><p>Conda quickly installs, runs and updates packages and their dependencies.</p></li>
@@ -462,7 +462,7 @@ Anaconda is another distribution of Python that includes the Conda package manag
 </ul>
 </section>
 <section id="installing-conda">
-<span id="id2"></span><h2>Installing Conda<a class="headerlink" href="#installing-conda" title="Permalink to this heading">#</a></h2>
+<h2>Installing Conda<a class="headerlink" href="#installing-conda" title="Permalink to this heading">#</a></h2>
 <section id="on-arc">
 <h3>On ARC<a class="headerlink" href="#on-arc" title="Permalink to this heading">#</a></h3>
 <p>We provide a module for anaconda, meaning you don’t need to install it
@@ -499,7 +499,7 @@ This contains a starting installation of Python and the dependencies of the Cond
 Therefore, it’s <strong>best practice</strong> to not install packages into the <code class="docutils literal notranslate"><span class="pre">base</span></code> environment and create your own environments into which you install the tools you need.</p>
 </div>
 <section id="creating-environments">
-<span id="id3"></span><h3>Creating environments<a class="headerlink" href="#creating-environments" title="Permalink to this heading">#</a></h3>
+<h3>Creating environments<a class="headerlink" href="#creating-environments" title="Permalink to this heading">#</a></h3>
 <p>You can create an environment with Conda with the subcommand <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code>.
 When creating an environment we need to give it a name; we recommend giving it a name related to the project you’re going to use the environment for.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>py39-env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
@@ -736,7 +736,7 @@ done
 However, because we’ve specified Python packages which depend on Python being installed to run Conda will install the high version of Python suitable for these packages.</p>
 </section>
 <section id="activating-environments">
-<span id="id4"></span><h3>Activating environments<a class="headerlink" href="#activating-environments" title="Permalink to this heading">#</a></h3>
+<h3>Activating environments<a class="headerlink" href="#activating-environments" title="Permalink to this heading">#</a></h3>
 <p>To use a Conda environment we need to activate it.
 Activating our environment does a number of steps that sets the terminal we’re using up so that it can see all of the installed packages in the environment, making it ready for use.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
@@ -748,14 +748,14 @@ Activating our environment does a number of steps that sets the terminal we’re
 You can see it has successfully activated when it returns your prompt with the environment name prepended in brackets.</p>
 </section>
 <section id="deactivating-environments">
-<span id="id5"></span><h3>Deactivating environments<a class="headerlink" href="#deactivating-environments" title="Permalink to this heading">#</a></h3>
+<h3>Deactivating environments<a class="headerlink" href="#deactivating-environments" title="Permalink to this heading">#</a></h3>
 <p>You can deactivate your current environment with another simple subcommand <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>deactivate
 </pre></div>
 </div>
 </section>
 <section id="listing-current-environments">
-<span id="id6"></span><h3>Listing current environments<a class="headerlink" href="#listing-current-environments" title="Permalink to this heading">#</a></h3>
+<h3>Listing current environments<a class="headerlink" href="#listing-current-environments" title="Permalink to this heading">#</a></h3>
 <p>If you ever want to see your list of current environments on your machine you can you the subcommand <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code>.
 This will return a list of the available Conda environments you can use and the environment location in your filesystem.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span>list
@@ -770,9 +770,9 @@ This will return a list of the available Conda environments you can use and the 
 </div>
 </section>
 <section id="removing-a-conda-environment">
-<span id="id7"></span><h3>Removing a Conda environment<a class="headerlink" href="#removing-a-conda-environment" title="Permalink to this heading">#</a></h3>
+<h3>Removing a Conda environment<a class="headerlink" href="#removing-a-conda-environment" title="Permalink to this heading">#</a></h3>
 <p>It is also possible to delete a Conda environment through the <code class="docutils literal notranslate"><span class="pre">remove</span></code> subcommand.
-This <a class="reference internal" href="#removing-packages"><span class="std std-ref">command is outlined below</span></a> in relation to removing specific packages but can also be used to delete an entire Conda environment.</p>
+This <span class="xref myst">command is outlined below</span> in relation to removing specific packages but can also be used to delete an entire Conda environment.</p>
 <p>To remove the <code class="docutils literal notranslate"><span class="pre">py39-env</span></code> we created earlier we use the command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>remove<span class="w"> </span>--name<span class="w"> </span>py39-env<span class="w"> </span>--all
 </pre></div>
@@ -826,7 +826,7 @@ However, if you have exported details of your environment it is possible to recr
 </div>
 </section>
 <section id="sharing-conda-environments">
-<span id="id8"></span><h3>Sharing Conda environments<a class="headerlink" href="#sharing-conda-environments" title="Permalink to this heading">#</a></h3>
+<h3>Sharing Conda environments<a class="headerlink" href="#sharing-conda-environments" title="Permalink to this heading">#</a></h3>
 <p>If you need to share a Conda environment with others or between machines its possible to use Conda to export a file containing a specification of packages installed in that environment.
 With this environment file and Conda installed on another device its possible to recreate the environment with the same specifications.</p>
 <p>Let’s assume we want to share our <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> Conda environment with others. To do this we first need to create the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file containing our environment specification.
@@ -923,7 +923,7 @@ Sometimes this level of detail should be included to ensure maximum reproducibli
 <li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code></p></li>
 </ul>
 <section id="searching-for-packages">
-<span id="id9"></span><h3>Searching for packages<a class="headerlink" href="#searching-for-packages" title="Permalink to this heading">#</a></h3>
+<h3>Searching for packages<a class="headerlink" href="#searching-for-packages" title="Permalink to this heading">#</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>search<span class="w"> </span>python
 </pre></div>
 </div>
@@ -1577,11 +1577,11 @@ Other channels are also available such as <a class="reference external" href="ht
 </div>
 </section>
 <section id="installing-packages">
-<span id="id10"></span><h3>Installing packages<a class="headerlink" href="#installing-packages" title="Permalink to this heading">#</a></h3>
+<h3>Installing packages<a class="headerlink" href="#installing-packages" title="Permalink to this heading">#</a></h3>
 <p>Installing packages via Conda is performed using the <code class="docutils literal notranslate"><span class="pre">install</span></code> subcommand with the format <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">PACKAGE</span></code>, where <code class="docutils literal notranslate"><span class="pre">PACKAGE</span></code> is the name of the package you wish to install.</p>
 <p>Earlier we created the <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> and installed some useful data science packages.
 We’ve discovered we also need the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package for some extra work we want to do so we’ll look at using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> to install this package within our existing environment.</p>
-<p>To install packages into an existing environment we need to activate it with the <a class="reference internal" href="#activating-environments"><span class="std std-ref">subcommand shown above</span></a>.</p>
+<p>To install packages into an existing environment we need to activate it with the <span class="xref myst">subcommand shown above</span>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
 
 <span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>statsmodels
@@ -1663,7 +1663,7 @@ Executing transaction: done
 <p>This installs any packages that are currently not installed (Conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).</p>
 </section>
 <section id="removing-packages">
-<span id="id11"></span><h3>Removing packages<a class="headerlink" href="#removing-packages" title="Permalink to this heading">#</a></h3>
+<h3>Removing packages<a class="headerlink" href="#removing-packages" title="Permalink to this heading">#</a></h3>
 <p>Another crucial aspect of managing an environment involves removing packages.
 Conda includes the <code class="docutils literal notranslate"><span class="pre">remove</span></code> subcommand for this operation, which allows you to specify a list of packages you wish to remove.
 You can do this within an activated environment, or specify to Conda the environment from which you want to remove packages.</p>
@@ -1716,7 +1716,7 @@ As you can see in the above example, removing one package may also lead to the r
 <p>With these changes made we can now install a newer version of pandas using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>.</p>
 </section>
 <section id="updating-a-package">
-<span id="id12"></span><h3>Updating a package<a class="headerlink" href="#updating-a-package" title="Permalink to this heading">#</a></h3>
+<h3>Updating a package<a class="headerlink" href="#updating-a-package" title="Permalink to this heading">#</a></h3>
 <p>The above example is slightly artificial as removing a package to install a more recent version is a long-winded way of doing things with Conda.
 If we want to update a package to a more recent version Conda provides the <code class="docutils literal notranslate"><span class="pre">update</span></code> subcommand to achieve this.
 Crucially, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span></code> will update a package to its most recent version and can’t be used to specific a particular version.</p>
@@ -1767,24 +1767,24 @@ Proceed ([y]/n)?
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#introduction"><span class="std std-ref">Introduces Conda</span></a> as a cross-platform package and environment manager</p></li>
-<li><p>Highlights options for <a class="reference internal" href="#installing-conda"><span class="std std-ref">how to install Conda</span></a></p></li>
+<li><p><span class="xref myst">Introduces Conda</span> as a cross-platform package and environment manager</p></li>
+<li><p>Highlights options for <span class="xref myst">how to install Conda</span></p></li>
 <li><p>Introduces Conda environments for separating specific package dependencies on a project-by-project basis</p>
 <ul>
-<li><p>How to <a class="reference internal" href="#creating-environments"><span class="std std-ref">create an environment using Conda</span></a></p></li>
-<li><p>How to use a created Conda environment through <a class="reference internal" href="#activating-environments"><span class="std std-ref">environment activation</span></a></p></li>
-<li><p>Leaving an environment through <a class="reference internal" href="#deactivating-environments"><span class="std std-ref">deactivation</span></a></p></li>
-<li><p><a class="reference internal" href="#listing-current-environments"><span class="std std-ref">Listing available Conda environments</span></a></p></li>
-<li><p><a class="reference internal" href="#removing-a-conda-environment"><span class="std std-ref">Deleting Conda environments</span></a></p></li>
-<li><p><a class="reference internal" href="#sharing-conda-environments"><span class="std std-ref">Exporting and sharing Conda Environments</span></a></p></li>
+<li><p>How to <span class="xref myst">create an environment using Conda</span></p></li>
+<li><p>How to use a created Conda environment through <span class="xref myst">environment activation</span></p></li>
+<li><p>Leaving an environment through <span class="xref myst">deactivation</span></p></li>
+<li><p><span class="xref myst">Listing available Conda environments</span></p></li>
+<li><p><span class="xref myst">Deleting Conda environments</span></p></li>
+<li><p><span class="xref myst">Exporting and sharing Conda Environments</span></p></li>
 </ul>
 </li>
 <li><p>Shows how Conda can be used for managing packages</p>
 <ul>
-<li><p>Using Conda to <a class="reference internal" href="#searching-for-packages"><span class="std std-ref">search Conda repositories for a package</span></a></p></li>
-<li><p>Using Conda to <a class="reference internal" href="#installing-packages"><span class="std std-ref">install a package</span></a></p></li>
-<li><p>Using Conda to <a class="reference internal" href="#removing-packages"><span class="std std-ref">remove a package</span></a></p></li>
-<li><p>Using Conda to <a class="reference internal" href="#updating-a-package"><span class="std std-ref">update a package</span></a></p></li>
+<li><p>Using Conda to <span class="xref myst">search Conda repositories for a package</span></p></li>
+<li><p>Using Conda to <span class="xref myst">install a package</span></p></li>
+<li><p>Using Conda to <span class="xref myst">remove a package</span></p></li>
+<li><p>Using Conda to <span class="xref myst">update a package</span></p></li>
 </ul>
 </li>
 </ul>
@@ -1912,7 +1912,7 @@ By University of Leeds Research Computing Team
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>

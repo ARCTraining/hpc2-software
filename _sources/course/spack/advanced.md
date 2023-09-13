@@ -5,7 +5,6 @@ dependencies to use.  You're able to adjust some of this via variants within an
 individual package, but also you can tweak the dependency decisions, to use
 different packages if you know better than the defaults.
 
-(advanced:spack:variants)=
 ## Variants
 
 Variants are where the package has options how to build it.  Let's pick on

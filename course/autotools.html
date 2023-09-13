@@ -159,6 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conda.html">Conda package manager</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Autotools</a></li>
@@ -177,7 +178,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="spack/recipes.html">Recipes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="https://arc.leeds.ac.uk">Research Computing Website</a></li>
 </ul>
 
     </div>
@@ -453,7 +453,7 @@ ls: cannot access &#39;configure&#39;: No such file or directory
 <h2>Generate a configure script if missing<a class="headerlink" href="#generate-a-configure-script-if-missing" title="Permalink to this heading">#</a></h2>
 <p>With this git example, we see there is no configure script present, so we need
 to generate it.  Sometimes you’re provided with a <a class="reference external" href="http://bootstrap.sh">bootstrap.sh</a> or <a class="reference external" href="http://autogen.sh">autogen.sh</a>,
-as is the case here.  So we run it:</p>
+as is the case here.  So we just run it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./bootstrap.sh
 </pre></div>
 </div>
@@ -647,7 +647,7 @@ breseq home page: &lt;http://barricklab.org/breseq&gt;.
 </div>
 </div>
 <p>This may show you features you can turn on and off, or explain which variables
-are used by the build script.  In this example, we’re going to tell it
+are used by the build script.  In this example, we’re just going to tell it
 where we’d like it installed to, and nothing else.  Typically I’d advise
 installing software for a given project in one location, rather than each
 program being installed separately, but it’s up to you.</p>
@@ -839,9 +839,7 @@ can find all the bits it needs.</p>
 CPATH/LIBRARY_PATH, as covered in the <a class="reference internal" href="theory.html"><span class="doc std std-doc">Theory section</span></a>.</p>
 <section id="building">
 <h2>Building<a class="headerlink" href="#building" title="Permalink to this heading">#</a></h2>
-<p>Assuming everything’s gone well so far with configure, it will have now written
-out a top level Makefile, which contains the necessary steps to build and
-install your software.  Building the software is now a case of:</p>
+<p>Assuming everything’s gone well so far with configure, it will have now written out a top level Makefile, which contains the necessary steps to build and install your software.  Building the software is now just a case of:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make
 </pre></div>
 </div>
@@ -853,7 +851,7 @@ jobs in parallel.  For example, to build using 8 cores:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Poorly written makefiles will sometimes build incorrectly when built in
-parallel, but you’d normally be fine running <code class="docutils literal notranslate"><span class="pre">make</span></code> again afterwards which
+parallel, but you’d normally be fine just running <code class="docutils literal notranslate"><span class="pre">make</span></code> again afterwards which
 would complete the build.</p>
 </div>
 </section>
@@ -887,8 +885,7 @@ available to you.  Details on this is covered in the <a class="reference interna
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="references">
 <h1>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h1>
-<p><a class="reference external" href="https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html">Autotools</a>
-<a class="reference external" href="https://www.gnu.org/software/make/">GNU Make</a></p>
+<p><a class="reference external" href="https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html">Autotools</a></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -994,7 +991,7 @@ By University of Leeds Research Computing Team
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>

@@ -43,7 +43,7 @@ ls: cannot access 'configure': No such file or directory
 
 With this git example, we see there is no configure script present, so we need
 to generate it.  Sometimes you're provided with a bootstrap.sh or autogen.sh,
-as is the case here.  So we run it:
+as is the case here.  So we just run it:
 
 ```bash
 $ ./bootstrap.sh
@@ -244,7 +244,7 @@ breseq home page: <http://barricklab.org/breseq>.
 ````
 
 This may show you features you can turn on and off, or explain which variables
-are used by the build script.  In this example, we're going to tell it
+are used by the build script.  In this example, we're just going to tell it
 where we'd like it installed to, and nothing else.  Typically I'd advise
 installing software for a given project in one location, rather than each
 program being installed separately, but it's up to you.
@@ -441,9 +441,7 @@ CPATH/LIBRARY_PATH, as covered in the [Theory section](theory).
 
 ## Building
 
-Assuming everything's gone well so far with configure, it will have now written
-out a top level Makefile, which contains the necessary steps to build and
-install your software.  Building the software is now a case of:
+Assuming everything's gone well so far with configure, it will have now written out a top level Makefile, which contains the necessary steps to build and install your software.  Building the software is now just a case of:
 
 ```bash
 $ make
@@ -458,7 +456,7 @@ $ make -j 8
 
 ```{note}
 Poorly written makefiles will sometimes build incorrectly when built in
-parallel, but you'd normally be fine running `make` again afterwards which
+parallel, but you'd normally be fine just running `make` again afterwards which
 would complete the build.
 ```
 
@@ -488,4 +486,3 @@ available to you.  Details on this is covered in the [Theory section](theory).
 # References
 
 [Autotools](https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html)
-[GNU Make](https://www.gnu.org/software/make/)

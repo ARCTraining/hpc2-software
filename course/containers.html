@@ -159,6 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conda.html">Conda package manager</a></li>
 <li class="toctree-l1"><a class="reference internal" href="autotools.html">Autotools</a></li>
@@ -177,7 +178,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="spack/recipes.html">Recipes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="https://arc.leeds.ac.uk">Research Computing Website</a></li>
 </ul>
 
     </div>
@@ -433,7 +433,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="containers">
 <h1>Containers<a class="headerlink" href="#containers" title="Permalink to this heading">#</a></h1>
 <section id="what-are-containers">
-<span id="containers-what"></span><h2>What are containers?<a class="headerlink" href="#what-are-containers" title="Permalink to this heading">#</a></h2>
+<h2>What are containers?<a class="headerlink" href="#what-are-containers" title="Permalink to this heading">#</a></h2>
 <p>Containers are a bit like VMs, but less contained than that.  It probably helps
 to look at a diagram to help understand the limits of containers, compared to
 virtual machines:</p>
@@ -452,7 +452,7 @@ way a normal process can.  This lack of total containment also means you get
 full access to the network and GPUs of the host.</p>
 </section>
 <section id="why-do-i-want-a-container">
-<span id="containers-why"></span><h2>Why do I want a container?<a class="headerlink" href="#why-do-i-want-a-container" title="Permalink to this heading">#</a></h2>
+<h2>Why do I want a container?<a class="headerlink" href="#why-do-i-want-a-container" title="Permalink to this heading">#</a></h2>
 <p>One of the problems with running software on different systems is that it can
 be hard work recreating the software environment across systems, where you may
 be running a different operating system distribution.  By using a container, you can spend the
@@ -462,39 +462,42 @@ very clear how you created this software environment, making it much easier to
 update this in future.</p>
 </section>
 <section id="can-i-use-docker-on-hpc">
-<span id="containers-docker-hpc"></span><h2>Can I use Docker on HPC?<a class="headerlink" href="#can-i-use-docker-on-hpc" title="Permalink to this heading">#</a></h2>
+<h2>Can I use Docker on HPC?<a class="headerlink" href="#can-i-use-docker-on-hpc" title="Permalink to this heading">#</a></h2>
 <p><strong>No.</strong></p>
 <p>That’s the short answer.  The longer answer is, you generally shouldn’t want
 to.  Docker is excellent for running web services in containerised
 environments, but doesn’t really have a security model that suits HPC, due to
-the way it works.  Apptainer solves this by allowing you to use Docker
-containers, but via a tool that uses an alternative security model, where
-containers run with the permissions of the user who is running them.  That
-makes them perfect for HPC, where we want all your work to run as your user.</p>
+the way it works.  Singularity/Apptainer solve this by allowing you to use
+Docker containers, but via a tool that uses an alternative security model,
+where containers run with the permissions of the user who is running them.
+That makes them perfect for HPC, where we want all your work to run as your
+user.</p>
 </section>
 <section id="singularity-vs-apptainer">
-<span id="containers-singularity-vs-apptainer"></span><h2>Singularity vs Apptainer<a class="headerlink" href="#singularity-vs-apptainer" title="Permalink to this heading">#</a></h2>
+<h2>Singularity vs Apptainer<a class="headerlink" href="#singularity-vs-apptainer" title="Permalink to this heading">#</a></h2>
 <p>First there was Singularity, then there was commercialisation that kept an open
 source version, then a while after a fork after a slight disagreement, and
 Apptainer was born.  Apptainer has been developed from Singularity, and we’ll
 only be looking at Apptainer in this course, but much of what’s listed will
 equally apply to Singularity.  Whilst there remains a community edition of
-Singularity, we’ll only be looking at Apptainer.
-Singularity provides a <code class="docutils literal notranslate"><span class="pre">singularity</span></code> command instead of <code class="docutils literal notranslate"><span class="pre">apptainer</span></code>, which
-mostly behaves the same.  Apptainer provides both for backwards compatibility.</p>
+Singularity, we’ll only be looking at Apptainer, but have tended to use the
+<code class="docutils literal notranslate"><span class="pre">singularity</span></code> command line, which is still provided for backwards
+compatibility.  Anywhere we use the <code class="docutils literal notranslate"><span class="pre">singularity</span></code> command, you could instead
+use <code class="docutils literal notranslate"><span class="pre">apptainer</span></code>, unless you’re using an older install of singularity, where
+only <code class="docutils literal notranslate"><span class="pre">singularity</span></code> will work.</p>
 </section>
 <section id="example-of-running-a-container">
-<span id="containers-example"></span><h2>Example of running a container<a class="headerlink" href="#example-of-running-a-container" title="Permalink to this heading">#</a></h2>
+<h2>Example of running a container<a class="headerlink" href="#example-of-running-a-container" title="Permalink to this heading">#</a></h2>
 <p>It’s always good to do something simple to start with, to prove to yourself
 things are working:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the apptainer module</span>
 $<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>apptainer
 
 <span class="c1"># Download a simple container</span>
-$<span class="w"> </span>apptainer<span class="w"> </span>pull<span class="w"> </span>docker://godlovedc/lolcow
+$<span class="w"> </span>singularity<span class="w"> </span>pull<span class="w"> </span>docker://godlovedc/lolcow
 
 <span class="c1"># Run it</span>
-$<span class="w"> </span>apptainer<span class="w"> </span>run<span class="w"> </span>lolcow_latest.sif
+$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>lolcow_latest.sif
 INFO:<span class="w">    </span>Using<span class="w"> </span>cached<span class="w"> </span>SIF<span class="w"> </span>image
 <span class="w"> </span>_________________________________________
 /<span class="w"> </span>This<span class="w"> </span>night<span class="w"> </span>methinks<span class="w"> </span>is<span class="w"> </span>but<span class="w"> </span>the<span class="w"> </span>daylight<span class="w"> </span><span class="se">\</span>
@@ -519,19 +522,19 @@ INFO:<span class="w">    </span>Using<span class="w"> </span>cached<span class="
 <section id="what-do-those-steps-mean">
 <h3>What do those steps mean?<a class="headerlink" href="#what-do-those-steps-mean" title="Permalink to this heading">#</a></h3>
 <section id="pulling-a-container-image-down-from-docker-hub">
-<span id="containers-pulling-from-docker"></span><h4>Pulling a container image down from Docker Hub<a class="headerlink" href="#pulling-a-container-image-down-from-docker-hub" title="Permalink to this heading">#</a></h4>
+<h4>Pulling a container image down from Docker Hub<a class="headerlink" href="#pulling-a-container-image-down-from-docker-hub" title="Permalink to this heading">#</a></h4>
 <p>Docker Hub is a repository of containers, also known as a container registry.  Pulling down a container involves
 pulling down the pieces of this container image over to your machine.</p>
 </section>
 <section id="converting-it-into-a-sif-image">
-<span id="containers-converting-to-sif"></span><h4>Converting it into a SIF image<a class="headerlink" href="#converting-it-into-a-sif-image" title="Permalink to this heading">#</a></h4>
+<h4>Converting it into a SIF image<a class="headerlink" href="#converting-it-into-a-sif-image" title="Permalink to this heading">#</a></h4>
 <p>Docker uses a container format that involves a number of layers, that add up
 together to form your final container image.  Singularity uses a different
 format SIF, which is a single file that contains everything you need to run
 your container.</p>
 </section>
 <section id="running-software-within-a-container">
-<span id="containers-running-within"></span><h4>Running software within a container<a class="headerlink" href="#running-software-within-a-container" title="Permalink to this heading">#</a></h4>
+<h4>Running software within a container<a class="headerlink" href="#running-software-within-a-container" title="Permalink to this heading">#</a></h4>
 <p>When you come to use a container, you can run software inside the container,
 but also see file shares outside the container, and access resources like
 network and GPU of the host machine.  This allows us to use all the power of an
@@ -550,40 +553,40 @@ to directories of the host mapped into the container.</p>
 <section id="what-else-can-i-do-with-containers">
 <h2>What else can I do with containers?<a class="headerlink" href="#what-else-can-i-do-with-containers" title="Permalink to this heading">#</a></h2>
 <section id="access-host-storage-within-a-container">
-<span id="containers-host-storage"></span><h3>Access host storage within a container<a class="headerlink" href="#access-host-storage-within-a-container" title="Permalink to this heading">#</a></h3>
+<h3>Access host storage within a container<a class="headerlink" href="#access-host-storage-within-a-container" title="Permalink to this heading">#</a></h3>
 <p>By default with Apptainer, your home directory and <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> are mapped into the
 container.  On ARC4 we also default to mapping <code class="docutils literal notranslate"><span class="pre">/nobackup</span></code> and <code class="docutils literal notranslate"><span class="pre">/local</span></code> inside the
 container.  If you want other directories to be mapped, you have to ask for
 them.  If you wanted <code class="docutils literal notranslate"><span class="pre">/data</span></code> to be visible inside the container, you can just do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>run<span class="w"> </span>-B<span class="w"> </span>/data<span class="w"> </span>example.sif
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>-B<span class="w"> </span>/data<span class="w"> </span>example.sif
 </pre></div>
 </div>
 <p>Or if you wanted to make something visible somewhere else (so <code class="docutils literal notranslate"><span class="pre">/data</span></code> outside
 is presented within the container as <code class="docutils literal notranslate"><span class="pre">/scratch</span></code>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>run<span class="w"> </span>-B<span class="w"> </span>/data:/scratch<span class="w"> </span>example.sif
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>-B<span class="w"> </span>/data:/scratch<span class="w"> </span>example.sif
 </pre></div>
 </div>
 </section>
 <section id="run-an-alternative-command-within-a-container">
-<span id="containers-run-alternative-command"></span><h3>Run an alternative command within a container<a class="headerlink" href="#run-an-alternative-command-within-a-container" title="Permalink to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>example.sif<span class="w"> </span>cat<span class="w"> </span>/etc/issue
+<h3>Run an alternative command within a container<a class="headerlink" href="#run-an-alternative-command-within-a-container" title="Permalink to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>example.sif<span class="w"> </span>cat<span class="w"> </span>/etc/issue
 Ubuntu<span class="w"> </span><span class="m">16</span>.04.3<span class="w"> </span>LTS<span class="w"> </span><span class="se">\n</span><span class="w"> </span><span class="se">\l</span>
 </pre></div>
 </div>
 </section>
 <section id="have-an-interactive-shell-inside-the-container">
-<span id="containers-shell"></span><h3>Have an interactive shell inside the container<a class="headerlink" href="#have-an-interactive-shell-inside-the-container" title="Permalink to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>shell<span class="w"> </span>example.sif
+<h3>Have an interactive shell inside the container<a class="headerlink" href="#have-an-interactive-shell-inside-the-container" title="Permalink to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>example.sif
 </pre></div>
 </div>
 </section>
 <section id="use-gpus-within-a-container">
-<span id="containers-gpu"></span><h3>Use GPUs within a container<a class="headerlink" href="#use-gpus-within-a-container" title="Permalink to this heading">#</a></h3>
+<h3>Use GPUs within a container<a class="headerlink" href="#use-gpus-within-a-container" title="Permalink to this heading">#</a></h3>
 <p>Singularity has a lovely way of pulling drivers and libraries for the GPU from
 the host system into the container.  In this way we can have a container that
 supports GPUs without the pain of having to have all the right drivers included
 within it.  At runtime you just do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>run<span class="w"> </span>--nv<span class="w"> </span>example.sif
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>--nv<span class="w"> </span>example.sif
 </pre></div>
 </div>
 <p>All available Nvidia GPUs are then visible to the container, along with the
@@ -605,7 +608,7 @@ system, we should be able to enable Apptainer on your machine now, if it’s not
 already available.</p>
 <p>This is also now available on ARC4.</p>
 <section id="creating-a-recipe">
-<span id="containers-recipe"></span><h3>Creating a recipe<a class="headerlink" href="#creating-a-recipe" title="Permalink to this heading">#</a></h3>
+<h3>Creating a recipe<a class="headerlink" href="#creating-a-recipe" title="Permalink to this heading">#</a></h3>
 <p>A recipe lists all the steps needed to make a container, and also what happens
 when we run a container.  I’m starting with a fairly silly little example.
 Let’s create a file called lolcow.def:</p>
@@ -627,7 +630,7 @@ From: ubuntu:16.04
 <p>This container starts with a Docker container (Ubuntu 16.04), and installs a few necessary packages.  Then it defines what happens when we run it: <code class="docutils literal notranslate"><span class="pre">fortune</span> <span class="pre">|</span> <span class="pre">cowsay</span> <span class="pre">|</span> <span class="pre">lolcat</span></code>.</p>
 </section>
 <section id="converting-a-dockerfile-to-a-singularity-recipe">
-<span id="containers-convert-from-dockerfile"></span><h3>Converting a Dockerfile to a Singularity recipe<a class="headerlink" href="#converting-a-dockerfile-to-a-singularity-recipe" title="Permalink to this heading">#</a></h3>
+<h3>Converting a Dockerfile to a Singularity recipe<a class="headerlink" href="#converting-a-dockerfile-to-a-singularity-recipe" title="Permalink to this heading">#</a></h3>
 <p>There’s a tool written in Python that allows you to convert from a Dockerfile into a Singularity format file.  Whilst not perfect, this often allows for simple creations of images, where no prebuilt Docker image exists:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load anaconda</span>
 $<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>anaconda
@@ -645,14 +648,14 @@ $<span class="w"> </span>spython<span class="w"> </span>recipe<span class="w"> <
 <p>Then you could proceed to build it into a SIF file as show below.</p>
 </section>
 <section id="generate-a-sif-image-from-a-recipe">
-<span id="containers-generate-sif"></span><h3>Generate a SIF image from a recipe<a class="headerlink" href="#generate-a-sif-image-from-a-recipe" title="Permalink to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>build<span class="w"> </span>lolcow.sif<span class="w"> </span>lolcow.def
+<h3>Generate a SIF image from a recipe<a class="headerlink" href="#generate-a-sif-image-from-a-recipe" title="Permalink to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>lolcow.sif<span class="w"> </span>lolcow.def
 </pre></div>
 </div>
 </section>
 <section id="test-the-image-we-ve-created">
-<span id="containers-test"></span><h3>Test the image we’ve created<a class="headerlink" href="#test-the-image-we-ve-created" title="Permalink to this heading">#</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apptainer run lolcow.sif
+<h3>Test the image we’ve created<a class="headerlink" href="#test-the-image-we-ve-created" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ singularity run lolcow.sif
 / Q: How did you get into artificial   \
 | intelligence? A: Seemed logical -- I |
 \ didn&#39;t have any real intelligence.   /
@@ -667,7 +670,7 @@ $<span class="w"> </span>spython<span class="w"> </span>recipe<span class="w"> <
 </section>
 </section>
 <section id="submitting-jobs-with-containers">
-<span id="containers-submit-job"></span><h2>Submitting jobs with containers<a class="headerlink" href="#submitting-jobs-with-containers" title="Permalink to this heading">#</a></h2>
+<h2>Submitting jobs with containers<a class="headerlink" href="#submitting-jobs-with-containers" title="Permalink to this heading">#</a></h2>
 <p>There’s no great difference with submitting jobs to use containers than there
 is using them interactively.  Here’s an example job submission:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run with the current working directory</span>
@@ -681,10 +684,10 @@ is using them interactively.  Here’s an example job submission:</p>
 <span class="n">module</span> <span class="n">add</span> <span class="n">apptainer</span>
 
 <span class="c1"># Run the default command in the container</span>
-<span class="n">apptainer</span> <span class="n">run</span> <span class="n">lolcow_latest</span><span class="o">.</span><span class="n">sif</span>
+<span class="n">singularity</span> <span class="n">run</span> <span class="n">lolcow_latest</span><span class="o">.</span><span class="n">sif</span>
 
 <span class="c1"># Run a custom command inside the container</span>
-<span class="n">apptainer</span> <span class="n">exec</span> <span class="n">lolcow_latest</span><span class="o">.</span><span class="n">sif</span> <span class="n">fortune</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="n">lolcow_latest</span><span class="o">.</span><span class="n">sif</span> <span class="n">fortune</span>
 </pre></div>
 </div>
 </section>
@@ -692,14 +695,14 @@ is using them interactively.  Here’s an example job submission:</p>
 <h2>Bonus section<a class="headerlink" href="#bonus-section" title="Permalink to this heading">#</a></h2>
 <p>There’s more content we’d like to include than we’ve really got time for, but
 some bonus content is available here.</p>
-<div class="dropdown admonition" id="containers-sandbox">
+<div class="dropdown admonition">
 <p class="admonition-title">Sandboxes</p>
 <p>When writing a recipe you may find it hard to come up with a working recipe first time.  This is where sandboxes can come in handy.  If you create a sandbox, rather than creating an image file, it writes out the files into a directory, and you can then have a container run in this directory, but with write access, which you do not normally have.  So you write your basic recipe, and build the container like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>build<span class="w"> </span>--sandbox<span class="w"> </span>lolcow<span class="w"> </span>lolcow.def
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>--sandbox<span class="w"> </span>lolcow<span class="w"> </span>lolcow.def
 </pre></div>
 </div>
 <p>Now we can have a session within it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>shell<span class="w"> </span>--fakeroot<span class="w"> </span>--writable<span class="w"> </span>lolcow
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>singularity<span class="w"> </span>shell<span class="w"> </span>--fakeroot<span class="w"> </span>--writable<span class="w"> </span>lolcow
 </pre></div>
 </div>
 <p>You can now experiment inside this sandbox to work out what you need for your recipe.</p>
@@ -714,37 +717,37 @@ some bonus content is available here.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#containers-what"><span class="std std-ref">What are containers</span></a>?</p></li>
-<li><p><a class="reference internal" href="#containers-why"><span class="std std-ref">Why do I want a container</span></a>?</p></li>
-<li><p><a class="reference internal" href="#containers-docker-hpc"><span class="std std-ref">Can I use Docker on HPC</span></a>?</p></li>
-<li><p><a class="reference internal" href="#containers-singularity-vs-apptainer"><span class="std std-ref">Singularity vs Apptainer</span></a></p></li>
-<li><p><a class="reference internal" href="#containers-example"><span class="std std-ref">Example of running a container</span></a> and a look into the steps involved:</p>
+<li><p><span class="xref myst">What are containers</span>?</p></li>
+<li><p><span class="xref myst">Why do I want a container</span>?</p></li>
+<li><p><span class="xref myst">Can I use Docker on HPC</span>?</p></li>
+<li><p><span class="xref myst">Singularity vs Apptainer</span></p></li>
+<li><p><span class="xref myst">Example of running a container</span> and a look into the steps involved:</p>
 <ul>
-<li><p><a class="reference internal" href="#containers-pulling-from-docker"><span class="std std-ref">Pulling a container image down from Docker Hub</span></a></p></li>
-<li><p><a class="reference internal" href="#containers-converting-to-sif"><span class="std std-ref">Converting it into a SIF image</span></a></p></li>
-<li><p><a class="reference internal" href="#containers-running-within"><span class="std std-ref">Running software within a container</span></a></p></li>
+<li><p><span class="xref myst">Pulling a container image down from Docker Hub</span></p></li>
+<li><p><span class="xref myst">Converting it into a SIF image</span></p></li>
+<li><p><span class="xref myst">Running software within a container</span></p></li>
 </ul>
 </li>
 <li><p>What else can I do with containers?</p>
 <ul>
-<li><p><a class="reference internal" href="#containers-host-storage"><span class="std std-ref">Access host storage within a container</span></a></p></li>
-<li><p><a class="reference internal" href="#containers-run-alternative-command"><span class="std std-ref">Run an alternative command within a container</span></a></p></li>
-<li><p><a class="reference internal" href="#containers-shell"><span class="std std-ref">Have an interactive shell inside the container</span></a></p></li>
-<li><p><a class="reference internal" href="#containers-gpu"><span class="std std-ref">Use GPUs within a container</span></a></p></li>
+<li><p><span class="xref myst">Access host storage within a container</span></p></li>
+<li><p><span class="xref myst">Run an alternative command within a container</span></p></li>
+<li><p><span class="xref myst">Have an interactive shell inside the container</span></p></li>
+<li><p><span class="xref myst">Use GPUs within a container</span></p></li>
 </ul>
 </li>
 <li><p>Building a container</p>
 <ul>
-<li><p><a class="reference internal" href="#containers-recipe"><span class="std std-ref">Creating a recipe</span></a></p></li>
-<li><p><a class="reference internal" href="#containers-convert-from-dockerfile"><span class="std std-ref">Converting a Dockerfile to a Singularity recipe</span></a></p></li>
-<li><p><a class="reference internal" href="#containers-generate-sif"><span class="std std-ref">Generate a SIF image from a recipe</span></a></p></li>
-<li><p><a class="reference internal" href="#containers-test"><span class="std std-ref">Test the image we’ve created</span></a></p></li>
+<li><p><span class="xref myst">Creating a recipe</span></p></li>
+<li><p><span class="xref myst">Converting a Dockerfile to a Singularity recipe</span></p></li>
+<li><p><span class="xref myst">Generate a SIF image from a recipe</span></p></li>
+<li><p><span class="xref myst">Test the image we’ve created</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#containers-submit-job"><span class="std std-ref">Submitting jobs with containers</span></a></p></li>
+<li><p><span class="xref myst">Submitting jobs with containers</span></p></li>
 <li><p>Bonus section</p>
 <ul>
-<li><p><a class="reference internal" href="#containers-sandbox"><span class="std std-ref">Sandboxes</span></a></p></li>
+<li><p><span class="xref myst">Sandboxes</span></p></li>
 </ul>
 </li>
 </ul>
@@ -873,7 +876,7 @@ By University of Leeds Research Computing Team
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>

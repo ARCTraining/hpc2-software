@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Spack &#8212; HPC2: Installing and Managing Applications on the HPC</title>
+    <title>HPC Systems &#8212; HPC2: Installing and Managing Applications on the HPC</title>
   
   
   
@@ -61,13 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'course/spack';</script>
-    <link rel="canonical" href="https://arctraining.github.io/hpc2-software/course/spack.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'course/hpc-recap-not-needed';</script>
+    <link rel="canonical" href="https://arctraining.github.io/hpc2-software/course/hpc-recap-not-needed.html" />
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installing Spack" href="spack/installing.html" />
-    <link rel="prev" title="Containers" href="containers.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="start.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conda.html">Conda package manager</a></li>
@@ -167,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
 <li class="toctree-l1"><a class="reference internal" href="containers.html">Containers</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Spack</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="spack.html">Spack</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="spack/installing.html">Installing Spack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spack/testinstall.html">Building a test piece of software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spack/modules.html">Adjusting how we name modules</a></li>
@@ -249,7 +247,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ARCTraining/hpc2-software/edit/gh-pages/book/course/spack.md" target="_blank"
+      <li><a href="https://github.com/ARCTraining/hpc2-software/edit/gh-pages/book/course/hpc-recap-not-needed.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -266,7 +264,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ARCTraining/hpc2-software/issues/new?title=Issue%20on%20page%20%2Fcourse/spack.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ARCTraining/hpc2-software/issues/new?title=Issue%20on%20page%20%2Fcourse/hpc-recap-not-needed.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -296,7 +294,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/course/spack.md" target="_blank"
+      <li><a href="../_sources/course/hpc-recap-not-needed.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -365,7 +363,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -376,11 +376,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Spack</h1>
+    <h1>HPC Systems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hpc0-hpc1-recap">HPC0/HPC1 Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -390,45 +399,49 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="spack">
-<h1>Spack<a class="headerlink" href="#spack" title="Permalink to this heading">#</a></h1>
-<p>I’ll introduce Spack by quoting the first paragraph of their documentation:</p>
-<blockquote>
-<div><p><a class="reference external" href="https://spack.io/">Spack</a> is a package manager for supercomputers, Linux,
-and macOS. It makes installing scientific software easy. Spack isn’t tied to
-a particular language; you can build a software stack in Python or R, link to
-libraries written in C, C++, or Fortran, and easily swap compilers or target
-specific microarchitectures.</p>
-</div></blockquote>
-<p>So what does this mean in practice?  You’ve already learnt about build systems
-like <a class="reference internal" href="autotools.html"><span class="doc std std-doc">Autotools</span></a> and <a class="reference internal" href="cmake.html"><span class="doc std std-doc">CMake</span></a>, and may be familiar with module
-systems, as covered in the section on <span class="xref myst">Building personal modules on
-HPC</span>.  You may also have worked through the section on
-<a class="reference internal" href="containers.html"><span class="doc std std-doc">containers</span></a> and wondered if there was an easier way of building a
-potentially deep stack of software for a particular project.</p>
-<p>You may have already tried <a class="reference internal" href="conda.html"><span class="doc std std-doc">Conda</span></a> and found it wonderful, but for the
-fact that the piece of software you want isn’t built with the options you
-wanted, so you can’t use it.  Or maybe you just can’t make the conda installed
-version work with the MPI setup on the HPC cluster you’re using.</p>
-<p>In all these cases, Spack has the potential to make your life a little bit
-easier, and the learning curve is such that you can incrementally learn about
-Spack, and find it useful almost straight away.</p>
-<p>As such, I’m going to introduce Spack with a series of examples, that work you
-way up what you can do with Spack, without going too far down into the details.
-If you do want to learn more about Spack, the <a class="reference external" href="https://spack.readthedocs.io/en/latest/">official Spack
-documentation</a> is mostly excellent.</p>
+  <section id="hpc-systems">
+<h1>HPC Systems<a class="headerlink" href="#hpc-systems" title="Permalink to this heading">#</a></h1>
+<section id="hpc0-hpc1-recap">
+<h2>HPC0/HPC1 Recap<a class="headerlink" href="#hpc0-hpc1-recap" title="Permalink to this heading">#</a></h2>
+<p>HPC (High Performance Computers) systems can be used for:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="spack/installing.html"><span class="doc std std-doc">Installing Spack</span></a></p></li>
-<li><p><a class="reference internal" href="spack/testinstall.html"><span class="doc std std-doc">Building a test piece of software</span></a></p></li>
-<li><p><a class="reference internal" href="spack/modules.html"><span class="doc std std-doc">Changing the way it names modules</span></a></p></li>
-<li><p><a class="reference internal" href="spack/existing.html"><span class="doc std std-doc">How you can tell it about bits of software you already have</span></a></p></li>
-<li><p><a class="reference internal" href="spack/advanced.html"><span class="doc std std-doc">An advanced software build example</span></a></p></li>
-<li><p><a class="reference internal" href="spack/containers.html"><span class="doc std std-doc">Building containers with Spack</span></a></p></li>
-<li><p><a class="reference internal" href="spack/environments.html"><span class="doc std std-doc">Using Spack to Replace Homebrew/Conda</span></a></p></li>
-<li><p><a class="reference internal" href="spack/recipes.html"><span class="doc std std-doc">Writing a Spack recipe to build a bit of software not already handled by Spack</span></a></p></li>
+<li><p><strong>High Performance</strong> - A few jobs at a time that run on many processes in parallel across multiple CPUs and nodes.</p></li>
+<li><p><strong>High Throughput</strong> - running many different jobs that use few processes on one node each.</p></li>
+<li><p>ARC3 and ARC4 both use a mix of both.</p></li>
 </ul>
-<div class="toctree-wrapper compound">
+<p>HPC system consist of nodes, which are computers connected together as one big system.</p>
+<p>Each node in ARC3/ARC4 has multiple processors, each of which have multiple cores, allowing many processes to run in parallel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Software and code usually have to be specifically configured to run across multiple processors and typically use MPI to run across multiple nodes at once.</p>
 </div>
+<p>Most HPC systems, including ARC3/ARC4, use Linux.
+HPC systems do not have GUIs like Windows or Apple systems and they are shared systems with monitored and controlled resources (CPU, memory, time, storage)
+All HPC systems use a command line user interface (shell); the most common shell used in Linux systems is Bash.</p>
+<p>Login nodes are provided to setup and configure software, code and data.</p>
+<p>The compute nodes are not directly acessible and must be accessed using jobs (submitted as job scripts) for batch processing (interactive sessions are avaiable).</p>
+<p>All jobs join a queue which is managed by a job scheduler system. The scheduler prioritises and best fits jobs  to run across all the nodes/processors/cores to maximise resource usage and provide prioritised fairness.</p>
+<p>HPC systems can provide a mixture of different specification nodes. ARC3/ARC4 have high memory nodes and GPU nodes available, in addition to the standard nodes.</p>
+<p>The filesytem on Linux uses forward slashes and is structured starting with the root directory <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+<p>The home directory is your personal directory, where you find yourself located when you login by default.</p>
+<p>ARC3/ARC4 provide /nobackup as temporary high speed storage to use for your jobs.</p>
+<p>Most HPC systems provides a useful set of standard Linux commands to manage and manipulate files and directories.</p>
+<p>In addition most HPC systems provide module systems to load and manage software and libraries, and also tools to manage and submit jobs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>HPC0 and HPC1 provide an introduction to commands such as cd (change directory) sort, cut, wc (word count), tail, for loops, qsub (submit job), qstat (job status).</p>
+</div>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>HPC0 slides - <a class="reference external" href="https://bit.ly/hpc0linux">https://bit.ly/hpc0linux</a></p></li>
+<li><p>HPC1 slides - <a class="reference external" href="https://bit.ly/hpc1intro">https://bit.ly/hpc1intro</a></p></li>
+<li><p>Arcdocs - <a class="reference external" href="https://arcdocs.leeds.ac.uk/">https://arcdocs.leeds.ac.uk/</a></p></li>
+<li><p>Arc website - <a class="reference external" href="https://arc.leeds.ac.uk/">https://arc.leeds.ac.uk/</a></p></li>
+<li><p>High-performance computing - <a class="reference external" href="https://en.wikipedia.org/wiki/High-performance_computing">https://en.wikipedia.org/wiki/High-performance_computing</a></p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -462,24 +475,6 @@ documentation</a> is mostly excellent.</p>
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="containers.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Containers</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="spack/installing.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Installing Spack</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -489,6 +484,21 @@ documentation</a> is mostly excellent.</p>
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hpc0-hpc1-recap">HPC0/HPC1 Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

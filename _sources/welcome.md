@@ -2,7 +2,7 @@
 
 Booking for this course is through the IT Training Unit.  
 
-Click [here](https://uolr3.leeds.ac.uk/temcatsearch(bD1lbiZjPTUwMCZ3PTIwOTk1NjAr\\)/courses.htm?gd_keywords=50114002) to book.  
+Click [here](#) to book.  
 
 ## Content
 

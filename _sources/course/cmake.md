@@ -3,14 +3,7 @@
 This chapter will look at using [CMake](https://cmake.org/) to build software.
 
 ```{note}
-The steps outlined below are performed on the
-[ARC4](https://arcdocs.leeds.ac.uk/systems/arc4.html) HPC system where a recent
-CMake is available as a
-[loadable module](https://arcdocs.leeds.ac.uk/software/infrastructure/cmake.html).
-
-CMake was loaded with the command:
-
-`module add cmake/3.22.3`
+The steps outlined below are performed on the [ARC4](https://arcdocs.leeds.ac.uk/systems/arc4.html) HPC system where CMake exists as a [loadable module](https://arcdocs.leeds.ac.uk/software/infrastructure/cmake.html).
 ```
 
 ## Introduction
