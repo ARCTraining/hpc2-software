@@ -47,7 +47,7 @@ Users can modify these variables for their own user (not system wide), this may 
 
 ### Locations for building and running your own code
 
-The best locations for building and running your code are your home directory (or sub directory) where your user usually has full permissions to run and manage files eg  `/home/username/` or other user writable/executable directories such as `/nobackup/username` on ARC3/ARC3.
+The best locations for building and running your code are your home directory (or sub directory) where your user usually has full permissions to run and manage files eg  `/home/username/` or other user writable/executable directories such as `/nobackup/username` on ARC3/ARC4.
 
 ## Software
 
