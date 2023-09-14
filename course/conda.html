@@ -1,59 +1,48 @@
 
-
 <!DOCTYPE html>
 
-
-<html lang="en" >
-
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Conda package manager &#8212; HPC2: Installing and Managing Applications on the HPC</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
+    
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
-  
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -61,95 +50,63 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'course/conda';</script>
     <link rel="canonical" href="https://arctraining.github.io/hpc2-software/course/conda.html" />
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Autotools" href="autotools.html" />
     <link rel="prev" title="Theory" href="theory.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="../search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-  
-
-<a class="navbar-brand logo" href="../welcome.html">
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">HPC2: Installing and Managing Applications on the HPC</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -159,285 +116,578 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="start.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Conda package manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="autotools.html">Autotools</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
-<li class="toctree-l1"><a class="reference internal" href="containers.html">Containers</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="spack.html">Spack</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="spack/installing.html">Installing Spack</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spack/testinstall.html">Building a test piece of software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spack/modules.html">Adjusting how we name modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spack/existing.html">Using existing software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spack/advanced.html">Advanced software install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spack/containers.html">Containers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spack/environments.html">Environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spack/recipes.html">Recipes</a></li>
-</ul>
-</li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="theory.html">
+   Theory
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Conda package manager
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autotools.html">
+   Autotools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cmake.html">
+   CMake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="containers.html">
+   Containers
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="spack.html">
+   Spack
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/installing.html">
+     Installing Spack
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/testinstall.html">
+     Building a test piece of software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/modules.html">
+     Adjusting how we name modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/existing.html">
+     Using existing software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/advanced.html">
+     Advanced software install
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/containers.html">
+     Containers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/environments.html">
+     Environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spack/recipes.html">
+     Recipes
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
 </nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Visit the <a href="https://arcleeds.github.io/">Research Computing Home Site</a> <div> This book is powered by <a href="https://jupyterbook.org">Jupyter Book</a> </div>
+            </div>
+            
+        </div>
     </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+    <div id="rtd-footer-container"></div>
+</div>
 
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
+          
 
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
 
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
   
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
     </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/ARCTraining/hpc2-software" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/ARCTraining/hpc2-software/edit/gh-pages/book/course/conda.md" target="_blank"
-   class="btn btn-sm btn-source-edit-button dropdown-item"
-   title="Suggest edit"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="btn__text-container">Suggest edit</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/ARCTraining/hpc2-software/issues/new?title=Issue%20on%20page%20%2Fcourse/conda.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="../_sources/course/conda.md" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.md</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
+    <div class="header-article__right">
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
   </button>
-`);
-</script>
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ARCTraining/hpc2-software"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
   
-</div>
-</div>
-              
-              
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Conda package manager</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-conda">Installing Conda</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-arc">On ARC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-another-system">On another system</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda-environments">Conda environments</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-environments">Creating environments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-environments">Activating environments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deactivating-environments">Deactivating environments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-current-environments">Listing current environments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-a-conda-environment">Removing a Conda environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-conda-environments">Sharing Conda environments</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-cross-platform-environment-file">Creating a cross platform environment file</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-env-export-from-history">1. Using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span> <span class="pre">--from-history</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-create-an-environment-yml">2. Manually create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-to-install-packages">Using Conda to install packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-packages">Searching for packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages">Installing packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-packages">Removing packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-a-package">Updating a package</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-</ul>
-            </nav>
-        </div>
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/hpc2-software/issues/new?title=Issue%20on%20page%20%2Fcourse/conda.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/hpc2-software/edit/gh-pages/book/course/conda.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/course/conda.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-              
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-conda">
+   Installing Conda
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#on-arc">
+     On ARC
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#on-another-system">
+     On another system
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conda-environments">
+   Conda environments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-environments">
+     Creating environments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activating-environments">
+     Activating environments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deactivating-environments">
+     Deactivating environments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listing-current-environments">
+     Listing current environments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#removing-a-conda-environment">
+     Removing a Conda environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sharing-conda-environments">
+     Sharing Conda environments
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creating-a-cross-platform-environment-file">
+       Creating a cross platform environment file
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#using-conda-env-export-from-history">
+         1. Using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           conda
+          </span>
+          <span class="pre">
+           env
+          </span>
+          <span class="pre">
+           export
+          </span>
+          <span class="pre">
+           --from-history
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#manually-create-an-environment-yml">
+         2. Manually create an
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           environment.yml
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-conda-to-install-packages">
+   Using Conda to install packages
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#searching-for-packages">
+     Searching for packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-packages">
+     Installing packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#removing-packages">
+     Removing packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#updating-a-package">
+     Updating a package
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Conda package manager</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-conda">
+   Installing Conda
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#on-arc">
+     On ARC
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#on-another-system">
+     On another system
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conda-environments">
+   Conda environments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-environments">
+     Creating environments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activating-environments">
+     Activating environments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deactivating-environments">
+     Deactivating environments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listing-current-environments">
+     Listing current environments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#removing-a-conda-environment">
+     Removing a Conda environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sharing-conda-environments">
+     Sharing Conda environments
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creating-a-cross-platform-environment-file">
+       Creating a cross platform environment file
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#using-conda-env-export-from-history">
+         1. Using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           conda
+          </span>
+          <span class="pre">
+           env
+          </span>
+          <span class="pre">
+           export
+          </span>
+          <span class="pre">
+           --from-history
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#manually-create-an-environment-yml">
+         2. Manually create an
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           environment.yml
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-conda-to-install-packages">
+   Using Conda to install packages
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#searching-for-packages">
+     Searching for packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-packages">
+     Installing packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#removing-packages">
+     Removing packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#updating-a-package">
+     Updating a package
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
                 
-<div id="searchbox"></div>
-                <article class="bd-article" role="main">
-                  
+              <div>
+                
   <section class="tex2jax_ignore mathjax_ignore" id="conda-package-manager">
-<h1>Conda package manager<a class="headerlink" href="#conda-package-manager" title="Permalink to this heading">#</a></h1>
+<h1>Conda package manager<a class="headerlink" href="#conda-package-manager" title="Permalink to this headline">#</a></h1>
 <p>Content from this lesson has been inspired and adapted from a number of sources including:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.conda.io/en/latest/">Conda documentation</a></p></li>
 <li><p><a class="reference external" href="https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/">Carpentries Incubator: Introduction to Conda for data scientists</a></p></li>
 </ul>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>Conda is an open source package management and environment management system that runs on multiple operating systems (Windows, Linux, macOS). Its features include:</p>
 <ul class="simple">
 <li><p>Conda quickly installs, runs and updates packages and their dependencies.</p></li>
@@ -462,9 +712,9 @@ Anaconda is another distribution of Python that includes the Conda package manag
 </ul>
 </section>
 <section id="installing-conda">
-<h2>Installing Conda<a class="headerlink" href="#installing-conda" title="Permalink to this heading">#</a></h2>
+<h2>Installing Conda<a class="headerlink" href="#installing-conda" title="Permalink to this headline">#</a></h2>
 <section id="on-arc">
-<h3>On ARC<a class="headerlink" href="#on-arc" title="Permalink to this heading">#</a></h3>
+<h3>On ARC<a class="headerlink" href="#on-arc" title="Permalink to this headline">#</a></h3>
 <p>We provide a module for anaconda, meaning you don’t need to install it
 yourself, but you do need to take additional steps to avoid it filling up your
 home directory when you create additional environments.</p>
@@ -472,7 +722,7 @@ home directory when you create additional environments.</p>
 <p>You also can just install miniconda in /nobackup if you prefer.</p>
 </section>
 <section id="on-another-system">
-<h3>On another system<a class="headerlink" href="#on-another-system" title="Permalink to this heading">#</a></h3>
+<h3>On another system<a class="headerlink" href="#on-another-system" title="Permalink to this headline">#</a></h3>
 <p>You can install Conda from a number of sources:</p>
 <ul class="simple">
 <li><p>As part of the <a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda Python distribution</a></p></li>
@@ -486,7 +736,7 @@ When installing Miniconda you may be prompted to select various settings during 
 </section>
 </section>
 <section id="conda-environments">
-<h2>Conda environments<a class="headerlink" href="#conda-environments" title="Permalink to this heading">#</a></h2>
+<h2>Conda environments<a class="headerlink" href="#conda-environments" title="Permalink to this headline">#</a></h2>
 <p>As well as managing packages Conda also allows you to create and manage environments.
 A Conda environment is a directory that contains a specific set of installed packages and tools.
 This allows you to separate the dependencies of different projects cleanly so for example, you can use Python 3.7 in one Conda environment to reproduce a collaborators results but use Python 3.10 in your own projects without any hassle.
@@ -499,7 +749,7 @@ This contains a starting installation of Python and the dependencies of the Cond
 Therefore, it’s <strong>best practice</strong> to not install packages into the <code class="docutils literal notranslate"><span class="pre">base</span></code> environment and create your own environments into which you install the tools you need.</p>
 </div>
 <section id="creating-environments">
-<h3>Creating environments<a class="headerlink" href="#creating-environments" title="Permalink to this heading">#</a></h3>
+<h3>Creating environments<a class="headerlink" href="#creating-environments" title="Permalink to this headline">#</a></h3>
 <p>You can create an environment with Conda with the subcommand <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code>.
 When creating an environment we need to give it a name; we recommend giving it a name related to the project you’re going to use the environment for.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>py39-env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
@@ -736,7 +986,7 @@ done
 However, because we’ve specified Python packages which depend on Python being installed to run Conda will install the high version of Python suitable for these packages.</p>
 </section>
 <section id="activating-environments">
-<h3>Activating environments<a class="headerlink" href="#activating-environments" title="Permalink to this heading">#</a></h3>
+<h3>Activating environments<a class="headerlink" href="#activating-environments" title="Permalink to this headline">#</a></h3>
 <p>To use a Conda environment we need to activate it.
 Activating our environment does a number of steps that sets the terminal we’re using up so that it can see all of the installed packages in the environment, making it ready for use.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
@@ -748,14 +998,14 @@ Activating our environment does a number of steps that sets the terminal we’re
 You can see it has successfully activated when it returns your prompt with the environment name prepended in brackets.</p>
 </section>
 <section id="deactivating-environments">
-<h3>Deactivating environments<a class="headerlink" href="#deactivating-environments" title="Permalink to this heading">#</a></h3>
+<h3>Deactivating environments<a class="headerlink" href="#deactivating-environments" title="Permalink to this headline">#</a></h3>
 <p>You can deactivate your current environment with another simple subcommand <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>deactivate
 </pre></div>
 </div>
 </section>
 <section id="listing-current-environments">
-<h3>Listing current environments<a class="headerlink" href="#listing-current-environments" title="Permalink to this heading">#</a></h3>
+<h3>Listing current environments<a class="headerlink" href="#listing-current-environments" title="Permalink to this headline">#</a></h3>
 <p>If you ever want to see your list of current environments on your machine you can you the subcommand <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code>.
 This will return a list of the available Conda environments you can use and the environment location in your filesystem.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span>list
@@ -770,9 +1020,9 @@ This will return a list of the available Conda environments you can use and the 
 </div>
 </section>
 <section id="removing-a-conda-environment">
-<h3>Removing a Conda environment<a class="headerlink" href="#removing-a-conda-environment" title="Permalink to this heading">#</a></h3>
+<h3>Removing a Conda environment<a class="headerlink" href="#removing-a-conda-environment" title="Permalink to this headline">#</a></h3>
 <p>It is also possible to delete a Conda environment through the <code class="docutils literal notranslate"><span class="pre">remove</span></code> subcommand.
-This <span class="xref myst">command is outlined below</span> in relation to removing specific packages but can also be used to delete an entire Conda environment.</p>
+This <a class="reference external" href="#removing-packages">command is outlined below</a> in relation to removing specific packages but can also be used to delete an entire Conda environment.</p>
 <p>To remove the <code class="docutils literal notranslate"><span class="pre">py39-env</span></code> we created earlier we use the command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>remove<span class="w"> </span>--name<span class="w"> </span>py39-env<span class="w"> </span>--all
 </pre></div>
@@ -826,7 +1076,7 @@ However, if you have exported details of your environment it is possible to recr
 </div>
 </section>
 <section id="sharing-conda-environments">
-<h3>Sharing Conda environments<a class="headerlink" href="#sharing-conda-environments" title="Permalink to this heading">#</a></h3>
+<h3>Sharing Conda environments<a class="headerlink" href="#sharing-conda-environments" title="Permalink to this headline">#</a></h3>
 <p>If you need to share a Conda environment with others or between machines its possible to use Conda to export a file containing a specification of packages installed in that environment.
 With this environment file and Conda installed on another device its possible to recreate the environment with the same specifications.</p>
 <p>Let’s assume we want to share our <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> Conda environment with others. To do this we first need to create the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file containing our environment specification.
@@ -880,11 +1130,11 @@ Executing transaction: done
 <p>Here we’re specifying Conda create a new environment and using the <code class="docutils literal notranslate"><span class="pre">-f</span></code> option to specify that it creates the environment using a file with an environment specification.
 We pass the file path to the environment file as the argument following <code class="docutils literal notranslate"><span class="pre">-f</span></code>.</p>
 <section id="creating-a-cross-platform-environment-file">
-<h4>Creating a cross platform environment file<a class="headerlink" href="#creating-a-cross-platform-environment-file" title="Permalink to this heading">#</a></h4>
+<h4>Creating a cross platform environment file<a class="headerlink" href="#creating-a-cross-platform-environment-file" title="Permalink to this headline">#</a></h4>
 <p>As noted above using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code> creates a highly specific environment file, this often causes difficulties when sharing environments across operating systems as the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> contains operating system specific hashes for each package.</p>
 <p>There are two possible methods of creating a more flexible <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>.</p>
 <section id="using-conda-env-export-from-history">
-<h5>1. Using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span> <span class="pre">--from-history</span></code><a class="headerlink" href="#using-conda-env-export-from-history" title="Permalink to this heading">#</a></h5>
+<h5>1. Using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span> <span class="pre">--from-history</span></code><a class="headerlink" href="#using-conda-env-export-from-history" title="Permalink to this headline">#</a></h5>
 <p>By default <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code> exports an environments entire specification, including dependencies of packages you <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> and their associated hashes.
 If you use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span> <span class="pre">--from-history</span></code> Conda only exports packages explicitly installed with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>.
 It does not include dependencies of those packages and therefore allows different operating systems to more flexibly install package dependencies.</p>
@@ -894,7 +1144,7 @@ It does not include dependencies of those packages and therefore allows differen
 </div>
 </section>
 <section id="manually-create-an-environment-yml">
-<h5>2. Manually create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code><a class="headerlink" href="#manually-create-an-environment-yml" title="Permalink to this heading">#</a></h5>
+<h5>2. Manually create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code><a class="headerlink" href="#manually-create-an-environment-yml" title="Permalink to this headline">#</a></h5>
 <p>The other option is to manually specify the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file.
 This is often more fiddly than just exporting an environment but can be preferable to ensure all the desired dependencies of your project are captured.
 Environment files are written in YAML, a markup language, and have the standard pattern of:</p>
@@ -916,14 +1166,14 @@ Sometimes this level of detail should be included to ensure maximum reproducibli
 </section>
 </section>
 <section id="using-conda-to-install-packages">
-<h2>Using Conda to install packages<a class="headerlink" href="#using-conda-to-install-packages" title="Permalink to this heading">#</a></h2>
+<h2>Using Conda to install packages<a class="headerlink" href="#using-conda-to-install-packages" title="Permalink to this headline">#</a></h2>
 <p>With the Conda command line tool searching for and installing packages is can be performed with the following subcommands:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code></p></li>
 </ul>
 <section id="searching-for-packages">
-<h3>Searching for packages<a class="headerlink" href="#searching-for-packages" title="Permalink to this heading">#</a></h3>
+<h3>Searching for packages<a class="headerlink" href="#searching-for-packages" title="Permalink to this headline">#</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>search<span class="w"> </span>python
 </pre></div>
 </div>
@@ -1577,11 +1827,11 @@ Other channels are also available such as <a class="reference external" href="ht
 </div>
 </section>
 <section id="installing-packages">
-<h3>Installing packages<a class="headerlink" href="#installing-packages" title="Permalink to this heading">#</a></h3>
+<h3>Installing packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">#</a></h3>
 <p>Installing packages via Conda is performed using the <code class="docutils literal notranslate"><span class="pre">install</span></code> subcommand with the format <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">PACKAGE</span></code>, where <code class="docutils literal notranslate"><span class="pre">PACKAGE</span></code> is the name of the package you wish to install.</p>
 <p>Earlier we created the <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> and installed some useful data science packages.
 We’ve discovered we also need the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package for some extra work we want to do so we’ll look at using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> to install this package within our existing environment.</p>
-<p>To install packages into an existing environment we need to activate it with the <span class="xref myst">subcommand shown above</span>.</p>
+<p>To install packages into an existing environment we need to activate it with the <a class="reference external" href="#activating-environments">subcommand shown above</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
 
 <span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>statsmodels
@@ -1663,7 +1913,7 @@ Executing transaction: done
 <p>This installs any packages that are currently not installed (Conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).</p>
 </section>
 <section id="removing-packages">
-<h3>Removing packages<a class="headerlink" href="#removing-packages" title="Permalink to this heading">#</a></h3>
+<h3>Removing packages<a class="headerlink" href="#removing-packages" title="Permalink to this headline">#</a></h3>
 <p>Another crucial aspect of managing an environment involves removing packages.
 Conda includes the <code class="docutils literal notranslate"><span class="pre">remove</span></code> subcommand for this operation, which allows you to specify a list of packages you wish to remove.
 You can do this within an activated environment, or specify to Conda the environment from which you want to remove packages.</p>
@@ -1716,7 +1966,7 @@ As you can see in the above example, removing one package may also lead to the r
 <p>With these changes made we can now install a newer version of pandas using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>.</p>
 </section>
 <section id="updating-a-package">
-<h3>Updating a package<a class="headerlink" href="#updating-a-package" title="Permalink to this heading">#</a></h3>
+<h3>Updating a package<a class="headerlink" href="#updating-a-package" title="Permalink to this headline">#</a></h3>
 <p>The above example is slightly artificial as removing a package to install a more recent version is a long-winded way of doing things with Conda.
 If we want to update a package to a more recent version Conda provides the <code class="docutils literal notranslate"><span class="pre">update</span></code> subcommand to achieve this.
 Crucially, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span></code> will update a package to its most recent version and can’t be used to specific a particular version.</p>
@@ -1763,28 +2013,28 @@ Proceed ([y]/n)?
 </section>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="simple">
-<li><p><span class="xref myst">Introduces Conda</span> as a cross-platform package and environment manager</p></li>
-<li><p>Highlights options for <span class="xref myst">how to install Conda</span></p></li>
+<li><p><a class="reference external" href="#introduction">Introduces Conda</a> as a cross-platform package and environment manager</p></li>
+<li><p>Highlights options for <a class="reference external" href="#installing-conda">how to install Conda</a></p></li>
 <li><p>Introduces Conda environments for separating specific package dependencies on a project-by-project basis</p>
 <ul>
-<li><p>How to <span class="xref myst">create an environment using Conda</span></p></li>
-<li><p>How to use a created Conda environment through <span class="xref myst">environment activation</span></p></li>
-<li><p>Leaving an environment through <span class="xref myst">deactivation</span></p></li>
-<li><p><span class="xref myst">Listing available Conda environments</span></p></li>
-<li><p><span class="xref myst">Deleting Conda environments</span></p></li>
-<li><p><span class="xref myst">Exporting and sharing Conda Environments</span></p></li>
+<li><p>How to <a class="reference external" href="#creating-environments">create an environment using Conda</a></p></li>
+<li><p>How to use a created Conda environment through <a class="reference external" href="#activating-environments">environment activation</a></p></li>
+<li><p>Leaving an environment through <a class="reference external" href="#deactivating-environments">deactivation</a></p></li>
+<li><p><a class="reference external" href="#listing-current-environments">Listing available Conda environments</a></p></li>
+<li><p><a class="reference external" href="#removing-a-conda-environment">Deleting Conda environments</a></p></li>
+<li><p><a class="reference external" href="#sharing-conda-environments">Exporting and sharing Conda Environments</a></p></li>
 </ul>
 </li>
 <li><p>Shows how Conda can be used for managing packages</p>
 <ul>
-<li><p>Using Conda to <span class="xref myst">search Conda repositories for a package</span></p></li>
-<li><p>Using Conda to <span class="xref myst">install a package</span></p></li>
-<li><p>Using Conda to <span class="xref myst">remove a package</span></p></li>
-<li><p>Using Conda to <span class="xref myst">update a package</span></p></li>
+<li><p>Using Conda to <a class="reference external" href="#searching-for-packages">search Conda repositories for a package</a></p></li>
+<li><p>Using Conda to <a class="reference external" href="#installing-packages">install a package</a></p></li>
+<li><p>Using Conda to <a class="reference external" href="#removing-packages">remove a package</a></p></li>
+<li><p>Using Conda to <a class="reference external" href="#updating-a-package">update a package</a></p></li>
 </ul>
 </li>
 </ul>
@@ -1804,7 +2054,7 @@ Proceed ([y]/n)?
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./course"
         },
         predefinedOutput: true
@@ -1812,134 +2062,50 @@ Proceed ([y]/n)?
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="theory.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Theory</p>
-      </div>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="theory.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Theory</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="autotools.html"
-       title="next page">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="autotools.html" title="next page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Autotools</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div></div>
-  
-</div>
-
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-conda">Installing Conda</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-arc">On ARC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-another-system">On another system</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda-environments">Conda environments</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-environments">Creating environments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-environments">Activating environments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deactivating-environments">Deactivating environments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-current-environments">Listing current environments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-a-conda-environment">Removing a Conda environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-conda-environments">Sharing Conda environments</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-cross-platform-environment-file">Creating a cross platform environment file</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-env-export-from-history">1. Using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span> <span class="pre">--from-history</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-create-an-environment-yml">2. Manually create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-to-install-packages">Using Conda to install packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-packages">Searching for packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages">Installing packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-packages">Removing packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-a-package">Updating a package</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By University of Leeds Research Computing Team
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
     </div>
-  </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By University of Leeds Research Computing Team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  <footer class="bd-footer">
-  </footer>
+
   </body>
 </html>
