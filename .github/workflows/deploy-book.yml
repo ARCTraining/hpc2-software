@@ -13,7 +13,7 @@ jobs:
   deploy-book:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - uses: conda-incubator/setup-miniconda@v2
       with:
         environment-file: environment.yml
@@ -29,7 +29,7 @@ jobs:
         jupyter-book build ./book/
     # Push the book's HTML to master branch (because this is an organisation homepage)
     - name: GitHub Pages action
-      uses: peaceiris/actions-gh-pages@v3.6.1
+      uses: peaceiris/actions-gh-pages@v3.9.3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./book/_build/html
