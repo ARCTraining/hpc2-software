@@ -4,6 +4,7 @@ Content from this lesson has been inspired and adapted from a number of sources 
 - [Conda documentation](https://docs.conda.io/en/latest/)
 - [Carpentries Incubator: Introduction to Conda for data scientists](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/)
 
+(introduction)=
 ## Introduction
 
 Conda is an open source package management and environment management system that runs on multiple operating systems (Windows, Linux, macOS). Its features include:
@@ -38,6 +39,7 @@ Conda is widely used across scientific computing and data science based domains 
 - The cross platform nature of Conda allows for users to more easily share the environments. This helps researchers share their computational environment along side their data and analysis, helping improve the reproducibility of their research
 - Conda also provides access to widely used machine learning and data science libraries such as TensorFlow, SciPy, NumPy that are available as pre-configured, hardware specific packages (such as GPU-enabled TensorFlow) allowing for code to be as performant as possible
 
+(installing-conda)=
 ## Installing Conda
 
 ### On ARC
@@ -77,6 +79,7 @@ This contains a starting installation of Python and the dependencies of the Cond
 Therefore, it's **best practice** to not install packages into the `base` environment and create your own environments into which you install the tools you need.
 ```
 
+(creating-environments)=
 ### Creating environments
 
 You can create an environment with Conda with the subcommand `conda create`. 
@@ -318,6 +321,7 @@ done
 With the above command we create a new environment but don't specify to install Python. 
 However, because we've specified Python packages which depend on Python being installed to run Conda will install the high version of Python suitable for these packages.
 
+(activating-environments)=
 ### Activating environments
 
 To use a Conda environment we need to activate it. 
@@ -332,6 +336,7 @@ $ conda activate data-sci-env
 You use the subcommand `conda activate ENVNAME` for environment activation, where `ENVNAME` is the name of the environment you wish to activate. 
 You can see it has successfully activated when it returns your prompt with the environment name prepended in brackets.
 
+(deactivating-environments)=
 ### Deactivating environments
 
 You can deactivate your current environment with another simple subcommand `conda deactivate`.
@@ -340,6 +345,7 @@ You can deactivate your current environment with another simple subcommand `cond
 (data-sci-env)$ conda deactivate
 ```
 
+(listing-current-environments)=
 ### Listing current environments
 
 If you ever want to see your list of current environments on your machine you can you the subcommand `conda env list`. 
@@ -356,10 +362,11 @@ data-sci-env               /home/home01/arcusers/.conda/envs/data-sci-env
 ```
 ````
 
+(removing-a-conda-environment)=
 ### Removing a Conda environment
 
 It is also possible to delete a Conda environment through the `remove` subcommand. 
-This [command is outlined below](#removing-packages) in relation to removing specific packages but can also be used to delete an entire Conda environment.
+This [command is outlined below](removing-packages) in relation to removing specific packages but can also be used to delete an entire Conda environment.
 
 To remove the `py39-env` we created earlier we use the command:
 
@@ -415,6 +422,7 @@ You cannot undo deletion of an environment to the exact state it was in before d
 However, if you have exported details of your environment it is possible to recreate it.
 ```
 
+(sharing-conda-environments)=
 ### Sharing Conda environments
 
 If you need to share a Conda environment with others or between machines its possible to use Conda to export a file containing a specification of packages installed in that environment.
@@ -523,6 +531,7 @@ With the Conda command line tool searching for and installing packages is can be
 - `conda search`
 - `conda install`
 
+(searching-for-packages)=
 ### Searching for packages
 
 ```bash
@@ -1182,6 +1191,7 @@ python                        3.10.6 ha86cf86_0_cpython  conda-forge
 ```
 ````
 
+(installing-packages)=
 ### Installing packages
 
 Installing packages via Conda is performed using the `install` subcommand with the format `conda install PACKAGE`, where `PACKAGE` is the name of the package you wish to install. 
@@ -1189,7 +1199,7 @@ Installing packages via Conda is performed using the `install` subcommand with t
 Earlier we created the `data-sci-env` and installed some useful data science packages. 
 We've discovered we also need the `statsmodels` package for some extra work we want to do so we'll look at using `conda install` to install this package within our existing environment.
 
-To install packages into an existing environment we need to activate it with the [subcommand shown above](#activating-environments).
+To install packages into an existing environment we need to activate it with the [subcommand shown above](activating-environments).
 
 ```bash
 $ conda activate data-sci-env
@@ -1275,6 +1285,7 @@ Executing transaction: done
 This installs any packages that are currently not installed (Conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).
 
 
+(removing-packages)=
 ### Removing packages
 
 Another crucial aspect of managing an environment involves removing packages. 
@@ -1332,6 +1343,7 @@ As you can see in the above example, removing one package may also lead to the r
 
 With these changes made we can now install a newer version of pandas using `conda install`.
 
+(updating-a-package)=
 ### Updating a package
 
 The above example is slightly artificial as removing a package to install a more recent version is a long-winded way of doing things with Conda.
@@ -1386,19 +1398,19 @@ When requesting to update a package Conda will also update other dependencies of
 
 ```{important}
 
-- [Introduces Conda](#introduction) as a cross-platform package and environment manager 
-- Highlights options for [how to install Conda](#installing-conda)
+- [Introduces Conda](introduction) as a cross-platform package and environment manager 
+- Highlights options for [how to install Conda](installing-conda)
 - Introduces Conda environments for separating specific package dependencies on a project-by-project basis
-  - How to [create an environment using Conda](#creating-environments)
-  - How to use a created Conda environment through [environment activation](#activating-environments)
-  - Leaving an environment through [deactivation](#deactivating-environments)
-  - [Listing available Conda environments](#listing-current-environments)
-  - [Deleting Conda environments](#removing-a-conda-environment)
-  - [Exporting and sharing Conda Environments](#sharing-conda-environments)
+  - How to [create an environment using Conda](creating-environments)
+  - How to use a created Conda environment through [environment activation](activating-environments)
+  - Leaving an environment through [deactivation](deactivating-environments)
+  - [Listing available Conda environments](listing-current-environments)
+  - [Deleting Conda environments](removing-a-conda-environment)
+  - [Exporting and sharing Conda Environments](sharing-conda-environments)
 - Shows how Conda can be used for managing packages
-  - Using Conda to [search Conda repositories for a package](#searching-for-packages)
-  - Using Conda to [install a package](#installing-packages)
-  - Using Conda to [remove a package](#removing-packages)
-  - Using Conda to [update a package](#updating-a-package)
+  - Using Conda to [search Conda repositories for a package](searching-for-packages)
+  - Using Conda to [install a package](installing-packages)
+  - Using Conda to [remove a package](removing-packages)
+  - Using Conda to [update a package](updating-a-package)
 
 ```
