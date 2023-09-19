@@ -117,7 +117,7 @@ take our previous build even further:
 spack install libtiff @4.4.0 +webp -jpeg build_type=Release ^perl@5.30.0 %gcc@4.8.5
 ```
 
-This would build using Perl 5.16.3, without JPEG support, and with WebP
+This would build using Perl 5.30.0, without JPEG support, and with WebP
 support, using the GNU 4.8.5 compiler.  Note that we have used a ^ to say which
 version of perl we want to use because it's a package that we depend on,
 whereas we have to use % to say which compiler to use.
