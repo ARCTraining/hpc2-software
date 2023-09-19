@@ -21,10 +21,10 @@ Description:
 
 Homepage: http://www.simplesystems.org/libtiff/
 
-Preferred version:  
+Preferred version:
     4.5.0     https://download.osgeo.org/libtiff/tiff-4.5.0.tar.gz
 
-Safe versions:  
+Safe versions:
     4.5.0     https://download.osgeo.org/libtiff/tiff-4.5.0.tar.gz
     4.4.0     https://download.osgeo.org/libtiff/tiff-4.4.0.tar.gz
     4.3.0     https://download.osgeo.org/libtiff/tiff-4.3.0.tar.gz
@@ -39,7 +39,7 @@ Safe versions:
     4.0.4     https://download.osgeo.org/libtiff/tiff-4.0.4.tar.gz
     3.9.7     https://download.osgeo.org/libtiff/tiff-3.9.7.tar.gz
 
-Deprecated versions:  
+Deprecated versions:
     None
 
 Variants:
@@ -48,12 +48,12 @@ Variants:
 
     build_system [cmake]    --                                cmake, autotools        Build systems supported by the package
     build_type [Release]    [build_system=cmake]              Debug, Release,         CMake build type
-                                                              RelWithDebInfo,         
-                                                              MinSizeRel              
+                                                              RelWithDebInfo,
+                                                              MinSizeRel
     ccitt [on]              --                                on, off                 support for CCITT Group 3 & 4 algorithms
     generator [make]        [build_system=cmake]              ninja,make              the build system generator to use
     ipo [off]               [build_system=cmake               on, off                 CMake interprocedural optimization
-                            ^cmake@3.9:]                                              
+                            ^cmake@3.9:]
     jbig [off]              --                                on, off                 use ISO JBIG compression
     jpeg [on]               --                                on, off                 use libjpeg
     jpeg12 [off]            [@4:]                             on, off                 enable libjpeg 8/12-bit dual mode
@@ -184,10 +184,10 @@ Description:
 
 Homepage: https://tmux.github.io
 
-Preferred version:  
+Preferred version:
     3.3a      https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
 
-Safe versions:  
+Safe versions:
     master    [git] https://github.com/tmux/tmux.git on branch master
     3.3a      https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
     3.2a      https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz
@@ -210,7 +210,7 @@ Safe versions:
     2.1       https://github.com/tmux/tmux/releases/download/2.1/tmux-2.1.tar.gz
     1.9a      https://github.com/tmux/tmux/releases/download/1.9a/tmux-1.9a.tar.gz
 
-Deprecated versions:  
+Deprecated versions:
     None
 
 Variants:

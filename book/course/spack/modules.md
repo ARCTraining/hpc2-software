@@ -46,7 +46,7 @@ pigz-2.7-gcc-12.3.0-4a2l6se
 
 $ pigz --version
 -bash: pigz: command not found
-$ module add pigz-2.7-gcc-12.3.0-4a2l6se 
+$ module add pigz-2.7-gcc-12.3.0-4a2l6se
 $ pigz --version
 pigz 2.7
 ```

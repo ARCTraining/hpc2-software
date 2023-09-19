@@ -1,8 +1,8 @@
 # HPC2: Installing and Managing Applications on the HPC
 
-Booking for this course is through the IT Training Unit.  
+Booking for this course is through the IT Training Unit.
 
-Click [here](https://uolr3.leeds.ac.uk/temcatsearch(bD1lbiZjPTUwMCZ3PTIwOTk1NjAr\\)/courses.htm?gd_keywords=50114002) to book.  
+Click [here](https://uolr3.leeds.ac.uk/temcatsearch(bD1lbiZjPTUwMCZ3PTIwOTk1NjAr\\)/courses.htm?gd_keywords=50114002) to book.
 
 ## Content
 
@@ -12,7 +12,7 @@ The purpose of the workshop is to introduce the application development environm
 
 At the end of this workshop, learners will be able to:
 
-1. [ ] Understand what an executable is 
+1. [ ] Understand what an executable is
 2. [ ] Understand the how filesystem configuration and environment variables relate to software
 3. [ ] Develop hands on experience with:
     1. [ ] Using Conda package manager
@@ -31,9 +31,9 @@ Two three hour sessions
 
 ## Frequency
 
-This workshop usually runs once each academic year.  
+This workshop usually runs once each academic year.
 
-If you would like a bespoke version of this course run in your department, then please [contact us](https://bit.ly/arc-help).  
+If you would like a bespoke version of this course run in your department, then please [contact us](https://bit.ly/arc-help).
 
 ## Suitability
 

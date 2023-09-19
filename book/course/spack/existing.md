@@ -234,7 +234,7 @@ detected packages.
 
 In this case, you may choose to remove these two lines, to stop it from using the anaconda version:
 ```yaml
-    - spec: openssl@3.1.0 
+    - spec: openssl@3.1.0
       prefix: /apps/developers/compilers/anaconda/2023.03/1/default
 ```
 </details>
