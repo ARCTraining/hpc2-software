@@ -244,7 +244,7 @@ If you've installed this and want to verify it's worked:
 ```bash
 $ spack load tmux
 $ tmux -V
-tmux 3.2
+tmux 3.2a
 $ spack find -v tmux
 -- linux-centos7-skylake_avx512 / gcc@12.3.0 --------------------
 tmux@3.2a~static+utf8proc build_system=autotools
