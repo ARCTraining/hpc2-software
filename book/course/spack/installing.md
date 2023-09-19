@@ -12,7 +12,7 @@ deliberately pick a specific stable version:
 
 ```bash
 $ cd spack
-$ git checkout releases/v0.19
+$ git checkout v0.20.1
 $ cd ..
 ```
 
@@ -51,7 +51,7 @@ abyss
 ...
 ```
 
-Now that's quite a list (6548 different pieces of software at the time of
+Now that's quite a list (7386 different pieces of software at the time of
 writing).
 
 So let's move on to look at the next section, where we install one to show how

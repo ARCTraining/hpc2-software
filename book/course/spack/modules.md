@@ -1,15 +1,58 @@
-# Adjusting how we name modules
+# Module files
 
-In the last section we built a version of pigz, and loaded it:
+In the [earlier section](testinstall) we built a version of pigz, and loaded it:
 
 ```bash
-$ module add pigz-2.7-gcc-8.5.0-qkx6pxv
+$ spack load pigz
+$ pigz --version
+pigz 2.7
+```
+
+Now this is different to how we load modules on ARC.  You can make Spack behave
+in the same way, should you wish.
+
+## Setup
+
+You need to do one step to enable module file creation:
+
+```bash
+spack config add modules:default:enable:[tcl]
+```
+
+This alone is enough to tell Spack that in future you'd like it to generate tcl
+format module files when installing software in future.  But we'll need to take
+another step now to both create a module file for our pigz install, and to make
+it visible in our current session.
+
+```bash
+spack module tcl refresh -y
+```
+
+This will then rebuild all the module files for previous installed software.
+You need to source the spack environment again to make them visible to the
+module command though:
+
+```bash
+$ . spack/share/spack/setup-env.sh
+```
+
+We can confirm now that we can see the module with the module command:
+
+```bash
+$ module avail pigz
+
+--- /tmp/scsjh/spack/share/spack/modules/linux-centos7-skylake_avx512 ---
+pigz-2.7-gcc-12.3.0-4a2l6se
+
+$ pigz --version
+-bash: pigz: command not found
+$ module add pigz-2.7-gcc-12.3.0-4a2l6se 
 $ pigz --version
 pigz 2.7
 ```
 
 Now, it's very definitive what you're loading (pigz version 2.7 built with gcc
-8.5.0 with a hash to pin it down further), but it's a bit wordy.  This format
+12.3.0 with a hash to pin it down further), but it's a bit wordy.  This format
 of modules isn't necessarily what you want, and something cleaner is likely
 more generally useful.  Don't be bothered by the mangle of characters at the
 end (the hash).  This just precisely identifies a given build of software,
@@ -59,7 +102,7 @@ Testing this out now we can see all is how we wanted it:
 ```bash
 $ module avail
 ---------- /home/me/spack/share/spack/modules/linux-rhel8-haswell -----------
-pigz/2.7  zlib/1.2.12
+pigz/2.7  zlib/1.2.13
 ```
 
 We now have tidy module files, named in a nice simple fashion, which is
