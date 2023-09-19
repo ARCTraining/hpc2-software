@@ -18,45 +18,49 @@ not one right answer.
 
 Compilers are a bit different to other pieces of software.  Typically the
 easiest way to get Spack to use a system compiler is to make sure it's in your
-path (either loading a module, or in this case just using the default system
-compiler - GCC 8.5.0 on RHEL8), and tell Spack to find it:
+path and tell Spack to try to find it.  In this example I'm going to swap out
+the default Intel compiler on ARC4 for a shiny GNU compiler:
 
 ```bash
+$ module swap intel gnu/12.3.0
 $ spack compiler add
-==> Added 1 new compiler to /home/me/.spack/linux/compilers.yaml
-    gcc@8.5.0
+==> Added 1 new compiler to /home/home02/me/.spack/linux/compilers.yaml
+    gcc@12.3.0
 ==> Compilers are defined in the following files:
-    /home/me/.spack/linux/compilers.yaml
+    /home/home02/me/.spack/linux/compilers.yaml
 ```
 
 Spack now knows about this compiler.  If this was a compiler in a module, you
 can just load the module beforehand, and Spack will add that compiler to its
 known list.
 
-If you want to set that as your preferred compiler, run this to edit the
-config:
+If you want to set that as your preferred compiler, you can do this with a
+single command:
 
 ```bash
-spack config edit packages
+spack config add packages:all:compiler:[gcc@12.3.0]
 ```
 
-And tell it to use this compiler
+You can confirm your config, or make other changes with:
+
+```bash
+spack config add packages:all:compiler:[gcc@12.3.0]
+```
 
 ```yaml
 packages:
   all:
-    compiler:
-    - 'gcc@8.5.0' # Your preferred compiler here
+    compiler: [gcc@12.3.0]
 ```
 
 ## Other software
 
-Take an example of building the software mpiwrapper.  It only needs cmake and
-openmpi as dependencies, but these themselves require lots of dependencies to
-built.  You can see what Spack would like to build:
+Take an example of building the software phylobayesmpi.  It only needs mpi
+as a dependency, but mpi requires a lot of dependencies to be built.
+You can see what Spack would like to build:
 
 ```bash
-spack spec mpiwrapper
+spack spec phylobayesmpi
 ```
 
 <details>
@@ -65,46 +69,46 @@ spack spec mpiwrapper
 ```
 Input spec
 --------------------------------
-mpiwrapper
+phylobayesmpi
 
 Concretized
 --------------------------------
-mpiwrapper@2.8.1%gcc@8.5.0~ipo build_type=RelWithDebInfo arch=linux-rhel8-haswell
-    ^cmake@3.23.3%gcc@8.5.0~doc+ncurses+ownlibs~qt build_type=Release arch=linux-rhel8-haswell
-        ^ncurses@6.3%gcc@8.5.0~symlinks+termlib abi=none arch=linux-rhel8-haswell
-            ^pkgconf@1.8.0%gcc@8.5.0 arch=linux-rhel8-haswell
-        ^openssl@1.1.1q%gcc@8.5.0~docs~shared certs=mozilla patches=3fdcf2d arch=linux-rhel8-haswell
-            ^ca-certificates-mozilla@2022-07-19%gcc@8.5.0 arch=linux-rhel8-haswell
-            ^perl@5.34.1%gcc@8.5.0+cpanm+shared+threads arch=linux-rhel8-haswell
-                ^berkeley-db@18.1.40%gcc@8.5.0+cxx~docs+stl patches=b231fcc arch=linux-rhel8-haswell
-                ^bzip2@1.0.8%gcc@8.5.0~debug~pic+shared arch=linux-rhel8-haswell
-                    ^diffutils@3.8%gcc@8.5.0 arch=linux-rhel8-haswell
-                        ^libiconv@1.16%gcc@8.5.0 libs=shared,static arch=linux-rhel8-haswell
-                ^gdbm@1.19%gcc@8.5.0 arch=linux-rhel8-haswell
-                    ^readline@8.1.2%gcc@8.5.0 arch=linux-rhel8-haswell
-                ^zlib@1.2.12%gcc@8.5.0+optimize+pic+shared patches=0d38234 arch=linux-rhel8-haswell
-    ^openmpi@4.1.4%gcc@8.5.0~atomics~cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+romio+rsh~singularity+static+vt+wrapper-rpath fabrics=none schedulers=none arch=linux-rhel8-haswell
-        ^hwloc@2.8.0%gcc@8.5.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml~oneapi-level-zero~opencl+pci~rocm+shared arch=linux-rhel8-haswell
-            ^libpciaccess@0.16%gcc@8.5.0 arch=linux-rhel8-haswell
-                ^libtool@2.4.7%gcc@8.5.0 arch=linux-rhel8-haswell
-                    ^m4@1.4.19%gcc@8.5.0+sigsegv patches=9dc5fbd,bfdffa7 arch=linux-rhel8-haswell
-                        ^libsigsegv@2.13%gcc@8.5.0 arch=linux-rhel8-haswell
-                ^util-macros@1.19.3%gcc@8.5.0 arch=linux-rhel8-haswell
-            ^libxml2@2.9.13%gcc@8.5.0~python arch=linux-rhel8-haswell
-                ^xz@5.2.5%gcc@8.5.0~pic libs=shared,static arch=linux-rhel8-haswell
-        ^numactl@2.0.14%gcc@8.5.0 patches=4e1d78c,62fc8a8,ff37630 arch=linux-rhel8-haswell
-            ^autoconf@2.69%gcc@8.5.0 patches=35c4492,7793209,a49dd5b arch=linux-rhel8-haswell
-            ^automake@1.16.5%gcc@8.5.0 arch=linux-rhel8-haswell
-        ^openssh@9.0p1%gcc@8.5.0+gssapi arch=linux-rhel8-haswell
-            ^krb5@1.19.3%gcc@8.5.0+shared arch=linux-rhel8-haswell
-                ^bison@3.8.2%gcc@8.5.0 arch=linux-rhel8-haswell
-                ^gettext@0.21%gcc@8.5.0+bzip2+curses+git~libunistring+libxml2+tar+xz arch=linux-rhel8-haswell
-                    ^tar@1.34%gcc@8.5.0 zip=pigz arch=linux-rhel8-haswell
-                        ^pigz@2.7%gcc@8.5.0 arch=linux-rhel8-haswell
-                        ^zstd@1.5.2%gcc@8.5.0+programs compression=none libs=shared,static arch=linux-rhel8-haswell
-            ^libedit@3.1-20210216%gcc@8.5.0 arch=linux-rhel8-haswell
-        ^pmix@4.1.2%gcc@8.5.0~docs+pmi_backwards_compatibility~restful arch=linux-rhel8-haswell
-            ^libevent@2.1.12%gcc@8.5.0+openssl arch=linux-rhel8-haswell
+phylobayesmpi@1.8b%gcc@12.3.0 build_system=makefile arch=linux-centos7-skylake_avx512
+    ^openmpi@4.1.5%gcc@12.3.0~atomics~cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~orterunprefix+romio+rsh~singularity+static+vt+wrapper-rpath build_system=autotools fabrics=none schedulers=none arch=linux-centos7-skylake_avx512
+        ^hwloc@2.9.1%gcc@12.3.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml~oneapi-level-zero~opencl+pci~rocm build_system=autotools libs=shared,static arch=linux-centos7-skylake_avx512
+            ^libpciaccess@0.17%gcc@12.3.0 build_system=autotools arch=linux-centos7-skylake_avx512
+                ^util-macros@1.19.3%gcc@12.3.0 build_system=autotools arch=linux-centos7-skylake_avx512
+            ^libxml2@2.10.3%gcc@12.3.0~python build_system=autotools arch=linux-centos7-skylake_avx512
+                ^libiconv@1.17%gcc@12.3.0 build_system=autotools libs=shared,static arch=linux-centos7-skylake_avx512
+                ^xz@5.4.1%gcc@12.3.0~pic build_system=autotools libs=shared,static arch=linux-centos7-skylake_avx512
+            ^ncurses@6.4%gcc@12.3.0~symlinks+termlib abi=none build_system=autotools arch=linux-centos7-skylake_avx512
+        ^numactl@2.0.14%gcc@12.3.0 build_system=autotools patches=4e1d78c,62fc8a8,ff37630 arch=linux-centos7-skylake_avx512
+            ^autoconf@2.69%gcc@12.3.0 build_system=autotools patches=35c4492,7793209,a49dd5b arch=linux-centos7-skylake_avx512
+            ^automake@1.16.5%gcc@12.3.0 build_system=autotools arch=linux-centos7-skylake_avx512
+            ^libtool@2.4.7%gcc@12.3.0 build_system=autotools arch=linux-centos7-skylake_avx512
+            ^m4@1.4.19%gcc@12.3.0+sigsegv build_system=autotools patches=9dc5fbd,bfdffa7 arch=linux-centos7-skylake_avx512
+                ^diffutils@3.9%gcc@12.3.0 build_system=autotools arch=linux-centos7-skylake_avx512
+                ^libsigsegv@2.14%gcc@12.3.0 build_system=autotools arch=linux-centos7-skylake_avx512
+        ^openssh@9.3p1%gcc@12.3.0+gssapi build_system=autotools arch=linux-centos7-skylake_avx512
+            ^krb5@1.20.1%gcc@12.3.0+shared build_system=autotools arch=linux-centos7-skylake_avx512
+                ^bison@3.8.2%gcc@12.3.0 build_system=autotools arch=linux-centos7-skylake_avx512
+                ^gettext@0.21.1%gcc@12.3.0+bzip2+curses+git~libunistring+libxml2+tar+xz build_system=autotools arch=linux-centos7-skylake_avx512
+                    ^tar@1.34%gcc@12.3.0 build_system=autotools zip=pigz arch=linux-centos7-skylake_avx512
+                        ^pigz@2.7%gcc@12.3.0 build_system=makefile arch=linux-centos7-skylake_avx512
+                        ^zstd@1.5.5%gcc@12.3.0+programs build_system=makefile compression=none libs=shared,static arch=linux-centos7-skylake_avx512
+            ^libedit@3.1-20210216%gcc@12.3.0 build_system=autotools arch=linux-centos7-skylake_avx512
+            ^libxcrypt@4.4.33%gcc@12.3.0~obsolete_api build_system=autotools arch=linux-centos7-skylake_avx512
+            ^openssl@1.1.1t%gcc@12.3.0~docs~shared build_system=generic certs=mozilla arch=linux-centos7-skylake_avx512
+                ^ca-certificates-mozilla@2023-01-10%gcc@12.3.0 build_system=generic arch=linux-centos7-skylake_avx512
+        ^perl@5.36.0%gcc@12.3.0+cpanm+open+shared+threads build_system=generic arch=linux-centos7-skylake_avx512
+            ^berkeley-db@18.1.40%gcc@12.3.0+cxx~docs+stl build_system=autotools patches=26090f4,b231fcc arch=linux-centos7-skylake_avx512
+            ^bzip2@1.0.8%gcc@12.3.0~debug~pic+shared build_system=generic arch=linux-centos7-skylake_avx512
+            ^gdbm@1.23%gcc@12.3.0 build_system=autotools arch=linux-centos7-skylake_avx512
+                ^readline@8.2%gcc@12.3.0 build_system=autotools patches=bbf97f1 arch=linux-centos7-skylake_avx512
+        ^pkgconf@1.9.5%gcc@12.3.0 build_system=autotools arch=linux-centos7-skylake_avx512
+        ^pmix@4.2.3%gcc@12.3.0~docs+pmi_backwards_compatibility~python~restful build_system=autotools arch=linux-centos7-skylake_avx512
+            ^libevent@2.1.12%gcc@12.3.0+openssl build_system=autotools arch=linux-centos7-skylake_avx512
+        ^zlib@1.2.13%gcc@12.3.0+optimize+pic+shared build_system=makefile arch=linux-centos7-skylake_avx512
 ```
 
 </details>
@@ -119,23 +123,15 @@ configure anything by hand.  So if I load an openmpi module, and run:
 
 ```bash
 $ spack external find openmpi
-==> The following specs have been detected on this system and added to /home/me/.spack/packages.yaml
--- no arch / gcc@8.5.0 ------------------------------------------
-openmpi@4.1.1
+==> The following specs have been detected on this system and added to /home/home02/me/.spack/packages.yaml
+-- no arch / gcc@12.3.0 -----------------------------------------
+openmpi@3.1.4
 ```
 
 Spack is now aware of that software, so you can build against it without having
 to rebuild openmpi, as long as you're happy with that version.  As you can see
 from the output, this is written into your configuration, so will be remembered
 for future runs.
-
-I also want it to discover cmake:
-
-```bash
-$ spack external find cmake
-==> The following specs have been detected on this system and added to /home/me/.spack/packages.yaml
-cmake@3.20.2
-```
 
 If Spack wasn't able to auto detect the software, you can add it to the
 packages.yaml by hand.  For example, if I wanted to add a system installed
@@ -154,20 +150,11 @@ My full packages.yaml now looks like this, if looked at with `spack config edit 
 packages:
   openmpi:
     externals:
-    - spec: openmpi@4.1.1%gcc@8.5.0+atomics~cuda+cxx~cxx_exceptions+java~memchecker+pmi~static~wrapper-rpath
-        fabrics=ofi,psm2,ucx schedulers=slurm
-      prefix: /usr/lib64/openmpi
-  cmake:
-    externals:
-    - spec: cmake@3.20.2
-      prefix: /usr
+    - spec: openmpi@3.1.4%gcc@=12.3.0~cuda+cxx~cxx_exceptions~java~memchecker+pmi~static~wrapper-rpath
+        schedulers=slurm
+      prefix: /apps/developers/libraries/openmpi/3.1.4/1/gnu-12.3.0
   all:
-    compiler:
-    - gcc@8.5.0   # Your preferred compiler here
-  libjpeg-turbo:
-    externals:
-    - spec: libjpeg-turbo@1.5.3
-      prefix: /usr
+    compiler: [gcc@12.3.0]
 ```
 
 ```{admonition} OpenMPI on Red Hat oddity
@@ -185,40 +172,37 @@ Having told Spack about the software we want it to use from the system, let's
 look again now at building mpiwrapper, and see what that looks like:
 
 ```bash
-$ spack spec mpiwrapper
+$ spack spec phylobayesmpi
 Input spec
 --------------------------------
-mpiwrapper
+phylobayesmpi
 
 Concretized
 --------------------------------
-mpiwrapper@2.8.1%gcc@8.5.0~ipo build_type=RelWithDebInfo arch=linux-rhel8-haswell
-    ^cmake@3.20.2%gcc@8.5.0~doc+ncurses+ownlibs~qt build_type=Release arch=linux-rhel8-haswell
-    ^openmpi@4.1.1%gcc@8.5.0+atomics~cuda+cxx~cxx_exceptions~gpfs~internal-hwloc+java~legacylaunchers~lustre~memchecker+pmi+romio+rsh~singularity~static+vt~wrapper-rpath fabrics=ofi,psm2,ucx schedulers=slurm arch=linux-rhel8-haswell
+phylobayesmpi@1.8b%gcc@12.3.0 build_system=makefile arch=linux-centos7-skylake_avx512
+    ^openmpi@3.1.4%gcc@12.3.0~atomics~cuda+cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~orterunprefix+pmi+romio+rsh~singularity~static+vt~wrapper-rpath build_system=autotools fabrics=none schedulers=slurm arch=linux-centos7-skylake_avx512
 ```
 
-So now Spack believes that it can reuse my openmpi and cmake from the system,
-and just build the piece of software I've asked for.
+So now Spack believes that it can reuse my openmpi from the system and just
+build the piece of software I've asked for.
 
 ```bash
-$ spack install mpiwrapper
-[+] /usr (external cmake-3.20.2-b2vel5wyij5d4svvpdwhyio4dwuxly3a)
-==> openmpi@4.1.1 : has external module in ['pi/openmpi-x86_64']
-[+] /usr (external openmpi-4.1.1-motfvxmtmqhhzqizmifts2lz5hx5x3t6)
-==> Installing mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
-==> No binary for mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq found: installing from source
-==> Fetching https://mirror.spack.io/_source-cache/archive/e6/e6fc1c08ad778675e5b58b91b4658b12e3f985c6d4c5c2c3e9ed35986146780e.tar.gz
-==> No patches needed for mpiwrapper
-==> mpiwrapper: Executing phase: 'cmake'
-==> mpiwrapper: Executing phase: 'build'
-==> mpiwrapper: Executing phase: 'install'
-==> mpiwrapper: Successfully installed mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
-  Fetch: 0.77s.  Build: 9.74s.  Total: 10.52s.
-[+] /home/me/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
+$ spack install phylobayesmpi
+[+] /apps/developers/libraries/openmpi/3.1.4/1/gnu-12.3.0 (external openmpi-3.1.4-3b2jktw2wa3tcn7j6axgi4osq3jnajnm)
+==> Installing phylobayesmpi-1.8b-c7eirq7oq7nd56dorwlnylmc463f5whm
+==> No binary for phylobayesmpi-1.8b-c7eirq7oq7nd56dorwlnylmc463f5whm found: installing from source
+==> Fetching https://mirror.spack.io/_source-cache/archive/7f/7ff017bf492c1d8b42bfff3ee8e998ba1c50f4e4b3d9d6125647b91738017324.tar.gz
+==> No patches needed for phylobayesmpi
+==> phylobayesmpi: Executing phase: 'edit'
+==> phylobayesmpi: Executing phase: 'build'
+==> phylobayesmpi: Executing phase: 'install'
+==> phylobayesmpi: Successfully installed phylobayesmpi-1.8b-c7eirq7oq7nd56dorwlnylmc463f5whm
+  Stage: 0.13s.  Edit: 0.00s.  Build: 19.47s.  Install: 0.02s.  Post-install: 0.03s.  Total: 19.76s
+[+] /tmp/me/spack/opt/spack/linux-centos7-skylake_avx512/gcc-12.3.0/phylobayesmpi-1.8b-c7eirq7oq7nd56dorwlnylmc463f5whm
 ```
 
-So we've just install mpiwrapper with Spack, using dependencies already install
-on the system, in seconds.  Lovely.
+So we've just install phylobayesmpi with Spack, using dependencies already
+installed on the system, in seconds.  Lovely.
 
 ## Exercise
 
@@ -239,9 +223,18 @@ This is actually quite straightforward, since Spack can successfully detect and 
 
 ```bash
 $ spack external find openssl
-==> The following specs have been detected on this system and added to /home/me/.spack/packages.yaml
-openssl@1.1.1k
+==> The following specs have been detected on this system and added to /home/home02/me/.spack/packages.yaml
+openssl@1.0.2k-fips  openssl@3.1.0
 ```
 
-</details>
+Here we find it's detected both the system OpenSSL, along with a version
+lurking within Anaconda.  If you found it picked up a package you didn't want
+it to use, you can use `spack config edit packages` to adjust this after it's
+detected packages.
 
+In this case, you may choose to remove these two lines, to stop it from using the anaconda version:
+```yaml
+    - spec: openssl@3.1.0 
+      prefix: /apps/developers/compilers/anaconda/2023.03/1/default
+```
+</details>

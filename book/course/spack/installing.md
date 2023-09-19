@@ -32,6 +32,8 @@ $ module add anaconda
 $ . spack/share/spack/setup-env.sh
 ```
 
+Here we're loading anaconda as Spack needs Python 3.
+
 Spack is now alive in your terminal, and you can query available packages, or
 look at one to see what options you have for building it.  We can now have a
 look at what packages are available to install:
@@ -51,7 +53,7 @@ abyss
 ...
 ```
 
-Now that's quite a list (7386 different pieces of software at the time of
+Now that's quite a list (7179 different pieces of software at the time of
 writing).
 
 So let's move on to look at the next section, where we install one to show how

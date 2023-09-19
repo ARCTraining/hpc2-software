@@ -41,7 +41,7 @@ We can confirm now that we can see the module with the module command:
 ```bash
 $ module avail pigz
 
---- /tmp/scsjh/spack/share/spack/modules/linux-centos7-skylake_avx512 ---
+--- /tmp/me/spack/share/spack/modules/linux-centos7-skylake_avx512 ---
 pigz-2.7-gcc-12.3.0-4a2l6se
 
 $ pigz --version
