@@ -44,7 +44,7 @@ spack config add packages:all:compiler:[gcc@12.3.0]
 You can confirm your config, or make other changes with:
 
 ```bash
-spack config add packages:all:compiler:[gcc@12.3.0]
+spack config edit packages
 ```
 
 ```yaml
