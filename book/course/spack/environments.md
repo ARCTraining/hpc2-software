@@ -17,7 +17,7 @@ Here's a minimal workflow for creating an environment:
 - Add a list of software to it
 
   ```bash
-  spack -e myenv add bash@5 python py-numpy py-scipy py-matplotlib
+  spack -e myenv add bash@5 python py-numpy py-scipy py-matplotlib openssl@1.1.1t
   ```
 
 - Tweak the config if required
@@ -26,7 +26,8 @@ Here's a minimal workflow for creating an environment:
   spack -e myenv config edit
   ```
 
- I'm changing `unify` to `true` for this install, but please review the references for more information on options.
+  Please review the references for more information on options here, but nothing
+  needs changing this time.
 
 - Validate the installation
 
@@ -34,9 +35,9 @@ Here's a minimal workflow for creating an environment:
   spack -e myenv concretize
   ```
 
- [Concretizing](https://spack.readthedocs.io/en/latest/environments.html#spec-concretization)
-the spec resolves all the dependecies and shows you what Spack believes is
-required to satisfy you requirements.
+  [Concretizing](https://spack.readthedocs.io/en/latest/environments.html#spec-concretization)
+  the spec resolves all the dependecies and shows you what Spack believes is
+  required to satisfy you requirements.
 
 - Build and install the software
 
@@ -60,14 +61,22 @@ Once activated, you can confirm that it's really live:
 
 ```bash
 $ which bash
-~/spack/var/spack/environments/myenv/.spack-env/view/bin/bash
+/tmp/me/spack/var/spack/environments/myenv/.spack-env/view/bin/bash
 $ bash --version
-wGNU bash, version 5.1.8(1)-release (x86_64-pc-linux-gnu)
-Copyright (C) 2020 Free Software Foundation, Inc.
+GNU bash, version 5.2.15(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2022 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 
 This is free software; you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
+```
+
+### Deactivating an environment
+
+You can leave an environment using:
+
+```bash
+spack env deactivate
 ```
 
 ## References
