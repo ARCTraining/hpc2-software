@@ -9,7 +9,8 @@ pigz 2.7
 ```
 
 Now this is different to how we load modules on ARC.  You can make Spack behave
-in the same way, should you wish.
+in the same way, should you wish, although generally we would recommend you use
+the `spack` command to load software instead.
 
 ## Setup
 
@@ -40,8 +41,12 @@ We can confirm now that we can see the module with the module command:
 
 ```bash
 $ module avail pigz
+$ module avail pigz
 
---- /tmp/me/spack/share/spack/modules/linux-centos7-skylake_avx512 ---
+--------------------------------------------------------------------------- /tmp/me/spack/share/spack/modules/linux-centos7-haswell ----------------------------------------------------------------------------
+pigz-2.7-gcc-4.8.5-ji42zlq
+
+------------------------------------------------------------------------ /tmp/me/spack/share/spack/modules/linux-centos7-skylake_avx512 ------------------------------------------------------------------------
 pigz-2.7-gcc-12.3.0-4a2l6se
 
 $ pigz --version
@@ -80,18 +85,19 @@ A basic starting point might be the following:
 ```yaml
 modules:
   default:
+    enable: [tcl]
     tcl:
-      hash_length: 0
+      hash_length: 4
       projections:
         all:  '{name}/{version}'
 ```
 
 Here we're saying that we want the default module files that use tcl (the
-default) to not have a hash, and to be named according to this name/version
-model we're used to on other systems.  Quit and save that file, and we've told
-Spack how we'd like these modules to be built in future, but existing modules
-would still use the old scheme.  We can tell it to rebuild the modulefiles, and
-delete existing files:
+default) to have a four character hash, and to be named according to this
+name/version model we're used to on other systems.  Quit and save that file,
+and we've told Spack how we'd like these modules to be built in future, but
+existing modules would still use the old scheme.  We can tell it to rebuild the
+modulefiles, and delete existing files:
 
 ```bash
 spack module tcl refresh --delete-tree -y
@@ -101,12 +107,25 @@ Testing this out now we can see all is how we wanted it:
 
 ```bash
 $ module avail
----------- /home/me/spack/share/spack/modules/linux-rhel8-haswell -----------
-pigz/2.7  zlib/1.2.13
+$ module avail pigz
+--------------------------------------------------------------------------- /tmp/me/spack/share/spack/modules/linux-centos7-haswell ----------------------------------------------------------------------------
+pigz/2.7-ji42
+------------------------------------------------------------------------ /tmp/me/spack/share/spack/modules/linux-centos7-skylake_avx512 ------------------------------------------------------------------------
+pigz/2.7-4a2l
 ```
 
-We now have tidy module files, named in a nice simple fashion, which is
-probably enough for most straightforward purposes.
+We now have tidier module files, named in a simpler fashion, which is probably
+enough for most straightforward purposes.  They can be loaded in the same style
+you would on ARC:
+
+```bash
+$ module add pigz
+$ modules add pigz/2.7-ji42
+```
+
+In this case, we still need to include a hash, as we've got pigz built with two
+different compilers, and elsewhere we have cmake built with two different sets
+of dependencies, complicating matters further.
 
 If you want more complicated structures, supporting multiple compilers, MPI
 implementations, numerical libraries, this is all possible, and covered in the
