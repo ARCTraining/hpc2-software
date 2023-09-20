@@ -21,13 +21,13 @@ spack:
 # What I want it to create
   container:
     format: singularity
-# Additional config for the build process
-  config:
-    mount proc: yes
 # Bonus OS packages I'd like installed
     os_packages:
       final:
       - libgomp1
+# Additional config for the build process
+  config:
+    mount proc: yes
 ```
 
 ## Create a Singularity definition file
@@ -47,7 +47,8 @@ This is a fairly large and complex container, and happens to also require that
 the case with simpler containers:
 
 ```bash
-singularity build gromacs-openmpi.sif gromacs-openmpi.def
+module add apptainer
+apptainer build gromacs-openmpi.sif gromacs-openmpi.def
 ```
 
 ## Use that container
@@ -55,16 +56,12 @@ singularity build gromacs-openmpi.sif gromacs-openmpi.def
 As a proof of life, let's run gromacs from within that container:
 
 ```bash
-$ mpirun -np 4 singularity run gromacs-mpi.sif gmx_mpi
-INFO:    underlay of /etc/localtime required more than 50 (65) bind mounts
-INFO:    underlay of /etc/localtime required more than 50 (65) bind mounts
-INFO:    underlay of /etc/localtime required more than 50 (65) bind mounts
-INFO:    underlay of /etc/localtime required more than 50 (65) bind mounts
-                    :-) GROMACS - gmx_mpi, 2022.2-spack (-:
+$ apptainer run gromacs-openmpi.sif mpirun -np 4 gmx_mpi
+                    :-) GROMACS - gmx_mpi, 2023.1-spack (-:
 
-Executable:   /opt/software/linux-ubuntu18.04-skylake_avx512/gcc-7.5.0/gromacs-2022.2-un4jbsm6hv5x6542ffwjs5h4lscftflw/bin/gmx_mpi
-Data prefix:  /opt/software/linux-ubuntu18.04-skylake_avx512/gcc-7.5.0/gromacs-2022.2-un4jbsm6hv5x6542ffwjs5h4lscftflw
-Working dir:  /home/me/gromacs-singularity
+Executable:   /opt/software/linux-ubuntu22.04-skylake_avx512/gcc-11.4.0/gromacs-2023.1-423hodczn375tumo2c5eorq5pikirpxo/bin/gmx_mpi
+Data prefix:  /opt/software/linux-ubuntu22.04-skylake_avx512/gcc-11.4.0/gromacs-2023.1-423hodczn375tumo2c5eorq5pikirpxo
+Working dir:  /tmp/me/container
 Command line:
   gmx_mpi
 
@@ -74,3 +71,6 @@ gmx [-[no]h] [-[no]quiet] [-[no]version] [-[no]copyright] [-nice <int>]
     [-[no]backup]
 ...
 ```
+
+## References
+[Spack container docs](https://spack.readthedocs.io/en/latest/containers.html)
