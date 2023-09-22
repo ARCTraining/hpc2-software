@@ -70,21 +70,6 @@ So let's fix that:
     depends_on("yaml-cpp")
 ```
 
-So it'll now make sure that yaml-cpp is available for us, but we've not yet
-told it how to use it.  If you looked at the Makefile for this project, you'd
-see they recommend setting the environment variable LDFLAGS\_PLATFORM for any
-additional linker flags required.  So to tell Spack to do this, change the `def
-edit` section to look like this:
-
-```python
-    def edit(self, spec, prefix):
-        env['LDFLAGS_PLATFORM'] = spec['yaml-cpp'].libs.ld_flags
-        pass
-```
-
-For those unsure of what LDFLAGS, linkers, binpaths, or anything else here is
-talking about, please refer to the [theory section](../theory).
-
 Let's try installing it again:
 
 ```bash
@@ -106,7 +91,6 @@ Makefile.  Let's adjust our edit function:
 
 ```python
     def edit(self, spec, prefix):
-        env['LDFLAGS_PLATFORM'] = spec['yaml-cpp'].libs.ld_flags
         makefile = FileFilter('Makefile')
         makefile.filter('PREFIX\s*=.*', 'PREFIX = ' + prefix)
         pass
@@ -123,7 +107,7 @@ spack install nsnake
 Hurrah.  The software built, and installed.  Shall we test:
 
 ```bash
-$ module add nsnake
+$ spack load nsnake
 $ nsnake
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │__    _  _______  __    _  _______  ___   _  _______  ┌Main Menu─────────────┐│
@@ -152,6 +136,27 @@ $ nsnake
 ```
 
 I think we can declare success!
+
+### Notes on setting other variables
+
+You may find that software doesn't pick up the new libraries you've added, and
+needs more guidance.  If you looked at the Makefile for this project, you'd see
+they recommend setting the environment variable LDFLAGS\_PLATFORM for any
+additional linker flags required.  So you could tell Spack to do this, change
+the `def edit` section to look like this:
+
+```python
+    def edit(self, spec, prefix):
+        env['LDFLAGS_PLATFORM'] = spec['yaml-cpp'].libs.ld_flags
+        pass
+```
+
+For those unsure of what LDFLAGS, linkers, binpaths, or anything else here is
+talking about, please refer to the [theory section](../theory).
+
+This isn't needed for this particular software, but it's included here as a note.
+
+### Summary
 
 Now, when you think what we've done here, that's quite impressive.  We've found
 a piece of software on the Internet, and created a build config for it that
@@ -233,7 +238,7 @@ spack install cmake-tutorial
 Then we can prove it worked afterwards, by loading the module and running it:
 
 ```bash
-$ module add cmake-tutorial
+$ spack load cmake-tutorial
 $ Tutorial 10
 Computing sqrt of 10 to be 3.16228 using log
 The square root of 10 is 3.16228
@@ -288,7 +293,14 @@ spack install autotools-example
 Then we can prove it worked afterwards, by loading the module and running it:
 
 ```bash
-$ module add autotools-example
+$ spack load autotools-example
 $ jupiter
 hello jupiter
 ```
+
+## Summary
+
+Here we're shown you three different ways of building recipes to build software
+using common build tools.  The effort required is relatively small, and you now
+have the ability to build each of these with a custom compiler, along with
+specific versions of any other dependencies.

@@ -97,7 +97,7 @@ It might not look on the face of it that this is very impressive, but we've just
 
 - pulled down a container from docker hub
 - converted it into a SIF image
-- run a piece of software, within an Ubuntu container on a CentOS host 
+- run a piece of software, within an Ubuntu container on a CentOS host
 
 ### What do those steps mean?
 
@@ -187,7 +187,7 @@ need to be included within the container.
 ## Building a container
 
 Now, what if an existing Docker container doesn't exist, and I want to build
-myself a container?  
+myself a container?
 
 With Singularity, you needed root access, or a special tweak made to allow you
 to build containers.  Neither of those were an option on the HPC, but are if

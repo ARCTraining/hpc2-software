@@ -20,11 +20,11 @@ sections:
   sections:
   - file: course/spack/installing
   - file: course/spack/testinstall
-  - file: course/spack/modules
   - file: course/spack/existing
   - file: course/spack/advanced
   - file: course/spack/containers
   - file: course/spack/environments
   - file: course/spack/recipes
+  - file: course/spack/modules
 - url: https://arc.leeds.ac.uk
   title: Research Computing Website

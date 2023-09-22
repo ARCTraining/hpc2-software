@@ -12,7 +12,7 @@ deliberately pick a specific stable version:
 
 ```bash
 $ cd spack
-$ git checkout releases/v0.19
+$ git checkout v0.20.1
 $ cd ..
 ```
 
@@ -31,6 +31,8 @@ just downloaded it as above, you can do:
 $ module add anaconda
 $ . spack/share/spack/setup-env.sh
 ```
+
+Here we're loading anaconda as Spack needs Python 3.
 
 Spack is now alive in your terminal, and you can query available packages, or
 look at one to see what options you have for building it.  We can now have a
@@ -51,7 +53,7 @@ abyss
 ...
 ```
 
-Now that's quite a list (6548 different pieces of software at the time of
+Now that's quite a list (7179 different pieces of software at the time of
 writing).
 
 So let's move on to look at the next section, where we install one to show how
