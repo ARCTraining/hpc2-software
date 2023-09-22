@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -66,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Adjusting how we name modules" href="modules.html" />
+    <link rel="next" title="Using existing software" href="existing.html" />
     <link rel="prev" title="Installing Spack" href="installing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -78,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -169,12 +179,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../spack.html">Spack</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing.html">Installing Spack</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Building a test piece of software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modules.html">Adjusting how we name modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="existing.html">Using existing software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advanced.html">Advanced software install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="containers.html">Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="environments.html">Environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Module files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://arc.leeds.ac.uk">Research Computing Website</a></li>
@@ -350,10 +360,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -361,7 +371,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -411,48 +421,44 @@ document.write(`
 reasonable place to start (parallel gzip), as it doesn’t have too many
 dependencies, so won’t take long to try out:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>install<span class="w"> </span><span class="nv">pigz</span>
-<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv
-<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
-<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/91/91844808532e5ce316b3c010929493c0244f3d37593afd6de04f71821d5136d9.tar.gz
-<span class="o">==</span>&gt;<span class="w"> </span>Applied<span class="w"> </span>patch<span class="w"> </span>/home/me/spack/var/spack/repos/builtin/packages/zlib/configure-cc.patch
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/bootstrap/github-actions/v0.4/build_cache/linux-centos7-x86_64-gcc-10.2.1-clingo-bootstrap-spack-idkenmhnscjlu5gjqhpcqa4h7o2a7aow.spec.json
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/bootstrap/github-actions/v0.4/build_cache/linux-centos7-x86_64/gcc-10.2.1/clingo-bootstrap-spack/linux-centos7-x86_64-gcc-10.2.1-clingo-bootstrap-spack-idkenmhnscjlu5gjqhpcqa4h7o2a7aow.spack
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span><span class="s2">&quot;clingo-bootstrap@=spack%gcc@=10.2.1~docs~ipo+python+static_libstdcpp build_type=Release arch=linux-centos7-x86_64&quot;</span><span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span><span class="nv">buildcache</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>zlib-1.2.13-p56zbq4q6ptoujv3zyawwgn52rbavx5w
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>zlib-1.2.13-p56zbq4q6ptoujv3zyawwgn52rbavx5w<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/b3/b3a24de97a8fdbc835b9833169501030b8977031bcb54b3b3ac13740f846ab30.tar.gz
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>patches<span class="w"> </span>needed<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">zlib</span>
+<span class="o">==</span>&gt;<span class="w"> </span>zlib:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;edit&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>zlib:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;build&#39;</span>
 <span class="o">==</span>&gt;<span class="w"> </span>zlib:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
-<span class="o">==</span>&gt;<span class="w"> </span>zlib:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv
-<span class="w">  </span>Fetch:<span class="w"> </span><span class="m">0</span>.24s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">5</span>.79s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">6</span>.02s.
-<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/home/me/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/zlib-1.2.12-liumxhopy2yde7xw7rt6flucgt4vt7fv
-<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy
-<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>zlib:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>zlib-1.2.13-p56zbq4q6ptoujv3zyawwgn52rbavx5w
+<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.19s.<span class="w">  </span>Edit:<span class="w"> </span><span class="m">1</span>.29s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">0</span>.76s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">0</span>.20s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.04s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">2</span>.54s
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/tmp/me/spack/opt/spack/linux-centos7-haswell/gcc-4.8.5/zlib-1.2.13-p56zbq4q6ptoujv3zyawwgn52rbavx5w
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>pigz-2.7-ji42zlqrbj5pvpnidmpoytdrhrgjs6rc
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>pigz-2.7-ji42zlqrbj5pvpnidmpoytdrhrgjs6rc<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
 <span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/d2/d2045087dae5e9482158f1f1c0f21c7d3de6f7cdc7cc5848bdabda544e69aa58.tar.gz
 <span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>patches<span class="w"> </span>needed<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">pigz</span>
 <span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;edit&#39;</span>
 <span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;build&#39;</span>
 <span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
-<span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy
-<span class="w">  </span>Fetch:<span class="w"> </span><span class="m">0</span>.67s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">2</span>.23s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">2</span>.89s.
-<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/home/me/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/pigz-2.7-qkx6pxv5qtwcjsmmfrqzbo32g5uwkshy
+<span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>pigz-2.7-ji42zlqrbj5pvpnidmpoytdrhrgjs6rc
+<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.11s.<span class="w">  </span>Edit:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">1</span>.42s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.04s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">1</span>.64s
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/tmp/me/spack/opt/spack/linux-centos7-haswell/gcc-4.8.5/pigz-2.7-ji42zlqrbj5pvpnidmpoytdrhrgjs6rc
 </pre></div>
 </div>
 <p>That is quite wordy, but to note, it’s installed pigz, and also installed a
 dependency of it, zlib.  Just asking for it to install that one package has led
 to it downloading and installing another, and it’s quite happy doing that
 without needing any guidance.</p>
-<p>Let’s now see how you can load that module, and use it.  Environment Modules
-will be familiar to users of ARC, but you may not have come across them
-otherwise.  They’re a way of selecting from potentially conflicting versions of
-software.  If you’re using <a class="reference external" href="https://modules.readthedocs.io/en/latest/">modules</a>
-to access software you build with Spack as we are in this course, the first
-time you build something with Spack, you have to reload the setup script to
-make it find these newly build packages.  In future this shouldn’t be
-necessary:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>.<span class="w"> </span>spack/share/spack/setup-env.sh
-$<span class="w"> </span>module<span class="w"> </span>avail<span class="w"> </span>pigz
--------------------------------------------------<span class="w"> </span>/tmp/spack/share/spack/modules/linux-rhel8-haswell<span class="w"> </span>--------------------------------------------------
-pigz-2.7-gcc-8.5.0-qkx6pxv
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>find<span class="w"> </span>pigz
+--<span class="w"> </span>linux-centos7-haswell<span class="w"> </span>/<span class="w"> </span>gcc@4.8.5<span class="w"> </span>----------------------------
+pigz@2.7
+<span class="o">==</span>&gt;<span class="w"> </span><span class="m">1</span><span class="w"> </span>installed<span class="w"> </span>package
 </pre></div>
 </div>
-<p>At this point we can see there’s a module available for pigz, with a bunch of
-stuff after the version, which we’ll cover later.  I can now load this, and
-test it to confirm it’s worked:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz-2.7-gcc-8.5.0-qkx6pxv
+<p>At this point we can see there’s a version available for pigz.  I can now load
+this, and test it to confirm it’s worked:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>load<span class="w"> </span>pigz
 $<span class="w"> </span>pigz<span class="w"> </span>--version
 pigz<span class="w"> </span><span class="m">2</span>.7
 </pre></div>
@@ -484,14 +490,15 @@ using javascript.  The command you can run to test your install is:</p>
 </div>
 </li>
 <li><p>Find the name of the module</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ module avail k8
----------- /home/me/spack/share/spack/modules/linux-rhel8-haswell -----------
-k8-0.2.4-gcc-8.5.0-vdryjow
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ spack find k8
+-- linux-centos7-haswell / gcc@4.8.5 ----------------------------
+k8@0.2.4
+==&gt; 1 installed package
 </pre></div>
 </div>
 </li>
-<li><p>Load the module</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">add</span> <span class="n">k8</span><span class="o">-</span><span class="mf">0.2.4</span><span class="o">-</span><span class="n">gcc</span><span class="o">-</span><span class="mf">8.5.0</span><span class="o">-</span><span class="n">vdryjow</span>
+<li><p>Load the software</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ spack load k8
 </pre></div>
 </div>
 </li>
@@ -509,7 +516,6 @@ Square root of 25 is: 5
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages">Installing Packages</a></p></li>
-<li><p><a class="reference external" href="https://arcdocs.leeds.ac.uk/software/start.html#module-system">Environment Modules on ARC</a></p></li>
 </ul>
 </section>
 </section>
@@ -539,11 +545,10 @@ Square root of 25 is: 5
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="installing.html"
@@ -555,18 +560,15 @@ Square root of 25 is: 5
       </div>
     </a>
     <a class="right-next"
-       href="modules.html"
+       href="existing.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Adjusting how we name modules</p>
+        <p class="prev-next-title">Using existing software</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -633,8 +635,8 @@ By University of Leeds Research Computing Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

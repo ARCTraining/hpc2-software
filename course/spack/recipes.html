@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -66,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Module files" href="modules.html" />
     <link rel="prev" title="Environments" href="environments.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -168,12 +179,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../spack.html">Spack</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing.html">Installing Spack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="testinstall.html">Building a test piece of software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modules.html">Adjusting how we name modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="existing.html">Using existing software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advanced.html">Advanced software install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="containers.html">Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="environments.html">Environments</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Module files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://arc.leeds.ac.uk">Research Computing Website</a></li>
@@ -349,10 +360,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -360,7 +371,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -387,9 +398,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#makefile">Makefile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#makefile">Makefile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-on-setting-other-variables">Notes on setting other variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cmake">CMake</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autotools">Autotools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -458,17 +474,6 @@ build process to use it?</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;yaml-cpp&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>So it’ll now make sure that yaml-cpp is available for us, but we’ve not yet
-told it how to use it.  If you looked at the Makefile for this project, you’d
-see they recommend setting the environment variable LDFLAGS_PLATFORM for any
-additional linker flags required.  So to tell Spack to do this, change the <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">edit</span></code> section to look like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
-        <span class="n">env</span><span class="p">[</span><span class="s1">&#39;LDFLAGS_PLATFORM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spec</span><span class="p">[</span><span class="s1">&#39;yaml-cpp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">libs</span><span class="o">.</span><span class="n">ld_flags</span>
-        <span class="k">pass</span>
-</pre></div>
-</div>
-<p>For those unsure of what LDFLAGS, linkers, binpaths, or anything else here is
-talking about, please refer to the <a class="reference internal" href="../theory.html"><span class="doc std std-doc">theory section</span></a>.</p>
 <p>Let’s try installing it again:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>nsnake
 </pre></div>
@@ -484,7 +489,6 @@ PREFIX is hardcoded into the Makefile, and can’t be adjusted with an
 environment variable like we did before.  No problem, Spack lets you edit the
 Makefile.  Let’s adjust our edit function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
-        <span class="n">env</span><span class="p">[</span><span class="s1">&#39;LDFLAGS_PLATFORM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spec</span><span class="p">[</span><span class="s1">&#39;yaml-cpp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">libs</span><span class="o">.</span><span class="n">ld_flags</span>
         <span class="n">makefile</span> <span class="o">=</span> <span class="n">FileFilter</span><span class="p">(</span><span class="s1">&#39;Makefile&#39;</span><span class="p">)</span>
         <span class="n">makefile</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;PREFIX\s*=.*&#39;</span><span class="p">,</span> <span class="s1">&#39;PREFIX = &#39;</span> <span class="o">+</span> <span class="n">prefix</span><span class="p">)</span>
         <span class="k">pass</span>
@@ -497,7 +501,7 @@ adjusted one.  Let’s build it again:</p>
 </pre></div>
 </div>
 <p>Hurrah.  The software built, and installed.  Shall we test:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>nsnake
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>load<span class="w"> </span>nsnake
 $<span class="w"> </span>nsnake
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │__<span class="w">    </span>_<span class="w">  </span>_______<span class="w">  </span>__<span class="w">    </span>_<span class="w">  </span>_______<span class="w">  </span>___<span class="w">   </span>_<span class="w">  </span>_______<span class="w">  </span>┌Main<span class="w"> </span>Menu─────────────┐│
@@ -526,6 +530,24 @@ $<span class="w"> </span>nsnake
 </pre></div>
 </div>
 <p>I think we can declare success!</p>
+<section id="notes-on-setting-other-variables">
+<h3>Notes on setting other variables<a class="headerlink" href="#notes-on-setting-other-variables" title="Permalink to this heading">#</a></h3>
+<p>You may find that software doesn’t pick up the new libraries you’ve added, and
+needs more guidance.  If you looked at the Makefile for this project, you’d see
+they recommend setting the environment variable LDFLAGS_PLATFORM for any
+additional linker flags required.  So you could tell Spack to do this, change
+the <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">edit</span></code> section to look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+        <span class="n">env</span><span class="p">[</span><span class="s1">&#39;LDFLAGS_PLATFORM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spec</span><span class="p">[</span><span class="s1">&#39;yaml-cpp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">libs</span><span class="o">.</span><span class="n">ld_flags</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<p>For those unsure of what LDFLAGS, linkers, binpaths, or anything else here is
+talking about, please refer to the <a class="reference internal" href="../theory.html"><span class="doc std std-doc">theory section</span></a>.</p>
+<p>This isn’t needed for this particular software, but it’s included here as a note.</p>
+</section>
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h3>
 <p>Now, when you think what we’ve done here, that’s quite impressive.  We’ve found
 a piece of software on the Internet, and created a build config for it that
 includes downloading, building, and installing not only the software we wanted,
@@ -535,6 +557,7 @@ reading the installation instructions, and just blundered through without
 trying to get it right first time.  I’m not recommending that approach, but
 sometimes the installation documenation is pretty much non existent, so it’s
 good to be able to work this way.</p>
+</section>
 </section>
 <section id="cmake">
 <h2>CMake<a class="headerlink" href="#cmake" title="Permalink to this heading">#</a></h2>
@@ -594,7 +617,7 @@ the leaves us with this minimal config:</p>
 </pre></div>
 </div>
 <p>Then we can prove it worked afterwards, by loading the module and running it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>cmake-tutorial
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>load<span class="w"> </span>cmake-tutorial
 $<span class="w"> </span>Tutorial<span class="w"> </span><span class="m">10</span>
 Computing<span class="w"> </span>sqrt<span class="w"> </span>of<span class="w"> </span><span class="m">10</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span><span class="m">3</span>.16228<span class="w"> </span>using<span class="w"> </span>log
 The<span class="w"> </span>square<span class="w"> </span>root<span class="w"> </span>of<span class="w"> </span><span class="m">10</span><span class="w"> </span>is<span class="w"> </span><span class="m">3</span>.16228
@@ -641,11 +664,18 @@ on the Spack website.</p>
 </pre></div>
 </div>
 <p>Then we can prove it worked afterwards, by loading the module and running it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>autotools-example
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>load<span class="w"> </span>autotools-example
 $<span class="w"> </span>jupiter
 hello<span class="w"> </span>jupiter
 </pre></div>
 </div>
+</section>
+<section id="id1">
+<h2>Summary<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>Here we’re shown you three different ways of building recipes to build software
+using common build tools.  The effort required is relatively small, and you now
+have the ability to build each of these with a custom compiler, along with
+specific versions of any other dependencies.</p>
 </section>
 </section>
 
@@ -674,11 +704,10 @@ hello<span class="w"> </span>jupiter
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="environments.html"
@@ -689,10 +718,16 @@ hello<span class="w"> </span>jupiter
         <p class="prev-next-title">Environments</p>
       </div>
     </a>
-</div></div>
-  
+    <a class="right-next"
+       href="modules.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Module files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
-
                 </footer>
               
             </div>
@@ -707,9 +742,14 @@ hello<span class="w"> </span>jupiter
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#makefile">Makefile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#makefile">Makefile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-on-setting-other-variables">Notes on setting other variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cmake">CMake</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autotools">Autotools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary</a></li>
 </ul>
   </nav></div>
 
@@ -757,8 +797,8 @@ By University of Leeds Research Computing Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

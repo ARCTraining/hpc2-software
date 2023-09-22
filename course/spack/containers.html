@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -78,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -169,12 +179,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../spack.html">Spack</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing.html">Installing Spack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="testinstall.html">Building a test piece of software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modules.html">Adjusting how we name modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="existing.html">Using existing software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advanced.html">Advanced software install</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="environments.html">Environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Module files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://arc.leeds.ac.uk">Research Computing Website</a></li>
@@ -350,10 +360,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -361,7 +371,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -392,6 +402,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-singularity-definition-file">Create a Singularity definition file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-container-image-file">Build a container image file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-that-container">Use that container</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
         </div>
@@ -422,13 +433,13 @@ want it to make sure the libgomp1 package is installed onto the OS.</p>
 <span class="c1"># What I want it to create</span>
 <span class="w">  </span><span class="nt">container</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">singularity</span>
-<span class="c1"># Additional config for the build process</span>
-<span class="w">  </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">mount proc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
 <span class="c1"># Bonus OS packages I&#39;d like installed</span>
 <span class="w">    </span><span class="nt">os_packages</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">final</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libgomp1</span>
+<span class="c1"># Additional config for the build process</span>
+<span class="w">  </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">mount proc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
 </pre></div>
 </div>
 </section>
@@ -446,23 +457,20 @@ file:</p>
 This is a fairly large and complex container, and happens to also require that
 /proc is bind mounted into the container to make this work, but that won’t be
 the case with simpler containers:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity<span class="w"> </span>build<span class="w"> </span>gromacs-openmpi.sif<span class="w"> </span>gromacs-openmpi.def
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>add<span class="w"> </span>apptainer
+apptainer<span class="w"> </span>build<span class="w"> </span>gromacs-openmpi.sif<span class="w"> </span>gromacs-openmpi.def
 </pre></div>
 </div>
 </section>
 <section id="use-that-container">
 <h2>Use that container<a class="headerlink" href="#use-that-container" title="Permalink to this heading">#</a></h2>
 <p>As a proof of life, let’s run gromacs from within that container:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>singularity<span class="w"> </span>run<span class="w"> </span>gromacs-mpi.sif<span class="w"> </span>gmx_mpi
-INFO:<span class="w">    </span>underlay<span class="w"> </span>of<span class="w"> </span>/etc/localtime<span class="w"> </span>required<span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="o">(</span><span class="m">65</span><span class="o">)</span><span class="w"> </span><span class="nb">bind</span><span class="w"> </span>mounts
-INFO:<span class="w">    </span>underlay<span class="w"> </span>of<span class="w"> </span>/etc/localtime<span class="w"> </span>required<span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="o">(</span><span class="m">65</span><span class="o">)</span><span class="w"> </span><span class="nb">bind</span><span class="w"> </span>mounts
-INFO:<span class="w">    </span>underlay<span class="w"> </span>of<span class="w"> </span>/etc/localtime<span class="w"> </span>required<span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="o">(</span><span class="m">65</span><span class="o">)</span><span class="w"> </span><span class="nb">bind</span><span class="w"> </span>mounts
-INFO:<span class="w">    </span>underlay<span class="w"> </span>of<span class="w"> </span>/etc/localtime<span class="w"> </span>required<span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="o">(</span><span class="m">65</span><span class="o">)</span><span class="w"> </span><span class="nb">bind</span><span class="w"> </span>mounts
-<span class="w">                    </span>:-<span class="o">)</span><span class="w"> </span>GROMACS<span class="w"> </span>-<span class="w"> </span>gmx_mpi,<span class="w"> </span><span class="m">2022</span>.2-spack<span class="w"> </span><span class="o">(</span>-:
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apptainer<span class="w"> </span>run<span class="w"> </span>gromacs-openmpi.sif<span class="w"> </span>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>gmx_mpi
+<span class="w">                    </span>:-<span class="o">)</span><span class="w"> </span>GROMACS<span class="w"> </span>-<span class="w"> </span>gmx_mpi,<span class="w"> </span><span class="m">2023</span>.1-spack<span class="w"> </span><span class="o">(</span>-:
 
-Executable:<span class="w">   </span>/opt/software/linux-ubuntu18.04-skylake_avx512/gcc-7.5.0/gromacs-2022.2-un4jbsm6hv5x6542ffwjs5h4lscftflw/bin/gmx_mpi
-Data<span class="w"> </span>prefix:<span class="w">  </span>/opt/software/linux-ubuntu18.04-skylake_avx512/gcc-7.5.0/gromacs-2022.2-un4jbsm6hv5x6542ffwjs5h4lscftflw
-Working<span class="w"> </span>dir:<span class="w">  </span>/home/me/gromacs-singularity
+Executable:<span class="w">   </span>/opt/software/linux-ubuntu22.04-skylake_avx512/gcc-11.4.0/gromacs-2023.1-423hodczn375tumo2c5eorq5pikirpxo/bin/gmx_mpi
+Data<span class="w"> </span>prefix:<span class="w">  </span>/opt/software/linux-ubuntu22.04-skylake_avx512/gcc-11.4.0/gromacs-2023.1-423hodczn375tumo2c5eorq5pikirpxo
+Working<span class="w"> </span>dir:<span class="w">  </span>/tmp/me/container
 Command<span class="w"> </span>line:
 <span class="w">  </span>gmx_mpi
 
@@ -473,6 +481,10 @@ gmx<span class="w"> </span><span class="o">[</span>-<span class="o">[</span>no<s
 ...
 </pre></div>
 </div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://spack.readthedocs.io/en/latest/containers.html">Spack container docs</a></p>
 </section>
 </section>
 
@@ -501,11 +513,10 @@ gmx<span class="w"> </span><span class="o">[</span>-<span class="o">[</span>no<s
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="advanced.html"
@@ -525,10 +536,7 @@ gmx<span class="w"> </span><span class="o">[</span>-<span class="o">[</span>no<s
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -547,6 +555,7 @@ gmx<span class="w"> </span><span class="o">[</span>-<span class="o">[</span>no<s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-singularity-definition-file">Create a Singularity definition file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-container-image-file">Build a container image file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-that-container">Use that container</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
 
@@ -594,8 +603,8 @@ By University of Leeds Research Computing Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -67,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Advanced software install" href="advanced.html" />
-    <link rel="prev" title="Adjusting how we name modules" href="modules.html" />
+    <link rel="prev" title="Building a test piece of software" href="testinstall.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -78,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -169,12 +179,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../spack.html">Spack</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing.html">Installing Spack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="testinstall.html">Building a test piece of software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modules.html">Adjusting how we name modules</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Using existing software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advanced.html">Advanced software install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="containers.html">Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="environments.html">Environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recipes.html">Recipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Module files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://arc.leeds.ac.uk">Research Computing Website</a></li>
@@ -350,10 +360,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -361,7 +371,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -423,83 +433,86 @@ not one right answer.</p>
 <h2>Compilers<a class="headerlink" href="#compilers" title="Permalink to this heading">#</a></h2>
 <p>Compilers are a bit different to other pieces of software.  Typically the
 easiest way to get Spack to use a system compiler is to make sure it’s in your
-path (either loading a module, or in this case just using the default system
-compiler - GCC 8.5.0 on RHEL8), and tell Spack to find it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>compiler<span class="w"> </span><span class="nv">add</span>
-<span class="o">==</span>&gt;<span class="w"> </span>Added<span class="w"> </span><span class="m">1</span><span class="w"> </span>new<span class="w"> </span>compiler<span class="w"> </span>to<span class="w"> </span>/home/me/.spack/linux/compilers.yaml
-<span class="w">    </span>gcc@8.5.0
+path and tell Spack to try to find it.  In this example I’m going to swap out
+the default Intel compiler on ARC4 for a shiny GNU compiler:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>swap<span class="w"> </span>intel<span class="w"> </span>gnu/12.3.0
+$<span class="w"> </span>spack<span class="w"> </span>compiler<span class="w"> </span><span class="nv">add</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Added<span class="w"> </span><span class="m">1</span><span class="w"> </span>new<span class="w"> </span>compiler<span class="w"> </span>to<span class="w"> </span>/home/home02/me/.spack/linux/compilers.yaml
+<span class="w">    </span>gcc@12.3.0
 <span class="o">==</span>&gt;<span class="w"> </span>Compilers<span class="w"> </span>are<span class="w"> </span>defined<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>files:
-<span class="w">    </span>/home/me/.spack/linux/compilers.yaml
+<span class="w">    </span>/home/home02/me/.spack/linux/compilers.yaml
 </pre></div>
 </div>
 <p>Spack now knows about this compiler.  If this was a compiler in a module, you
 can just load the module beforehand, and Spack will add that compiler to its
 known list.</p>
-<p>If you want to set that as your preferred compiler, run this to edit the
-config:</p>
+<p>If you want to set that as your preferred compiler, you can do this with a
+single command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>config<span class="w"> </span>add<span class="w"> </span>packages:all:compiler:<span class="o">[</span>gcc@12.3.0<span class="o">]</span>
+</pre></div>
+</div>
+<p>You can confirm your config, or make other changes with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>config<span class="w"> </span>edit<span class="w"> </span>packages
 </pre></div>
 </div>
-<p>And tell it to use this compiler</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">packages</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">all</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">compiler</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;gcc@8.5.0&#39;</span><span class="w"> </span><span class="c1"># Your preferred compiler here</span>
+<span class="w">    </span><span class="nt">compiler</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">gcc@12.3.0</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </section>
 <section id="other-software">
 <h2>Other software<a class="headerlink" href="#other-software" title="Permalink to this heading">#</a></h2>
-<p>Take an example of building the software mpiwrapper.  It only needs cmake and
-openmpi as dependencies, but these themselves require lots of dependencies to
-built.  You can see what Spack would like to build:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>spec<span class="w"> </span>mpiwrapper
+<p>Take an example of building the software phylobayesmpi.  It only needs mpi
+as a dependency, but mpi requires a lot of dependencies to be built.
+You can see what Spack would like to build:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>spec<span class="w"> </span>phylobayesmpi
 </pre></div>
 </div>
 <details>
 <summary>Full spec</summary>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span> <span class="n">spec</span>
 <span class="o">--------------------------------</span>
-<span class="n">mpiwrapper</span>
+<span class="n">phylobayesmpi</span>
 
 <span class="n">Concretized</span>
 <span class="o">--------------------------------</span>
-<span class="n">mpiwrapper</span><span class="o">@</span><span class="mf">2.8.1</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">~</span><span class="n">ipo</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-    <span class="o">^</span><span class="n">cmake</span><span class="o">@</span><span class="mf">3.23.3</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">~</span><span class="n">doc</span><span class="o">+</span><span class="n">ncurses</span><span class="o">+</span><span class="n">ownlibs</span><span class="o">~</span><span class="n">qt</span> <span class="n">build_type</span><span class="o">=</span><span class="n">Release</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-        <span class="o">^</span><span class="n">ncurses</span><span class="o">@</span><span class="mf">6.3</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">~</span><span class="n">symlinks</span><span class="o">+</span><span class="n">termlib</span> <span class="n">abi</span><span class="o">=</span><span class="n">none</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-            <span class="o">^</span><span class="n">pkgconf</span><span class="o">@</span><span class="mf">1.8.0</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-        <span class="o">^</span><span class="n">openssl</span><span class="o">@</span><span class="mf">1.1.1</span><span class="n">q</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">~</span><span class="n">docs</span><span class="o">~</span><span class="n">shared</span> <span class="n">certs</span><span class="o">=</span><span class="n">mozilla</span> <span class="n">patches</span><span class="o">=</span><span class="mi">3</span><span class="n">fdcf2d</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-            <span class="o">^</span><span class="n">ca</span><span class="o">-</span><span class="n">certificates</span><span class="o">-</span><span class="n">mozilla</span><span class="o">@</span><span class="mi">2022</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">19</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-            <span class="o">^</span><span class="n">perl</span><span class="o">@</span><span class="mf">5.34.1</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">+</span><span class="n">cpanm</span><span class="o">+</span><span class="n">shared</span><span class="o">+</span><span class="n">threads</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                <span class="o">^</span><span class="n">berkeley</span><span class="o">-</span><span class="n">db</span><span class="o">@</span><span class="mf">18.1.40</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">+</span><span class="n">cxx</span><span class="o">~</span><span class="n">docs</span><span class="o">+</span><span class="n">stl</span> <span class="n">patches</span><span class="o">=</span><span class="n">b231fcc</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                <span class="o">^</span><span class="n">bzip2</span><span class="o">@</span><span class="mf">1.0.8</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">~</span><span class="n">debug</span><span class="o">~</span><span class="n">pic</span><span class="o">+</span><span class="n">shared</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                    <span class="o">^</span><span class="n">diffutils</span><span class="o">@</span><span class="mf">3.8</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                        <span class="o">^</span><span class="n">libiconv</span><span class="o">@</span><span class="mf">1.16</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">libs</span><span class="o">=</span><span class="n">shared</span><span class="p">,</span><span class="n">static</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                <span class="o">^</span><span class="n">gdbm</span><span class="o">@</span><span class="mf">1.19</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                    <span class="o">^</span><span class="n">readline</span><span class="o">@</span><span class="mf">8.1.2</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                <span class="o">^</span><span class="n">zlib</span><span class="o">@</span><span class="mf">1.2.12</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">+</span><span class="n">optimize</span><span class="o">+</span><span class="n">pic</span><span class="o">+</span><span class="n">shared</span> <span class="n">patches</span><span class="o">=</span><span class="mi">0</span><span class="n">d38234</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-    <span class="o">^</span><span class="n">openmpi</span><span class="o">@</span><span class="mf">4.1.4</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">~</span><span class="n">atomics</span><span class="o">~</span><span class="n">cuda</span><span class="o">~</span><span class="n">cxx</span><span class="o">~</span><span class="n">cxx_exceptions</span><span class="o">~</span><span class="n">gpfs</span><span class="o">~</span><span class="n">internal</span><span class="o">-</span><span class="n">hwloc</span><span class="o">~</span><span class="n">java</span><span class="o">~</span><span class="n">legacylaunchers</span><span class="o">~</span><span class="n">lustre</span><span class="o">~</span><span class="n">memchecker</span><span class="o">+</span><span class="n">romio</span><span class="o">+</span><span class="n">rsh</span><span class="o">~</span><span class="n">singularity</span><span class="o">+</span><span class="n">static</span><span class="o">+</span><span class="n">vt</span><span class="o">+</span><span class="n">wrapper</span><span class="o">-</span><span class="n">rpath</span> <span class="n">fabrics</span><span class="o">=</span><span class="n">none</span> <span class="n">schedulers</span><span class="o">=</span><span class="n">none</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-        <span class="o">^</span><span class="n">hwloc</span><span class="o">@</span><span class="mf">2.8.0</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">~</span><span class="n">cairo</span><span class="o">~</span><span class="n">cuda</span><span class="o">~</span><span class="n">gl</span><span class="o">~</span><span class="n">libudev</span><span class="o">+</span><span class="n">libxml2</span><span class="o">~</span><span class="n">netloc</span><span class="o">~</span><span class="n">nvml</span><span class="o">~</span><span class="n">oneapi</span><span class="o">-</span><span class="n">level</span><span class="o">-</span><span class="n">zero</span><span class="o">~</span><span class="n">opencl</span><span class="o">+</span><span class="n">pci</span><span class="o">~</span><span class="n">rocm</span><span class="o">+</span><span class="n">shared</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-            <span class="o">^</span><span class="n">libpciaccess</span><span class="o">@</span><span class="mf">0.16</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                <span class="o">^</span><span class="n">libtool</span><span class="o">@</span><span class="mf">2.4.7</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                    <span class="o">^</span><span class="n">m4</span><span class="o">@</span><span class="mf">1.4.19</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">+</span><span class="n">sigsegv</span> <span class="n">patches</span><span class="o">=</span><span class="mi">9</span><span class="n">dc5fbd</span><span class="p">,</span><span class="n">bfdffa7</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                        <span class="o">^</span><span class="n">libsigsegv</span><span class="o">@</span><span class="mf">2.13</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                <span class="o">^</span><span class="n">util</span><span class="o">-</span><span class="n">macros</span><span class="o">@</span><span class="mf">1.19.3</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-            <span class="o">^</span><span class="n">libxml2</span><span class="o">@</span><span class="mf">2.9.13</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">~</span><span class="n">python</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                <span class="o">^</span><span class="n">xz</span><span class="o">@</span><span class="mf">5.2.5</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">~</span><span class="n">pic</span> <span class="n">libs</span><span class="o">=</span><span class="n">shared</span><span class="p">,</span><span class="n">static</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-        <span class="o">^</span><span class="n">numactl</span><span class="o">@</span><span class="mf">2.0.14</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">patches</span><span class="o">=</span><span class="mf">4e1</span><span class="n">d78c</span><span class="p">,</span><span class="mi">62</span><span class="n">fc8a8</span><span class="p">,</span><span class="n">ff37630</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-            <span class="o">^</span><span class="n">autoconf</span><span class="o">@</span><span class="mf">2.69</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">patches</span><span class="o">=</span><span class="mi">35</span><span class="n">c4492</span><span class="p">,</span><span class="mi">7793209</span><span class="p">,</span><span class="n">a49dd5b</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-            <span class="o">^</span><span class="n">automake</span><span class="o">@</span><span class="mf">1.16.5</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-        <span class="o">^</span><span class="n">openssh</span><span class="o">@</span><span class="mf">9.0</span><span class="n">p1</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">+</span><span class="n">gssapi</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-            <span class="o">^</span><span class="n">krb5</span><span class="o">@</span><span class="mf">1.19.3</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">+</span><span class="n">shared</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                <span class="o">^</span><span class="n">bison</span><span class="o">@</span><span class="mf">3.8.2</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                <span class="o">^</span><span class="n">gettext</span><span class="o">@</span><span class="mf">0.21</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">+</span><span class="n">bzip2</span><span class="o">+</span><span class="n">curses</span><span class="o">+</span><span class="n">git</span><span class="o">~</span><span class="n">libunistring</span><span class="o">+</span><span class="n">libxml2</span><span class="o">+</span><span class="n">tar</span><span class="o">+</span><span class="n">xz</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                    <span class="o">^</span><span class="n">tar</span><span class="o">@</span><span class="mf">1.34</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="nb">zip</span><span class="o">=</span><span class="n">pigz</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                        <span class="o">^</span><span class="n">pigz</span><span class="o">@</span><span class="mf">2.7</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-                        <span class="o">^</span><span class="n">zstd</span><span class="o">@</span><span class="mf">1.5.2</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">+</span><span class="n">programs</span> <span class="n">compression</span><span class="o">=</span><span class="n">none</span> <span class="n">libs</span><span class="o">=</span><span class="n">shared</span><span class="p">,</span><span class="n">static</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-            <span class="o">^</span><span class="n">libedit</span><span class="o">@</span><span class="mf">3.1</span><span class="o">-</span><span class="mi">20210216</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-        <span class="o">^</span><span class="n">pmix</span><span class="o">@</span><span class="mf">4.1.2</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">~</span><span class="n">docs</span><span class="o">+</span><span class="n">pmi_backwards_compatibility</span><span class="o">~</span><span class="n">restful</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
-            <span class="o">^</span><span class="n">libevent</span><span class="o">@</span><span class="mf">2.1.12</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">8.5.0</span><span class="o">+</span><span class="n">openssl</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">rhel8</span><span class="o">-</span><span class="n">haswell</span>
+<span class="n">phylobayesmpi</span><span class="o">@</span><span class="mf">1.8</span><span class="n">b</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">makefile</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+    <span class="o">^</span><span class="n">openmpi</span><span class="o">@</span><span class="mf">4.1.5</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">~</span><span class="n">atomics</span><span class="o">~</span><span class="n">cuda</span><span class="o">~</span><span class="n">cxx</span><span class="o">~</span><span class="n">cxx_exceptions</span><span class="o">~</span><span class="n">gpfs</span><span class="o">~</span><span class="n">internal</span><span class="o">-</span><span class="n">hwloc</span><span class="o">~</span><span class="n">java</span><span class="o">~</span><span class="n">legacylaunchers</span><span class="o">~</span><span class="n">lustre</span><span class="o">~</span><span class="n">memchecker</span><span class="o">~</span><span class="n">orterunprefix</span><span class="o">+</span><span class="n">romio</span><span class="o">+</span><span class="n">rsh</span><span class="o">~</span><span class="n">singularity</span><span class="o">+</span><span class="n">static</span><span class="o">+</span><span class="n">vt</span><span class="o">+</span><span class="n">wrapper</span><span class="o">-</span><span class="n">rpath</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">fabrics</span><span class="o">=</span><span class="n">none</span> <span class="n">schedulers</span><span class="o">=</span><span class="n">none</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+        <span class="o">^</span><span class="n">hwloc</span><span class="o">@</span><span class="mf">2.9.1</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">~</span><span class="n">cairo</span><span class="o">~</span><span class="n">cuda</span><span class="o">~</span><span class="n">gl</span><span class="o">~</span><span class="n">libudev</span><span class="o">+</span><span class="n">libxml2</span><span class="o">~</span><span class="n">netloc</span><span class="o">~</span><span class="n">nvml</span><span class="o">~</span><span class="n">oneapi</span><span class="o">-</span><span class="n">level</span><span class="o">-</span><span class="n">zero</span><span class="o">~</span><span class="n">opencl</span><span class="o">+</span><span class="n">pci</span><span class="o">~</span><span class="n">rocm</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">libs</span><span class="o">=</span><span class="n">shared</span><span class="p">,</span><span class="n">static</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">libpciaccess</span><span class="o">@</span><span class="mf">0.17</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                <span class="o">^</span><span class="n">util</span><span class="o">-</span><span class="n">macros</span><span class="o">@</span><span class="mf">1.19.3</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">libxml2</span><span class="o">@</span><span class="mf">2.10.3</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">~</span><span class="n">python</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                <span class="o">^</span><span class="n">libiconv</span><span class="o">@</span><span class="mf">1.17</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">libs</span><span class="o">=</span><span class="n">shared</span><span class="p">,</span><span class="n">static</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                <span class="o">^</span><span class="n">xz</span><span class="o">@</span><span class="mf">5.4.1</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">~</span><span class="n">pic</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">libs</span><span class="o">=</span><span class="n">shared</span><span class="p">,</span><span class="n">static</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">ncurses</span><span class="o">@</span><span class="mf">6.4</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">~</span><span class="n">symlinks</span><span class="o">+</span><span class="n">termlib</span> <span class="n">abi</span><span class="o">=</span><span class="n">none</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+        <span class="o">^</span><span class="n">numactl</span><span class="o">@</span><span class="mf">2.0.14</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">patches</span><span class="o">=</span><span class="mf">4e1</span><span class="n">d78c</span><span class="p">,</span><span class="mi">62</span><span class="n">fc8a8</span><span class="p">,</span><span class="n">ff37630</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">autoconf</span><span class="o">@</span><span class="mf">2.69</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">patches</span><span class="o">=</span><span class="mi">35</span><span class="n">c4492</span><span class="p">,</span><span class="mi">7793209</span><span class="p">,</span><span class="n">a49dd5b</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">automake</span><span class="o">@</span><span class="mf">1.16.5</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">libtool</span><span class="o">@</span><span class="mf">2.4.7</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">m4</span><span class="o">@</span><span class="mf">1.4.19</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">+</span><span class="n">sigsegv</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">patches</span><span class="o">=</span><span class="mi">9</span><span class="n">dc5fbd</span><span class="p">,</span><span class="n">bfdffa7</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                <span class="o">^</span><span class="n">diffutils</span><span class="o">@</span><span class="mf">3.9</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                <span class="o">^</span><span class="n">libsigsegv</span><span class="o">@</span><span class="mf">2.14</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+        <span class="o">^</span><span class="n">openssh</span><span class="o">@</span><span class="mf">9.3</span><span class="n">p1</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">+</span><span class="n">gssapi</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">krb5</span><span class="o">@</span><span class="mf">1.20.1</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">+</span><span class="n">shared</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                <span class="o">^</span><span class="n">bison</span><span class="o">@</span><span class="mf">3.8.2</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                <span class="o">^</span><span class="n">gettext</span><span class="o">@</span><span class="mf">0.21.1</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">+</span><span class="n">bzip2</span><span class="o">+</span><span class="n">curses</span><span class="o">+</span><span class="n">git</span><span class="o">~</span><span class="n">libunistring</span><span class="o">+</span><span class="n">libxml2</span><span class="o">+</span><span class="n">tar</span><span class="o">+</span><span class="n">xz</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                    <span class="o">^</span><span class="n">tar</span><span class="o">@</span><span class="mf">1.34</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="nb">zip</span><span class="o">=</span><span class="n">pigz</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                        <span class="o">^</span><span class="n">pigz</span><span class="o">@</span><span class="mf">2.7</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">makefile</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                        <span class="o">^</span><span class="n">zstd</span><span class="o">@</span><span class="mf">1.5.5</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">+</span><span class="n">programs</span> <span class="n">build_system</span><span class="o">=</span><span class="n">makefile</span> <span class="n">compression</span><span class="o">=</span><span class="n">none</span> <span class="n">libs</span><span class="o">=</span><span class="n">shared</span><span class="p">,</span><span class="n">static</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">libedit</span><span class="o">@</span><span class="mf">3.1</span><span class="o">-</span><span class="mi">20210216</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">libxcrypt</span><span class="o">@</span><span class="mf">4.4.33</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">~</span><span class="n">obsolete_api</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">openssl</span><span class="o">@</span><span class="mf">1.1.1</span><span class="n">t</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">~</span><span class="n">docs</span><span class="o">~</span><span class="n">shared</span> <span class="n">build_system</span><span class="o">=</span><span class="n">generic</span> <span class="n">certs</span><span class="o">=</span><span class="n">mozilla</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                <span class="o">^</span><span class="n">ca</span><span class="o">-</span><span class="n">certificates</span><span class="o">-</span><span class="n">mozilla</span><span class="o">@</span><span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">10</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">generic</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+        <span class="o">^</span><span class="n">perl</span><span class="o">@</span><span class="mf">5.36.0</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">+</span><span class="n">cpanm</span><span class="o">+</span><span class="nb">open</span><span class="o">+</span><span class="n">shared</span><span class="o">+</span><span class="n">threads</span> <span class="n">build_system</span><span class="o">=</span><span class="n">generic</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">berkeley</span><span class="o">-</span><span class="n">db</span><span class="o">@</span><span class="mf">18.1.40</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">+</span><span class="n">cxx</span><span class="o">~</span><span class="n">docs</span><span class="o">+</span><span class="n">stl</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">patches</span><span class="o">=</span><span class="mi">26090</span><span class="n">f4</span><span class="p">,</span><span class="n">b231fcc</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">bzip2</span><span class="o">@</span><span class="mf">1.0.8</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">~</span><span class="n">debug</span><span class="o">~</span><span class="n">pic</span><span class="o">+</span><span class="n">shared</span> <span class="n">build_system</span><span class="o">=</span><span class="n">generic</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">gdbm</span><span class="o">@</span><span class="mf">1.23</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+                <span class="o">^</span><span class="n">readline</span><span class="o">@</span><span class="mf">8.2</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">patches</span><span class="o">=</span><span class="n">bbf97f1</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+        <span class="o">^</span><span class="n">pkgconf</span><span class="o">@</span><span class="mf">1.9.5</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+        <span class="o">^</span><span class="n">pmix</span><span class="o">@</span><span class="mf">4.2.3</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">~</span><span class="n">docs</span><span class="o">+</span><span class="n">pmi_backwards_compatibility</span><span class="o">~</span><span class="n">python</span><span class="o">~</span><span class="n">restful</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+            <span class="o">^</span><span class="n">libevent</span><span class="o">@</span><span class="mf">2.1.12</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">+</span><span class="n">openssl</span> <span class="n">build_system</span><span class="o">=</span><span class="n">autotools</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
+        <span class="o">^</span><span class="n">zlib</span><span class="o">@</span><span class="mf">1.2.13</span><span class="o">%</span><span class="n">gcc</span><span class="o">@</span><span class="mf">12.3.0</span><span class="o">+</span><span class="n">optimize</span><span class="o">+</span><span class="n">pic</span><span class="o">+</span><span class="n">shared</span> <span class="n">build_system</span><span class="o">=</span><span class="n">makefile</span> <span class="n">arch</span><span class="o">=</span><span class="n">linux</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">skylake_avx512</span>
 </pre></div>
 </div>
 </details>
@@ -510,21 +523,15 @@ system.</p>
 <p>It can find certain software in your environment without you having to
 configure anything by hand.  So if I load an openmpi module, and run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>external<span class="w"> </span>find<span class="w"> </span><span class="nv">openmpi</span>
-<span class="o">==</span>&gt;<span class="w"> </span>The<span class="w"> </span>following<span class="w"> </span>specs<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>detected<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>system<span class="w"> </span>and<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>/home/me/.spack/packages.yaml
---<span class="w"> </span>no<span class="w"> </span>arch<span class="w"> </span>/<span class="w"> </span>gcc@8.5.0<span class="w"> </span>------------------------------------------
-openmpi@4.1.1
+<span class="o">==</span>&gt;<span class="w"> </span>The<span class="w"> </span>following<span class="w"> </span>specs<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>detected<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>system<span class="w"> </span>and<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>/home/home02/me/.spack/packages.yaml
+--<span class="w"> </span>no<span class="w"> </span>arch<span class="w"> </span>/<span class="w"> </span>gcc@12.3.0<span class="w"> </span>-----------------------------------------
+openmpi@3.1.4
 </pre></div>
 </div>
 <p>Spack is now aware of that software, so you can build against it without having
 to rebuild openmpi, as long as you’re happy with that version.  As you can see
 from the output, this is written into your configuration, so will be remembered
 for future runs.</p>
-<p>I also want it to discover cmake:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>external<span class="w"> </span>find<span class="w"> </span><span class="nv">cmake</span>
-<span class="o">==</span>&gt;<span class="w"> </span>The<span class="w"> </span>following<span class="w"> </span>specs<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>detected<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>system<span class="w"> </span>and<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>/home/me/.spack/packages.yaml
-cmake@3.20.2
-</pre></div>
-</div>
 <p>If Spack wasn’t able to auto detect the software, you can add it to the
 packages.yaml by hand.  For example, if I wanted to add a system installed
 libjpeg-turbo to spack, I can add a section for that into my packages.yaml:</p>
@@ -538,20 +545,11 @@ libjpeg-turbo to spack, I can add a section for that into my packages.yaml:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">packages</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">openmpi</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">externals</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openmpi@4.1.1%gcc@8.5.0+atomics~cuda+cxx~cxx_exceptions+java~memchecker+pmi~static~wrapper-rpath</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">fabrics=ofi,psm2,ucx schedulers=slurm</span>
-<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/lib64/openmpi</span>
-<span class="w">  </span><span class="nt">cmake</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">externals</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cmake@3.20.2</span>
-<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openmpi@3.1.4%gcc@=12.3.0~cuda+cxx~cxx_exceptions~java~memchecker+pmi~static~wrapper-rpath</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">schedulers=slurm</span>
+<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/apps/developers/libraries/openmpi/3.1.4/1/gnu-12.3.0</span>
 <span class="w">  </span><span class="nt">all</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">compiler</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcc@8.5.0</span><span class="w">   </span><span class="c1"># Your preferred compiler here</span>
-<span class="w">  </span><span class="nt">libjpeg-turbo</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">externals</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libjpeg-turbo@1.5.3</span>
-<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr</span>
+<span class="w">    </span><span class="nt">compiler</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">gcc@12.3.0</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <div class="admonition-openmpi-on-red-hat-oddity admonition">
@@ -567,38 +565,35 @@ rather than use Red Hat’s version in future.</p>
 </div>
 <p>Having told Spack about the software we want it to use from the system, let’s
 look again now at building mpiwrapper, and see what that looks like:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>spec<span class="w"> </span>mpiwrapper
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>spec<span class="w"> </span>phylobayesmpi
 Input<span class="w"> </span>spec
 --------------------------------
-mpiwrapper
+phylobayesmpi
 
 Concretized
 --------------------------------
-mpiwrapper@2.8.1%gcc@8.5.0~ipo<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>RelWithDebInfo<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
-<span class="w">    </span>^cmake@3.20.2%gcc@8.5.0~doc+ncurses+ownlibs~qt<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>Release<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
-<span class="w">    </span>^openmpi@4.1.1%gcc@8.5.0+atomics~cuda+cxx~cxx_exceptions~gpfs~internal-hwloc+java~legacylaunchers~lustre~memchecker+pmi+romio+rsh~singularity~static+vt~wrapper-rpath<span class="w"> </span><span class="nv">fabrics</span><span class="o">=</span>ofi,psm2,ucx<span class="w"> </span><span class="nv">schedulers</span><span class="o">=</span>slurm<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rhel8-haswell
+phylobayesmpi@1.8b%gcc@12.3.0<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>makefile<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-centos7-skylake_avx512
+<span class="w">    </span>^openmpi@3.1.4%gcc@12.3.0~atomics~cuda+cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~orterunprefix+pmi+romio+rsh~singularity~static+vt~wrapper-rpath<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">fabrics</span><span class="o">=</span>none<span class="w"> </span><span class="nv">schedulers</span><span class="o">=</span>slurm<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-centos7-skylake_avx512
 </pre></div>
 </div>
-<p>So now Spack believes that it can reuse my openmpi and cmake from the system,
-and just build the piece of software I’ve asked for.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>install<span class="w"> </span>mpiwrapper
-<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/usr<span class="w"> </span><span class="o">(</span>external<span class="w"> </span>cmake-3.20.2-b2vel5wyij5d4svvpdwhyio4dwuxly3a<span class="o">)</span>
-<span class="o">==</span>&gt;<span class="w"> </span>openmpi@4.1.1<span class="w"> </span>:<span class="w"> </span>has<span class="w"> </span>external<span class="w"> </span>module<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">[</span><span class="s1">&#39;pi/openmpi-x86_64&#39;</span><span class="o">]</span>
-<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/usr<span class="w"> </span><span class="o">(</span>external<span class="w"> </span>openmpi-4.1.1-motfvxmtmqhhzqizmifts2lz5hx5x3t6<span class="o">)</span>
-<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
-<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
-<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/e6/e6fc1c08ad778675e5b58b91b4658b12e3f985c6d4c5c2c3e9ed35986146780e.tar.gz
-<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>patches<span class="w"> </span>needed<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">mpiwrapper</span>
-<span class="o">==</span>&gt;<span class="w"> </span>mpiwrapper:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;cmake&#39;</span>
-<span class="o">==</span>&gt;<span class="w"> </span>mpiwrapper:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;build&#39;</span>
-<span class="o">==</span>&gt;<span class="w"> </span>mpiwrapper:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
-<span class="o">==</span>&gt;<span class="w"> </span>mpiwrapper:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
-<span class="w">  </span>Fetch:<span class="w"> </span><span class="m">0</span>.77s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">9</span>.74s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">10</span>.52s.
-<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/home/me/spack/opt/spack/linux-rhel8-haswell/gcc-8.5.0/mpiwrapper-2.8.1-pbtnwnb75qiwerrf265rod2v3echlogq
+<p>So now Spack believes that it can reuse my openmpi from the system and just
+build the piece of software I’ve asked for.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>install<span class="w"> </span>phylobayesmpi
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/apps/developers/libraries/openmpi/3.1.4/1/gnu-12.3.0<span class="w"> </span><span class="o">(</span>external<span class="w"> </span>openmpi-3.1.4-3b2jktw2wa3tcn7j6axgi4osq3jnajnm<span class="o">)</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>phylobayesmpi-1.8b-c7eirq7oq7nd56dorwlnylmc463f5whm
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>phylobayesmpi-1.8b-c7eirq7oq7nd56dorwlnylmc463f5whm<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/7f/7ff017bf492c1d8b42bfff3ee8e998ba1c50f4e4b3d9d6125647b91738017324.tar.gz
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>patches<span class="w"> </span>needed<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">phylobayesmpi</span>
+<span class="o">==</span>&gt;<span class="w"> </span>phylobayesmpi:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;edit&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>phylobayesmpi:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;build&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>phylobayesmpi:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>phylobayesmpi:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>phylobayesmpi-1.8b-c7eirq7oq7nd56dorwlnylmc463f5whm
+<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.13s.<span class="w">  </span>Edit:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">19</span>.47s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">0</span>.02s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.03s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">19</span>.76s
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/tmp/me/spack/opt/spack/linux-centos7-skylake_avx512/gcc-12.3.0/phylobayesmpi-1.8b-c7eirq7oq7nd56dorwlnylmc463f5whm
 </pre></div>
 </div>
-<p>So we’ve just install mpiwrapper with Spack, using dependencies already install
-on the system, in seconds.  Lovely.</p>
+<p>So we’ve just install phylobayesmpi with Spack, using dependencies already
+installed on the system, in seconds.  Lovely.</p>
 </section>
 <section id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
@@ -614,8 +609,17 @@ far as OpenSSL libraries are concerned.</p>
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
 <p>This is actually quite straightforward, since Spack can successfully detect and add this to your <code class="docutils literal notranslate"><span class="pre">packages.yaml</span></code> file:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>external<span class="w"> </span>find<span class="w"> </span><span class="nv">openssl</span>
-<span class="o">==</span>&gt;<span class="w"> </span>The<span class="w"> </span>following<span class="w"> </span>specs<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>detected<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>system<span class="w"> </span>and<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>/home/me/.spack/packages.yaml
-openssl@1.1.1k
+<span class="o">==</span>&gt;<span class="w"> </span>The<span class="w"> </span>following<span class="w"> </span>specs<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>detected<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>system<span class="w"> </span>and<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>/home/home02/me/.spack/packages.yaml
+openssl@1.0.2k-fips<span class="w">  </span>openssl@3.1.0
+</pre></div>
+</div>
+<p>Here we find it’s detected both the system OpenSSL, along with a version
+lurking within Anaconda.  If you found it picked up a package you didn’t want
+it to use, you can use <code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">config</span> <span class="pre">edit</span> <span class="pre">packages</span></code> to adjust this after it’s
+detected packages.</p>
+<p>In this case, you may choose to remove these two lines, to stop it from using the anaconda version:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openssl@3.1.0</span>
+<span class="w">      </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/apps/developers/compilers/anaconda/2023.03/1/default</span>
 </pre></div>
 </div>
 </details>
@@ -648,19 +652,18 @@ openssl@1.1.1k
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="modules.html"
+       href="testinstall.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Adjusting how we name modules</p>
+        <p class="prev-next-title">Building a test piece of software</p>
       </div>
     </a>
     <a class="right-next"
@@ -672,10 +675,7 @@ openssl@1.1.1k
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -743,8 +743,8 @@ By University of Leeds Research Computing Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
