@@ -120,7 +120,7 @@ you would on ARC:
 
 ```bash
 $ module add pigz
-$ modules add pigz/2.7-ji42
+$ module add pigz/2.7-ji42
 ```
 
 In this case, we still need to include a hash, as we've got pigz built with two
