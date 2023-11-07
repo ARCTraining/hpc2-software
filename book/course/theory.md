@@ -42,7 +42,7 @@ These variables list common locations of files and are used by the system to loo
 * PATH - When you execute a program by giving its name, the shell looks it up in the directories listed in the `PATH` variable e.g. `/home/username/bin:/usr/local/bin:/usr/bin:/bin`
 * LD_LIBRARY_PATH - when a program requests a library the dynamic loader will look in the directories listed in the `LD_LIBRARY_PATH` variable e.g. `/usr/local/lib:/usr/lib:/lib`
 * CPATH - When compiling, specifies the search path for header files, particularly when working with C and C++ programming languages.
-* PKG_CONFIG_PATH - Where pkgconfig (manages the configuration of compilers and linking libraries) searches for pkg-config files
+* PKG_CONFIG_PATH - Where pkgconfig (manages the configuration of compilers and linking libraries) searches for pkg-config files.
 
 Installation of, or enabling software may add additional locations to PATH or LD_LIBRARY_PATH variables.
 Users can modify these variables for their own user (not system wide), this may need to be done if you are building software yourself.
