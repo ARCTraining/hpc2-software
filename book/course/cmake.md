@@ -599,7 +599,7 @@ By default CMake will install software in standard location on our machine, this
 Therefore, it's often better for software we want to build just for ourselves to specify the `-DCMAKE_INSTALL_PREFIX` argument to be a local directory our user has access to.
 
 ```{note}
-This example has been picked for it's simplicity and doesn't require any additional libraries that aren't already installed and available on ARC4.
+This example has been picked for its simplicity and doesn't require any additional libraries that aren't already installed and available on ARC4.
 Most software has additional dependencies that you will either need to load as a module or install separately before being able to have CMake configure successfully.
 Always be sure to check the documentation to understand what the exact requirements are for the software you're trying to install.
 ```
@@ -667,7 +667,7 @@ Crucially, we need to make the `libcurl2` library that was also built with cURL 
 If we try and run our new cURL without doing this step we get the following error:
 
 ```bash
-$ ~/curl/build/bin/curl --version
+$ ~/curl/install/bin/curl --version
 ```
 ```output
 /home/home01/arcuser/curl/install/bin/curl: error while loading shared libraries: libcurl2.so: cannot open shared object file: No such file or directory
@@ -680,7 +680,7 @@ We do this by appending a directory path to the colon-separated `LD_LIBRARY_PATH
 ```bash
 $ export "LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/curl/install/lib64"
 
-$ ~/curl/build/bin/curl --version
+$ ~/curl/install/bin/curl --version
 ```
 ```output
 curl 7.85.0-DEV (Linux) libcurl/7.85.0-DEV OpenSSL/1.0.2k-fips zlib/1.2.7
