@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -148,13 +148,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="HPC2: Installing and Managing Applications on the HPC - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="HPC2: Installing and Managing Applications on the HPC - Home"/>`);</script>
   
   
 </a></div>
@@ -487,7 +488,9 @@ Below are the key types of files:</p>
 <p>These variables list common locations of files and are used by the system to lookup requested executables and libraries, without the need to provide the full path, which reduces the amount of configuration that would be required to run the same software on different systems.</p>
 <ul class="simple">
 <li><p>PATH - When you execute a program by giving its name, the shell looks it up in the directories listed in the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable e.g. <code class="docutils literal notranslate"><span class="pre">/home/username/bin:/usr/local/bin:/usr/bin:/bin</span></code></p></li>
-<li><p>LD_LIBRARY_PATH - when a program requests a library the dynamic loader will look in the directories listed in the LD_LIBRARY_PATH variable e.g. <code class="docutils literal notranslate"><span class="pre">/usr/local/lib:/usr/lib:/lib</span></code></p></li>
+<li><p>LD_LIBRARY_PATH - when a program requests a library the dynamic loader will look in the directories listed in the <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> variable e.g. <code class="docutils literal notranslate"><span class="pre">/usr/local/lib:/usr/lib:/lib</span></code></p></li>
+<li><p>CPATH - When compiling, specifies the search path for header files, particularly when working with C and C++ programming languages.</p></li>
+<li><p>PKG_CONFIG_PATH - Where pkgconfig (manages the configuration of compilers and linking libraries) searches for pkg-config files.</p></li>
 </ul>
 <p>Installation of, or enabling software may add additional locations to PATH or LD_LIBRARY_PATH variables.
 Users can modify these variables for their own user (not system wide), this may need to be done if you are building software yourself.</p>
@@ -527,7 +530,7 @@ Users can modify these variables for their own user (not system wide), this may 
 <h3>Package Managers<a class="headerlink" href="#package-managers" title="Permalink to this heading">#</a></h3>
 <p>Package managers are used to manage applications, tools and libraries as packages.</p>
 <p>Packages are archives (often compressed files like zip) and can contain any combination of software, libraries and their metadata.</p>
-<p>Packages are collected and maintained together as distributions (eg conda-forge).</p>
+<p>Packages are collected and maintained together as distributions (eg conda-forge, pypi).</p>
 <p>Package managers keep track of packages and all of their versions/variants, both installed and available to be installed, along with their dependencies.</p>
 <p>They usually allow the following functionality:</p>
 <ul class="simple">
@@ -804,8 +807,8 @@ By University of Leeds Research Computing Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
