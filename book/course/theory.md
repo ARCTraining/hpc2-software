@@ -49,7 +49,7 @@ Users can modify these variables for their own user (not system wide), this may 
 
 ### Locations for building and running your own code
 
-The best locations for building and running your code are your home directory (or sub directory) where your user usually has full permissions to run and manage files eg  `/home/username/` or other user writable/executable directories such as `/nobackup/username` on ARC3/ARC4.
+The best locations for building and running your code are your home directory (or sub directory) where your user usually has full permissions to run and manage files eg  `/home/username/` or other user writable/executable directories such as `/mnt/scratch/username` on Aire.
 
 ## Software
 
@@ -93,9 +93,9 @@ They usually allow the following functionality:
 * Upgrading/downgrading package versions
 * Installation and removal of dependancies
 
-The most commonly used package managers on ARC3/ARC4 are conda (distributed through Anaconda) and pip.
+The most commonly used package managers on Aire is conda (distributed through miniforge) and pip.
 
-* [Anaconda](https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html) is an environment and package manager, primarily for Python and R.
+* [Conda](https://arcdocs.leeds.ac.uk/aire/software/interpreters/miniforge.html) is an environment and package manager, primarily for Python and R.
 * [pip](https://en.wikipedia.org/wiki/Pip_(package_manager)) is a package manager for Python.
 
 ## Build tools
@@ -112,7 +112,7 @@ Common buildtools:
 
 A compiler is a program which translates source code written in a programming language into target code. This is typically into machine code to create an executable program.
 
-ARC3 and ARC4 have the [Intel](https://arcdocs.leeds.ac.uk/software/compilers/intel.html) compiler set as default, with the [GNU](https://arcdocs.leeds.ac.uk/software/compilers/gnu.html) and [LLVM](https://arcdocs.leeds.ac.uk/software/compilers/llvm.html) compilers being popular alternatives available on the module system.
+Aire has the GNU compilers available by default, with the Intel OneAPI compilers being a popular alternative available on the module system.
 
 #### Interpreters
 
@@ -166,7 +166,7 @@ They utilise an **Operating System** (eg Windows, OSX, Android Linux) to control
 ### Virtual Machines
 
 ```{Note}
-ARC3/ARC4 cannot run virtual machines.
+Aire cannot run virtual machines.
 ```
 
 Virtual machines refer to applications (and system level hypervisors) that provide a software representation of hardware to run guest machines.
@@ -182,7 +182,7 @@ They utilise the host operating system's kernel and provide access to (usually a
 
 Containers have less overhead (often no noticeable performance loss) due to not needing to emulate any hardware, are more flexible and require less storage and configuration.
 
-ARC3 and ARC4 support [Singularity](https://en.wikipedia.org/wiki/Singularity_(software)) and [Apptainer](https://apptainer.org/) (the new successor to Singularity) container tools. They support the import and running of [Docker](https://www.docker.com/) containers.
+Aire supports [Apptainer](https://apptainer.org/). Apptainer also supports the import and running of [Docker](https://www.docker.com/) containers.
 
 ### Virtual Environments
 
@@ -191,7 +191,7 @@ These are usually managed by a tool such as `conda` or `virtualenv`.
 
 Each environment created can have its own set of software and when combined with package management can specify specific (or minimum or maximum) versions of some (or all) applications and libraries.
 
-ARC3 and ARC4 provides the Anaconda module (that contains `conda` as the primary tool for managing environments, although others (such as virtualenv for Python) are available or installable.
+Aire provides the miniforge module (that contains `conda` as the primary tool for managing environments, although others (such as virtualenv for Python) are available or installable.
 
 ## Summary
 
@@ -218,6 +218,6 @@ ARC3 and ARC4 provides the Anaconda module (that contains `conda` as the primary
 * Compilers - <https://en.wikipedia.org/wiki/Compiler>
 * Virtual Machines - <https://en.wikipedia.org/wiki/Virtual_machine>
 * Containers - <https://en.wikipedia.org/wiki/OS-level_virtualization>
-* Singularity - <https://arcdocs.leeds.ac.uk/software/infrastructure/singularity.html>
-* Anaconda - <https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html>
+* Singularity - <https://arcdocs.leeds.ac.uk/aire/software/tools/apptainer.html>
+* Conda - <https://arcdocs.leeds.ac.uk/aire/software/interpreters/miniforge.html>
 * Virtual Environments - <https://carpentries-incubator.github.io/python-intermediate-development/12-virtual-environments/>

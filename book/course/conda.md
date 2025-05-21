@@ -42,15 +42,12 @@ Conda is widely used across scientific computing and data science based domains 
 (installing-conda)=
 ## Installing Conda
 
-### On ARC
+### On Aire
 
-We provide a module for anaconda, meaning you don't need to install it
-yourself, but you do need to take additional steps to avoid it filling up your
-home directory when you create additional environments.
+We provide a module for miniforge, meaning you don't need to install it
+yourself.
 
-[Using conda on ARC](https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html)
-
-You also can just install miniconda in /nobackup if you prefer.
+[Using conda on Aire](https://arcdocs.leeds.ac.uk/aire/software/interpreters/miniforge.html)
 
 ### On another system
 

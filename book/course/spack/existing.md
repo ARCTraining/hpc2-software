@@ -18,8 +18,8 @@ not one right answer.
 
 Compilers are a bit different to other pieces of software.  Typically the
 easiest way to get Spack to use a system compiler is to make sure it's in your
-path and tell Spack to try to find it.  In this example I'm going to swap out
-the default Intel compiler on ARC4 for a shiny GNU compiler:
+path and tell Spack to try to find it.  In this example I'm going to load a
+newer GCC compiler than is available by default:
 
 ```bash
 $ module add gcc/14.2.0
