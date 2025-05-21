@@ -21,10 +21,15 @@ Description:
 
 Homepage: http://www.simplesystems.org/libtiff/
 
-Preferred version:
-    4.5.0     https://download.osgeo.org/libtiff/tiff-4.5.0.tar.gz
+Preferred version:  
+    4.7.0     https://download.osgeo.org/libtiff/tiff-4.7.0.tar.gz
 
-Safe versions:
+Safe versions:  
+    4.7.0     https://download.osgeo.org/libtiff/tiff-4.7.0.tar.gz
+
+Deprecated versions:  
+    4.6.0     https://download.osgeo.org/libtiff/tiff-4.6.0.tar.gz
+    4.5.1     https://download.osgeo.org/libtiff/tiff-4.5.1.tar.gz
     4.5.0     https://download.osgeo.org/libtiff/tiff-4.5.0.tar.gz
     4.4.0     https://download.osgeo.org/libtiff/tiff-4.4.0.tar.gz
     4.3.0     https://download.osgeo.org/libtiff/tiff-4.3.0.tar.gz
@@ -39,62 +44,103 @@ Safe versions:
     4.0.4     https://download.osgeo.org/libtiff/tiff-4.0.4.tar.gz
     3.9.7     https://download.osgeo.org/libtiff/tiff-3.9.7.tar.gz
 
-Deprecated versions:
-    None
-
 Variants:
-    Name [Default]          When                              Allowed values          Description
-    ====================    ==============================    ====================    ===============================================
+    build_system [cmake]        autotools, cmake
+        Build systems supported by the package
+    ccitt [true]                false, true
+        support for CCITT Group 3 & 4 algorithms
+    jbig [false]                false, true
+        use ISO JBIG compression
+    jpeg [true]                 false, true
+        use libjpeg
+    logluv [true]               false, true
+        support for LogLuv high dynamic range algorithm
+    lzw [true]                  false, true
+        support for LZW algorithm
+    next [true]                 false, true
+        support for NeXT 2-bit RLE algorithm
+    old-jpeg [false]            false, true
+        support for Old JPEG compression
+    packbits [true]             false, true
+        support for Macintosh PackBits algorithm
+    pic [false]                 false, true
+        Enable position-independent code (PIC)
+    pixarlog [false]            false, true
+        support for Pixar log-format algorithm
+    shared [true]               false, true
+        Build shared
+    thunder [true]              false, true
+        support for ThunderScan 4-bit RLE algorithm
+    zlib [true]                 false, true
+        use zlib
 
-    build_system [cmake]    --                                cmake, autotools        Build systems supported by the package
-    build_type [Release]    [build_system=cmake]              Debug, Release,         CMake build type
-                                                              RelWithDebInfo,
-                                                              MinSizeRel
-    ccitt [on]              --                                on, off                 support for CCITT Group 3 & 4 algorithms
-    generator [make]        [build_system=cmake]              ninja,make              the build system generator to use
-    ipo [off]               [build_system=cmake               on, off                 CMake interprocedural optimization
-                            ^cmake@3.9:]
-    jbig [off]              --                                on, off                 use ISO JBIG compression
-    jpeg [on]               --                                on, off                 use libjpeg
-    jpeg12 [off]            [@4:]                             on, off                 enable libjpeg 8/12-bit dual mode
-    lerc [off]              [@4.3:]                           on, off                 use libLerc
-    libdeflate [off]        [@4.2:]                           on, off                 use libdeflate
-    logluv [on]             --                                on, off                 support for LogLuv high dynamic range algorithm
-    lzma [off]              [@4:]                             on, off                 use liblzma
-    lzw [on]                --                                on, off                 support for LZW algorithm
-    next [on]               --                                on, off                 support for NeXT 2-bit RLE algorithm
-    old-jpeg [off]          --                                on, off                 support for Old JPEG compression
-    packbits [on]           --                                on, off                 support for Macintosh PackBits algorithm
-    pixarlog [off]          --                                on, off                 support for Pixar log-format algorithm
-    thunder [on]            --                                on, off                 support for ThunderScan 4-bit RLE algorithm
-    webp [off]              [@4.0.10:]                        on, off                 use libwebp
-    zlib [on]               --                                on, off                 use zlib
-    zstd [off]              [@4.0.10:]                        on, off                 use libzstd
+    when build_system=cmake
+      build_type [Release]      Debug, MinSizeRel, RelWithDebInfo, Release
+          CMake build type
+      generator [make]          none
+          the build system generator to use
+
+    when build_system=cmake ^cmake@3.9:
+      ipo [false]               false, true
+          CMake interprocedural optimization
+
+    when @4.5,4.7:
+      opengl [false]            false, true
+          use OpenGL (required for tiffgt viewer)
+
+    when @4.2:
+      libdeflate [false]        false, true
+          use libdeflate
+
+    when @4:
+      jpeg12 [false]            false, true
+          enable libjpeg 8/12-bit dual mode
+      lzma [false]              false, true
+          use liblzma
+
+    when @4.3:
+      lerc [false]              false, true
+          use libLerc
+
+    when @4.0.10:
+      webp [false]              false, true
+          use libwebp
+      zstd [false]              false, true
+          use libzstd
 
 Build Dependencies:
-    cmake  gmake  gnuconfig  jbigkit  jpeg  lerc  libwebp  ninja  xz  zlib  zstd
+    cmake  gmake  gnuconfig  jbigkit  jpeg  lerc  libwebp  ninja  xz  zlib-api  zstd
 
 Link Dependencies:
-    jbigkit  jpeg  lerc  libwebp  xz  zlib  zstd
+    jbigkit  jpeg  lerc  libwebp  xz  zlib-api  zstd
 
 Run Dependencies:
     None
+
+Licenses: 
+    libtiff
 ```
 
 From this you can see that there's lots of versions available, and there's a
 number of variants listed, along with dependencies.  Let's say I wanted to
-build version 4.4.0, and we want webp support to be on, jpeg support to be off,
-and a build\_type of Release.  Basically, be as awkward as possible and change
-everything:
+build version 4.4.0, and we want webp support to be on, jpeg support to be
+off, and a build\_type of Debug.  Basically, be as awkward as possible and
+change everything:
 
 ```bash
-spack install libtiff @4.4.0 +webp -jpeg build_type=Release
+spack install --deprecated libtiff@4.4.0 +webp -jpeg build_type=Debug
 ```
 
 There we're just turned on a feature (webp), turned off a feature (jpeg), and
-told it we want the Release build type.  Have a look through the references to
+told it we want the Debug build type.  Have a look through the references to
 get further information, but this is actually the basics of choosing variants
 of packages.
+
+Even worse here, we're choosing to install a version that Spack really
+recommends against.  Deprecated software potentially has been marked as such
+because of security issues, so you likely want to avoid these, but if you know
+best `--deprecated` allows you to install them anyway.  I'll revert to a more
+sensible recommended version in the later examples!
 
 ## Compilers
 
@@ -102,7 +148,7 @@ You may want to build a package with a different compiler, that you already
 have configured.
 
 ```bash
-spack install libtiff @4.4.0 +webp -jpeg build_type=Release %gcc@4.8.5
+spack install libtiff@4.7.0 +webp -jpeg %gcc@11.4.1
 ```
 
 Now Spack will happily rebuild that specific variant you've asked for, with the
@@ -114,11 +160,11 @@ You can also specify particular versions and variants of dependencies.  We can
 take our previous build even further:
 
 ```bash
-spack install libtiff @4.4.0 +webp -jpeg build_type=Release ^perl@5.30.0 %gcc@4.8.5
+spack install libtiff@4.7.0 +webp -jpeg build_type=Release ^perl@5.36.0 %gcc@11.4.1
 ```
 
-This would build using Perl 5.30.0, without JPEG support, and with WebP
-support, using the GNU 4.8.5 compiler.  Note that we have used a ^ to say which
+This would build using Perl 5.36.0, without JPEG support, and with WebP
+support, using the GCC 11.4.1 compiler.  Note that we have used a ^ to say which
 version of perl we want to use because it's a package that we depend on,
 whereas we have to use % to say which compiler to use.
 
@@ -129,16 +175,15 @@ doing, and which dependencies it's going to rely on.
 
 ```bash
 $ spack spec atop
-Input spec
---------------------------------
-atop
-
-Concretized
---------------------------------
-atop@2.5.0%gcc@12.3.0 build_system=generic arch=linux-centos7-skylake_avx512
-    ^ncurses@6.4%gcc@12.3.0~symlinks+termlib abi=none build_system=autotools arch=linux-centos7-skylake_avx512
-        ^pkgconf@1.9.5%gcc@12.3.0 build_system=autotools arch=linux-centos7-skylake_avx512
-    ^zlib@1.2.13%gcc@12.3.0+optimize+pic+shared build_system=makefile arch=linux-centos7-skylake_avx512
+ -   atop@2.5.0%gcc@14.2.0 build_system=generic arch=linux-rocky9-zen4
+[+]      ^gcc-runtime@14.2.0%gcc@14.2.0 build_system=generic arch=linux-rocky9-zen4
+[e]      ^glibc@2.34%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
+[+]      ^ncurses@6.5%gcc@14.2.0~symlinks+termlib abi=none build_system=autotools patches=7a351bc arch=linux-rocky9-zen4
+[+]          ^gmake@4.4.1%gcc@11.4.1~guile build_system=generic arch=linux-rocky9-zen4
+[+]          ^pkgconf@2.2.0%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
+[+]      ^zlib-ng@2.2.1%gcc@11.4.1+compat+new_strategies+opt+pic+shared build_system=autotools arch=linux-rocky9-zen4
+[+]          ^gcc-runtime@11.4.1%gcc@11.4.1 build_system=generic arch=linux-rocky9-zen4
+[e]          ^glibc@2.34%gcc@11.4.1 build_system=autotools arch=linux-rocky9-zen4
 ```
 
 This way you can verify which versions it's expecting to use, and can adjust
@@ -184,11 +229,12 @@ Description:
 
 Homepage: https://tmux.github.io
 
-Preferred version:
-    3.3a      https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
+Preferred version:  
+    3.4       https://github.com/tmux/tmux/releases/download/3.4/tmux-3.4.tar.gz
 
-Safe versions:
+Safe versions:  
     master    [git] https://github.com/tmux/tmux.git on branch master
+    3.4       https://github.com/tmux/tmux/releases/download/3.4/tmux-3.4.tar.gz
     3.3a      https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
     3.2a      https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz
     3.2       https://github.com/tmux/tmux/releases/download/3.2/tmux-3.2.tar.gz
@@ -210,25 +256,28 @@ Safe versions:
     2.1       https://github.com/tmux/tmux/releases/download/2.1/tmux-2.1.tar.gz
     1.9a      https://github.com/tmux/tmux/releases/download/1.9a/tmux-1.9a.tar.gz
 
-Deprecated versions:
+Deprecated versions:  
     None
 
 Variants:
-    Name [Default]              When    Allowed values    Description
-    ========================    ====    ==============    ==============================================
-
-    build_system [autotools]    --      autotools         Build systems supported by the package
-    static [off]                --      on, off           Create a static build
-    utf8proc [off]              --      on, off           Build with UTF-8 support from utf8proc library
+    build_system [autotools]        autotools
+        Build systems supported by the package
+    static [false]                  false, true
+        Create a static build
+    utf8proc [false]                false, true
+        Build with UTF-8 support from utf8proc library
 
 Build Dependencies:
-    autoconf  automake  gnuconfig  libevent  ncurses  pkgconfig  utf8proc
+    autoconf  automake  gmake  gnuconfig  libevent  ncurses  pkgconfig  utf8proc  yacc
 
 Link Dependencies:
     autoconf  automake  libevent  ncurses  utf8proc
 
 Run Dependencies:
     None
+
+Licenses: 
+    ISC
 ```
 
 You can see from this that there is indeed a version 3.2a available, and to add
@@ -246,12 +295,12 @@ $ spack load tmux
 $ tmux -V
 tmux 3.2a
 $ spack find -v tmux
--- linux-centos7-skylake_avx512 / gcc@12.3.0 --------------------
-tmux@3.2a~static+utf8proc build_system=autotools
+-- linux-rocky9-zen4 / gcc@14.2.0 -------------------------------
+tmux@3.2a~static+utf8proc build_system=autotools patches=c1b61a1
 ==> 1 installed package
 ```
 
-You can see from this that we're using the shiny new 3.2 version, and can
+You can see from this that we're using the shiny new 3.2a version, and can
 confirm that it was built with UTF-8 support included.
 
 </details>

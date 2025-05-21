@@ -17,7 +17,7 @@ Here's a minimal workflow for creating an environment:
 - Add a list of software to it
 
   ```bash
-  spack -e myenv add bash@5 python py-numpy py-scipy py-matplotlib openssl@1.1.1t
+  spack -e myenv add bash@5 python py-numpy py-scipy py-matplotlib openssl@3.0.15
   ```
 
 - Tweak the config if required
@@ -61,9 +61,9 @@ Once activated, you can confirm that it's really live:
 
 ```bash
 $ which bash
-/tmp/me/spack/var/spack/environments/myenv/.spack-env/view/bin/bash
+~/spack/var/spack/environments/myenv/.spack-env/view/bin/bash
 $ bash --version
-GNU bash, version 5.2.15(1)-release (x86_64-pc-linux-gnu)
+GNU bash, version 5.2.26(1)-release (x86_64-pc-linux-gnu)
 Copyright (C) 2022 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 

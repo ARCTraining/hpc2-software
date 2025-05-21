@@ -5,12 +5,12 @@ In the [earlier section](testinstall) we built a version of pigz, and loaded it:
 ```bash
 $ spack load pigz
 $ pigz --version
-pigz 2.7
+pigz 2.8
 ```
 
-Now this is different to how we load modules on ARC.  You can make Spack behave
-in the same way, should you wish, although generally we would recommend you use
-the `spack` command to load software instead.
+Now this is different to how we load modules on Aire.  You can make Spack
+behave in the same way, should you wish, although generally we would recommend
+you use the `spack` command to load software instead.
 
 ## Setup
 
@@ -41,23 +41,24 @@ We can confirm now that we can see the module with the module command:
 
 ```bash
 $ module avail pigz
-$ module avail pigz
+------ /users/example/spack/share/spack/modules/linux-rocky9-zen4 ------
+pigz/2.8-gcc-11.4.1-gqwhh2i
 
---------------------------------------------------------------------------- /tmp/me/spack/share/spack/modules/linux-centos7-haswell ----------------------------------------------------------------------------
-pigz-2.7-gcc-4.8.5-ji42zlq
+# Make sure Spack has no packages enabled
+$ spack unload -a
 
------------------------------------------------------------------------- /tmp/me/spack/share/spack/modules/linux-centos7-skylake_avx512 ------------------------------------------------------------------------
-pigz-2.7-gcc-12.3.0-4a2l6se
-
+# On Aire, pigz is installed, but on your system you may find it's not.
 $ pigz --version
--bash: pigz: command not found
-$ module add pigz-2.7-gcc-12.3.0-4a2l6se
+pigz 2.5
+$ module add pigz/2.8-gcc-11.4.1-gqwhh2i
+Loading pigz/2.8-gcc-11.4.1-gqwhh2i
+  Loading requirement: glibc/2.34-gcc-11.4.1-nuyxhw7 gcc-runtime/11.4.1-gcc-11.4.1-7hex6dy zlib-ng/2.2.1-gcc-11.4.1-5rrpd7
 $ pigz --version
-pigz 2.7
+pigz 2.8
 ```
 
-Now, it's very definitive what you're loading (pigz version 2.7 built with gcc
-12.3.0 with a hash to pin it down further), but it's a bit wordy.  This format
+Now, it's very definitive what you're loading (pigz version 2.8 built with gcc
+11.4.1 with a hash to pin it down further), but it's a bit wordy.  This format
 of modules isn't necessarily what you want, and something cleaner is likely
 more generally useful.  Don't be bothered by the mangle of characters at the
 end (the hash).  This just precisely identifies a given build of software,
@@ -94,10 +95,10 @@ modules:
 
 Here we're saying that we want the default module files that use tcl (the
 default) to have a four character hash, and to be named according to this
-name/version model we're used to on other systems.  Quit and save that file,
-and we've told Spack how we'd like these modules to be built in future, but
-existing modules would still use the old scheme.  We can tell it to rebuild the
-modulefiles, and delete existing files:
+name/version model we're used to on our general Linux systems.  Quit and save
+that file, and we've told Spack how we'd like these modules to be built in
+future, but existing modules would still use the old scheme.  We can tell it
+to rebuild the modulefiles, and delete existing files:
 
 ```bash
 spack module tcl refresh --delete-tree -y
@@ -106,31 +107,50 @@ spack module tcl refresh --delete-tree -y
 Testing this out now we can see all is how we wanted it:
 
 ```bash
-$ module avail
 $ module avail pigz
---------------------------------------------------------------------------- /tmp/me/spack/share/spack/modules/linux-centos7-haswell ----------------------------------------------------------------------------
-pigz/2.7-ji42
------------------------------------------------------------------------- /tmp/me/spack/share/spack/modules/linux-centos7-skylake_avx512 ------------------------------------------------------------------------
-pigz/2.7-4a2l
+------ /users/example/spack/share/spack/modules/linux-rocky9-zen4 ------
+pigz/2.8-gqwh
 ```
 
 We now have tidier module files, named in a simpler fashion, which is probably
 enough for most straightforward purposes.  They can be loaded in the same style
-you would on ARC:
+you would on other systems:
 
 ```bash
 $ module add pigz
-$ module add pigz/2.7-ji42
+$ module add pigz/2.8-gqwh
 ```
 
-In this case, we still need to include a hash, as we've got pigz built with two
-different compilers, and elsewhere we have cmake built with two different sets
-of dependencies, complicating matters further.
+Now you may be wondering why we bothered including this hash, as it'd clearly
+be tidier to omit it and just have `pigz/2.8` as the module name.
+
+In this case, we didn't need to include a hash, as we've only got pigz built
+in one way, but elsewhere we may have modules built with
+different compilers, dependencies and variants.  So for example:
+
+```bash
+$ module avail zlib-ng
+------ /users/example/spack/share/spack/modules/linux-rocky9-zen4 ------
+zlib-ng/2.0.7-pjab  zlib-ng/2.2.1-5rrp  zlib-ng/2.2.1-xjlb
+$ spack find zlib-ng
+-- linux-rocky9-zen4 / gcc@11.4.1 -------------------------------
+zlib-ng@2.0.7  zlib-ng@2.2.1
+
+-- linux-rocky9-zen4 / gcc@14.2.0 -------------------------------
+zlib-ng@2.2.1
+==> 3 installed packages
+```
+
+You can see here we have two versions of zlib-ng built with two different
+compilers, which would clearly class with a simpler scheme.
 
 If you want more complicated structures, supporting multiple compilers, MPI
 implementations, numerical libraries, this is all possible, and covered in the
 link below in the references.  It also supports LMod as well as the more legacy
-Tcl system.
+Tcl system.  There's also options for hiding a lot of the dependencies to slim
+down how many modules are exposed to you as a user by default, but that's
+aesthetic, and you can already take advantage of most of the power of Spack
+without digging into those details.
 
 ## References
 
