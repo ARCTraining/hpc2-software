@@ -10,8 +10,8 @@ I'll introduce Spack by quoting the first paragraph of their documentation:
 
 So what does this mean in practice?  You've already learnt about build systems
 like [Autotools](autotools) and [CMake](cmake), and may be familiar with
-[module systems](https://arcdocs.leeds.ac.uk/software/start.html#module-system)
-as used on ARC.  You may also have worked through the section on
+[module systems](https://arcdocs.leeds.ac.uk/aire/software/start.html#modules)
+as used on Aire.  You may also have worked through the section on
 [containers](containers) and wondered if there was an easier way of building a
 potentially deep stack of software for a particular project.
 

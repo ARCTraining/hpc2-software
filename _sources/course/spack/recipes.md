@@ -19,23 +19,26 @@ this can still be quite straightforward.
 
 I've found a game, [nSnake](https://github.com/alexdantas/nSnake), and want to
 install it.  I've found the source tar file online, so let's start with
-building a config, and just go with the default of checksumming a single
-version, by pressing return when prompted.  When this completes, quit the editor.
+building a config, and just go with the default of checksumming of the listed
+versions, by pressing `c` when prompted.  When this completes, quit the editor.
 
 ```bash
 $ spack create 'https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz'
 ==> This looks like a URL for nSnake
-==> Found 3 versions of nsnake:
-
+==> Selected 3 versions
   3.0.0  https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
   2.0.0  https://github.com/alexdantas/nSnake/archive/refs/tags/v2.0.0.tar.gz
   1.7    https://github.com/alexdantas/nSnake/archive/refs/tags/v1.7.tar.gz
 
-==> How many would you like to checksum? (default is 1, q to abort)
+==> Enter number of versions to take, or use a command:
+    [c]hecksum  [e]dit  [f]ilter  [a]sk each  [n]ew only  [r]estart  [q]uit
+action> c
 ==> Fetching https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
+==> Fetching https://github.com/alexdantas/nSnake/archive/refs/tags/v1.7.tar.gz
+==> Fetching https://github.com/alexdantas/nSnake/archive/refs/tags/v2.0.0.tar.gz
 ==> This package looks like it uses the makefile build system
 ==> Created template for nsnake package
-==> Created package file: /home/me/spack/var/spack/repos/builtin/packages/nsnake/package.py
+==> Created package file: /users/example/spack/var/spack/repos/builtin/packages/nsnake/package.py
 ```
 
 Now let's try and build this, and see what happens.
@@ -47,7 +50,7 @@ spack install nsnake
 This build errors out, with a missing dependency:
 
 ```
-  >> 40    /usr/bin/ld: cannot find -lyaml-cpp
+  >> 13    src/Interface/Ncurses.hpp:5:10: fatal error: ncurses.h: No such file or directory
 ```
 
 So, how hard is it to add a dependency into spack for this, and adjust the
@@ -64,10 +67,10 @@ You'll see that in the template config, it has:
     # depends_on("foo")
 ```
 
-So let's fix that:
+So let's fix that and add in a dependency for ncurses:
 
 ```python
-    depends_on("yaml-cpp")
+    depends_on("ncurses")
 ```
 
 Let's try installing it again:
@@ -76,7 +79,51 @@ Let's try installing it again:
 spack install nsnake
 ```
 
+This build errors out, with a missing dependency:
+
+```
+  >> 47    /usr/bin/ld: cannot find -lyaml-cpp
+```
+
+Let's edit it again:
+
+```bash
+spack edit nsnake
+```
+
+We'll add in another line:
+```python
+    depends_on("yaml-cpp")
+```
+
+Another attempt to install it, surely it'll build now:
+
+```bash
+spack install nsnake
+```
+
 We fail again:
+
+```
+  >> 44    /usr/bin/ld: src/Interface/Ncurses.o: undefined reference to symbol 'cbreak@@@@NCURSES6_TINFO_5.0.19991023'
+```
+
+Blame me now for trying to build a game that's ten years old.  It doesn't use
+ncurses properly and fails to link a required library.  But believe it or not,
+there's an option within the Spack recipe for ncurses that let's us avoid
+needing this library!  Let's tweak it again:
+
+```python
+    depends_on("ncurses~termlib")
+```
+
+Another attempt to install it:
+
+```bash
+spack install nsnake
+```
+
+We fail again!:
 
 ```
 install: cannot change permissions of '/usr/bin': Operation not permitted
@@ -154,7 +201,9 @@ the `def edit` section to look like this:
 For those unsure of what LDFLAGS, linkers, binpaths, or anything else here is
 talking about, please refer to the [theory section](../theory).
 
-This isn't needed for this particular software, but it's included here as a note.
+This isn't needed for this particular software because Spack tries to
+intervene and hardcode this links to libraries where it can, but it's included
+here as a note.
 
 ### Summary
 
@@ -181,16 +230,24 @@ That creates a template configuration, that just needs a couple of edits.  It
 highlights sections it thinks you should  fix, with FIXME sections:
 
 ```python
+class CmakeTutorial(CMakePackage):
+    """FIXME: Put a proper description of your package here."""
+
     # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://www.example.com"
     url = "https://github.com/maks-it/CMake-Tutorial"
 
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
-    # maintainers = ["github_user1", "github_user2"]
+    # maintainers("github_user1", "github_user2")
+
+    # FIXME: Add the SPDX identifier of the project's license below.
+    # See https://spdx.org/licenses/ for a list. Upon manually verifying
+    # the license, set checked_by to your Github username.
+    license("UNKNOWN", checked_by="github_user1")
 
     # FIXME: Add proper versions and checksums here.
-    # version("1.2.3", "0123456789abcdef0123456789abcdef")
+    # version("1.2.3", md5="0123456789abcdef0123456789abcdef")
 
     # FIXME: Add dependencies if required.
     # depends_on("foo")
@@ -199,11 +256,14 @@ highlights sections it thinks you should  fix, with FIXME sections:
         # FIXME: Add arguments other than
         # FIXME: CMAKE_INSTALL_PREFIX and CMAKE_BUILD_TYPE
         # FIXME: If not needed delete this function
+        args = []
+        return args
 ```
 
-I'm not going to fix all of these, but just do the bare minimum for now.
-Change `url =` to `git =` since we're just using git and haven't got a tarball
-containing this release.  Also define a version:
+I'm not going to fix all of these, but just do pretty much the bare minimum
+for now.  Change `url =` to `git =` since we're just using git and haven't got
+a tarball containing this release, and fix the homepage.  Also define a
+version:
 
 ```python
 version("develop", branch="master")
@@ -213,7 +273,7 @@ This way it knows to use the master branch to build a "develop" release.  This
 the leaves us with this minimal config:
 
 ```python
-# Copyright 2013-2022 Lawrence Livermore National Security, LLC and other
+# Copyright 2013-2024 Lawrence Livermore National Security, LLC and other
 # Spack Project Developers. See the top-level COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
@@ -250,26 +310,26 @@ on the Spack website.
 
 ## Autotools
 
-Here's a similarly trivial Autotools based example.  We're picking the autoreconf type, as this includes other typical steps required when using git sourced Autotools build packages:
+Here's a similarly trivial Autotools based example.  We're picking the
+autoreconf type, as this includes other typical steps required when using git
+sourced Autotools build packages:
 
 ```bash
 spack create -t autoreconf https://github.com/lloydroc/autotools-example
 ```
 
-We make the same basic edits done in Cmake, to tell it we're using git, and which branch to use for the `develop` version.  This leaves us with:
+We make the same basic edits done in the Cmake section, to tell it we're using
+git, and which branch to use for the `develop` version.  This leaves us with:
 
 ```python
-# Copyright 2013-2022 Lawrence Livermore National Security, LLC and other
+# Copyright 2013-2024 Lawrence Livermore National Security, LLC and other
 # Spack Project Developers. See the top-level COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
 from spack.package import *
 
-
 class AutotoolsExample(AutotoolsPackage):
-    """Demo package to show how to use Autotools"""
-
     homepage = "https://github.com/lloydroc/autotools-example"
     git = "https://github.com/lloydroc/autotools-example"
 

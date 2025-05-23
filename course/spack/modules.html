@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -77,28 +77,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -120,12 +115,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -140,6 +143,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../welcome.html">
@@ -174,9 +180,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../autotools.html">Autotools</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="../cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmake.html">Introduction</a></li>
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../containers.html">Containers</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../spack.html">Spack</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../spack.html">Spack</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing.html">Installing Spack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="testinstall.html">Building a test piece of software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="existing.html">Using existing software</a></li>
@@ -186,7 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="recipes.html">Recipes</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Module files</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference external" href="https://arc.leeds.ac.uk">Research Computing Website</a></li>
 </ul>
 
@@ -203,7 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -212,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -358,19 +367,21 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -409,19 +420,19 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="module-files">
 <h1>Module files<a class="headerlink" href="#module-files" title="Permalink to this heading">#</a></h1>
 <p>In the <a class="reference internal" href="testinstall.html"><span class="doc std std-doc">earlier section</span></a> we built a version of pigz, and loaded it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>load<span class="w"> </span>pigz
 $<span class="w"> </span>pigz<span class="w"> </span>--version
-pigz<span class="w"> </span><span class="m">2</span>.7
+pigz<span class="w"> </span><span class="m">2</span>.8
 </pre></div>
 </div>
-<p>Now this is different to how we load modules on ARC.  You can make Spack behave
-in the same way, should you wish, although generally we would recommend you use
-the <code class="docutils literal notranslate"><span class="pre">spack</span></code> command to load software instead.</p>
+<p>Now this is different to how we load modules on Aire.  You can make Spack
+behave in the same way, should you wish, although generally we would recommend
+you use the <code class="docutils literal notranslate"><span class="pre">spack</span></code> command to load software instead.</p>
 <section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
 <p>You need to do one step to enable module file creation:</p>
@@ -443,23 +454,24 @@ module command though:</p>
 </div>
 <p>We can confirm now that we can see the module with the module command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>avail<span class="w"> </span>pigz
-$<span class="w"> </span>module<span class="w"> </span>avail<span class="w"> </span>pigz
+------<span class="w"> </span>/users/example/spack/share/spack/modules/linux-rocky9-zen4<span class="w"> </span>------
+pigz/2.8-gcc-11.4.1-gqwhh2i
 
----------------------------------------------------------------------------<span class="w"> </span>/tmp/me/spack/share/spack/modules/linux-centos7-haswell<span class="w"> </span>----------------------------------------------------------------------------
-pigz-2.7-gcc-4.8.5-ji42zlq
+<span class="c1"># Make sure Spack has no packages enabled</span>
+$<span class="w"> </span>spack<span class="w"> </span>unload<span class="w"> </span>-a
 
-------------------------------------------------------------------------<span class="w"> </span>/tmp/me/spack/share/spack/modules/linux-centos7-skylake_avx512<span class="w"> </span>------------------------------------------------------------------------
-pigz-2.7-gcc-12.3.0-4a2l6se
-
+<span class="c1"># On Aire, pigz is installed, but on your system you may find it&#39;s not.</span>
 $<span class="w"> </span>pigz<span class="w"> </span>--version
--bash:<span class="w"> </span>pigz:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found
-$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz-2.7-gcc-12.3.0-4a2l6se
+pigz<span class="w"> </span><span class="m">2</span>.5
+$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz/2.8-gcc-11.4.1-gqwhh2i
+Loading<span class="w"> </span>pigz/2.8-gcc-11.4.1-gqwhh2i
+<span class="w">  </span>Loading<span class="w"> </span>requirement:<span class="w"> </span>glibc/2.34-gcc-11.4.1-nuyxhw7<span class="w"> </span>gcc-runtime/11.4.1-gcc-11.4.1-7hex6dy<span class="w"> </span>zlib-ng/2.2.1-gcc-11.4.1-5rrpd7
 $<span class="w"> </span>pigz<span class="w"> </span>--version
-pigz<span class="w"> </span><span class="m">2</span>.7
+pigz<span class="w"> </span><span class="m">2</span>.8
 </pre></div>
 </div>
-<p>Now, it’s very definitive what you’re loading (pigz version 2.7 built with gcc
-12.3.0 with a hash to pin it down further), but it’s a bit wordy.  This format
+<p>Now, it’s very definitive what you’re loading (pigz version 2.8 built with gcc
+11.4.1 with a hash to pin it down further), but it’s a bit wordy.  This format
 of modules isn’t necessarily what you want, and something cleaner is likely
 more generally useful.  Don’t be bothered by the mangle of characters at the
 end (the hash).  This just precisely identifies a given build of software,
@@ -490,36 +502,52 @@ generates module files, and we can edit it via:</p>
 </div>
 <p>Here we’re saying that we want the default module files that use tcl (the
 default) to have a four character hash, and to be named according to this
-name/version model we’re used to on other systems.  Quit and save that file,
-and we’ve told Spack how we’d like these modules to be built in future, but
-existing modules would still use the old scheme.  We can tell it to rebuild the
-modulefiles, and delete existing files:</p>
+name/version model we’re used to on our general Linux systems.  Quit and save
+that file, and we’ve told Spack how we’d like these modules to be built in
+future, but existing modules would still use the old scheme.  We can tell it
+to rebuild the modulefiles, and delete existing files:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>module<span class="w"> </span>tcl<span class="w"> </span>refresh<span class="w"> </span>--delete-tree<span class="w"> </span>-y
 </pre></div>
 </div>
 <p>Testing this out now we can see all is how we wanted it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>avail
-$<span class="w"> </span>module<span class="w"> </span>avail<span class="w"> </span>pigz
----------------------------------------------------------------------------<span class="w"> </span>/tmp/me/spack/share/spack/modules/linux-centos7-haswell<span class="w"> </span>----------------------------------------------------------------------------
-pigz/2.7-ji42
-------------------------------------------------------------------------<span class="w"> </span>/tmp/me/spack/share/spack/modules/linux-centos7-skylake_avx512<span class="w"> </span>------------------------------------------------------------------------
-pigz/2.7-4a2l
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>avail<span class="w"> </span>pigz
+------<span class="w"> </span>/users/example/spack/share/spack/modules/linux-rocky9-zen4<span class="w"> </span>------
+pigz/2.8-gqwh
 </pre></div>
 </div>
 <p>We now have tidier module files, named in a simpler fashion, which is probably
 enough for most straightforward purposes.  They can be loaded in the same style
-you would on ARC:</p>
+you would on other systems:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz
-$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz/2.7-ji42
+$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz/2.8-gqwh
 </pre></div>
 </div>
-<p>In this case, we still need to include a hash, as we’ve got pigz built with two
-different compilers, and elsewhere we have cmake built with two different sets
-of dependencies, complicating matters further.</p>
+<p>Now you may be wondering why we bothered including this hash, as it’d clearly
+be tidier to omit it and just have <code class="docutils literal notranslate"><span class="pre">pigz/2.8</span></code> as the module name.</p>
+<p>In this case, we didn’t need to include a hash, as we’ve only got pigz built
+in one way, but elsewhere we may have modules built with
+different compilers, dependencies and variants.  So for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>avail<span class="w"> </span>zlib-ng
+------<span class="w"> </span>/users/example/spack/share/spack/modules/linux-rocky9-zen4<span class="w"> </span>------
+zlib-ng/2.0.7-pjab<span class="w">  </span>zlib-ng/2.2.1-5rrp<span class="w">  </span>zlib-ng/2.2.1-xjlb
+$<span class="w"> </span>spack<span class="w"> </span>find<span class="w"> </span>zlib-ng
+--<span class="w"> </span>linux-rocky9-zen4<span class="w"> </span>/<span class="w"> </span>gcc@11.4.1<span class="w"> </span>-------------------------------
+zlib-ng@2.0.7<span class="w">  </span>zlib-ng@2.2.1
+
+--<span class="w"> </span>linux-rocky9-zen4<span class="w"> </span>/<span class="w"> </span>gcc@14.2.0<span class="w"> </span>-------------------------------
+zlib-ng@2.2.1
+<span class="o">==</span>&gt;<span class="w"> </span><span class="m">3</span><span class="w"> </span>installed<span class="w"> </span>packages
+</pre></div>
+</div>
+<p>You can see here we have two versions of zlib-ng built with two different
+compilers, which would clearly class with a simpler scheme.</p>
 <p>If you want more complicated structures, supporting multiple compilers, MPI
 implementations, numerical libraries, this is all possible, and covered in the
 link below in the references.  It also supports LMod as well as the more legacy
-Tcl system.</p>
+Tcl system.  There’s also options for hiding a lot of the dependencies to slim
+down how many modules are exposed to you as a user by default, but that’s
+aesthetic, and you can already take advantage of most of the power of Spack
+without digging into those details.</p>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
@@ -556,8 +584,8 @@ Tcl system.</p>
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="recipes.html"
@@ -576,6 +604,7 @@ Tcl system.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -606,6 +635,7 @@ By University of Leeds Research Computing Team
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -632,8 +662,8 @@ By University of Leeds Research Computing Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

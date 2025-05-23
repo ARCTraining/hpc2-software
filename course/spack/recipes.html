@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -78,28 +78,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +116,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,6 +144,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../welcome.html">
@@ -175,9 +181,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../autotools.html">Autotools</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="../cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmake.html">Introduction</a></li>
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../containers.html">Containers</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../spack.html">Spack</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../spack.html">Spack</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing.html">Installing Spack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="testinstall.html">Building a test piece of software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="existing.html">Using existing software</a></li>
@@ -187,7 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Recipes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html">Module files</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference external" href="https://arc.leeds.ac.uk">Research Computing Website</a></li>
 </ul>
 
@@ -204,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -213,7 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -359,19 +368,21 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -416,7 +427,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="recipes">
 <h1>Recipes<a class="headerlink" href="#recipes" title="Permalink to this heading">#</a></h1>
@@ -436,21 +447,24 @@ the Makefile.  Let’s install a game that uses a simple Makefile, and see how
 this can still be quite straightforward.</p>
 <p>I’ve found a game, <a class="reference external" href="https://github.com/alexdantas/nSnake">nSnake</a>, and want to
 install it.  I’ve found the source tar file online, so let’s start with
-building a config, and just go with the default of checksumming a single
-version, by pressing return when prompted.  When this completes, quit the editor.</p>
+building a config, and just go with the default of checksumming of the listed
+versions, by pressing <code class="docutils literal notranslate"><span class="pre">c</span></code> when prompted.  When this completes, quit the editor.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>create<span class="w"> </span><span class="s1">&#39;https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz&#39;</span>
 <span class="o">==</span>&gt;<span class="w"> </span>This<span class="w"> </span>looks<span class="w"> </span>like<span class="w"> </span>a<span class="w"> </span>URL<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">nSnake</span>
-<span class="o">==</span>&gt;<span class="w"> </span>Found<span class="w"> </span><span class="m">3</span><span class="w"> </span>versions<span class="w"> </span>of<span class="w"> </span>nsnake:
-
+<span class="o">==</span>&gt;<span class="w"> </span>Selected<span class="w"> </span><span class="m">3</span><span class="w"> </span>versions
 <span class="w">  </span><span class="m">3</span>.0.0<span class="w">  </span>https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
 <span class="w">  </span><span class="m">2</span>.0.0<span class="w">  </span>https://github.com/alexdantas/nSnake/archive/refs/tags/v2.0.0.tar.gz
 <span class="w">  </span><span class="m">1</span>.7<span class="w">    </span>https://github.com/alexdantas/nSnake/archive/refs/tags/v1.7.tar.gz
 
-<span class="o">==</span>&gt;<span class="w"> </span>How<span class="w"> </span>many<span class="w"> </span>would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>to<span class="w"> </span>checksum?<span class="w"> </span><span class="o">(</span>default<span class="w"> </span>is<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>q<span class="w"> </span>to<span class="w"> </span>abort<span class="o">)</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Enter<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>versions<span class="w"> </span>to<span class="w"> </span>take,<span class="w"> </span>or<span class="w"> </span>use<span class="w"> </span>a<span class="w"> </span>command:
+<span class="w">    </span><span class="o">[</span>c<span class="o">]</span>hecksum<span class="w">  </span><span class="o">[</span>e<span class="o">]</span>dit<span class="w">  </span><span class="o">[</span>f<span class="o">]</span>ilter<span class="w">  </span><span class="o">[</span>a<span class="o">]</span>sk<span class="w"> </span>each<span class="w">  </span><span class="o">[</span>n<span class="o">]</span>ew<span class="w"> </span>only<span class="w">  </span><span class="o">[</span>r<span class="o">]</span>estart<span class="w">  </span><span class="o">[</span>q<span class="o">]</span>uit
+action&gt;<span class="w"> </span><span class="nv">c</span>
 <span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://github.com/alexdantas/nSnake/archive/refs/tags/v3.0.0.tar.gz
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://github.com/alexdantas/nSnake/archive/refs/tags/v1.7.tar.gz
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://github.com/alexdantas/nSnake/archive/refs/tags/v2.0.0.tar.gz
 <span class="o">==</span>&gt;<span class="w"> </span>This<span class="w"> </span>package<span class="w"> </span>looks<span class="w"> </span>like<span class="w"> </span>it<span class="w"> </span>uses<span class="w"> </span>the<span class="w"> </span>makefile<span class="w"> </span>build<span class="w"> </span><span class="nv">system</span>
 <span class="o">==</span>&gt;<span class="w"> </span>Created<span class="w"> </span>template<span class="w"> </span><span class="k">for</span><span class="w"> </span>nsnake<span class="w"> </span><span class="nv">package</span>
-<span class="o">==</span>&gt;<span class="w"> </span>Created<span class="w"> </span>package<span class="w"> </span>file:<span class="w"> </span>/home/me/spack/var/spack/repos/builtin/packages/nsnake/package.py
+<span class="o">==</span>&gt;<span class="w"> </span>Created<span class="w"> </span>package<span class="w"> </span>file:<span class="w"> </span>/users/example/spack/var/spack/repos/builtin/packages/nsnake/package.py
 </pre></div>
 </div>
 <p>Now let’s try and build this, and see what happens.</p>
@@ -458,7 +472,7 @@ version, by pressing return when prompted.  When this completes, quit the editor
 </pre></div>
 </div>
 <p>This build errors out, with a missing dependency:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">&gt;&gt;</span> <span class="mi">40</span>    <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ld</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">find</span> <span class="o">-</span><span class="n">lyaml</span><span class="o">-</span><span class="n">cpp</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">&gt;&gt;</span> <span class="mi">13</span>    <span class="n">src</span><span class="o">/</span><span class="n">Interface</span><span class="o">/</span><span class="n">Ncurses</span><span class="o">.</span><span class="n">hpp</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span> <span class="n">fatal</span> <span class="n">error</span><span class="p">:</span> <span class="n">ncurses</span><span class="o">.</span><span class="n">h</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span>
 </pre></div>
 </div>
 <p>So, how hard is it to add a dependency into spack for this, and adjust the
@@ -471,15 +485,46 @@ build process to use it?</p>
     <span class="c1"># depends_on(&quot;foo&quot;)</span>
 </pre></div>
 </div>
-<p>So let’s fix that:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;yaml-cpp&quot;</span><span class="p">)</span>
+<p>So let’s fix that and add in a dependency for ncurses:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;ncurses&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Let’s try installing it again:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>nsnake
 </pre></div>
 </div>
+<p>This build errors out, with a missing dependency:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">&gt;&gt;</span> <span class="mi">47</span>    <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ld</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">find</span> <span class="o">-</span><span class="n">lyaml</span><span class="o">-</span><span class="n">cpp</span>
+</pre></div>
+</div>
+<p>Let’s edit it again:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>edit<span class="w"> </span>nsnake
+</pre></div>
+</div>
+<p>We’ll add in another line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;yaml-cpp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Another attempt to install it, surely it’ll build now:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>nsnake
+</pre></div>
+</div>
 <p>We fail again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">&gt;&gt;</span> <span class="mi">44</span>    <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ld</span><span class="p">:</span> <span class="n">src</span><span class="o">/</span><span class="n">Interface</span><span class="o">/</span><span class="n">Ncurses</span><span class="o">.</span><span class="n">o</span><span class="p">:</span> <span class="n">undefined</span> <span class="n">reference</span> <span class="n">to</span> <span class="n">symbol</span> <span class="s1">&#39;cbreak@@@@NCURSES6_TINFO_5.0.19991023&#39;</span>
+</pre></div>
+</div>
+<p>Blame me now for trying to build a game that’s ten years old.  It doesn’t use
+ncurses properly and fails to link a required library.  But believe it or not,
+there’s an option within the Spack recipe for ncurses that let’s us avoid
+needing this library!  Let’s tweak it again:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;ncurses~termlib&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Another attempt to install it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>nsnake
+</pre></div>
+</div>
+<p>We fail again!:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">install</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">change</span> <span class="n">permissions</span> <span class="n">of</span> <span class="s1">&#39;/usr/bin&#39;</span><span class="p">:</span> <span class="n">Operation</span> <span class="ow">not</span> <span class="n">permitted</span>
 </pre></div>
 </div>
@@ -489,7 +534,7 @@ but in this case, we need to fix it.  Reviewing the Makefile, we find that
 PREFIX is hardcoded into the Makefile, and can’t be adjusted with an
 environment variable like we did before.  No problem, Spack lets you edit the
 Makefile.  Let’s adjust our edit function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
         <span class="n">makefile</span> <span class="o">=</span> <span class="n">FileFilter</span><span class="p">(</span><span class="s1">&#39;Makefile&#39;</span><span class="p">)</span>
         <span class="n">makefile</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;PREFIX\s*=.*&#39;</span><span class="p">,</span> <span class="s1">&#39;PREFIX = &#39;</span> <span class="o">+</span> <span class="n">prefix</span><span class="p">)</span>
         <span class="k">pass</span>
@@ -538,14 +583,16 @@ needs more guidance.  If you looked at the Makefile for this project, you’d se
 they recommend setting the environment variable LDFLAGS_PLATFORM for any
 additional linker flags required.  So you could tell Spack to do this, change
 the <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">edit</span></code> section to look like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
         <span class="n">env</span><span class="p">[</span><span class="s1">&#39;LDFLAGS_PLATFORM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spec</span><span class="p">[</span><span class="s1">&#39;yaml-cpp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">libs</span><span class="o">.</span><span class="n">ld_flags</span>
         <span class="k">pass</span>
 </pre></div>
 </div>
 <p>For those unsure of what LDFLAGS, linkers, binpaths, or anything else here is
 talking about, please refer to the <a class="reference internal" href="../theory.html"><span class="doc std std-doc">theory section</span></a>.</p>
-<p>This isn’t needed for this particular software, but it’s included here as a note.</p>
+<p>This isn’t needed for this particular software because Spack tries to
+intervene and hardcode this links to libraries where it can, but it’s included
+here as a note.</p>
 </section>
 <section id="summary">
 <h3>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h3>
@@ -569,42 +616,53 @@ be.</p>
 </div>
 <p>That creates a template configuration, that just needs a couple of edits.  It
 highlights sections it thinks you should  fix, with FIXME sections:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># FIXME: Add a proper url for your package&#39;s homepage here.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">CmakeTutorial</span><span class="p">(</span><span class="n">CMakePackage</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;FIXME: Put a proper description of your package here.&quot;&quot;&quot;</span>
+
+    <span class="c1"># FIXME: Add a proper url for your package&#39;s homepage here.</span>
     <span class="n">homepage</span> <span class="o">=</span> <span class="s2">&quot;https://www.example.com&quot;</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/maks-it/CMake-Tutorial&quot;</span>
 
     <span class="c1"># FIXME: Add a list of GitHub accounts to</span>
     <span class="c1"># notify when the package is updated.</span>
-    <span class="c1"># maintainers = [&quot;github_user1&quot;, &quot;github_user2&quot;]</span>
+    <span class="c1"># maintainers(&quot;github_user1&quot;, &quot;github_user2&quot;)</span>
+
+    <span class="c1"># FIXME: Add the SPDX identifier of the project&#39;s license below.</span>
+    <span class="c1"># See https://spdx.org/licenses/ for a list. Upon manually verifying</span>
+    <span class="c1"># the license, set checked_by to your Github username.</span>
+    <span class="n">license</span><span class="p">(</span><span class="s2">&quot;UNKNOWN&quot;</span><span class="p">,</span> <span class="n">checked_by</span><span class="o">=</span><span class="s2">&quot;github_user1&quot;</span><span class="p">)</span>
 
     <span class="c1"># FIXME: Add proper versions and checksums here.</span>
-    <span class="c1"># version(&quot;1.2.3&quot;, &quot;0123456789abcdef0123456789abcdef&quot;)</span>
+    <span class="c1"># version(&quot;1.2.3&quot;, md5=&quot;0123456789abcdef0123456789abcdef&quot;)</span>
 
     <span class="c1"># FIXME: Add dependencies if required.</span>
     <span class="c1"># depends_on(&quot;foo&quot;)</span>
 
-    <span class="k">def</span> <span class="nf">cmake_args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cmake_args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># FIXME: Add arguments other than</span>
         <span class="c1"># FIXME: CMAKE_INSTALL_PREFIX and CMAKE_BUILD_TYPE</span>
         <span class="c1"># FIXME: If not needed delete this function</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="n">args</span>
 </pre></div>
 </div>
-<p>I’m not going to fix all of these, but just do the bare minimum for now.
-Change <code class="docutils literal notranslate"><span class="pre">url</span> <span class="pre">=</span></code> to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">=</span></code> since we’re just using git and haven’t got a tarball
-containing this release.  Also define a version:</p>
+<p>I’m not going to fix all of these, but just do pretty much the bare minimum
+for now.  Change <code class="docutils literal notranslate"><span class="pre">url</span> <span class="pre">=</span></code> to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">=</span></code> since we’re just using git and haven’t got
+a tarball containing this release, and fix the homepage.  Also define a
+version:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">(</span><span class="s2">&quot;develop&quot;</span><span class="p">,</span> <span class="n">branch</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This way it knows to use the master branch to build a “develop” release.  This
 the leaves us with this minimal config:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copyright 2013-2022 Lawrence Livermore National Security, LLC and other</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copyright 2013-2024 Lawrence Livermore National Security, LLC and other</span>
 <span class="c1"># Spack Project Developers. See the top-level COPYRIGHT file for details.</span>
 <span class="c1">#</span>
 <span class="c1"># SPDX-License-Identifier: (Apache-2.0 OR MIT)</span>
 
-<span class="kn">from</span> <span class="nn">spack.package</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spack.package</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">class</span> <span class="nc">CmakeTutorial</span><span class="p">(</span><span class="n">CMakePackage</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CmakeTutorial</span><span class="p">(</span><span class="n">CMakePackage</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Demo package to show how to use Cmake&quot;&quot;&quot;</span>
 
     <span class="n">homepage</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/maks-it/CMake-Tutorial&quot;</span>
@@ -630,22 +688,22 @@ on the Spack website.</p>
 </section>
 <section id="autotools">
 <h2>Autotools<a class="headerlink" href="#autotools" title="Permalink to this heading">#</a></h2>
-<p>Here’s a similarly trivial Autotools based example.  We’re picking the autoreconf type, as this includes other typical steps required when using git sourced Autotools build packages:</p>
+<p>Here’s a similarly trivial Autotools based example.  We’re picking the
+autoreconf type, as this includes other typical steps required when using git
+sourced Autotools build packages:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>create<span class="w"> </span>-t<span class="w"> </span>autoreconf<span class="w"> </span>https://github.com/lloydroc/autotools-example
 </pre></div>
 </div>
-<p>We make the same basic edits done in Cmake, to tell it we’re using git, and which branch to use for the <code class="docutils literal notranslate"><span class="pre">develop</span></code> version.  This leaves us with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copyright 2013-2022 Lawrence Livermore National Security, LLC and other</span>
+<p>We make the same basic edits done in the Cmake section, to tell it we’re using
+git, and which branch to use for the <code class="docutils literal notranslate"><span class="pre">develop</span></code> version.  This leaves us with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copyright 2013-2024 Lawrence Livermore National Security, LLC and other</span>
 <span class="c1"># Spack Project Developers. See the top-level COPYRIGHT file for details.</span>
 <span class="c1">#</span>
 <span class="c1"># SPDX-License-Identifier: (Apache-2.0 OR MIT)</span>
 
-<span class="kn">from</span> <span class="nn">spack.package</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spack.package</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-
-<span class="k">class</span> <span class="nc">AutotoolsExample</span><span class="p">(</span><span class="n">AutotoolsPackage</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Demo package to show how to use Autotools&quot;&quot;&quot;</span>
-
+<span class="k">class</span><span class="w"> </span><span class="nc">AutotoolsExample</span><span class="p">(</span><span class="n">AutotoolsPackage</span><span class="p">):</span>
     <span class="n">homepage</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/lloydroc/autotools-example&quot;</span>
     <span class="n">git</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/lloydroc/autotools-example&quot;</span>
 
@@ -656,7 +714,7 @@ on the Spack website.</p>
     <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;libtool&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">)</span>
     <span class="n">depends_on</span><span class="p">(</span><span class="s2">&quot;m4&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">autoreconf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">autoreconf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
         <span class="n">autoreconf</span><span class="p">(</span><span class="s2">&quot;--install&quot;</span><span class="p">,</span> <span class="s2">&quot;--verbose&quot;</span><span class="p">,</span> <span class="s2">&quot;--force&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -707,8 +765,8 @@ specific versions of any other dependencies.</p>
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="environments.html"
@@ -736,6 +794,7 @@ specific versions of any other dependencies.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -772,6 +831,7 @@ By University of Leeds Research Computing Team
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -798,8 +858,8 @@ By University of Leeds Research Computing Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

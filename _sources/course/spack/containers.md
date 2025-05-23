@@ -57,11 +57,11 @@ As a proof of life, let's run gromacs from within that container:
 
 ```bash
 $ apptainer run gromacs-openmpi.sif mpirun -np 4 gmx_mpi
-                    :-) GROMACS - gmx_mpi, 2023.1-spack (-:
+                    :-) GROMACS - gmx_mpi, 2024.4-spack (-:
 
-Executable:   /opt/software/linux-ubuntu22.04-skylake_avx512/gcc-11.4.0/gromacs-2023.1-423hodczn375tumo2c5eorq5pikirpxo/bin/gmx_mpi
-Data prefix:  /opt/software/linux-ubuntu22.04-skylake_avx512/gcc-11.4.0/gromacs-2023.1-423hodczn375tumo2c5eorq5pikirpxo
-Working dir:  /tmp/me/container
+Executable:   /opt/software/linux-zen4/gromacs-2024.4-af5srsrjr7w2alftldvyek2chqu4rtls/bin/gmx_mpi
+Data prefix:  /opt/software/linux-zen4/gromacs-2024.4-af5srsrjr7w2alftldvyek2chqu4rtls
+Working dir:  /users/example/hpc2
 Command line:
   gmx_mpi
 

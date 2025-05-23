@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CMake" href="cmake.html" />
+    <link rel="next" title="Introduction" href="cmake.html" />
     <link rel="prev" title="Conda package manager" href="conda.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -78,28 +78,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +116,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,6 +144,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../welcome.html">
@@ -175,9 +181,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Autotools</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">Introduction</a></li>
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="containers.html">Containers</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="spack.html">Spack</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="spack.html">Spack</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="spack/installing.html">Installing Spack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spack/testinstall.html">Building a test piece of software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spack/existing.html">Using existing software</a></li>
@@ -187,7 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="spack/recipes.html">Recipes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spack/modules.html">Module files</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference external" href="https://arc.leeds.ac.uk">Research Computing Website</a></li>
 </ul>
 
@@ -204,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -213,7 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -359,19 +368,21 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -421,7 +432,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="autotools">
 <h1>Autotools<a class="headerlink" href="#autotools" title="Permalink to this heading">#</a></h1>
@@ -443,9 +454,9 @@ I’m picking on something from GitHub that includes all these steps.</p>
 <section id="download-your-software">
 <h2>Download your software<a class="headerlink" href="#download-your-software" title="Permalink to this heading">#</a></h2>
 <p>This could be downloading and extracting a tarball:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://github.com/barricklab/breseq/releases/download/v0.37.1/breseq-0.37.1-Source.tar.gz
-$ tar xf breseq-0.37.1-Source.tar.gz
-$ cd breseq-0.37.1
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://github.com/OpenSMTPD/libasr/releases/download/1.0.4/libasr-1.0.4.tar.gz
+$ tar xf libasr-1.0.4.tar.gz
+$ cd libasr-1.0.4
 $ ls configure
 configure
 </pre></div>
@@ -453,8 +464,8 @@ configure
 <p>Here we can see that there’s already a configure script present.  But what if
 we do that same again but rather than use a released version, get the latest
 version from git?</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/barricklab/breseq
-$ cd breseq
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/OpenSMTPD/libasr
+$ cd libasr
 $ ls configure
 ls: cannot access &#39;configure&#39;: No such file or directory
 </pre></div>
@@ -463,37 +474,37 @@ ls: cannot access &#39;configure&#39;: No such file or directory
 <section id="generate-a-configure-script-if-missing">
 <h2>Generate a configure script if missing<a class="headerlink" href="#generate-a-configure-script-if-missing" title="Permalink to this heading">#</a></h2>
 <p>With this git example, we see there is no configure script present, so we need
-to generate it.  Sometimes you’re provided with a <a class="reference external" href="http://bootstrap.sh">bootstrap.sh</a> or <a class="reference external" href="http://autogen.sh">autogen.sh</a>,
-as is the case here.  So we run it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./bootstrap.sh
+to generate it.  Sometimes you’re provided with a <a class="reference external" href="http://bootstrap.sh">bootstrap.sh</a>, <a class="reference external" href="http://autogen.sh">autogen.sh</a> or
+similar, as is the case here.  So we run it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./bootstrap
 </pre></div>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">View full output</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>autoreconf: Entering directory `.&#39;
-autoreconf: configure.ac: not using Gettext
-autoreconf: running: aclocal --force -I aux_build/m4
-autoreconf: configure.ac: tracing
-autoreconf: running: libtoolize --copy --force
-libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, &#39;aux_build&#39;.
-libtoolize: copying file &#39;aux_build/ltmain.sh&#39;
-libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, &#39;aux_build/m4&#39;.
-libtoolize: copying file &#39;aux_build/m4/libtool.m4&#39;
-libtoolize: copying file &#39;aux_build/m4/ltoptions.m4&#39;
-libtoolize: copying file &#39;aux_build/m4/ltsugar.m4&#39;
-libtoolize: copying file &#39;aux_build/m4/ltversion.m4&#39;
-libtoolize: copying file &#39;aux_build/m4/lt~obsolete.m4&#39;
-autoreconf: running: /usr/bin/autoconf --force
-autoreconf: running: /usr/bin/autoheader --force
-autoreconf: running: automake --add-missing --copy --force-missing
-configure.ac:28: installing &#39;aux_build/compile&#39;
-configure.ac:28: installing &#39;aux_build/config.guess&#39;
-configure.ac:28: installing &#39;aux_build/config.sub&#39;
-configure.ac:29: installing &#39;aux_build/install-sh&#39;
-configure.ac:29: installing &#39;aux_build/missing&#39;
-Makefile.am: installing &#39;./INSTALL&#39;
-extern/samtools-1.3.1/Makefile.am: installing &#39;aux_build/depcomp&#39;
-autoreconf: Leaving directory `.&#39;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="n">test</span> <span class="n">yes</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="o">+</span> <span class="n">libtoolize</span> <span class="o">--</span><span class="n">copy</span> <span class="o">--</span><span class="n">force</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">putting</span> <span class="n">auxiliary</span> <span class="n">files</span> <span class="ow">in</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;./ltmain.sh&#39;</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">putting</span> <span class="n">macros</span> <span class="ow">in</span> <span class="n">AC_CONFIG_MACRO_DIRS</span><span class="p">,</span> <span class="s1">&#39;m4&#39;</span><span class="o">.</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;m4/libtool.m4&#39;</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;m4/ltoptions.m4&#39;</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;m4/ltsugar.m4&#39;</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;m4/ltversion.m4&#39;</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;m4/lt~obsolete.m4&#39;</span>
+<span class="o">+</span> <span class="n">test</span> <span class="o">-</span><span class="n">n</span> <span class="s1">&#39;&#39;</span> <span class="o">-</span><span class="n">a</span> <span class="s1">&#39;!&#39;</span> <span class="s1">&#39;&#39;</span> <span class="o">=</span> <span class="o">.</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">f</span> <span class="n">ltmain</span><span class="o">.</span><span class="n">sh</span>
+<span class="o">+</span> <span class="n">aclocal</span><span class="o">-</span><span class="mf">1.16</span> <span class="o">-</span><span class="n">I</span> <span class="n">m4</span>
+<span class="o">+</span> <span class="n">autoconf</span>
+<span class="o">+</span> <span class="n">test</span> <span class="n">yes</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="o">+</span> <span class="n">autoheader</span>
+<span class="o">+</span> <span class="n">test</span> <span class="n">yes</span> <span class="o">=</span> <span class="n">yes</span>
+<span class="o">+</span> <span class="n">automake</span><span class="o">-</span><span class="mf">1.16</span> <span class="o">--</span><span class="n">foreign</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">missing</span> <span class="o">--</span><span class="n">copy</span>
+<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./compile&#39;</span>
+<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./config.guess&#39;</span>
+<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./config.sub&#39;</span>
+<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./install-sh&#39;</span>
+<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./missing&#39;</span>
+<span class="n">openbsd</span><span class="o">-</span><span class="n">compat</span><span class="o">/</span><span class="n">Makefile</span><span class="o">.</span><span class="n">am</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./depcomp&#39;</span>
+<span class="o">+</span> <span class="n">rm</span> <span class="o">-</span><span class="n">Rf</span> <span class="n">autom4te</span><span class="o">.</span><span class="n">cache</span>
 </pre></div>
 </div>
 </div>
@@ -504,21 +515,20 @@ scripts are present, you can instead do:</p>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">View full output</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">libtoolize</span><span class="p">:</span> <span class="n">putting</span> <span class="n">auxiliary</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">AC_CONFIG_AUX_DIR</span><span class="p">,</span> <span class="s1">&#39;aux_build&#39;</span><span class="o">.</span>
-<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;aux_build/ltmain.sh&#39;</span>
-<span class="n">libtoolize</span><span class="p">:</span> <span class="n">putting</span> <span class="n">macros</span> <span class="ow">in</span> <span class="n">AC_CONFIG_MACRO_DIRS</span><span class="p">,</span> <span class="s1">&#39;aux_build/m4&#39;</span><span class="o">.</span>
-<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;aux_build/m4/libtool.m4&#39;</span>
-<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;aux_build/m4/ltoptions.m4&#39;</span>
-<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;aux_build/m4/ltsugar.m4&#39;</span>
-<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;aux_build/m4/ltversion.m4&#39;</span>
-<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;aux_build/m4/lt~obsolete.m4&#39;</span>
-<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;aux_build/compile&#39;</span>
-<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;aux_build/config.guess&#39;</span>
-<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;aux_build/config.sub&#39;</span>
-<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;aux_build/install-sh&#39;</span>
-<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;aux_build/missing&#39;</span>
-<span class="n">Makefile</span><span class="o">.</span><span class="n">am</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./INSTALL&#39;</span>
-<span class="n">extern</span><span class="o">/</span><span class="n">samtools</span><span class="o">-</span><span class="mf">1.3.1</span><span class="o">/</span><span class="n">Makefile</span><span class="o">.</span><span class="n">am</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;aux_build/depcomp&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">libtoolize</span><span class="p">:</span> <span class="n">putting</span> <span class="n">auxiliary</span> <span class="n">files</span> <span class="ow">in</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;./ltmain.sh&#39;</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">putting</span> <span class="n">macros</span> <span class="ow">in</span> <span class="n">AC_CONFIG_MACRO_DIRS</span><span class="p">,</span> <span class="s1">&#39;m4&#39;</span><span class="o">.</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;m4/libtool.m4&#39;</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;m4/ltoptions.m4&#39;</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;m4/ltsugar.m4&#39;</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;m4/ltversion.m4&#39;</span>
+<span class="n">libtoolize</span><span class="p">:</span> <span class="n">copying</span> <span class="n">file</span> <span class="s1">&#39;m4/lt~obsolete.m4&#39;</span>
+<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./compile&#39;</span>
+<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./config.guess&#39;</span>
+<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./config.sub&#39;</span>
+<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./install-sh&#39;</span>
+<span class="n">configure</span><span class="o">.</span><span class="n">ac</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./missing&#39;</span>
+<span class="n">openbsd</span><span class="o">-</span><span class="n">compat</span><span class="o">/</span><span class="n">Makefile</span><span class="o">.</span><span class="n">am</span><span class="p">:</span> <span class="n">installing</span> <span class="s1">&#39;./depcomp&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -542,7 +552,7 @@ Installation<span class="w"> </span>directories:
 <div class="dropdown admonition">
 <p class="admonition-title">View full output</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./configure --help
-`configure&#39; configures breseq 0.37.1 to adapt to many kinds of systems.
+`configure&#39; configures libasr portable to adapt to many kinds of systems.
 
 Usage: ./configure [OPTION]... [VAR=VALUE]...
 
@@ -582,6 +592,7 @@ Fine tuning of the installation directories:
   --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
   --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
   --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
   --libdir=DIR            object code libraries [EPREFIX/lib]
   --includedir=DIR        C header files [PREFIX/include]
   --oldincludedir=DIR     C header files for non-gcc [/usr/include]
@@ -590,7 +601,7 @@ Fine tuning of the installation directories:
   --infodir=DIR           info documentation [DATAROOTDIR/info]
   --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
   --mandir=DIR            man documentation [DATAROOTDIR/man]
-  --docdir=DIR            documentation root [DATAROOTDIR/doc/breseq]
+  --docdir=DIR            documentation root [DATAROOTDIR/doc/libasr]
   --htmldir=DIR           html documentation [DOCDIR]
   --dvidir=DIR            dvi documentation [DOCDIR]
   --pdfdir=DIR            pdf documentation [DOCDIR]
@@ -609,17 +620,17 @@ Optional Features:
   --disable-option-checking  ignore unrecognized --enable/--with options
   --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
   --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --enable-silent-rules   less verbose build output (undo: &quot;make V=1&quot;)
+  --disable-silent-rules  verbose build output (undo: &quot;make V=0&quot;)
   --enable-shared[=PKGS]  build shared libraries [default=yes]
   --enable-static[=PKGS]  build static libraries [default=yes]
   --enable-fast-install[=PKGS]
                           optimize for fast installation [default=yes]
-  --disable-libtool-lock  avoid locking (might break parallel builds)
   --enable-dependency-tracking
                           do not reject slow dependency extractors
   --disable-dependency-tracking
                           speeds up one-time build
-  --enable-silent-rules   less verbose build output (undo: &quot;make V=1&quot;)
-  --disable-silent-rules  verbose build output (undo: &quot;make V=0&quot;)
+  --disable-libtool-lock  avoid locking (might break parallel builds)
 
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
@@ -632,7 +643,6 @@ Optional Packages:
   --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
   --with-sysroot[=DIR]    Search for dependent libraries within DIR (or the
                           compiler&#39;s sysroot if not specified).
-  --without-libunwind     Disable preferring to use libunwind for debug info
 
 Some influential environment variables:
   CC          C compiler command
@@ -645,15 +655,11 @@ Some influential environment variables:
   LT_SYS_LIBRARY_PATH
               User-defined run-time library search path.
   CPP         C preprocessor
-  CXX         C++ compiler command
-  CXXFLAGS    C++ compiler flags
-  CXXCPP      C++ preprocessor
 
 Use these variables to override the choices made by `configure&#39; or to help
 it to find libraries and programs with nonstandard names/locations.
 
-Report bugs to &lt;jeffrey.e.barrick@gmail.com&gt;.
-breseq home page: &lt;http://barricklab.org/breseq&gt;.
+Report bugs to &lt;bugs@opensmtpd.org&gt;.
 </pre></div>
 </div>
 </div>
@@ -662,15 +668,22 @@ are used by the build script.  In this example, we’re going to tell it
 where we’d like it installed to, and nothing else.  Typically I’d advise
 installing software for a given project in one location, rather than each
 program being installed separately, but it’s up to you.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./configure<span class="w"> </span>--prefix<span class="o">=</span>/nobackup/example/project1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./configure<span class="w"> </span>--prefix<span class="o">=</span>/tmp/example/project1
 </pre></div>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">View full output</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./configure --prefix=/nobackup/example/project1
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./configure --prefix=/tmp/example/project1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
 checking build system type... x86_64-pc-linux-gnu
 checking host system type... x86_64-pc-linux-gnu
 checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
 checking for gcc... gcc
 checking whether the C compiler works... yes
 checking for C compiler default output file name... a.out
@@ -681,6 +694,7 @@ checking whether we are using the GNU C compiler... yes
 checking whether gcc accepts -g... yes
 checking for gcc option to accept ISO C89... none needed
 checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
 checking for a sed that does not truncate output... /usr/bin/sed
 checking for grep that handles long lines and -e... /usr/bin/grep
 checking for egrep... /usr/bin/grep -E
@@ -702,7 +716,6 @@ checking for ar... ar
 checking for archiver @FILE support... @
 checking for strip... strip
 checking for ranlib... ranlib
-checking for gawk... gawk
 checking command to parse /usr/bin/nm -B output from gcc object... ok
 checking for sysroot... no
 checking for a working dd... /usr/bin/dd
@@ -736,110 +749,88 @@ checking whether stripping libraries is possible... yes
 checking if libtool supports shared libraries... yes
 checking whether to build shared libraries... yes
 checking whether to build static libraries... yes
-checking for a BSD-compatible install... /usr/bin/install -c
-checking whether build environment is sane... yes
-checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
-checking whether make sets $(MAKE)... yes
-checking whether make supports the include directive... yes (GNU style)
-checking whether make supports nested variables... yes
-checking dependency style of gcc... gcc3
-checking for g++... g++
-checking whether we are using the GNU C++ compiler... yes
-checking whether g++ accepts -g... yes
-checking how to run the C++ preprocessor... g++ -E
-checking for ld used by g++... /usr/bin/ld -m elf_x86_64
-checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
-checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
-checking for g++ option to produce PIC... -fPIC -DPIC
-checking if g++ PIC flag -fPIC -DPIC works... yes
-checking if g++ static flag -static works... no
-checking if g++ supports -c -o file.o... yes
-checking if g++ supports -c -o file.o... (cached) yes
-checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
-checking dynamic linker characteristics... (cached) GNU/Linux ld.so
-checking how to hardcode library paths into programs... immediate
-checking dependency style of g++... gcc3
-checking for gawk... (cached) gawk
+checking whether byte ordering is bigendian... no
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) gcc3
 checking how to run the C preprocessor... gcc -E
-checking whether ln -s works... yes
-checking whether make sets $(MAKE)... (cached) yes
-configure: Local path from bin to data...
-configure: ../share
-checking arpa/inet.h usability... yes
-checking arpa/inet.h presence... yes
-checking for arpa/inet.h... yes
-checking fcntl.h usability... yes
-checking fcntl.h presence... yes
-checking for fcntl.h... yes
-checking for inttypes.h... (cached) yes
-checking netdb.h usability... yes
-checking netdb.h presence... yes
-checking for netdb.h... yes
-checking stddef.h usability... yes
-checking stddef.h presence... yes
-checking for stddef.h... yes
-checking for stdint.h... (cached) yes
-checking for stdlib.h... (cached) yes
-checking for string.h... (cached) yes
-checking sys/socket.h usability... yes
-checking sys/socket.h presence... yes
-checking for sys/socket.h... yes
-checking for unistd.h... (cached) yes
-checking wchar.h usability... yes
-checking wchar.h presence... yes
-checking for wchar.h... yes
-checking for stdbool.h that conforms to C99... yes
-checking for _Bool... yes
-checking for inline... inline
+checking sys/queue.h usability... yes
+checking sys/queue.h presence... yes
+checking for sys/queue.h... yes
+checking sys/tree.h usability... no
+checking sys/tree.h presence... no
+checking for sys/tree.h... no
+checking arpa/nameser_compat.h usability... yes
+checking arpa/nameser_compat.h presence... yes
+checking for arpa/nameser_compat.h... yes
+checking for unsigned long long int... yes
+checking for long long int... yes
+checking for long long... yes
+checking for unsigned long long... yes
+checking for long double... yes
+checking size of short int... 2
+checking size of int... 4
+checking size of long int... 8
+checking size of long long int... 8
+checking for int8_t... yes
 checking for int16_t... yes
 checking for int32_t... yes
 checking for int64_t... yes
-checking for int8_t... yes
-checking for off_t... yes
-checking for size_t... yes
+checking for uint8_t... yes
 checking for uint16_t... yes
 checking for uint32_t... yes
 checking for uint64_t... yes
-checking for uint8_t... yes
-checking for _LARGEFILE_SOURCE value needed for large files... no
-checking for stdlib.h... (cached) yes
-checking for GNU libc compatible malloc... yes
-checking for stdlib.h... (cached) yes
-checking for GNU libc compatible realloc... yes
-checking for bzero... yes
-checking for gethostbyaddr... yes
-checking for gethostbyname... yes
-checking for memmove... yes
-checking for memset... yes
-checking for pow... no
-checking for select... yes
-checking for socket... yes
-checking for sqrt... no
-checking for strchr... yes
-checking for strdup... yes
-checking for strerror... yes
-checking for strstr... yes
-checking for strtol... yes
-checking for ftello... yes
-checking for library containing deflateSetHeader... -lz
-checking for library containing acosf... -lm
-checking for library containing pthread_create... -lpthread
-checking libunwind.h usability... no
-checking libunwind.h presence... no
-checking for libunwind.h... no
-checking for library containing unw_getcontext... no
-Using execinfo.h for backtrace.
-checking for .git/refs/heads/master... yes
-checking for .git/refs/heads/master... (cached) yes
+checking for intptr_t... yes
+checking for intmax_t... yes
+checking for uintptr_t... yes
+checking for uintmax_t... yes
+checking for size_t... yes
+checking for ssize_t... yes
+checking for off_t... yes
+checking for mode_t... yes
+checking for pid_t... yes
+checking for uid_t in sys/types.h... yes
+checking for struct sockaddr.sa_len... no
+checking for struct sockaddr_storage.ss_len... no
+checking for struct sockaddr_in.sin_len... no
+checking for struct sockaddr_in6.sin6_len... no
+checking for clock_gettime... yes
+checking for explicit_bzero... yes
+checking for fgetln... no
+checking for freezero... no
+checking for getline... yes
+checking for reallocarray... yes
+checking for recallocarray... no
+checking for strlcat... no
+checking for strlcpy... no
+checking for strsep... yes
+checking for strtonum... no
+checking if explicit_bzero() will build... yes
+checking if clock_gettime() will build... yes
+checking if res_hnok() will build... yes
+checking if res_randomid() will build... yes
+checking if __p_type() will build... no
+checking if __p_type() will build with -lresolv... yes
+checking if __p_class() will build... yes
 checking that generated files are newer than configure... done
 configure: creating ./config.status
-config.status: creating extern/samtools-1.3.1/htslib-1.3.1/Makefile
-config.status: creating extern/samtools-1.3.1/Makefile
-config.status: creating src/c/breseq/Makefile
 config.status: creating Makefile
-config.status: creating aux_build/config.h
-config.status: executing libtool commands
+config.status: creating openbsd-compat/Makefile
+config.status: creating src/Makefile
+config.status: creating config.h
 config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing include-config commands
+copying includes.h...
+copying compat-resolv.h...
+copying compat-socket.h...
+copying compat-stdio.h...
+copying compat-stdlib.h...
+copying compat-string.h...
+copying compat-time.h...
 </pre></div>
 </div>
 </div>
@@ -885,7 +876,7 @@ available to you.  Details on this is covered in the <a class="reference interna
 <p class="admonition-title">Important</p>
 <ul class="simple">
 <li><p>Introduces Autotools for configuring build systems</p></li>
-<li><p>Showcased an example of deploying <code class="docutils literal notranslate"><span class="pre">breseq</span></code> using Autotools</p>
+<li><p>Showcased an example of deploying <code class="docutils literal notranslate"><span class="pre">libasr</span></code> using Autotools</p>
 <ul>
 <li><p>Showed how to find what options are available when configuring</p></li>
 <li><p>Highlighted using <code class="docutils literal notranslate"><span class="pre">--prefix</span></code> for appropriate installation of software locally</p></li>
@@ -929,8 +920,8 @@ available to you.  Details on this is covered in the <a class="reference interna
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="conda.html"
@@ -946,7 +937,7 @@ available to you.  Details on this is covered in the <a class="reference interna
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">CMake</p>
+        <p class="prev-next-title">Introduction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -958,6 +949,7 @@ available to you.  Details on this is covered in the <a class="reference interna
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -999,6 +991,7 @@ By University of Leeds Research Computing Team
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1025,8 +1018,8 @@ By University of Leeds Research Computing Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
