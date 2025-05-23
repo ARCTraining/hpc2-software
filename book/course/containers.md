@@ -137,7 +137,6 @@ to directories of the host mapped into the container.
 ### Access host storage within a container
 
 By default with Apptainer, your home directory and `/tmp` are mapped into the
-container.  On ARC4 we also default to mapping `/nobackup` and `/local` inside the
 container.  If you want other directories to be mapped, you have to ask for
 them.  If you wanted `/data` to be visible inside the container, you can just do:
 
@@ -199,8 +198,6 @@ out universally in the near future.  If you have access to a university RHEL 8
 system, we should be able to enable Apptainer on your machine now, if it's not
 already available.
 
-This is also now available on ARC4.
-
 (containers:recipe)=
 ### Creating a recipe
 
@@ -210,7 +207,7 @@ Let's create a file called lolcow.def:
 
 ```
 BootStrap: docker
-From: ubuntu:16.04
+From: ubuntu:24.04
 
 %post
   apt-get -y update
@@ -224,7 +221,7 @@ From: ubuntu:16.04
   fortune | cowsay | lolcat
 ```
 
-This container starts with a Docker container (Ubuntu 16.04), and installs a few necessary packages.  Then it defines what happens when we run it: `fortune | cowsay | lolcat`.
+This container starts with a Docker container (Ubuntu 24.04), and installs a few necessary packages.  Then it defines what happens when we run it: `fortune | cowsay | lolcat`.
 
 (containers:convert-from-dockerfile)=
 ### Converting a Dockerfile to a Singularity recipe
@@ -232,8 +229,8 @@ This container starts with a Docker container (Ubuntu 16.04), and installs a few
 There's a tool written in Python that allows you to convert from a Dockerfile into a Singularity format file.  Whilst not perfect, this often allows for simple creations of images, where no prebuilt Docker image exists:
 
 ```bash
-# Load anaconda
-$ module add anaconda
+# Load miniforge
+$ module add miniforge
 
 # Install spython (only need to do this once)
 $ pip install spython --user
@@ -277,12 +274,9 @@ There's no great difference with submitting jobs to use containers than there
 is using them interactively.  Here's an example job submission:
 
 ```
-# Run with the current working directory
-#$ -cwd
+#!/bin/bash
 # Run for up to ten minutes
-#$ -l h_rt=0:10:0
-# Request 8 cores
-#$ -pe smp 8
+#SBATCH -t 0:10:0
 
 # Load the necessary module
 module add apptainer

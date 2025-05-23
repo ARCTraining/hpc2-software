@@ -12,7 +12,7 @@ deliberately pick a specific stable version:
 
 ```bash
 $ cd spack
-$ git checkout v0.20.1
+$ git checkout v0.23.1
 $ cd ..
 ```
 
@@ -28,11 +28,11 @@ So to use it, you need to load the profile script that enables Spack.  Having
 just downloaded it as above, you can do:
 
 ```bash
-$ module add anaconda
 $ . spack/share/spack/setup-env.sh
 ```
 
-Here we're loading anaconda as Spack needs Python 3.
+You need to make sure you have Python 3 available in your PATH, but there are
+few other [required dependencies](https://spack.readthedocs.io/en/latest/getting_started.html#system-prerequisites).
 
 Spack is now alive in your terminal, and you can query available packages, or
 look at one to see what options you have for building it.  We can now have a
@@ -53,7 +53,7 @@ abyss
 ...
 ```
 
-Now that's quite a list (7179 different pieces of software at the time of
+Now that's quite a list (8307 different pieces of software at the time of
 writing).
 
 So let's move on to look at the next section, where we install one to show how

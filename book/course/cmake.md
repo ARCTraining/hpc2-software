@@ -1,16 +1,11 @@
-# CMake
+users# CMake
 
 This chapter will look at using [CMake](https://cmake.org/) to build software.
 
 ```{note}
 The steps outlined below are performed on the
-[ARC4](https://arcdocs.leeds.ac.uk/systems/arc4.html) HPC system where a recent
-CMake is available as a
-[loadable module](https://arcdocs.leeds.ac.uk/software/infrastructure/cmake.html).
-
-CMake was loaded with the command:
-
-`module add cmake/3.22.3`
+[Aire](https://arcdocs.leeds.ac.uk/aire) HPC system where a recent
+CMake (3.26.5) is available by default
 ```
 
 ## Introduction
@@ -31,7 +26,7 @@ In the following section we'll explore a small example of building the command l
 cURL is a tool for transferring data using various network protocols and is commonly used for downloading data from the internet.
 
 ```{note}
-cURL is already installed on ARC4, but we'll look at installing our own personal version for this tutorial.
+cURL is already installed on Aire, but we'll look at installing our own personal version for this tutorial.
 ```
 
 ### Cloning the cURL source code
@@ -78,21 +73,27 @@ $ cmake -S . -B build
 
 
 This command at a basic level, will detect that there are GNU Makefiles present and, using the CMakeLists.txt file, configure a series of Makefiles for building the software.
-Running this line on ARC4 will provide output similar to this:
+Running this line on Aire will provide output similar to this:
 
 ```
+-- The C compiler identification is GNU 11.4.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
 -- curl version=[7.85.0-DEV]
--- Could NOT find LibPSL (missing: LIBPSL_LIBRARY LIBPSL_INCLUDE_DIR)
--- Could NOT find LibSSH2 (missing: LIBSSH2_LIBRARY LIBSSH2_INCLUDE_DIR)
--- Enabled features: SSL IPv6 unixsockets libz AsynchDNS Largefile alt-svc HSTS NTLM HTTPS-proxy
--- Enabled protocols: DICT FILE FTP FTPS GOPHER GOPHERS HTTP HTTPS IMAP IMAPS LDAP MQTT POP3 POP3S RTSP SMB SMBS SMTP SMTPS TELNET TFTP
+...
+...
+-- Enabled features: SSL IPv6 unixsockets libz AsynchDNS Largefile alt-svc HSTS NTLM HTTPS-proxy threadsafe
+-- Enabled protocols: DICT FILE FTP FTPS GOPHER GOPHERS HTTP HTTPS IMAP IMAPS MQTT POP3 POP3S RTSP SMB SMBS SMTP SMTPS TELNET TFTP
 -- Enabled SSL backends: OpenSSL
--- Configuring done
--- Generating done
--- Build files have been written to: /home/home01/arcuser/curl
+-- Configuring done (20.2s)
+-- Generating done (0.3s)
+-- Build files have been written to: /users/example/hpc2/curl/build
 ```
 
-As we're doing this on ARC4 where a version of cURL is already installed we should probably make some tweaks.
+As we're doing this on Aire where a version of cURL is already installed we should probably make some tweaks.
 We can do this directly by passing specific arguments to `cmake`, in this example we want to specify a specific local build directory and set the name of the associated library `libcurl` that gets built to avoid conflicts with the system-installed `libcurl`.
 
 ```bash
@@ -105,158 +106,220 @@ $ cmake -S . -B build/ -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DLIBCURL_OUTPUT_NA
 ````{admonition} View full output
 :class: dropdown
 ```
--- The C compiler identification is Intel 19.0.4.20190416
+-- The C compiler identification is GNU 11.4.1
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
--- Check for working C compiler: /apps/developers/compilers/intel/19.0.4/1/default/compilers_and_libraries_2019.4.243/linux/bin/intel64/icc - skipped
+-- Check for working C compiler: /usr/bin/cc - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
 -- curl version=[7.85.0-DEV]
--- Performing Test _no_bug
--- Performing Test _no_bug - Success
+-- Performing Test OPT_pedantic
+-- Performing Test OPT_pedantic - Success
+-- Performing Test OPT_Wall
+-- Performing Test OPT_Wall - Success
+-- Performing Test OPT_W
+-- Performing Test OPT_W - Success
+-- Performing Test OPT_Wpointer_arith
+-- Performing Test OPT_Wpointer_arith - Success
+-- Performing Test OPT_Wwrite_strings
+-- Performing Test OPT_Wwrite_strings - Success
+-- Performing Test OPT_Wunused
+-- Performing Test OPT_Wunused - Success
+-- Performing Test OPT_Wshadow
+-- Performing Test OPT_Wshadow - Success
+-- Performing Test OPT_Winline
+-- Performing Test OPT_Winline - Success
+-- Performing Test OPT_Wnested_externs
+-- Performing Test OPT_Wnested_externs - Success
+-- Performing Test OPT_Wmissing_declarations
+-- Performing Test OPT_Wmissing_declarations - Success
+-- Performing Test OPT_Wmissing_prototypes
+-- Performing Test OPT_Wmissing_prototypes - Success
+-- Performing Test OPT_Wfloat_equal
+-- Performing Test OPT_Wfloat_equal - Success
+-- Performing Test OPT_Wsign_compare
+-- Performing Test OPT_Wsign_compare - Success
+-- Performing Test OPT_Wundef
+-- Performing Test OPT_Wundef - Success
+-- Performing Test OPT_Wendif_labels
+-- Performing Test OPT_Wendif_labels - Success
+-- Performing Test OPT_Wstrict_prototypes
+-- Performing Test OPT_Wstrict_prototypes - Success
+-- Performing Test OPT_Wdeclaration_after_statement
+-- Performing Test OPT_Wdeclaration_after_statement - Success
+-- Performing Test OPT_Wstrict_aliasing_3
+-- Performing Test OPT_Wstrict_aliasing_3 - Success
+-- Performing Test OPT_Wcast_align
+-- Performing Test OPT_Wcast_align - Success
+-- Performing Test OPT_Wtype_limits
+-- Performing Test OPT_Wtype_limits - Success
+-- Performing Test OPT_Wold_style_declaration
+-- Performing Test OPT_Wold_style_declaration - Success
+-- Performing Test OPT_Wmissing_parameter_type
+-- Performing Test OPT_Wmissing_parameter_type - Success
+-- Performing Test OPT_Wempty_body
+-- Performing Test OPT_Wempty_body - Success
+-- Performing Test OPT_Wclobbered
+-- Performing Test OPT_Wclobbered - Success
+-- Performing Test OPT_Wignored_qualifiers
+-- Performing Test OPT_Wignored_qualifiers - Success
+-- Performing Test OPT_Wconversion
+-- Performing Test OPT_Wconversion - Success
+-- Performing Test OPT_Wvla
+-- Performing Test OPT_Wvla - Success
+-- Performing Test OPT_Wdouble_promotion
+-- Performing Test OPT_Wdouble_promotion - Success
+-- Performing Test OPT_Wenum_conversion
+-- Performing Test OPT_Wenum_conversion - Success
+-- Performing Test OPT_Warith_conversion
+-- Performing Test OPT_Warith_conversion - Success
+-- Performing Test OPTlong_long
+-- Performing Test OPTlong_long - Success
+-- Performing Test OPTmultichar
+-- Performing Test OPTmultichar - Success
+-- Performing Test OPTformat_nonliteral
+-- Performing Test OPTformat_nonliteral - Success
+-- Performing Test OPTsign_conversion
+-- Performing Test OPTsign_conversion - Success
+-- Performing Test OPTsystem_headers
+-- Performing Test OPTsystem_headers - Success
+-- Performing Test OPTpedantic_ms_format
+-- Performing Test OPTpedantic_ms_format - Failed
 -- Performing Test HAVE_SOCKADDR_IN6_SIN6_ADDR
 -- Performing Test HAVE_SOCKADDR_IN6_SIN6_ADDR - Success
 -- Performing Test HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID
 -- Performing Test HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID - Success
--- Found Perl: /usr/bin/perl (found version "5.16.3")
--- Looking for pthread.h
--- Looking for pthread.h - found
+-- Found Perl: /usr/bin/perl (found version "5.32.1")
 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
--- Looking for pthread_create in pthreads
--- Looking for pthread_create in pthreads - not found
--- Looking for pthread_create in pthread
--- Looking for pthread_create in pthread - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
 -- Found Threads: TRUE
--- Looking for connect in socket;-lpthread
--- Looking for connect in socket;-lpthread - not found
+-- Looking for connect in socket;
+-- Looking for connect in socket; - not found
 -- Looking for gethostname
 -- Looking for gethostname - found
--- Found OpenSSL: /usr/lib64/libcrypto.so (found version "1.0.2k")
+-- Found OpenSSL: /usr/lib64/libcrypto.so (found version "3.0.7")
 -- Looking for RAND_egd
 -- Looking for RAND_egd - not found
 -- Looking for OPENSSL_IS_BORINGSSL
 -- Looking for OPENSSL_IS_BORINGSSL - not found
--- Looking for ldap_init in ldap;-lpthread;OpenSSL::SSL;OpenSSL::Crypto
--- Looking for ldap_init in ldap;-lpthread;OpenSSL::SSL;OpenSSL::Crypto - found
--- Looking for ber_init in lber;ldap;-lpthread;OpenSSL::SSL;OpenSSL::Crypto
--- Looking for ber_init in lber;ldap;-lpthread;OpenSSL::SSL;OpenSSL::Crypto - found
+-- Looking for ldap_init in ldap;OpenSSL::SSL;OpenSSL::Crypto
+-- Looking for ldap_init in ldap;OpenSSL::SSL;OpenSSL::Crypto - not found
+-- Looking for ber_init in lber;OpenSSL::SSL;OpenSSL::Crypto
+-- Looking for ber_init in lber;OpenSSL::SSL;OpenSSL::Crypto - not found
 -- Looking for include file ldap.h
--- Looking for include file ldap.h - found
--- Looking for include files ldap.h, lber.h
--- Looking for include files ldap.h, lber.h - found
--- Performing Test NOT_NEED_LBER_H
--- Performing Test NOT_NEED_LBER_H - Success
--- Looking for 3 include files ldap.h, ..., ldap_ssl.h
--- Looking for 3 include files ldap.h, ..., ldap_ssl.h - not found
--- Looking for idn2_lookup_ul in idn2;lber;ldap;-lpthread;OpenSSL::SSL;OpenSSL::Crypto
--- Looking for idn2_lookup_ul in idn2;lber;ldap;-lpthread;OpenSSL::SSL;OpenSSL::Crypto - not found
--- Found ZLIB: /usr/lib64/libz.so (found version "1.2.7")
+-- Looking for include file ldap.h - not found
+-- Looking for include file lber.h
+-- Looking for include file lber.h - not found
+-- LDAP_H not found CURL_DISABLE_LDAP set ON
+-- LDAP needs to be enabled to support LDAPS
+-- Looking for idn2_lookup_ul in idn2;OpenSSL::SSL;OpenSSL::Crypto
+-- Looking for idn2_lookup_ul in idn2;OpenSSL::SSL;OpenSSL::Crypto - not found
+-- Found ZLIB: /usr/lib64/libz.so (found version "1.2.11")
 -- Could NOT find LibPSL (missing: LIBPSL_LIBRARY LIBPSL_INCLUDE_DIR)
 -- Could NOT find LibSSH2 (missing: LIBSSH2_LIBRARY LIBSSH2_INCLUDE_DIR)
 -- Performing Test USE_UNIX_SOCKETS
 -- Performing Test USE_UNIX_SOCKETS - Success
 -- Found CA bundle: /etc/pki/tls/certs/ca-bundle.crt
--- Looking for 3 include files ldap.h, ..., inttypes.h
--- Looking for 3 include files ldap.h, ..., inttypes.h - found
--- Looking for 4 include files ldap.h, ..., sys/filio.h
--- Looking for 4 include files ldap.h, ..., sys/filio.h - not found
--- Looking for 4 include files ldap.h, ..., sys/ioctl.h
--- Looking for 4 include files ldap.h, ..., sys/ioctl.h - found
--- Looking for 5 include files ldap.h, ..., sys/param.h
--- Looking for 5 include files ldap.h, ..., sys/param.h - found
--- Looking for 6 include files ldap.h, ..., sys/poll.h
--- Looking for 6 include files ldap.h, ..., sys/poll.h - found
--- Looking for 7 include files ldap.h, ..., sys/resource.h
--- Looking for 7 include files ldap.h, ..., sys/resource.h - found
--- Looking for 8 include files ldap.h, ..., sys/select.h
--- Looking for 8 include files ldap.h, ..., sys/select.h - found
--- Looking for 9 include files ldap.h, ..., sys/socket.h
--- Looking for 9 include files ldap.h, ..., sys/socket.h - found
--- Looking for 10 include files ldap.h, ..., sys/sockio.h
--- Looking for 10 include files ldap.h, ..., sys/sockio.h - not found
--- Looking for 10 include files ldap.h, ..., sys/stat.h
--- Looking for 10 include files ldap.h, ..., sys/stat.h - found
--- Looking for 11 include files ldap.h, ..., sys/time.h
--- Looking for 11 include files ldap.h, ..., sys/time.h - found
--- Looking for 12 include files ldap.h, ..., sys/types.h
--- Looking for 12 include files ldap.h, ..., sys/types.h - found
--- Looking for 13 include files ldap.h, ..., sys/un.h
--- Looking for 13 include files ldap.h, ..., sys/un.h - found
--- Looking for 14 include files ldap.h, ..., sys/utime.h
--- Looking for 14 include files ldap.h, ..., sys/utime.h - not found
--- Looking for 14 include files ldap.h, ..., sys/xattr.h
--- Looking for 14 include files ldap.h, ..., sys/xattr.h - found
--- Looking for 15 include files ldap.h, ..., arpa/inet.h
--- Looking for 15 include files ldap.h, ..., arpa/inet.h - found
--- Looking for 16 include files ldap.h, ..., arpa/tftp.h
--- Looking for 16 include files ldap.h, ..., arpa/tftp.h - found
--- Looking for 17 include files ldap.h, ..., assert.h
--- Looking for 17 include files ldap.h, ..., assert.h - found
--- Looking for 18 include files ldap.h, ..., errno.h
--- Looking for 18 include files ldap.h, ..., errno.h - found
--- Looking for 19 include files ldap.h, ..., fcntl.h
--- Looking for 19 include files ldap.h, ..., fcntl.h - found
--- Looking for 20 include files ldap.h, ..., idn2.h
--- Looking for 20 include files ldap.h, ..., idn2.h - not found
--- Looking for 20 include files ldap.h, ..., ifaddrs.h
--- Looking for 20 include files ldap.h, ..., ifaddrs.h - found
--- Looking for 21 include files ldap.h, ..., io.h
--- Looking for 21 include files ldap.h, ..., io.h - not found
--- Looking for 21 include files ldap.h, ..., libgen.h
--- Looking for 21 include files ldap.h, ..., libgen.h - found
--- Looking for 22 include files ldap.h, ..., locale.h
--- Looking for 22 include files ldap.h, ..., locale.h - found
--- Looking for 23 include files ldap.h, ..., net/if.h
--- Looking for 23 include files ldap.h, ..., net/if.h - found
--- Looking for 24 include files ldap.h, ..., netdb.h
--- Looking for 24 include files ldap.h, ..., netdb.h - found
--- Looking for 25 include files ldap.h, ..., netinet/in.h
--- Looking for 25 include files ldap.h, ..., netinet/in.h - found
--- Looking for 26 include files ldap.h, ..., netinet/tcp.h
--- Looking for 26 include files ldap.h, ..., netinet/tcp.h - found
+-- Looking for include file inttypes.h
+-- Looking for include file inttypes.h - found
+-- Looking for include files inttypes.h, sys/filio.h
+-- Looking for include files inttypes.h, sys/filio.h - not found
+-- Looking for include files inttypes.h, sys/ioctl.h
+-- Looking for include files inttypes.h, sys/ioctl.h - found
+-- Looking for 3 include files inttypes.h, ..., sys/param.h
+-- Looking for 3 include files inttypes.h, ..., sys/param.h - found
+-- Looking for 4 include files inttypes.h, ..., sys/poll.h
+-- Looking for 4 include files inttypes.h, ..., sys/poll.h - found
+-- Looking for 5 include files inttypes.h, ..., sys/resource.h
+-- Looking for 5 include files inttypes.h, ..., sys/resource.h - found
+-- Looking for 6 include files inttypes.h, ..., sys/select.h
+-- Looking for 6 include files inttypes.h, ..., sys/select.h - found
+-- Looking for 7 include files inttypes.h, ..., sys/socket.h
+-- Looking for 7 include files inttypes.h, ..., sys/socket.h - found
+-- Looking for 8 include files inttypes.h, ..., sys/sockio.h
+-- Looking for 8 include files inttypes.h, ..., sys/sockio.h - not found
+-- Looking for 8 include files inttypes.h, ..., sys/stat.h
+-- Looking for 8 include files inttypes.h, ..., sys/stat.h - found
+-- Looking for 9 include files inttypes.h, ..., sys/time.h
+-- Looking for 9 include files inttypes.h, ..., sys/time.h - found
+-- Looking for 10 include files inttypes.h, ..., sys/types.h
+-- Looking for 10 include files inttypes.h, ..., sys/types.h - found
+-- Looking for 11 include files inttypes.h, ..., sys/un.h
+-- Looking for 11 include files inttypes.h, ..., sys/un.h - found
+-- Looking for 12 include files inttypes.h, ..., sys/utime.h
+-- Looking for 12 include files inttypes.h, ..., sys/utime.h - not found
+-- Looking for 12 include files inttypes.h, ..., sys/xattr.h
+-- Looking for 12 include files inttypes.h, ..., sys/xattr.h - found
+-- Looking for 13 include files inttypes.h, ..., arpa/inet.h
+-- Looking for 13 include files inttypes.h, ..., arpa/inet.h - found
+-- Looking for 14 include files inttypes.h, ..., arpa/tftp.h
+-- Looking for 14 include files inttypes.h, ..., arpa/tftp.h - found
+-- Looking for 15 include files inttypes.h, ..., assert.h
+-- Looking for 15 include files inttypes.h, ..., assert.h - found
+-- Looking for 16 include files inttypes.h, ..., errno.h
+-- Looking for 16 include files inttypes.h, ..., errno.h - found
+-- Looking for 17 include files inttypes.h, ..., fcntl.h
+-- Looking for 17 include files inttypes.h, ..., fcntl.h - found
+-- Looking for 18 include files inttypes.h, ..., idn2.h
+-- Looking for 18 include files inttypes.h, ..., idn2.h - not found
+-- Looking for 18 include files inttypes.h, ..., ifaddrs.h
+-- Looking for 18 include files inttypes.h, ..., ifaddrs.h - found
+-- Looking for 19 include files inttypes.h, ..., io.h
+-- Looking for 19 include files inttypes.h, ..., io.h - not found
+-- Looking for 19 include files inttypes.h, ..., libgen.h
+-- Looking for 19 include files inttypes.h, ..., libgen.h - found
+-- Looking for 20 include files inttypes.h, ..., locale.h
+-- Looking for 20 include files inttypes.h, ..., locale.h - found
+-- Looking for 21 include files inttypes.h, ..., net/if.h
+-- Looking for 21 include files inttypes.h, ..., net/if.h - found
+-- Looking for 22 include files inttypes.h, ..., netdb.h
+-- Looking for 22 include files inttypes.h, ..., netdb.h - found
+-- Looking for 23 include files inttypes.h, ..., netinet/in.h
+-- Looking for 23 include files inttypes.h, ..., netinet/in.h - found
+-- Looking for 24 include files inttypes.h, ..., netinet/tcp.h
+-- Looking for 24 include files inttypes.h, ..., netinet/tcp.h - found
 -- Looking for linux/tcp.h
 -- Looking for linux/tcp.h - found
--- Looking for 27 include files ldap.h, ..., poll.h
--- Looking for 27 include files ldap.h, ..., poll.h - found
--- Looking for 28 include files ldap.h, ..., pwd.h
--- Looking for 28 include files ldap.h, ..., pwd.h - found
--- Looking for 29 include files ldap.h, ..., setjmp.h
--- Looking for 29 include files ldap.h, ..., setjmp.h - found
--- Looking for 30 include files ldap.h, ..., signal.h
--- Looking for 30 include files ldap.h, ..., signal.h - found
--- Looking for 31 include files ldap.h, ..., ssl.h
--- Looking for 31 include files ldap.h, ..., ssl.h - not found
--- Looking for 31 include files ldap.h, ..., stdatomic.h
--- Looking for 31 include files ldap.h, ..., stdatomic.h - found
--- Looking for 32 include files ldap.h, ..., stdbool.h
--- Looking for 32 include files ldap.h, ..., stdbool.h - found
--- Looking for 33 include files ldap.h, ..., stdint.h
--- Looking for 33 include files ldap.h, ..., stdint.h - found
--- Looking for 34 include files ldap.h, ..., stdlib.h
--- Looking for 34 include files ldap.h, ..., stdlib.h - found
--- Looking for 35 include files ldap.h, ..., string.h
--- Looking for 35 include files ldap.h, ..., string.h - found
--- Looking for 36 include files ldap.h, ..., strings.h
--- Looking for 36 include files ldap.h, ..., strings.h - found
--- Looking for 37 include files ldap.h, ..., stropts.h
--- Looking for 37 include files ldap.h, ..., stropts.h - not found
--- Looking for 37 include files ldap.h, ..., termio.h
--- Looking for 37 include files ldap.h, ..., termio.h - found
--- Looking for 38 include files ldap.h, ..., termios.h
--- Looking for 38 include files ldap.h, ..., termios.h - found
--- Looking for 39 include files ldap.h, ..., time.h
--- Looking for 39 include files ldap.h, ..., time.h - found
--- Looking for 40 include files ldap.h, ..., unistd.h
--- Looking for 40 include files ldap.h, ..., unistd.h - found
--- Looking for 41 include files ldap.h, ..., utime.h
--- Looking for 41 include files ldap.h, ..., utime.h - found
--- Looking for 42 include files ldap.h, ..., process.h
--- Looking for 42 include files ldap.h, ..., process.h - not found
--- Looking for 42 include files ldap.h, ..., stddef.h
--- Looking for 42 include files ldap.h, ..., stddef.h - found
--- Looking for 44 include files ldap.h, ..., sys/utsname.h
--- Looking for 44 include files ldap.h, ..., sys/utsname.h - found
+-- Looking for 25 include files inttypes.h, ..., poll.h
+-- Looking for 25 include files inttypes.h, ..., poll.h - found
+-- Looking for 26 include files inttypes.h, ..., pwd.h
+-- Looking for 26 include files inttypes.h, ..., pwd.h - found
+-- Looking for 27 include files inttypes.h, ..., setjmp.h
+-- Looking for 27 include files inttypes.h, ..., setjmp.h - found
+-- Looking for 28 include files inttypes.h, ..., signal.h
+-- Looking for 28 include files inttypes.h, ..., signal.h - found
+-- Looking for 29 include files inttypes.h, ..., ssl.h
+-- Looking for 29 include files inttypes.h, ..., ssl.h - not found
+-- Looking for 29 include files inttypes.h, ..., stdatomic.h
+-- Looking for 29 include files inttypes.h, ..., stdatomic.h - found
+-- Looking for 30 include files inttypes.h, ..., stdbool.h
+-- Looking for 30 include files inttypes.h, ..., stdbool.h - found
+-- Looking for 31 include files inttypes.h, ..., stdint.h
+-- Looking for 31 include files inttypes.h, ..., stdint.h - found
+-- Looking for 32 include files inttypes.h, ..., stdlib.h
+-- Looking for 32 include files inttypes.h, ..., stdlib.h - found
+-- Looking for 33 include files inttypes.h, ..., string.h
+-- Looking for 33 include files inttypes.h, ..., string.h - found
+-- Looking for 34 include files inttypes.h, ..., strings.h
+-- Looking for 34 include files inttypes.h, ..., strings.h - found
+-- Looking for 35 include files inttypes.h, ..., stropts.h
+-- Looking for 35 include files inttypes.h, ..., stropts.h - not found
+-- Looking for 35 include files inttypes.h, ..., termio.h
+-- Looking for 35 include files inttypes.h, ..., termio.h - found
+-- Looking for 36 include files inttypes.h, ..., termios.h
+-- Looking for 36 include files inttypes.h, ..., termios.h - found
+-- Looking for 37 include files inttypes.h, ..., time.h
+-- Looking for 37 include files inttypes.h, ..., time.h - found
+-- Looking for 38 include files inttypes.h, ..., unistd.h
+-- Looking for 38 include files inttypes.h, ..., unistd.h - found
+-- Looking for 39 include files inttypes.h, ..., utime.h
+-- Looking for 39 include files inttypes.h, ..., utime.h - found
+-- Looking for 40 include files inttypes.h, ..., process.h
+-- Looking for 40 include files inttypes.h, ..., process.h - not found
+-- Looking for 40 include files inttypes.h, ..., stddef.h
+-- Looking for 40 include files inttypes.h, ..., stddef.h - found
+-- Looking for 42 include files inttypes.h, ..., sys/utsname.h
+-- Looking for 42 include files inttypes.h, ..., sys/utsname.h - found
 -- Check size of size_t
 -- Check size of size_t - done
 -- Check size of ssize_t
@@ -268,7 +331,7 @@ $ cmake -S . -B build/ -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DLIBCURL_OUTPUT_NA
 -- Check size of int
 -- Check size of int - done
 -- Check size of __int64
--- Check size of __int64 - done
+-- Check size of __int64 - failed
 -- Check size of time_t
 -- Check size of time_t - done
 -- Looking for fchmod
@@ -410,7 +473,7 @@ $ cmake -S . -B build/ -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DLIBCURL_OUTPUT_NA
 -- Performing Curl Test HAVE_VARIADIC_MACROS_GCC
 -- Performing Curl Test HAVE_VARIADIC_MACROS_GCC - Success
 -- Performing Curl Test HAVE_ATOMIC
--- Performing Curl Test HAVE_ATOMIC - Failed
+-- Performing Curl Test HAVE_ATOMIC - Success
 -- Check size of off_t
 -- Check size of off_t - done
 -- Check size of curl_off_t
@@ -474,8 +537,134 @@ $ cmake -S . -B build/ -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DLIBCURL_OUTPUT_NA
 -- Performing Test curl_cv_func_recv_test - Failed
 -- Tested: int recv(SOCKET, void *, unsigned int, unsigned int)
 -- Performing Test curl_cv_func_recv_test
--- Performing Test curl_cv_func_recv_test - Success
+-- Performing Test curl_cv_func_recv_test - Failed
 -- Tested: int recv(int, char *, int, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, char *, int, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, char *, size_t, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, char *, size_t, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, char *, socklen_t, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, char *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, char *, unsigned int, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, char *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, void *, int, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, void *, int, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, void *, size_t, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, void *, size_t, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, void *, socklen_t, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, void *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, void *, unsigned int, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: int recv(int, void *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, char *, int, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, char *, int, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, char *, size_t, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, char *, size_t, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, char *, socklen_t, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, char *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, char *, unsigned int, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, char *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, void *, int, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, void *, int, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, void *, size_t, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, void *, size_t, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, void *, socklen_t, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, void *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, void *, unsigned int, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(SOCKET, void *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(int, char *, int, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(int, char *, int, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(int, char *, size_t, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(int, char *, size_t, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(int, char *, socklen_t, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(int, char *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(int, char *, unsigned int, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(int, char *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(int, void *, int, int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Failed
+-- Tested: ssize_t recv(int, void *, int, unsigned int)
+-- Performing Test curl_cv_func_recv_test
+-- Performing Test curl_cv_func_recv_test - Success
+-- Tested: ssize_t recv(int, void *, size_t, int)
 -- Performing Test curl_cv_send
 -- Performing Test curl_cv_send - Success
 -- Performing Test curl_cv_func_send_test
@@ -575,8 +764,326 @@ $ cmake -S . -B build/ -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DLIBCURL_OUTPUT_NA
 -- Performing Test curl_cv_func_send_test - Failed
 -- Tested: int send(SOCKET, char *, unsigned int, unsigned int)
 -- Performing Test curl_cv_func_send_test
--- Performing Test curl_cv_func_send_test - Success
+-- Performing Test curl_cv_func_send_test - Failed
 -- Tested: int send(int, const char *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const char *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const char *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const char *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const char *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const char *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const char *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const char *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const void *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const void *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const void *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const void *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const void *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const void *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const void *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, const void *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, void *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, void *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, void *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, void *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, void *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, void *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, void *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, void *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, char *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, char *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, char *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, char *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, char *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, char *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, char *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(int, char *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const char *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const char *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const char *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const char *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const char *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const char *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const char *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const char *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const void *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const void *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const void *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const void *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const void *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const void *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const void *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, const void *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, void *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, void *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, void *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, void *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, void *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, void *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, void *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, void *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, char *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, char *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, char *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, char *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, char *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, char *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, char *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: int send(ssize_t, char *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const char *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const char *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const char *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const char *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const char *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const char *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const char *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const char *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const void *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const void *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const void *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const void *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const void *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const void *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const void *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, const void *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, void *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, void *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, void *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, void *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, void *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, void *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, void *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, void *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, char *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, char *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, char *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, char *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, char *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, char *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, char *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(SOCKET, char *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(int, const char *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(int, const char *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(int, const char *, size_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(int, const char *, size_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(int, const char *, socklen_t, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(int, const char *, socklen_t, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(int, const char *, unsigned int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(int, const char *, unsigned int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(int, const void *, int, int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Failed
+-- Tested: ssize_t send(int, const void *, int, unsigned int)
+-- Performing Test curl_cv_func_send_test
+-- Performing Test curl_cv_func_send_test - Success
+-- Tested: ssize_t send(int, const void *, size_t, int)
 -- Performing Test HAVE_MSG_NOSIGNAL
 -- Performing Test HAVE_MSG_NOSIGNAL - Success
 -- Performing Test HAVE_STRUCT_TIMEVAL
@@ -585,12 +1092,12 @@ $ cmake -S . -B build/ -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DLIBCURL_OUTPUT_NA
 -- Check size of struct sockaddr_storage - done
 -- Performing Test HAVE_POLL_FINE
 -- Performing Test HAVE_POLL_FINE - Success
--- Enabled features: SSL IPv6 unixsockets libz AsynchDNS Largefile alt-svc HSTS NTLM HTTPS-proxy
--- Enabled protocols: DICT FILE FTP FTPS GOPHER GOPHERS HTTP HTTPS IMAP IMAPS LDAP MQTT POP3 POP3S RTSP SMB SMBS SMTP SMTPS TELNET TFTP
+-- Enabled features: SSL IPv6 unixsockets libz AsynchDNS Largefile alt-svc HSTS NTLM HTTPS-proxy threadsafe
+-- Enabled protocols: DICT FILE FTP FTPS GOPHER GOPHERS HTTP HTTPS IMAP IMAPS MQTT POP3 POP3S RTSP SMB SMBS SMTP SMTPS TELNET TFTP
 -- Enabled SSL backends: OpenSSL
--- Configuring done
--- Generating done
--- Build files have been written to: /home/home01/arcuser/curl/build
+-- Configuring done (20.3s)
+-- Generating done (0.3s)
+-- Build files have been written to: /users/example/hpc2/curl/build
 ```
 ````
 
@@ -599,7 +1106,7 @@ By default CMake will install software in standard location on our machine, this
 Therefore, it's often better for software we want to build just for ourselves to specify the `-DCMAKE_INSTALL_PREFIX` argument to be a local directory our user has access to.
 
 ```{note}
-This example has been picked for its simplicity and doesn't require any additional libraries that aren't already installed and available on ARC4.
+This example has been picked for its simplicity and doesn't require any additional libraries that aren't already installed and available on Aire.
 Most software has additional dependencies that you will either need to load as a module or install separately before being able to have CMake configure successfully.
 Always be sure to check the documentation to understand what the exact requirements are for the software you're trying to install.
 ```
@@ -661,16 +1168,16 @@ Once the make step completes successfully we can install the cURL executable to 
 $ make install
 ```
 
-If you've set everything up as I have on ARC4 and run this in your /home directory your new cURL executable will be at `~/curl/install/bin`.
+If you've set everything up as I have on Aire and run this with a hpc2 directory inside your home directory, your new cURL executable will be at `~/hpc2/curl/install/bin`.
 However, because we already have a system-installed cURL version we need to do an extra step before testing out our newly built version of cURL.
 Crucially, we need to make the `libcurl2` library that was also built with cURL available for our new cURL executable to use.
 If we try and run our new cURL without doing this step we get the following error:
 
 ```bash
-$ ~/curl/install/bin/curl --version
+$ ~/hpc2/curl/install/bin/curl --version
 ```
 ```output
-/home/home01/arcuser/curl/install/bin/curl: error while loading shared libraries: libcurl2.so: cannot open shared object file: No such file or directory
+/users/example/hpc2/curl/install/bin/curl: error while loading shared libraries: libcurl2.so: cannot open shared object file: No such file or directory
 ```
 
 This is because `libcurl2` is not available to use via the associated environment variable.
@@ -678,15 +1185,15 @@ To solve this we need to update the `LD_LIBRARY_PATH` variable to include the di
 We do this by appending a directory path to the colon-separated `LD_LIBRARY_PATH` variable.
 
 ```bash
-$ export "LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/curl/install/lib64"
+$ export LD_LIBRARY_PATH+=:$HOME/hpc2/curl/install/lib64
 
-$ ~/curl/install/bin/curl --version
+$ ~/hpc2/curl/install/bin/curl --version
 ```
 ```output
-curl 7.85.0-DEV (Linux) libcurl/7.85.0-DEV OpenSSL/1.0.2k-fips zlib/1.2.7
+curl 7.85.0-DEV (Linux) libcurl/7.85.0-DEV OpenSSL/3.0.7 zlib/1.2.11
 Release-Date: [unreleased]
-Protocols: dict file ftp ftps gopher gophers http https imap imaps ldap mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
-Features: alt-svc AsynchDNS HSTS HTTPS-proxy IPv6 Largefile libz NTLM SSL UnixSockets
+Protocols: dict file ftp ftps gopher gophers http https imap imaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
+Features: alt-svc AsynchDNS HSTS HTTPS-proxy IPv6 Largefile libz NTLM SSL threadsafe UnixSockets
 ```
 
 So after adding the directory location containing our `libcurl2.so` file our newly created cURL executable is able to find it's associated library and run correctly.
