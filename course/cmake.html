@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction &#8212; HPC2: Installing and Managing Applications on the HPC</title>
+    <title>CMake &#8212; HPC2: Installing and Managing Applications on the HPC</title>
   
   
   
@@ -181,10 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="autotools.html">Autotools</a></li>
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">CMake</a></li>
 <li class="toctree-l1"><a class="reference internal" href="containers.html">Containers</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="spack.html">Spack</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="spack/installing.html">Installing Spack</a></li>
@@ -400,7 +397,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction</h1>
+    <h1>CMake</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -410,21 +407,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#building-software-with-cmake">Building software with CMake</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-curl-source-code">Cloning the cURL source code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-with-cmake">Configuring with CMake</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-cmake-directly">Using cmake directly</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ccmake">Using ccmake</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-cmake-configured-software">Building CMake configured software</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-software-with-cmake">Building software with CMake</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-curl-source-code">Cloning the cURL source code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-with-cmake">Configuring with CMake</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-cmake-directly">Using cmake directly</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ccmake">Using ccmake</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-cmake-configured-software">Building CMake configured software</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -435,7 +431,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>users# CMake</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="cmake">
+<h1>CMake<a class="headerlink" href="#cmake" title="Permalink to this heading">#</a></h1>
 <p>This chapter will look at using <a class="reference external" href="https://cmake.org/">CMake</a> to build software.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -444,18 +441,18 @@ document.write(`
 CMake (3.26.5) is available by default</p>
 </div>
 <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>CMake is a collection of tools for building, testing and packaging software.
 It is open source and cross platform and supports a variety of different build tools including Make, Microsoft Visual Studio, Apple’s Xcode and others.</p>
 <p>CMake works by generating build files from a series of CMake configuration files which the relevant build tool can be used to build the software from.
 This in many cases means CMake is used to create a series of Makefiles which allow us to use GNU make to build our software.</p>
 </section>
 <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
 <p>If you don’t have CMake installed you can download the latest version for your operating system from the <a class="reference external" href="https://cmake.org/download/">CMake website</a>.</p>
 </section>
 <section id="building-software-with-cmake">
-<h1>Building software with CMake<a class="headerlink" href="#building-software-with-cmake" title="Permalink to this heading">#</a></h1>
+<h2>Building software with CMake<a class="headerlink" href="#building-software-with-cmake" title="Permalink to this heading">#</a></h2>
 <p>In the following section we’ll explore a small example of building the command line tool <a class="reference external" href="https://curl.se/">cURL</a> using CMake.
 cURL is a tool for transferring data using various network protocols and is commonly used for downloading data from the internet.</p>
 <div class="admonition note">
@@ -463,7 +460,7 @@ cURL is a tool for transferring data using various network protocols and is comm
 <p>cURL is already installed on Aire, but we’ll look at installing our own personal version for this tutorial.</p>
 </div>
 <section id="cloning-the-curl-source-code">
-<h2>Cloning the cURL source code<a class="headerlink" href="#cloning-the-curl-source-code" title="Permalink to this heading">#</a></h2>
+<h3>Cloning the cURL source code<a class="headerlink" href="#cloning-the-curl-source-code" title="Permalink to this heading">#</a></h3>
 <p>To get started we need to download the cURL source code. cURL is available via GitHub so we can clone the source code at the most recent tagged release with the following line.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--single-branch<span class="w"> </span>--branch<span class="w"> </span>curl-7_85_0<span class="w"> </span>https://github.com/curl/curl.git
 </pre></div>
@@ -471,13 +468,13 @@ cURL is a tool for transferring data using various network protocols and is comm
 <p>This will download the cURL source code with the history of the associated release. You will likely see a warning message about being in a <code class="docutils literal notranslate"><span class="pre">detached</span> <span class="pre">head</span> <span class="pre">state</span></code> which you can ignore for this tutorial.</p>
 </section>
 <section id="configuring-with-cmake">
-<h2>Configuring with CMake<a class="headerlink" href="#configuring-with-cmake" title="Permalink to this heading">#</a></h2>
+<h3>Configuring with CMake<a class="headerlink" href="#configuring-with-cmake" title="Permalink to this heading">#</a></h3>
 <p>Now we’ve downloaded the cURL source code we need to configure it before building using CMake.
 To do this we need to create a <code class="docutils literal notranslate"><span class="pre">build</span></code> directory that will contain all of the autogenerated build file.
 Once we’ve created a <code class="docutils literal notranslate"><span class="pre">build</span></code> directory we run <code class="docutils literal notranslate"><span class="pre">cmake</span></code> to perform the configuration steps.
 You can do this directly in the command line by running <code class="docutils literal notranslate"><span class="pre">cmake</span></code> and specifying additional options or you can use <code class="docutils literal notranslate"><span class="pre">ccmake</span></code> to do configuration interactives through a GUI-like interface.</p>
 <section id="using-cmake-directly">
-<h3>Using cmake directly<a class="headerlink" href="#using-cmake-directly" title="Permalink to this heading">#</a></h3>
+<h4>Using cmake directly<a class="headerlink" href="#using-cmake-directly" title="Permalink to this heading">#</a></h4>
 <p>Running CMake directly runs all the configuration steps and provides some output to the screen.
 We can modify CMake default behaviour by passing additional arguments to <code class="docutils literal notranslate"><span class="pre">cmake</span></code> at this stage.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>curl
@@ -1533,7 +1530,7 @@ Always be sure to check the documentation to understand what the exact requireme
 </div>
 </section>
 <section id="using-ccmake">
-<h3>Using ccmake<a class="headerlink" href="#using-ccmake" title="Permalink to this heading">#</a></h3>
+<h4>Using ccmake<a class="headerlink" href="#using-ccmake" title="Permalink to this heading">#</a></h4>
 <p>You can also do the CMake configuration steps using <code class="docutils literal notranslate"><span class="pre">ccmake</span></code> which provides a GUI-like interface for adjusting CMake configuration options.</p>
 <p>You can open the ccmake GUI by running the following line within the <code class="docutils literal notranslate"><span class="pre">curl</span></code> directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ccmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build
@@ -1570,7 +1567,7 @@ You can also use <code class="docutils literal notranslate"><span class="pre">c<
 If you’re using <code class="docutils literal notranslate"><span class="pre">ccmake</span></code> for this tutorial rather than <code class="docutils literal notranslate"><span class="pre">cmake</span></code> then you’ll need to adjust the settings <code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_PREFIX</span></code> to be the full path to the <code class="docutils literal notranslate"><span class="pre">install</span></code> directory we created earlier and you’ll need to adjust the <code class="docutils literal notranslate"><span class="pre">LIBCURL_OUTPUT_NAME</span></code> setting to <code class="docutils literal notranslate"><span class="pre">libcurl2</span></code>.</p>
 </section>
 <section id="building-cmake-configured-software">
-<h3>Building CMake configured software<a class="headerlink" href="#building-cmake-configured-software" title="Permalink to this heading">#</a></h3>
+<h4>Building CMake configured software<a class="headerlink" href="#building-cmake-configured-software" title="Permalink to this heading">#</a></h4>
 <p>Now that CMake has configured everything we can proceed to building the software using GNU Make (here we pass the option <code class="docutils literal notranslate"><span class="pre">-j</span> <span class="pre">4</span></code> to use multiple threads).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
 
@@ -1615,7 +1612,7 @@ In order to keep these changes between different shell sessions you will need to
 </section>
 </section>
 <section id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="simple">
@@ -1631,6 +1628,7 @@ In order to keep these changes between different shell sessions you will need to
 </li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1697,21 +1695,20 @@ In order to keep these changes between different shell sessions you will need to
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#building-software-with-cmake">Building software with CMake</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-curl-source-code">Cloning the cURL source code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-with-cmake">Configuring with CMake</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-cmake-directly">Using cmake directly</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ccmake">Using ccmake</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-cmake-configured-software">Building CMake configured software</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-software-with-cmake">Building software with CMake</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-curl-source-code">Cloning the cURL source code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-with-cmake">Configuring with CMake</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-cmake-directly">Using cmake directly</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ccmake">Using ccmake</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-cmake-configured-software">Building CMake configured software</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
