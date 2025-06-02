@@ -1,4 +1,4 @@
-users# CMake
+# CMake
 
 This chapter will look at using [CMake](https://cmake.org/) to build software.
 
