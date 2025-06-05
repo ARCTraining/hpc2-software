@@ -48,7 +48,7 @@ yourself.
 
 ### On another system
 
-You can install Conda from a number of sources. In order to ensure you are using an open-source distribution and the Conda-Forge channel by default, we recommend you install the [Miniforge](https://github.com/conda-forge/miniforge) distribution.
+You can install Conda from a number of sources. In order to ensure you are using an open-source distribution and the conda-forge channel by default, we recommend you install the [Miniforge](https://github.com/conda-forge/miniforge) distribution.
 Installers are available for Windows, MacOS and Linux. You *do not* need administrative rights to install Conda on a machine.
 
 If you have questions or issues installing Conda locally please get in touch via the [Research Computing Contact form](https://leeds.service-now.com/it?id=sc_cat_item&sys_id=7587b2530f675f00a82247ece1050eda).
