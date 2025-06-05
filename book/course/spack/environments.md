@@ -81,5 +81,5 @@ spack env deactivate
 
 ## References
 
-[Using Spack to Replace Homebrew/Conda](https://spack.readthedocs.io/en/latest/replace_conda_homebrew.html)
-[Environments](https://spack.readthedocs.io/en/latest/environments.html)
+- [Using Spack to Replace Homebrew/Conda](https://spack.readthedocs.io/en/latest/replace_conda_homebrew.html)
+- [Environments](https://spack.readthedocs.io/en/latest/environments.html)
