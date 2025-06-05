@@ -19,7 +19,7 @@ For example, this enables you to install different versions of Python in two sep
 :class: note
 
 It's common to be confused when confronted with Conda, Miniconda, Miniforge, Anaconda.org, and Anaconda.com. Conda is specifically the package and environment manager tool itself, and is open source.
-Miniconda and Anaconda are distributions provided by [Anaconda.com](https://www.anaconda.com/) which require a commercial license for use except in certain cases, while [Anaconda.org](https://anaconda.org/) is a repository of open-source packages available for download. The *default* channel on the Anaconda repository is also covered by the commercial license; however, the channel *conda-forge* and other community channels are available outside this license. [Miniforge](https://github.com/conda-forge/miniforge) is an open-source install of Conda separate from Anaconda.
+Miniconda and Anaconda are distributions provided by [Anaconda.com](https://www.anaconda.com/) which require a commercial license for use except in certain cases, while [Anaconda.org](https://anaconda.org/) is a repository of packages available for download. The *default* channel on the Anaconda repository is also covered by the commercial license; however, the channel *conda-forge* and other community channels are available outside this license. [Miniforge](https://github.com/conda-forge/miniforge) is an open-source install of Conda separate from Anaconda.
 
 _Adapted from [Introduction to Conda for Data Scientists](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/01-getting-started-with-conda/index.html)_
 
