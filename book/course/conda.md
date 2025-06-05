@@ -12,7 +12,7 @@ Conda is an open source package management and environment management system tha
 - Quickly installing, running and updating packages and their dependencies.
 - Easily creating, saving, loading and switching between environments on your local computer.
 
-While it was created for Python programs, but it can package and distribute software for any language. Conda is a tool that helps find and install packages, but also lets you manage different software environments where you can install different configurations of packages.
+While it was created for Python programs, it can package and distribute software for any language. It is a tool that helps you find and install packages, but also lets you manage different software environments where you can install different configurations of packages.
 For example, this enables you to install different versions of Python in two separate environments without creating incompatibities in either of those projects.
 
 ````{admonition} Conda, Miniconda, Miniforge and Anaconda
