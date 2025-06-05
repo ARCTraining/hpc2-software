@@ -29,4 +29,4 @@ launch_buttons:
 repository:
   url                       : https://github.com/ARCTraining/hpc2-software  # The URL to your book's repository
   path_to_book              : "book/"  # A path to your book's folder, relative to the repository root.
-  branch                    : gh-pages  # Which branch of the repository should be used when creating links
+  branch                    : main  # Which branch of the repository should be used when creating links
