@@ -9,27 +9,24 @@ Content from this lesson has been inspired and adapted from a number of sources 
 
 Conda is an open source package management and environment management system that runs on multiple operating systems (Windows, Linux, macOS). Its features include:
 
-- Conda quickly installs, runs and updates packages and their dependencies.
-- Conda easily creates, saves, loads and switches between environments on your local computer.
-- It was created for Python programs, but it can package and distribute software for any language.
+- Quickly installing, running and updating packages and their dependencies.
+- Easily creating, saving, loading and switching between environments on your local computer.
 
-Conda is a tool that helps find and install packages, but also lets you manage different software environments where you can install different configurations of packages.
+While it was created for Python programs, it can package and distribute software for any language. It is a tool that helps you find and install packages, but also lets you manage different software environments where you can install different configurations of packages.
 For example, this enables you to install different versions of Python in two separate environments without creating incompatibities in either of those projects.
 
-````{admonition} Conda, Miniconda and Anaconda
+````{admonition} Conda, Miniconda, Miniforge and Anaconda
 :class: note
 
-It's common to be confused when confronted with Conda, Miniconda and Anaconda. Conda is specifically the package and environment manager tool itself.
-Miniconda is a distribution of Python that includes the Conda package manager and a few other core packages.
-Anaconda is another distribution of Python that includes the Conda package manager but also includes a number of widely used Python packages and other Anaconda features such as the [Anaconda Navigator](https://docs.anaconda.com/anaconda/navigator/).
+It's common to be confused when confronted with Conda, Miniconda, Miniforge, Anaconda.org, and Anaconda.com. Conda is specifically the package and environment manager tool itself, and is open source.
+Miniconda and Anaconda are distributions provided by [Anaconda.com](https://www.anaconda.com/) which require a commercial license for use except in certain cases, while [Anaconda.org](https://anaconda.org/) is a repository of packages available for download. The *default* channel on the Anaconda repository is also covered by the commercial license; however, the channel *conda-forge* and other community channels are available outside this license. [Miniforge](https://github.com/conda-forge/miniforge) is an open-source install of Conda separate from Anaconda.
 
-```{image} ../assets/img/course/conda/miniconda_v_anaconda.png
-:alt: Miniconda versus Anaconda, reproduced from https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/01-getting-started-with-conda/index.html
-:width: 400px
-:align: center
-```
+_Adapted from [Introduction to Conda for Data Scientists](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/01-getting-started-with-conda/index.html)_
 
-_Reproduced from [Introduction to Conda for Data Scientists](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/01-getting-started-with-conda/index.html)_
+That's a lot of information, so here's the key parts you need to know:
+
+- *Conda* is the name of the software.
+- We recommend you install Conda with [Miniforge](https://github.com/conda-forge/miniforge), a fast and open-source distribution.
 
 ````
 
@@ -51,14 +48,8 @@ yourself.
 
 ### On another system
 
-You can install Conda from a number of sources:
-- As part of the [Anaconda Python distribution](https://www.anaconda.com/products/distribution)
-- As part of [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
-- As part of the conda-forge channel [Miniforge](https://github.com/conda-forge/miniforge) distribution
-
-Conda is cross-platform, therefore all these distributions have installers for both Windows, MacOS and Linux.
-For Miniconda, you visit the [Miniconda page](https://docs.conda.io/en/latest/miniconda.html) on the Conda website, select the installer corresponding to your operating system and run the downloaded file on your machine.
-When installing Miniconda you may be prompted to select various settings during installation, our recommendation is to leave these settings as the defaults if you're unsure.
+You can install Conda from a number of sources. In order to ensure you are using an open-source distribution and the conda-forge channel by default, we recommend you install the [Miniforge](https://github.com/conda-forge/miniforge) distribution.
+Installers are available for Windows, MacOS and Linux. You *do not* need administrative rights to install Conda on a machine.
 
 If you have questions or issues installing Conda locally please get in touch via the [Research Computing Contact form](https://leeds.service-now.com/it?id=sc_cat_item&sys_id=7587b2530f675f00a82247ece1050eda).
 
