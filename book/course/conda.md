@@ -61,17 +61,42 @@ This allows you to separate the dependencies of different projects cleanly so fo
 Conda makes it easy to switch between different environments and allows you to create and delete them as required.
 Conda environments also make it easier to share our environment setup between machines and with collaborators as we can export our environments into a text file.
 
+If you want to find out more about [good dependency management practises in general, please read our documentation](https://arcdocs.leeds.ac.uk/aire/usage/dependency_management.html#dependency-management); we use this material to inform this session but take a more trial-and-error approach here.
+
 ```{admonition} The base environment
 By default Conda includes the `base` environment.
 This contains a starting installation of Python and the dependencies of the Conda tool itself.
+
 Therefore, it's **best practice** to not install packages into the `base` environment and create your own environments into which you install the tools you need.
+
+Installing into the `base` environment can lead to dependency conflicts and prevents you from being able to swap between different versions of packages for different libraries.
 ```
+
+
+### General guidelines for handling environments
+
+While following the steps below to build, experiment with, and then create a reproducible environment, you will hopefully notice the following key principles:
+
+- **In general, environments should be treated as disposable and rebuildable**: you should be able to tear down and rebuild your environment quickly and easily (of course, some larger environments with complex installations will be an exception to this rule). Ideally, *you won't have to rebuild*, but being able to will save you an awful lot of heartbreak if and when something goes wrong. We'll see how we can use an `environment.yml` file to do this.
+- **Export your exact environment as metadata for analysis results**: it is useful to save a snapshot of your environment to store along any results or outputs produced in that specific environment. 
+- **Environments must be stored in your `home` directory and all research output must be stored in `/mnt/scratch/users`**: misuse of the system can affect performance for **all users** and will lead to your jobs being stopped.
+
 
 (creating-environments)=
 ### Creating environments
 
+There are two main ways to create a fresh Conda environment:
+  1. Creating directly from the command line with a list of required packages;
+  2. Creating from an `environment.yml` file that lists required packages.
+
+We will step through examples of both, and compare both techniques.
+
+#### 1. On the fly creation
+
+If you have come across Conda before, this is likely the method of creating environments that you've encountered.
+
 You can create an environment with Conda with the subcommand `conda create`.
-When creating an environment we need to give it a name; we recommend giving it a name related to the project you're going to use the environment for.
+When creating an environment we need to give it a name; we recommend giving it a name related to the project you're going building it to support. In this example, we use the (unimaginative name) `py39-env` as we're going to be using Python 3.9; you can imagine that if you're working with multiple different versions of Python is could be useful to record this in the environment name, and prefix it with the project title.
 
 ```bash
 $ conda create --name py39-env python=3.9
@@ -292,13 +317,11 @@ Executing transaction: /
         $ conda install scikit-learn-intelex
         $ python -m sklearnex my_application.py
 
-
-
 done
 #
 # To activate this environment, use
 #
-#     $ conda activate data-sci-env2
+#     $ conda activate data-sci-env
 #
 # To deactivate an active environment, use
 #
@@ -307,12 +330,79 @@ done
 ````
 
 With the above command we create a new environment but don't specify to install Python.
-However, because we've specified Python packages which depend on Python being installed to run Conda will install the high version of Python suitable for these packages.
+However, because we've specified Python packages which depend on Python being installed to run Conda will install the highest version of Python suitable for these packages.
+
+#### 2. Creation from an `environment.yml` file
+
+Instead of providing a list of packages as arguments to the Conda command, you can instead point Conda to a file that lists your dependencies.
+
+First, you need to create an environment file with the dependencies required, saved with the file extension `.yaml` or `.yml` (usually called `environment.yml`, but it doesn't *have* to be):
+
+```yml
+name: data-sci-env
+dependencies:
+- scikit-learn
+- matplotlib=3.5.1
+- pandas=1.4.2
+```
+
+You'll note that this list has the same dependencies as our on-the-fly example previously (`conda create --name data-sci-env pandas=1.4.2 matplotlib=3.5.1 scikit-learn`). This file should be saved in the project directory. 
+
+Then, we can create a new environment by simply pointing Conda at the environment file:
+
+```bash
+$ conda env create -f environment.yml
+```
+
+*Note that this second example was run much more recently (2025) than the previous example; can you spot some key differences in the output below?*
+
+
+````{admonition} View full output
+:class: dropdown
+```
+Retrieving notices: done
+Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.3.1
+    latest version: 25.5.1
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+Downloading and Extracting Packages:
+
+>>>>>>> lots of information on installing packages...
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate data-sci-env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+```
+````
+
+With the above command we create a new environment but don't specify to install Python.
+However, because we've specified Python packages which depend on Python being installed to run Conda will install the highest version of Python suitable for these packages.
 
 (activating-environments)=
 ### Activating environments
 
-To use a Conda environment we need to activate it.
+Regardless of the method you used to create the environment, in order to use a Conda environment we need to activate it.
 Activating our environment does a number of steps that sets the terminal we're using up so that it can see all of the installed packages in the environment, making it ready for use.
 
 ```bash
@@ -349,6 +439,174 @@ py39-env                   /home/home01/arcuser/.conda/envs/py39-env
 data-sci-env               /home/home01/arcusers/.conda/envs/data-sci-env
 ```
 ````
+
+(installing-packages)=
+### Updating a Conda environment and installing new packages
+
+It's very likely that after creating an environment with a certain list of packages, you'll want to add other packages, or potentially change what version of a package you have installed.
+
+Earlier we created the `data-sci-env` and installed some useful data science packages.
+We've discovered we also need the `statsmodels` package for some extra work we want to do so we'll look at how to install this package within our existing environment.
+
+````{admonition} Searching for packages
+
+Conda has a command-line search functionality that we describe below in the section [Use Conda to search for a package](#); you can also use the [`conda-forge` repository](https://anaconda.org/conda-forge) or [`bioconda` repository](https://anaconda.org/bioconda) to search for packages.
+````
+
+Once you have the name (and possibly version) of the package you want to install, again there are two different ways to add these packages, much like there were two ways to create the environment to begin with.
+
+#### 1. On the fly installation of new packages
+
+You can add new packages directly from the command line using the `install` subcommand with the format `conda install PACKAGE`, where `PACKAGE` is the name of the package you wish to install.
+
+To install packages into an existing environment we need to activate it with the [subcommand shown above](activating-environments).
+
+```bash
+$ conda activate data-sci-env
+
+(data-sci-env)$ conda install statsmodels
+```
+````{admonition} View full output
+:class: dropdown
+```
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/home01/arcuser/.conda/envs/data-sci-env
+
+  added / updated specs:
+    - statsmodels
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    libopenblas-0.3.21         |pthreads_h78a6416_3        10.1 MB  conda-forge
+    numpy-1.23.2               |  py310h53a5b5f_0         7.1 MB  conda-forge
+    pandas-1.4.4               |  py310h769672d_0        12.5 MB  conda-forge
+    patsy-0.5.2                |     pyhd8ed1ab_0         188 KB  conda-forge
+    pytz-2022.2.1              |     pyhd8ed1ab_0         224 KB  conda-forge
+    scipy-1.9.1                |  py310hdfbd76f_0        26.2 MB  conda-forge
+    statsmodels-0.13.2         |  py310hde88566_0        11.2 MB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        67.4 MB
+
+The following NEW packages will be INSTALLED:
+
+  libblas            conda-forge/linux-64::libblas-3.9.0-16_linux64_openblas
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-16_linux64_openblas
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-12.1.0-h69a702a_16
+  libgfortran5       conda-forge/linux-64::libgfortran5-12.1.0-hdcd56e2_16
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-16_linux64_openblas
+  libopenblas        conda-forge/linux-64::libopenblas-0.3.21-pthreads_h78a6416_3
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-12.1.0-ha89aaad_16
+  numpy              conda-forge/linux-64::numpy-1.23.2-py310h53a5b5f_0
+  packaging          conda-forge/noarch::packaging-21.3-pyhd8ed1ab_0
+  pandas             conda-forge/linux-64::pandas-1.4.4-py310h769672d_0
+  patsy              conda-forge/noarch::patsy-0.5.2-pyhd8ed1ab_0
+  pyparsing          conda-forge/noarch::pyparsing-3.0.9-pyhd8ed1ab_0
+  python-dateutil    conda-forge/noarch::python-dateutil-2.8.2-pyhd8ed1ab_0
+  python_abi         conda-forge/linux-64::python_abi-3.10-2_cp310
+  pytz               conda-forge/noarch::pytz-2022.2.1-pyhd8ed1ab_0
+  scipy              conda-forge/linux-64::scipy-1.9.1-py310hdfbd76f_0
+  six                conda-forge/noarch::six-1.16.0-pyh6c4a22f_0
+  statsmodels        conda-forge/linux-64::statsmodels-0.13.2-py310hde88566_0
+
+
+Proceed ([y]/n)?
+```
+````
+
+Conda will always prompt the user if we're happy to proceed with the installation and specifies all the other packages that will be installed or updated that are required for our specified package.
+We confirm we wish to proceed by entering `y` and pressing Return.
+
+````{admonition} View full output
+:class: dropdown
+```
+Proceed ([y]/n)? y
+
+Downloading and Extracting Packages
+pytz-2022.2.1        | 224 KB    | ##################################### | 100%
+libopenblas-0.3.21   | 10.1 MB   | ##################################### | 100%
+scipy-1.9.1          | 26.2 MB   | ##################################### | 100%
+patsy-0.5.2          | 188 KB    | ##################################### | 100%
+statsmodels-0.13.2   | 11.2 MB   | ##################################### | 100%
+pandas-1.4.4         | 12.5 MB   | ##################################### | 100%
+numpy-1.23.2         | 7.1 MB    | ##################################### | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+```
+````
+
+This installs any packages that are currently not installed (Conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).
+
+#### 2. Updating from an `environment.yml` file
+
+To update our environment using our environment file, we need to edit the `environment.yml` to include the new packages:
+
+```yml
+name: data-sci-env
+dependencies:
+- scikit-learn
+- matplotlib=3.5.1
+- pandas=1.4.2
+- statsmodels
+```
+
+Now, to update the environment from this file, we us the `update` subcommand:
+
+```bash
+$ conda env update --file environment.yml --prune
+```
+
+Note that the environment does **not** need to be active to do this.
+
+````{admonition} View full output
+:class: dropdown
+```
+FutureWarning: `remote_definition` is deprecated and will be removed in 25.9. Use `conda env create --file=URL` instead.
+  action(self, namespace, argument_values, option_string)^
+
+Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.3.1
+    latest version: 25.5.1
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate data-sci-env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+```
+````
+
+*Note that there is a `FutureWarning` that can safely be ignored as it is not intended to flag use of `environment.yml` files.* 
+
+This ensures that we have an up-to-date record of what we have installed in our project folder.
 
 (removing-a-conda-environment)=
 ### Removing a Conda environment
@@ -1178,99 +1436,6 @@ python                        3.10.6 h582c2e5_0_cpython  conda-forge
 python                        3.10.6 ha86cf86_0_cpython  conda-forge
 ```
 ````
-
-(installing-packages)=
-### Installing packages
-
-Installing packages via Conda is performed using the `install` subcommand with the format `conda install PACKAGE`, where `PACKAGE` is the name of the package you wish to install.
-
-Earlier we created the `data-sci-env` and installed some useful data science packages.
-We've discovered we also need the `statsmodels` package for some extra work we want to do so we'll look at using `conda install` to install this package within our existing environment.
-
-To install packages into an existing environment we need to activate it with the [subcommand shown above](activating-environments).
-
-```bash
-$ conda activate data-sci-env
-
-(data-sci-env)$ conda install statsmodels
-```
-````{admonition} View full output
-:class: dropdown
-```
-Collecting package metadata (current_repodata.json): done
-Solving environment: done
-
-## Package Plan ##
-
-  environment location: /home/home01/arcuser/.conda/envs/data-sci-env
-
-  added / updated specs:
-    - statsmodels
-
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    libopenblas-0.3.21         |pthreads_h78a6416_3        10.1 MB  conda-forge
-    numpy-1.23.2               |  py310h53a5b5f_0         7.1 MB  conda-forge
-    pandas-1.4.4               |  py310h769672d_0        12.5 MB  conda-forge
-    patsy-0.5.2                |     pyhd8ed1ab_0         188 KB  conda-forge
-    pytz-2022.2.1              |     pyhd8ed1ab_0         224 KB  conda-forge
-    scipy-1.9.1                |  py310hdfbd76f_0        26.2 MB  conda-forge
-    statsmodels-0.13.2         |  py310hde88566_0        11.2 MB  conda-forge
-    ------------------------------------------------------------
-                                           Total:        67.4 MB
-
-The following NEW packages will be INSTALLED:
-
-  libblas            conda-forge/linux-64::libblas-3.9.0-16_linux64_openblas
-  libcblas           conda-forge/linux-64::libcblas-3.9.0-16_linux64_openblas
-  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-12.1.0-h69a702a_16
-  libgfortran5       conda-forge/linux-64::libgfortran5-12.1.0-hdcd56e2_16
-  liblapack          conda-forge/linux-64::liblapack-3.9.0-16_linux64_openblas
-  libopenblas        conda-forge/linux-64::libopenblas-0.3.21-pthreads_h78a6416_3
-  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-12.1.0-ha89aaad_16
-  numpy              conda-forge/linux-64::numpy-1.23.2-py310h53a5b5f_0
-  packaging          conda-forge/noarch::packaging-21.3-pyhd8ed1ab_0
-  pandas             conda-forge/linux-64::pandas-1.4.4-py310h769672d_0
-  patsy              conda-forge/noarch::patsy-0.5.2-pyhd8ed1ab_0
-  pyparsing          conda-forge/noarch::pyparsing-3.0.9-pyhd8ed1ab_0
-  python-dateutil    conda-forge/noarch::python-dateutil-2.8.2-pyhd8ed1ab_0
-  python_abi         conda-forge/linux-64::python_abi-3.10-2_cp310
-  pytz               conda-forge/noarch::pytz-2022.2.1-pyhd8ed1ab_0
-  scipy              conda-forge/linux-64::scipy-1.9.1-py310hdfbd76f_0
-  six                conda-forge/noarch::six-1.16.0-pyh6c4a22f_0
-  statsmodels        conda-forge/linux-64::statsmodels-0.13.2-py310hde88566_0
-
-
-Proceed ([y]/n)?
-```
-````
-
-Conda will always prompt the user if we're happy to proceed with the installation and specifies all the other packages that will be installed or updated that are required for our specified package.
-We confirm we wish to proceed by entering `y` and pressing Return.
-
-````{admonition} View full output
-:class: dropdown
-```
-Proceed ([y]/n)? y
-
-Downloading and Extracting Packages
-pytz-2022.2.1        | 224 KB    | ##################################### | 100%
-libopenblas-0.3.21   | 10.1 MB   | ##################################### | 100%
-scipy-1.9.1          | 26.2 MB   | ##################################### | 100%
-patsy-0.5.2          | 188 KB    | ##################################### | 100%
-statsmodels-0.13.2   | 11.2 MB   | ##################################### | 100%
-pandas-1.4.4         | 12.5 MB   | ##################################### | 100%
-numpy-1.23.2         | 7.1 MB    | ##################################### | 100%
-Preparing transaction: done
-Verifying transaction: done
-Executing transaction: done
-```
-````
-
-This installs any packages that are currently not installed (Conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).
 
 
 (removing-packages)=
