@@ -77,7 +77,7 @@ Installing into the `base` environment can lead to dependency conflicts and prev
 
 While following the steps below to build, experiment with, and then create a reproducible environment, you will hopefully notice the following key principles:
 
-- **In general, environments should be treated as disposable and rebuildable**: you should be able to tear down and rebuild your environment quickly and easily (of course, some larger environments with complex installations will be an exception to this rule). Ideally, *you won't have to rebuild*, but being able to will save you an awful lot of heartbreak if and when something goes wrong. We'll see how we can use an `environment.yml` file to do this.
+- **In general, environments should be treated as disposable and rebuildable**: you should be able to tear down and rebuild your environment quickly and easily (of course, some larger environments with complex installations will be an exception to this rule). Ideally, *you won't have to rebuild*, but being able to will save you an awful lot of heartbreak if and when something goes wrong. We'll see how we can use an `environment.yaml` file to do this.
 - **Export your exact environment as metadata for analysis results**: it is useful to save a snapshot of your environment to store along any results or outputs produced in that specific environment. 
 - **Environments must be stored in your `home` directory and all research output must be stored in `/mnt/scratch/users`**: misuse of the system can affect performance for **all users** and will lead to your jobs being stopped.
 
@@ -87,7 +87,7 @@ While following the steps below to build, experiment with, and then create a rep
 
 There are two main ways to create a fresh Conda environment:
   1. Creating directly from the command line with a list of required packages;
-  2. Creating from an `environment.yml` file that lists required packages.
+  2. Creating from an `environment.yaml` file that lists required packages.
 
 We will step through examples of both, and compare both techniques.
 
@@ -332,13 +332,13 @@ done
 With the above command we create a new environment but don't specify to install Python.
 However, because we've specified Python packages which depend on Python being installed to run Conda will install the highest version of Python suitable for these packages.
 
-#### 2. Creation from an `environment.yml` file
+#### 2. Creation from an `environment.yaml` file
 
 Instead of providing a list of packages as arguments to the Conda command, you can instead point Conda to a file that lists your dependencies.
 
-First, you need to create an environment file with the dependencies required, saved with the file extension `.yaml` or `.yml` (usually called `environment.yml`, but it doesn't *have* to be):
+First, you need to create an environment file with the dependencies required, saved with the file extension `.yaml` or `.yml` (usually called `environment.yaml`, but it doesn't *have* to be):
 
-```yml
+```yaml
 name: data-sci-env
 dependencies:
 - scikit-learn
@@ -351,7 +351,7 @@ You'll note that this list has the same dependencies as our on-the-fly example p
 Then, we can create a new environment by simply pointing Conda at the environment file:
 
 ```bash
-$ conda env create -f environment.yml
+$ conda env create -f environment.yaml
 ```
 
 *Note that this second example was run much more recently (2025) than the previous example; can you spot some key differences in the output below?*
@@ -544,11 +544,11 @@ Executing transaction: done
 
 This installs any packages that are currently not installed (Conda caches packages locally in case they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).
 
-#### 2. Updating from an `environment.yml` file
+#### 2. Updating from an `environment.yaml` file
 
-To update our environment using our environment file, we need to edit the `environment.yml` to include the new packages:
+To update our environment using our environment file, we need to edit the `environment.yaml` to include the new packages:
 
-```yml
+```yaml
 name: data-sci-env
 dependencies:
 - scikit-learn
@@ -560,7 +560,7 @@ dependencies:
 Now, to update the environment from this file, we us the `update` subcommand:
 
 ```bash
-$ conda env update --file environment.yml --prune
+$ conda env update --file environment.yaml --prune
 ```
 
 Note that the environment does **not** need to be active to do this. You should pin any versions of libraries (such as `matplotlib=3.5.1`) that you don't want to update.
@@ -604,7 +604,7 @@ Executing transaction: done
 ```
 ````
 
-*Note that there is a `FutureWarning` that can safely be ignored as it is not intended to flag use of `environment.yml` files.* 
+*Note that there is a `FutureWarning` that can safely be ignored as it is not intended to flag use of `environment.yaml` files.* 
 
 This ensures that we have an up-to-date record of what we have installed in our project folder.
 
@@ -674,12 +674,12 @@ However, if you have exported details of your environment it is possible to recr
 ### Recording your Conda environments
 
 Recording dependencies is crucial for reproducibility.
-In order to record the exact versions of all dependencies used in your project (as opposed to the limited list you manually installed with your `envrionment.yml` file), from inside your active conda environment, you can run the following export command:
+In order to record the exact versions of all dependencies used in your project (as opposed to the limited list you manually installed with your `envrionment.yaml` file), from inside your active conda environment, you can run the following export command:
 
 ```bash
 $ conda activate data-sci-env
 
-(data-sci-env)$ conda env export > env-record.yml
+(data-sci-env)$ conda env export > env-record.yaml
 ```
 
 This can be run as part of a batch job and included in your submission script;  so that it's saved out alongside your other output data files:
@@ -688,9 +688,9 @@ This can be run as part of a batch job and included in your submission script;  
 conda env export > $SCRATCH/env-record.yaml
 ```
 
-**This exported environment file is mainly useful as a record for the sake of reproducibility, not for *reusability*. Your `environment.yml` file is a far better basis for rebuilding or sharing environments.**
+**This exported environment file is mainly useful as a record for the sake of reproducibility, not for *reusability*. Your `environment.yaml` file is a far better basis for rebuilding or sharing environments.**
 
-This record will include background library dependencies (libraries you did not explicitly install, that were loaded automatically) and details of builds. This file, while technically an `environment.yml` file, will likely not be able to rebuild your environment on a machine other than the machine it was created on.
+This record will include background library dependencies (libraries you did not explicitly install, that were loaded automatically) and details of builds. This file, while technically an `environment.yaml` file, will likely not be able to rebuild your environment on a machine other than the machine it was created on.
 
 It's important to consider the balance of reproducibility and portability: `conda env export` captures the exact specification of an environment including all installed packages, their dependencies and package hashes.
 Sometimes this level of detail should be included to ensure maximum reproduciblity of a project and when looking to validate results, but it's important to also balance being able to allow people to reproduce your work on other systems. The next section talks about portability or re*use*ability more.
@@ -698,20 +698,20 @@ Sometimes this level of detail should be included to ensure maximum reproducibli
 (sharing-conda-environments)=
 ### Sharing Conda environments
 
-The Conda `environment.yml` file is the key to sharing conda environments across systems.
+The Conda `environment.yaml` file is the key to sharing conda environments across systems.
 
-If you created your Conda environment from a `.yml` file (and have kept it up-to-date by using it and the `update` command to install new packages), you can share this file with collaborators, and they can use the instructions above to create an environment from file.
+If you created your Conda environment from a `.yaml` file (and have kept it up-to-date by using it and the `update` command to install new packages), you can share this file with collaborators, and they can use the instructions above to create an environment from file.
 
-If you instead used the on-the-fly creation method and *don't* have an `environment.yml`, it will take a little bit more work. As we stated in the last section, using `conda env export` will export all installed packages, their dependencies, and package hashes, and will be unlikely to install without error on a different system. So how can we produce a reuseable `environment.yml` file?
+If you instead used the on-the-fly creation method and *don't* have an `environment.yaml`, it will take a little bit more work. As we stated in the last section, using `conda env export` will export all installed packages, their dependencies, and package hashes, and will be unlikely to install without error on a different system. So how can we produce a reuseable `environment.yaml` file?
 
-**If you follow the above steps for building your conda environment from a `.yml` file, this step is not necessary. However, if you want to salvage, share, or back-up an environment that you built using repeated `conda install package-name` commands, this allows you to create an `environment.yml` file.**
+**If you follow the above steps for building your conda environment from a `.yaml` file, this step is not necessary. However, if you want to salvage, share, or back-up an environment that you built using repeated `conda install package-name` commands, this allows you to create an `environment.yaml` file.**
 
 Activate your environment and run a modified export:
 
 ```bash
 $ conda activate data-sci-env
 
-(data-sci-env)$ conda env export --from-history > environment_export.yml
+(data-sci-env)$ conda env export --from-history > environment_export.yaml
 ```
 
 This will export a list of only the libraries that you explicitly installed (and not all the background dependencies), and only the pinned versions you requested. This is not useful as a record of your exact environment, but is a good backup for rebuilding or sharing your environment. **Note that this will not add any pip dependencies: to find out more about pip dependencies.** We won't get into mixing in pip dependencies today, but please read our documentation for [how to export a reuseable environment file including pip dependencies](https://arcdocs.leeds.ac.uk/aire/usage/dependency_management.html#pip-dependencies).
@@ -1436,7 +1436,7 @@ As you can see in the above example, removing one package may also lead to the r
 
 With these changes made we can now install a newer version of pandas using `conda install`.
 
-Of course, this can also be easily done by updating our `environment.yml` file to remove the package, and running the `update` command shown above with the flag `--prune`.
+Of course, this can also be easily done by updating our `environment.yaml` file to remove the package, and running the `update` command shown above with the flag `--prune`.
 
 (updating-a-package)=
 ### Updating a package
@@ -1488,7 +1488,7 @@ Proceed ([y]/n)?
 
 When requesting to update a package Conda will also update other dependencies of the package that you wish to update, and can potentially install new packages that are required.
 
-Again, this can also be easily done by updating our `environment.yml` file to change the version of a specific package, and running the `update` command shown above with the flag `--prune`.
+Again, this can also be easily done by updating our `environment.yaml` file to change the version of a specific package, and running the `update` command shown above with the flag `--prune`.
 
 ## Summary
 
