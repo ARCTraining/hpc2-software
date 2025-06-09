@@ -450,7 +450,7 @@ We've discovered we also need the `statsmodels` package for some extra work we w
 
 ````{admonition} Searching for packages
 
-Conda has a command-line search functionality that we describe below in the section [Use Conda to search for a package](#); you can also use the [`conda-forge` repository](https://anaconda.org/conda-forge) or [`bioconda` repository](https://anaconda.org/bioconda) to search for packages.
+Conda has a command-line search functionality that we describe below in the section [Use Conda to search for a package](#searching-for-packages); you can also use the [`conda-forge` repository](https://anaconda.org/conda-forge) or [`bioconda` repository](https://anaconda.org/bioconda) to search for packages.
 ````
 
 Once you have the name (and possibly version) of the package you want to install, again there are two different ways to add these packages, much like there were two ways to create the environment to begin with.
