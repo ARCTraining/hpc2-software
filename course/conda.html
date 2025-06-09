@@ -414,24 +414,26 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda-environments">Conda environments</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-environments">Creating environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-guidelines-for-handling-environments">General guidelines for handling environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-environments">Creating environments</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-fly-creation">1. On the fly creation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-from-an-environment-yaml-file">2. Creation from an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-environments">Activating environments</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deactivating-environments">Deactivating environments</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-current-environments">Listing current environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-a-conda-environment-and-installing-new-packages">Updating a Conda environment and installing new packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-fly-installation-of-new-packages">1. On the fly installation of new packages</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-from-an-environment-yaml-file">2. Updating from an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-a-conda-environment">Removing a Conda environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-conda-environments">Sharing Conda environments</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-cross-platform-environment-file">Creating a cross platform environment file</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-env-export-from-history">1. Using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span> <span class="pre">--from-history</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-create-an-environment-yml">2. Manually create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recording-your-conda-environments">Recording your Conda environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-conda-environments">Sharing Conda environments</a></li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-to-install-packages">Using Conda to install packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-packages">Searching for packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages">Installing packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-to-search-for-packages">Using Conda to search for packages</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-packages">Removing packages</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-a-package">Updating a package</a></li>
 </ul>
@@ -504,16 +506,36 @@ A Conda environment is a directory that contains a specific set of installed pac
 This allows you to separate the dependencies of different projects cleanly so for example, you can use Python 3.7 in one Conda environment to reproduce a collaborators results but use Python 3.10 in your own projects without any hassle.
 Conda makes it easy to switch between different environments and allows you to create and delete them as required.
 Conda environments also make it easier to share our environment setup between machines and with collaborators as we can export our environments into a text file.</p>
+<p>If you want to find out more about <a class="reference external" href="https://arcdocs.leeds.ac.uk/aire/usage/dependency_management.html#dependency-management">good dependency management practices in general, please read our documentation</a>; we use this material to inform this session but take a more trial-and-error approach here.</p>
 <div class="admonition-the-base-environment admonition">
 <p class="admonition-title">The base environment</p>
 <p>By default Conda includes the <code class="docutils literal notranslate"><span class="pre">base</span></code> environment.
-This contains a starting installation of Python and the dependencies of the Conda tool itself.
-Therefore, it’s <strong>best practice</strong> to not install packages into the <code class="docutils literal notranslate"><span class="pre">base</span></code> environment and create your own environments into which you install the tools you need.</p>
+This contains a starting installation of Python and the dependencies of the Conda tool itself.</p>
+<p>Therefore, it’s <strong>best practice</strong> to not install packages into the <code class="docutils literal notranslate"><span class="pre">base</span></code> environment and create your own environments into which you install the tools you need.</p>
+<p>Installing into the <code class="docutils literal notranslate"><span class="pre">base</span></code> environment can lead to dependency conflicts and prevents you from being able to swap between different versions of packages for different libraries.</p>
 </div>
+<section id="general-guidelines-for-handling-environments">
+<h3>General guidelines for handling environments<a class="headerlink" href="#general-guidelines-for-handling-environments" title="Permalink to this heading">#</a></h3>
+<p>While following the steps below to build, experiment with, and then create a reproducible environment, you will hopefully notice the following key principles:</p>
+<ul class="simple">
+<li><p><strong>In general, environments should be treated as disposable and rebuildable</strong>: you should be able to tear down and rebuild your environment quickly and easily (of course, some larger environments with complex installations will be an exception to this rule). Ideally, <em>you won’t have to rebuild</em>, but being able to will save you an awful lot of heartbreak if and when something goes wrong. We’ll see how we can use an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file to do this.</p></li>
+<li><p><strong>Export your exact environment as metadata for analysis results</strong>: it is useful to save a snapshot of your environment to store along any results or outputs produced in that specific environment.</p></li>
+<li><p><strong>Environments must be stored in your <code class="docutils literal notranslate"><span class="pre">home</span></code> directory and all research output must be stored in <code class="docutils literal notranslate"><span class="pre">/mnt/scratch/users</span></code></strong>: misuse of the system can affect performance for <strong>all users</strong> and will lead to your jobs being stopped.</p></li>
+</ul>
+</section>
 <section id="creating-environments">
 <span id="id3"></span><h3>Creating environments<a class="headerlink" href="#creating-environments" title="Permalink to this heading">#</a></h3>
+<p>There are two main ways to create a fresh Conda environment:</p>
+<ol class="arabic simple">
+<li><p>Creating directly from the command line with a list of required packages;</p></li>
+<li><p>Creating from an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file that lists required packages.</p></li>
+</ol>
+<p>We will step through examples of both, and compare both techniques.</p>
+<section id="on-the-fly-creation">
+<h4>1. On the fly creation<a class="headerlink" href="#on-the-fly-creation" title="Permalink to this heading">#</a></h4>
+<p>If you have come across Conda before, this is likely the method of creating environments that you’ve encountered.</p>
 <p>You can create an environment with Conda with the subcommand <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code>.
-When creating an environment we need to give it a name; we recommend giving it a name related to the project you’re going to use the environment for.</p>
+When creating an environment we need to give it a name; we recommend giving it a name related to the project you’re building it to support. In this example, we use the (unimaginative name) <code class="docutils literal notranslate"><span class="pre">py39-env</span></code> as we’re going to be using Python 3.9; you can imagine that if you’re working with multiple different versions of Python is could be useful to record this in the environment name, and prefix it with the project title.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>py39-env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
 </pre></div>
 </div>
@@ -730,13 +752,11 @@ Executing transaction: /
         $ conda install scikit-learn-intelex
         $ python -m sklearnex my_application.py
 
-
-
 done
 #
 # To activate this environment, use
 #
-#     $ conda activate data-sci-env2
+#     $ conda activate data-sci-env
 #
 # To deactivate an active environment, use
 #
@@ -745,11 +765,70 @@ done
 </div>
 </div>
 <p>With the above command we create a new environment but don’t specify to install Python.
-However, because we’ve specified Python packages which depend on Python being installed to run Conda will install the high version of Python suitable for these packages.</p>
+However, because we’ve specified Python packages which depend on Python being installed to run Conda will install the highest version of Python suitable for these packages.</p>
+</section>
+<section id="creation-from-an-environment-yaml-file">
+<h4>2. Creation from an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file<a class="headerlink" href="#creation-from-an-environment-yaml-file" title="Permalink to this heading">#</a></h4>
+<p>Instead of providing a list of packages as arguments to the Conda command, you can instead point Conda to a file that lists your dependencies.</p>
+<p>First, you need to create an environment file with the dependencies required, saved with the file extension <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> or <code class="docutils literal notranslate"><span class="pre">.yml</span></code> (usually called <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code>, but it doesn’t <em>have</em> to be):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-sci-env</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scikit-learn</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matplotlib=3.5.1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas=1.4.2</span>
+</pre></div>
+</div>
+<p>You’ll note that this list has the same dependencies as our on-the-fly example previously (<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">data-sci-env</span> <span class="pre">pandas=1.4.2</span> <span class="pre">matplotlib=3.5.1</span> <span class="pre">scikit-learn</span></code>). This file should be saved in the project directory.</p>
+<p>Then, we can create a new environment by simply pointing Conda at the environment file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yaml
+</pre></div>
+</div>
+<p><em>Note that this second example was run much more recently (2025) than the previous example; can you spot some key differences in the output below?</em></p>
+<div class="dropdown admonition">
+<p class="admonition-title">View full output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Retrieving notices: done
+Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==&gt; WARNING: A newer version of conda exists. &lt;==
+    current version: 25.3.1
+    latest version: 25.5.1
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+Downloading and Extracting Packages:
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; lots of information on installing packages...
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate data-sci-env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+</pre></div>
+</div>
+</div>
+<p>With the above command we create a new environment but don’t specify to install Python.
+However, because we’ve specified Python packages which depend on Python being installed to run Conda will install the highest version of Python suitable for these packages.</p>
+</section>
 </section>
 <section id="activating-environments">
 <span id="id4"></span><h3>Activating environments<a class="headerlink" href="#activating-environments" title="Permalink to this heading">#</a></h3>
-<p>To use a Conda environment we need to activate it.
+<p>Regardless of the method you used to create the environment, in order to use a Conda environment we need to activate it.
 Activating our environment does a number of steps that sets the terminal we’re using up so that it can see all of the installed packages in the environment, making it ready for use.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
 
@@ -780,6 +859,159 @@ This will return a list of the available Conda environments you can use and the 
 </pre></div>
 </div>
 </div>
+</section>
+<section id="updating-a-conda-environment-and-installing-new-packages">
+<span id="installing-packages"></span><h3>Updating a Conda environment and installing new packages<a class="headerlink" href="#updating-a-conda-environment-and-installing-new-packages" title="Permalink to this heading">#</a></h3>
+<p>It’s very likely that after creating an environment with a certain list of packages, you’ll want to add other packages, or potentially change what version of a package you have installed.</p>
+<p>Earlier we created the <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> and installed some useful data science packages.
+We’ve discovered we also need the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package for some extra work we want to do so we’ll look at how to install this package within our existing environment.</p>
+<div class="admonition-searching-for-packages admonition">
+<p class="admonition-title">Searching for packages</p>
+<p>Conda has a command-line search functionality that we describe below in the section <span class="xref myst">Use Conda to search for a package</span>; you can also use the <a class="reference external" href="https://anaconda.org/conda-forge"><code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> repository</a> or <a class="reference external" href="https://anaconda.org/bioconda"><code class="docutils literal notranslate"><span class="pre">bioconda</span></code> repository</a> to search for packages.</p>
+</div>
+<p>Once you have the name (and possibly version) of the package you want to install, again there are two different ways to add these packages, much like there were two ways to create the environment to begin with.</p>
+<section id="on-the-fly-installation-of-new-packages">
+<h4>1. On the fly installation of new packages<a class="headerlink" href="#on-the-fly-installation-of-new-packages" title="Permalink to this heading">#</a></h4>
+<p>You can add new packages directly from the command line using the <code class="docutils literal notranslate"><span class="pre">install</span></code> subcommand with the format <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">PACKAGE</span></code>, where <code class="docutils literal notranslate"><span class="pre">PACKAGE</span></code> is the name of the package you wish to install.</p>
+<p>To install packages into an existing environment we need to activate it with the <a class="reference internal" href="#activating-environments"><span class="std std-ref">subcommand shown above</span></a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
+
+<span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>statsmodels
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">View full output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/home01/arcuser/.conda/envs/data-sci-env
+
+  added / updated specs:
+    - statsmodels
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    libopenblas-0.3.21         |pthreads_h78a6416_3        10.1 MB  conda-forge
+    numpy-1.23.2               |  py310h53a5b5f_0         7.1 MB  conda-forge
+    pandas-1.4.4               |  py310h769672d_0        12.5 MB  conda-forge
+    patsy-0.5.2                |     pyhd8ed1ab_0         188 KB  conda-forge
+    pytz-2022.2.1              |     pyhd8ed1ab_0         224 KB  conda-forge
+    scipy-1.9.1                |  py310hdfbd76f_0        26.2 MB  conda-forge
+    statsmodels-0.13.2         |  py310hde88566_0        11.2 MB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        67.4 MB
+
+The following NEW packages will be INSTALLED:
+
+  libblas            conda-forge/linux-64::libblas-3.9.0-16_linux64_openblas
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-16_linux64_openblas
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-12.1.0-h69a702a_16
+  libgfortran5       conda-forge/linux-64::libgfortran5-12.1.0-hdcd56e2_16
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-16_linux64_openblas
+  libopenblas        conda-forge/linux-64::libopenblas-0.3.21-pthreads_h78a6416_3
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-12.1.0-ha89aaad_16
+  numpy              conda-forge/linux-64::numpy-1.23.2-py310h53a5b5f_0
+  packaging          conda-forge/noarch::packaging-21.3-pyhd8ed1ab_0
+  pandas             conda-forge/linux-64::pandas-1.4.4-py310h769672d_0
+  patsy              conda-forge/noarch::patsy-0.5.2-pyhd8ed1ab_0
+  pyparsing          conda-forge/noarch::pyparsing-3.0.9-pyhd8ed1ab_0
+  python-dateutil    conda-forge/noarch::python-dateutil-2.8.2-pyhd8ed1ab_0
+  python_abi         conda-forge/linux-64::python_abi-3.10-2_cp310
+  pytz               conda-forge/noarch::pytz-2022.2.1-pyhd8ed1ab_0
+  scipy              conda-forge/linux-64::scipy-1.9.1-py310hdfbd76f_0
+  six                conda-forge/noarch::six-1.16.0-pyh6c4a22f_0
+  statsmodels        conda-forge/linux-64::statsmodels-0.13.2-py310hde88566_0
+
+
+Proceed ([y]/n)?
+</pre></div>
+</div>
+</div>
+<p>Conda will always prompt the user if we’re happy to proceed with the installation and specifies all the other packages that will be installed or updated that are required for our specified package.
+We confirm we wish to proceed by entering <code class="docutils literal notranslate"><span class="pre">y</span></code> and pressing Return.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">View full output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Proceed ([y]/n)? y
+
+Downloading and Extracting Packages
+pytz-2022.2.1        | 224 KB    | ##################################### | 100%
+libopenblas-0.3.21   | 10.1 MB   | ##################################### | 100%
+scipy-1.9.1          | 26.2 MB   | ##################################### | 100%
+patsy-0.5.2          | 188 KB    | ##################################### | 100%
+statsmodels-0.13.2   | 11.2 MB   | ##################################### | 100%
+pandas-1.4.4         | 12.5 MB   | ##################################### | 100%
+numpy-1.23.2         | 7.1 MB    | ##################################### | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+</pre></div>
+</div>
+</div>
+<p>This installs any packages that are currently not installed (Conda caches packages locally in case they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).</p>
+</section>
+<section id="updating-from-an-environment-yaml-file">
+<h4>2. Updating from an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file<a class="headerlink" href="#updating-from-an-environment-yaml-file" title="Permalink to this heading">#</a></h4>
+<p>To update our environment using our environment file, we need to edit the <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> to include the new packages:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-sci-env</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scikit-learn</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matplotlib=3.5.1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas=1.4.2</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">statsmodels</span>
+</pre></div>
+</div>
+<p>Now, to update the environment from this file, we us the <code class="docutils literal notranslate"><span class="pre">update</span></code> subcommand:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span>update<span class="w"> </span>--file<span class="w"> </span>environment.yaml<span class="w"> </span>--prune
+</pre></div>
+</div>
+<p>Note that the environment does <strong>not</strong> need to be active to do this. You should pin any versions of libraries (such as <code class="docutils literal notranslate"><span class="pre">matplotlib=3.5.1</span></code>) that you don’t want to update.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">View full output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FutureWarning: `remote_definition` is deprecated and will be removed in 25.9. Use `conda env create --file=URL` instead.
+  action(self, namespace, argument_values, option_string)^
+
+Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==&gt; WARNING: A newer version of conda exists. &lt;==
+    current version: 25.3.1
+    latest version: 25.5.1
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate data-sci-env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+</pre></div>
+</div>
+</div>
+<p><em>Note that there is a <code class="docutils literal notranslate"><span class="pre">FutureWarning</span></code> that can safely be ignored as it is not intended to flag use of <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> files.</em></p>
+<p>This ensures that we have an up-to-date record of what we have installed in our project folder.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--prune</span></code> argument here clears out old unused libraries and is key to keeping your <code class="docutils literal notranslate"><span class="pre">.conda</span></code> folder a reasonable size. <strong>Please ensure you use the prune command to prevent environment bloat</strong>.</p>
+</section>
 </section>
 <section id="removing-a-conda-environment">
 <span id="id7"></span><h3>Removing a Conda environment<a class="headerlink" href="#removing-a-conda-environment" title="Permalink to this heading">#</a></h3>
@@ -837,105 +1069,42 @@ You cannot undo deletion of an environment to the exact state it was in before d
 However, if you have exported details of your environment it is possible to recreate it.</p>
 </div>
 </section>
-<section id="sharing-conda-environments">
-<span id="id8"></span><h3>Sharing Conda environments<a class="headerlink" href="#sharing-conda-environments" title="Permalink to this heading">#</a></h3>
-<p>If you need to share a Conda environment with others or between machines its possible to use Conda to export a file containing a specification of packages installed in that environment.
-With this environment file and Conda installed on another device its possible to recreate the environment with the same specifications.</p>
-<p>Let’s assume we want to share our <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> Conda environment with others. To do this we first need to create the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file containing our environment specification.
-You can create a very detailed specification that includes operating system specific hashes with the command:</p>
+<section id="recording-your-conda-environments">
+<span id="recording-conda-environments"></span><h3>Recording your Conda environments<a class="headerlink" href="#recording-your-conda-environments" title="Permalink to this heading">#</a></h3>
+<p>Recording dependencies is crucial for reproducibility.
+In order to record the exact versions of all dependencies used in your project (as opposed to the limited list you manually installed with your <code class="docutils literal notranslate"><span class="pre">envrionment.yaml</span></code> file), from inside your active conda environment, you can run the following export command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
 
-<span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&gt;<span class="w"> </span>environment.yml
+<span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&gt;<span class="w"> </span>env-record.yaml
 </pre></div>
 </div>
-<p>Above, we activate the environment we want to create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file from and then use the command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code>.
-This outputs the environment specification to the standard output in the terminal so to capture and write this to a file we redirect the output to <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>.</p>
-<p>This command also exports a line called <code class="docutils literal notranslate"><span class="pre">prefix:</span></code> specifying the directory location of the environment on your filesystem.
-This isn’t required when sharing your environment and should be removed, you can do this manually or use <code class="docutils literal notranslate"><span class="pre">grep</span></code> when exporting your environment.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>^prefix:<span class="w"> </span>&gt;<span class="w"> </span>environment.yml
+<p>This can be run as part of a batch job and included in your submission script;  so that it’s saved out alongside your other output data files:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$SCRATCH</span>/env-record.yaml
 </pre></div>
 </div>
-<p>We can share the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file with collaborators and/or commit the file to version control to ensure people can recreate the required Conda environment.</p>
-<p>You can recreate a Conda environment from a file with the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
-</pre></div>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">View full output</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Collecting package metadata (repodata.json): done
-Solving environment: done
-
-
-==&gt; WARNING: A newer version of conda exists. &lt;==
-  current version: 4.12.0
-  latest version: 4.14.0
-
-Please update conda by running
-
-    $ conda update -n base -c defaults conda
-
-
-Preparing transaction: done
-Verifying transaction: done
-Executing transaction: done
-#
-# To activate this environment, use
-#
-#     $ conda activate py39-env
-#
-# To deactivate an active environment, use
-#
-#     $ conda deactivate
-</pre></div>
-</div>
-</div>
-<p>Here we’re specifying Conda create a new environment and using the <code class="docutils literal notranslate"><span class="pre">-f</span></code> option to specify that it creates the environment using a file with an environment specification.
-We pass the file path to the environment file as the argument following <code class="docutils literal notranslate"><span class="pre">-f</span></code>.</p>
-<section id="creating-a-cross-platform-environment-file">
-<h4>Creating a cross platform environment file<a class="headerlink" href="#creating-a-cross-platform-environment-file" title="Permalink to this heading">#</a></h4>
-<p>As noted above using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code> creates a highly specific environment file, this often causes difficulties when sharing environments across operating systems as the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> contains operating system specific hashes for each package.</p>
-<p>There are two possible methods of creating a more flexible <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>.</p>
-<section id="using-conda-env-export-from-history">
-<h5>1. Using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span> <span class="pre">--from-history</span></code><a class="headerlink" href="#using-conda-env-export-from-history" title="Permalink to this heading">#</a></h5>
-<p>By default <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code> exports an environments entire specification, including dependencies of packages you <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> and their associated hashes.
-If you use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span> <span class="pre">--from-history</span></code> Conda only exports packages explicitly installed with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>.
-It does not include dependencies of those packages and therefore allows different operating systems to more flexibly install package dependencies.</p>
-<p>For the above example with <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> we would export a more flexible <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--from-history<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>^prefix:<span class="w"> </span>&gt;<span class="w"> </span>environment.yml
-</pre></div>
-</div>
+<p><strong>This exported environment file is mainly useful as a record for the sake of reproducibility, not for <em>reusability</em>. Your <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file is a far better basis for rebuilding or sharing environments.</strong></p>
+<p>This record will include background library dependencies (libraries you did not explicitly install, that were loaded automatically) and details of builds. This file, while technically an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file, will likely not be able to rebuild your environment on a machine other than the machine it was created on.</p>
+<p>It’s important to consider the balance of reproducibility and portability: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code> captures the exact specification of an environment including all installed packages, their dependencies and package hashes.
+Sometimes this level of detail should be included to ensure maximum reproduciblity of a project and when looking to validate results, but it’s important to also balance being able to allow people to reproduce your work on other systems. The next section talks about portability or re<em>use</em>ability more.</p>
 </section>
-<section id="manually-create-an-environment-yml">
-<h5>2. Manually create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code><a class="headerlink" href="#manually-create-an-environment-yml" title="Permalink to this heading">#</a></h5>
-<p>The other option is to manually specify the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file.
-This is often more fiddly than just exporting an environment but can be preferable to ensure all the desired dependencies of your project are captured.
-Environment files are written in YAML, a markup language, and have the standard pattern of:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-sci-env</span>
-<span class="nt">channels</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">defaults</span>
-<span class="nt">dependencies</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scikit-learn</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matplotlib=3.5.1</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas=1.4.3</span>
+<section id="sharing-conda-environments">
+<span id="id8"></span><h3>Sharing Conda environments<a class="headerlink" href="#sharing-conda-environments" title="Permalink to this heading">#</a></h3>
+<p>The Conda <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file is the key to sharing conda environments across systems.</p>
+<p>If you created your Conda environment from a <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> file (and have kept it up-to-date by using it and the <code class="docutils literal notranslate"><span class="pre">update</span></code> command to install new packages), you can share this file with collaborators, and they can use the instructions above to create an environment from file.</p>
+<p>If you instead used the on-the-fly creation method and <em>don’t</em> have an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code>, it will take a little bit more work. As we stated in the last section, using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code> will export all installed packages, their dependencies, and package hashes, and will be unlikely to install without error on a different system. So how can we produce a reuseable <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file?</p>
+<p><strong>If you follow the above steps for building your conda environment from a <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> file, this step is not necessary. However, if you want to salvage, share, or back-up an environment that you built using repeated <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">package-name</span></code> commands, this allows you to create an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file.</strong></p>
+<p>Activate your environment and run a modified export:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
+
+<span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--from-history<span class="w"> </span>&gt;<span class="w"> </span>environment_export.yaml
 </pre></div>
 </div>
-<p>Where you specify the environment name, a list of Conda channels used to install packages, and under dependencies a list of packages to be installed. You can also include version specification within the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> allowing you to</p>
-<p>Understanding the differences between weays to create environment files is important when you come to deciding on how best to share your project.
-It’s important to consider the balance of reproducibility and portability, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code> captures the exact specification of an environment including all installed packages, their dependencies and package hashes.
-Sometimes this level of detail should be included to ensure maximum reproduciblity of a project, when looking to validate results, but it’s important to also balance being able to allow people to reproduce your work on other systems.</p>
+<p>This will export a list of only the libraries that you explicitly installed (and not all the background dependencies), and only the pinned versions you requested. This is not useful as a record of your exact environment, but is a good backup for rebuilding or sharing your environment. <strong>Note that this will not add any pip dependencies: to find out more about pip dependencies.</strong> We won’t get into mixing in pip dependencies today, but please read our documentation for <a class="reference external" href="https://arcdocs.leeds.ac.uk/aire/usage/dependency_management.html#pip-dependencies">how to export a reuseable environment file including pip dependencies</a>.</p>
 </section>
 </section>
-</section>
-</section>
-<section id="using-conda-to-install-packages">
-<h2>Using Conda to install packages<a class="headerlink" href="#using-conda-to-install-packages" title="Permalink to this heading">#</a></h2>
-<p>With the Conda command line tool searching for and installing packages is can be performed with the following subcommands:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code></p></li>
-</ul>
-<section id="searching-for-packages">
-<span id="id9"></span><h3>Searching for packages<a class="headerlink" href="#searching-for-packages" title="Permalink to this heading">#</a></h3>
+<section id="using-conda-to-search-for-packages">
+<span id="searching-for-packages"></span><h2>Using Conda to search for packages<a class="headerlink" href="#using-conda-to-search-for-packages" title="Permalink to this heading">#</a></h2>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">search</span></code> command in Conda to find available package versions:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>search<span class="w"> </span>python
 </pre></div>
 </div>
@@ -1089,8 +1258,8 @@ Sometimes this level of detail should be included to ensure maximum reproducibli
 </div>
 <p>This command searches for packages based on the argument provided.
 It searches in package repositories called <a class="reference external" href="https://docs.conda.io/projects/conda/en/stable/user-guide/concepts/channels.html">Conda Channels</a> which are remote websites where built Conda packages have been uploaded to.
-By default Conda uses the <code class="docutils literal notranslate"><span class="pre">defaults</span></code> channel which points to the Anaconda maintained package repository <a class="reference external" href="https://repo.anaconda.com/pkgs/main">https://repo.anaconda.com/pkgs/main</a> and <a class="reference external" href="https://repo.anaconda.com/pkgs/r">https://repo.anaconda.com/pkgs/r</a>.
-Other channels are also available such as <a class="reference external" href="https://conda-forge.org/"><code class="docutils literal notranslate"><span class="pre">conda-forge</span></code></a> and we can specify when installing packages or when searching which channels we wish to search.</p>
+By default Conda installed with Miniforge uses the <a class="reference external" href="https://conda-forge.org/"><code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel</a>.
+If you are using a different install of Conda, you may need to specify this channel. Alternatively, you may need to point to the Bioconda channel.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>search<span class="w"> </span><span class="s1">&#39;python[channel=conda-forge]&#39;</span>
 </pre></div>
 </div>
@@ -1587,95 +1756,8 @@ Other channels are also available such as <a class="reference external" href="ht
 </pre></div>
 </div>
 </div>
-</section>
-<section id="installing-packages">
-<span id="id10"></span><h3>Installing packages<a class="headerlink" href="#installing-packages" title="Permalink to this heading">#</a></h3>
-<p>Installing packages via Conda is performed using the <code class="docutils literal notranslate"><span class="pre">install</span></code> subcommand with the format <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">PACKAGE</span></code>, where <code class="docutils literal notranslate"><span class="pre">PACKAGE</span></code> is the name of the package you wish to install.</p>
-<p>Earlier we created the <code class="docutils literal notranslate"><span class="pre">data-sci-env</span></code> and installed some useful data science packages.
-We’ve discovered we also need the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package for some extra work we want to do so we’ll look at using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> to install this package within our existing environment.</p>
-<p>To install packages into an existing environment we need to activate it with the <a class="reference internal" href="#activating-environments"><span class="std std-ref">subcommand shown above</span></a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>data-sci-env
-
-<span class="o">(</span>data-sci-env<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>statsmodels
-</pre></div>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">View full output</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Collecting package metadata (current_repodata.json): done
-Solving environment: done
-
-## Package Plan ##
-
-  environment location: /home/home01/arcuser/.conda/envs/data-sci-env
-
-  added / updated specs:
-    - statsmodels
-
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    libopenblas-0.3.21         |pthreads_h78a6416_3        10.1 MB  conda-forge
-    numpy-1.23.2               |  py310h53a5b5f_0         7.1 MB  conda-forge
-    pandas-1.4.4               |  py310h769672d_0        12.5 MB  conda-forge
-    patsy-0.5.2                |     pyhd8ed1ab_0         188 KB  conda-forge
-    pytz-2022.2.1              |     pyhd8ed1ab_0         224 KB  conda-forge
-    scipy-1.9.1                |  py310hdfbd76f_0        26.2 MB  conda-forge
-    statsmodels-0.13.2         |  py310hde88566_0        11.2 MB  conda-forge
-    ------------------------------------------------------------
-                                           Total:        67.4 MB
-
-The following NEW packages will be INSTALLED:
-
-  libblas            conda-forge/linux-64::libblas-3.9.0-16_linux64_openblas
-  libcblas           conda-forge/linux-64::libcblas-3.9.0-16_linux64_openblas
-  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-12.1.0-h69a702a_16
-  libgfortran5       conda-forge/linux-64::libgfortran5-12.1.0-hdcd56e2_16
-  liblapack          conda-forge/linux-64::liblapack-3.9.0-16_linux64_openblas
-  libopenblas        conda-forge/linux-64::libopenblas-0.3.21-pthreads_h78a6416_3
-  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-12.1.0-ha89aaad_16
-  numpy              conda-forge/linux-64::numpy-1.23.2-py310h53a5b5f_0
-  packaging          conda-forge/noarch::packaging-21.3-pyhd8ed1ab_0
-  pandas             conda-forge/linux-64::pandas-1.4.4-py310h769672d_0
-  patsy              conda-forge/noarch::patsy-0.5.2-pyhd8ed1ab_0
-  pyparsing          conda-forge/noarch::pyparsing-3.0.9-pyhd8ed1ab_0
-  python-dateutil    conda-forge/noarch::python-dateutil-2.8.2-pyhd8ed1ab_0
-  python_abi         conda-forge/linux-64::python_abi-3.10-2_cp310
-  pytz               conda-forge/noarch::pytz-2022.2.1-pyhd8ed1ab_0
-  scipy              conda-forge/linux-64::scipy-1.9.1-py310hdfbd76f_0
-  six                conda-forge/noarch::six-1.16.0-pyh6c4a22f_0
-  statsmodels        conda-forge/linux-64::statsmodels-0.13.2-py310hde88566_0
-
-
-Proceed ([y]/n)?
-</pre></div>
-</div>
-</div>
-<p>Conda will always prompt the user if we’re happy to proceed with the installation and specifies all the other packages that will be installed or updated that are required for our specified package.
-We confirm we wish to proceed by entering <code class="docutils literal notranslate"><span class="pre">y</span></code> and pressing Return.</p>
-<div class="dropdown admonition">
-<p class="admonition-title">View full output</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Proceed ([y]/n)? y
-
-Downloading and Extracting Packages
-pytz-2022.2.1        | 224 KB    | ##################################### | 100%
-libopenblas-0.3.21   | 10.1 MB   | ##################################### | 100%
-scipy-1.9.1          | 26.2 MB   | ##################################### | 100%
-patsy-0.5.2          | 188 KB    | ##################################### | 100%
-statsmodels-0.13.2   | 11.2 MB   | ##################################### | 100%
-pandas-1.4.4         | 12.5 MB   | ##################################### | 100%
-numpy-1.23.2         | 7.1 MB    | ##################################### | 100%
-Preparing transaction: done
-Verifying transaction: done
-Executing transaction: done
-</pre></div>
-</div>
-</div>
-<p>This installs any packages that are currently not installed (Conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).</p>
-</section>
 <section id="removing-packages">
-<span id="id11"></span><h3>Removing packages<a class="headerlink" href="#removing-packages" title="Permalink to this heading">#</a></h3>
+<span id="id9"></span><h3>Removing packages<a class="headerlink" href="#removing-packages" title="Permalink to this heading">#</a></h3>
 <p>Another crucial aspect of managing an environment involves removing packages.
 Conda includes the <code class="docutils literal notranslate"><span class="pre">remove</span></code> subcommand for this operation, which allows you to specify a list of packages you wish to remove.
 You can do this within an activated environment, or specify to Conda the environment from which you want to remove packages.</p>
@@ -1726,9 +1808,10 @@ Proceed ([y]/n)?
 <p>When removing packages as with installing them Conda will ask for user confirmation to proceed.
 As you can see in the above example, removing one package may also lead to the removal of additional packages and can cause other packages to update.</p>
 <p>With these changes made we can now install a newer version of pandas using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>.</p>
+<p>Of course, this can also be easily done by updating our <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file to remove the package, and running the <code class="docutils literal notranslate"><span class="pre">update</span></code> command shown above with the flag <code class="docutils literal notranslate"><span class="pre">--prune</span></code>.</p>
 </section>
 <section id="updating-a-package">
-<span id="id12"></span><h3>Updating a package<a class="headerlink" href="#updating-a-package" title="Permalink to this heading">#</a></h3>
+<span id="id10"></span><h3>Updating a package<a class="headerlink" href="#updating-a-package" title="Permalink to this heading">#</a></h3>
 <p>The above example is slightly artificial as removing a package to install a more recent version is a long-winded way of doing things with Conda.
 If we want to update a package to a more recent version Conda provides the <code class="docutils literal notranslate"><span class="pre">update</span></code> subcommand to achieve this.
 Crucially, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span></code> will update a package to its most recent version and can’t be used to specific a particular version.</p>
@@ -1772,6 +1855,7 @@ Proceed ([y]/n)?
 </div>
 </div>
 <p>When requesting to update a package Conda will also update other dependencies of the package that you wish to update, and can potentially install new packages that are required.</p>
+<p>Again, this can also be easily done by updating our <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file to change the version of a specific package, and running the <code class="docutils literal notranslate"><span class="pre">update</span></code> command shown above with the flag <code class="docutils literal notranslate"><span class="pre">--prune</span></code>.</p>
 </section>
 </section>
 <section id="summary">
@@ -1875,24 +1959,26 @@ Proceed ([y]/n)?
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda-environments">Conda environments</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-environments">Creating environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-guidelines-for-handling-environments">General guidelines for handling environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-environments">Creating environments</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-fly-creation">1. On the fly creation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-from-an-environment-yaml-file">2. Creation from an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-environments">Activating environments</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deactivating-environments">Deactivating environments</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-current-environments">Listing current environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-a-conda-environment-and-installing-new-packages">Updating a Conda environment and installing new packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-fly-installation-of-new-packages">1. On the fly installation of new packages</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-from-an-environment-yaml-file">2. Updating from an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-a-conda-environment">Removing a Conda environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-conda-environments">Sharing Conda environments</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-cross-platform-environment-file">Creating a cross platform environment file</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-env-export-from-history">1. Using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span> <span class="pre">--from-history</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-create-an-environment-yml">2. Manually create an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recording-your-conda-environments">Recording your Conda environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-conda-environments">Sharing Conda environments</a></li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-to-install-packages">Using Conda to install packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-packages">Searching for packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages">Installing packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-to-search-for-packages">Using Conda to search for packages</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-packages">Removing packages</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-a-package">Updating a package</a></li>
 </ul>
