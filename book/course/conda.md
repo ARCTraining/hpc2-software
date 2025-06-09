@@ -685,7 +685,7 @@ $ conda activate data-sci-env
 This can be run as part of a batch job and included in your submission script;  so that it's saved out alongside your other output data files:
 
 ```bash
-conda env export > /mnt/scratch/users/your-user-name/env-record.yaml
+conda env export > $SCRATCH/env-record.yaml
 ```
 
 **This exported environment file is mainly useful as a record for the sake of reproducibility, not for *reusability*. Your `environment.yml` file is a far better basis for rebuilding or sharing environments.**
