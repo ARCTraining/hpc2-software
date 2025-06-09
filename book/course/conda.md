@@ -96,7 +96,7 @@ We will step through examples of both, and compare both techniques.
 If you have come across Conda before, this is likely the method of creating environments that you've encountered.
 
 You can create an environment with Conda with the subcommand `conda create`.
-When creating an environment we need to give it a name; we recommend giving it a name related to the project you're going building it to support. In this example, we use the (unimaginative name) `py39-env` as we're going to be using Python 3.9; you can imagine that if you're working with multiple different versions of Python is could be useful to record this in the environment name, and prefix it with the project title.
+When creating an environment we need to give it a name; we recommend giving it a name related to the project you're building it to support. In this example, we use the (unimaginative name) `py39-env` as we're going to be using Python 3.9; you can imagine that if you're working with multiple different versions of Python is could be useful to record this in the environment name, and prefix it with the project title.
 
 ```bash
 $ conda create --name py39-env python=3.9
