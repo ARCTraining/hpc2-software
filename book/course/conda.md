@@ -542,7 +542,7 @@ Executing transaction: done
 ```
 ````
 
-This installs any packages that are currently not installed (Conda caches packages locally incase they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).
+This installs any packages that are currently not installed (Conda caches packages locally in case they are required by other packages, this speeds up installs but uses more disk space to maintain this cache).
 
 #### 2. Updating from an `environment.yml` file
 
