@@ -61,7 +61,7 @@ This allows you to separate the dependencies of different projects cleanly so fo
 Conda makes it easy to switch between different environments and allows you to create and delete them as required.
 Conda environments also make it easier to share our environment setup between machines and with collaborators as we can export our environments into a text file.
 
-If you want to find out more about [good dependency management practises in general, please read our documentation](https://arcdocs.leeds.ac.uk/aire/usage/dependency_management.html#dependency-management); we use this material to inform this session but take a more trial-and-error approach here.
+If you want to find out more about [good dependency management practices in general, please read our documentation](https://arcdocs.leeds.ac.uk/aire/usage/dependency_management.html#dependency-management); we use this material to inform this session but take a more trial-and-error approach here.
 
 ```{admonition} The base environment
 By default Conda includes the `base` environment.
