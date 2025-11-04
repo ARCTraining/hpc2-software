@@ -21,13 +21,13 @@ Description:
 
 Homepage: http://www.simplesystems.org/libtiff/
 
-Preferred version:  
+Preferred version:
     4.7.0     https://download.osgeo.org/libtiff/tiff-4.7.0.tar.gz
 
-Safe versions:  
+Safe versions:
     4.7.0     https://download.osgeo.org/libtiff/tiff-4.7.0.tar.gz
 
-Deprecated versions:  
+Deprecated versions:
     4.6.0     https://download.osgeo.org/libtiff/tiff-4.6.0.tar.gz
     4.5.1     https://download.osgeo.org/libtiff/tiff-4.5.1.tar.gz
     4.5.0     https://download.osgeo.org/libtiff/tiff-4.5.0.tar.gz
@@ -109,7 +109,7 @@ Variants:
           use libzstd
 
 Build Dependencies:
-    cmake  gmake  gnuconfig  jbigkit  jpeg  lerc  libwebp  ninja  xz  zlib-api  zstd
+    c  cmake  cxx  gmake  gnuconfig  jbigkit  jpeg  lerc  libwebp  ninja  xz  zlib-api  zstd
 
 Link Dependencies:
     jbigkit  jpeg  lerc  libwebp  xz  zlib-api  zstd
@@ -117,7 +117,7 @@ Link Dependencies:
 Run Dependencies:
     None
 
-Licenses: 
+Licenses:
     libtiff
 ```
 
@@ -148,7 +148,7 @@ You may want to build a package with a different compiler, that you already
 have configured.
 
 ```bash
-spack install libtiff@4.7.0 +webp -jpeg %gcc@11.4.1
+spack install libtiff@4.7.0 +webp -jpeg %gcc@14.2.0
 ```
 
 Now Spack will happily rebuild that specific variant you've asked for, with the
@@ -160,13 +160,17 @@ You can also specify particular versions and variants of dependencies.  We can
 take our previous build even further:
 
 ```bash
-spack install libtiff@4.7.0 +webp -jpeg build_type=Release ^perl@5.36.0 %gcc@11.4.1
+spack install libtiff@4.7.0 +webp -jpeg build_type=Release ^zlib-ng@2.2.4 %gcc@14.2.0
 ```
 
-This would build using Perl 5.36.0, without JPEG support, and with WebP
-support, using the GCC 11.4.1 compiler.  Note that we have used a ^ to say which
-version of perl we want to use because it's a package that we depend on,
-whereas we have to use % to say which compiler to use.
+This would build libtiff without JPEG support, with WebP support, choosing the
+release build of it, using the GCC 14.2.0 compiler to build the zlib-ng
+dependency.  When selecting dependencies, there's a subtle difference between
+`%` and `^`.  `%` means a direct dependency (build perl with the gcc@14.2.0
+compiler), whereas `^` means a transitive depedency, so when building libtiff,
+and you're satisfying dependencies, use this package.
+
+Take a look at the references for further reading on how this all works.
 
 ## Previewing a software install
 
@@ -174,16 +178,17 @@ Before installing a piece of software, you can review what Spack is planning on
 doing, and which dependencies it's going to rely on.
 
 ```bash
-$ spack spec atop
- -   atop@2.5.0%gcc@14.2.0 build_system=generic arch=linux-rocky9-zen4
-[+]      ^gcc-runtime@14.2.0%gcc@14.2.0 build_system=generic arch=linux-rocky9-zen4
-[e]      ^glibc@2.34%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
-[+]      ^ncurses@6.5%gcc@14.2.0~symlinks+termlib abi=none build_system=autotools patches=7a351bc arch=linux-rocky9-zen4
-[+]          ^gmake@4.4.1%gcc@11.4.1~guile build_system=generic arch=linux-rocky9-zen4
-[+]          ^pkgconf@2.2.0%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
-[+]      ^zlib-ng@2.2.1%gcc@11.4.1+compat+new_strategies+opt+pic+shared build_system=autotools arch=linux-rocky9-zen4
-[+]          ^gcc-runtime@11.4.1%gcc@11.4.1 build_system=generic arch=linux-rocky9-zen4
-[e]          ^glibc@2.34%gcc@11.4.1 build_system=autotools arch=linux-rocky9-zen4
+ -   atop@2.5.0 build_system=generic arch=linux-rocky9-zen4 %c=gcc@14.2.0
+[+]      ^compiler-wrapper@1.0 build_system=generic arch=linux-rocky9-zen4
+[e]      ^gcc@14.2.0~binutils+bootstrap~graphite~mold~nvptx~piclibs~profiled~strip build_system=autotools build_type=RelWithDebInfo languages:='c,c++,fortran' arch=linux-rocky9-zen4
+[+]      ^gcc-runtime@14.2.0 build_system=generic arch=linux-rocky9-zen4
+[e]      ^glibc@2.34 build_system=autotools arch=linux-rocky9-zen4
+[+]      ^gmake@4.4.1~guile build_system=generic arch=linux-rocky9-zen4 %c=gcc@11.4.1
+[e]          ^gcc@11.4.1~binutils+bootstrap~graphite~nvptx~piclibs~profiled~strip build_system=autotools build_type=RelWithDebInfo languages:='c,c++' arch=linux-rocky9-zen4
+[+]          ^gcc-runtime@11.4.1 build_system=generic arch=linux-rocky9-zen4
+[+]      ^ncurses@6.5~symlinks+termlib abi=none build_system=autotools patches:=7a351bc arch=linux-rocky9-zen4 %c,cxx=gcc@11.4.1
+[+]          ^pkgconf@2.3.0 build_system=autotools arch=linux-rocky9-zen4 %c=gcc@11.4.1
+[+]      ^zlib-ng@2.2.4+compat+new_strategies+opt+pic+shared build_system=autotools arch=linux-rocky9-zen4 %c,cxx=gcc@11.4.1
 ```
 
 This way you can verify which versions it's expecting to use, and can adjust
@@ -230,12 +235,15 @@ Description:
 Homepage: https://tmux.github.io
 
 Preferred version:  
-    3.4       https://github.com/tmux/tmux/releases/download/3.4/tmux-3.4.tar.gz
+    3.5a      https://github.com/tmux/tmux/releases/download/3.5a/tmux-3.5a.tar.gz
 
 Safe versions:  
     master    [git] https://github.com/tmux/tmux.git on branch master
+    3.5a      https://github.com/tmux/tmux/releases/download/3.5a/tmux-3.5a.tar.gz
+    3.5       https://github.com/tmux/tmux/releases/download/3.5/tmux-3.5.tar.gz
     3.4       https://github.com/tmux/tmux/releases/download/3.4/tmux-3.4.tar.gz
     3.3a      https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
+    3.3       https://github.com/tmux/tmux/releases/download/3.3/tmux-3.3.tar.gz
     3.2a      https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz
     3.2       https://github.com/tmux/tmux/releases/download/3.2/tmux-3.2.tar.gz
     3.1c      https://github.com/tmux/tmux/releases/download/3.1c/tmux-3.1c.tar.gz
@@ -267,11 +275,15 @@ Variants:
     utf8proc [false]                false, true
         Build with UTF-8 support from utf8proc library
 
+    when @3.5:
+      jemalloc [false]              false, true
+          Use jemalloc for memory allocation
+
 Build Dependencies:
-    autoconf  automake  gmake  gnuconfig  libevent  ncurses  pkgconfig  utf8proc  yacc
+    autoconf  automake  c  gmake  gnuconfig  jemalloc  libevent  ncurses  pkgconfig  utf8proc  yacc
 
 Link Dependencies:
-    autoconf  automake  libevent  ncurses  utf8proc
+    autoconf  automake  jemalloc  libevent  ncurses  utf8proc
 
 Run Dependencies:
     None
@@ -295,8 +307,8 @@ $ spack load tmux
 $ tmux -V
 tmux 3.2a
 $ spack find -v tmux
--- linux-rocky9-zen4 / gcc@14.2.0 -------------------------------
-tmux@3.2a~static+utf8proc build_system=autotools patches=c1b61a1
+-- linux-rocky9-zen4 / %c=gcc@14.2.0 ----------------------------
+tmux@3.2a~static+utf8proc build_system=autotools patches:=c1b61a1
 ==> 1 installed package
 ```
 
@@ -310,3 +322,4 @@ confirm that it was built with UTF-8 support included.
 - [Basic Usage](https://spack.readthedocs.io/en/latest/basic_usage.html)
 - [Installing packages](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages)
 - [Module tutorial](https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html)
+- [Spec Syntax](https://spack.readthedocs.io/en/latest/spec_syntax.html)

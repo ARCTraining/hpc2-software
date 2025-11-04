@@ -24,22 +24,13 @@ newer GCC compiler than is available by default:
 ```bash
 $ module add gcc/14.2.0
 $ spack compiler add
-==> Added 1 new compiler to /users/example/.spack/linux/compilers.yaml
+==> Added 1 new compiler to /users/example/spack/etc/spack/packages.yaml
     gcc@14.2.0
 ==> Compilers are defined in the following files:
-    /users/example/.spack/linux/compilers.yaml
+    /users/example/spack/etc/spack/packages.yaml
 ```
 
-Spack now knows about this compiler.  If this was a compiler in a module, you
-can just load the module beforehand, and Spack will add that compiler to its
-known list.
-
-If you want to set that as your preferred compiler, you can do this with a
-single command:
-
-```bash
-spack config add packages:all:compiler:[gcc@14.2.0]
-```
+Spack now knows about this compiler.
 
 You can confirm your config, or make other changes with:
 
@@ -49,8 +40,21 @@ spack config edit packages
 
 ```yaml
 packages:
-  all:
-    compiler: [gcc@14.2.0]
+  gcc:
+    externals:
+    - spec: gcc@14.2.0 languages:='c,c++,fortran'
+      prefix: /opt/apps/pkg/compilers/gcc/14.2.0
+      extra_attributes:
+        compilers:
+          c: /opt/apps/pkg/compilers/gcc/14.2.0/bin/gcc
+          cxx: /opt/apps/pkg/compilers/gcc/14.2.0/bin/g++
+          fortran: /opt/apps/pkg/compilers/gcc/14.2.0/bin/gfortran
+    - spec: gcc@11.4.1 languages:='c,c++'
+      prefix: /usr
+      extra_attributes:
+        compilers:
+          c: /usr/bin/gcc
+          cxx: /usr/bin/g++
 ```
 
 ## Other software
@@ -67,65 +71,67 @@ spack spec phylobayesmpi
 <summary>Full spec</summary>
 
 ```
- -   phylobayesmpi@1.9%gcc@14.2.0 build_system=makefile arch=linux-rocky9-zen4
- -       ^gcc-runtime@14.2.0%gcc@14.2.0 build_system=generic arch=linux-rocky9-zen4
-[e]      ^glibc@2.34%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
-[+]      ^gmake@4.4.1%gcc@11.4.1~guile build_system=generic arch=linux-rocky9-zen4
-[+]          ^gcc-runtime@11.4.1%gcc@11.4.1 build_system=generic arch=linux-rocky9-zen4
-[e]          ^glibc@2.34%gcc@11.4.1 build_system=autotools arch=linux-rocky9-zen4
- -       ^openmpi@5.0.5%gcc@14.2.0+atomics~cuda~debug~gpfs~internal-hwloc~internal-libevent~internal-pmix~java~lustre~memchecker~openshmem~romio+rsh~static~two_level_namespace+vt+wrapper-rpath build_system=autotools fabrics=none romio-filesystem=none schedulers=none arch=linux-rocky9-zen4
- -           ^autoconf@2.72%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
- -               ^m4@1.4.19%gcc@14.2.0+sigsegv build_system=autotools patches=9dc5fbd,bfdffa7 arch=linux-rocky9-zen4
- -                   ^diffutils@3.10%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
- -                   ^libsigsegv@2.14%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
- -           ^automake@1.16.5%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
- -           ^hwloc@2.11.1%gcc@14.2.0~cairo~cuda~gl~libudev+libxml2~nvml~oneapi-level-zero~opencl+pci~rocm build_system=autotools libs=shared,static arch=linux-rocky9-zen4
- -               ^libpciaccess@0.17%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
- -                   ^util-macros@1.20.1%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
- -               ^libxml2@2.13.4%gcc@14.2.0+pic~python+shared build_system=autotools arch=linux-rocky9-zen4
- -                   ^libiconv@1.17%gcc@14.2.0 build_system=autotools libs=shared,static arch=linux-rocky9-zen4
- -                   ^xz@5.4.6%gcc@14.2.0~pic build_system=autotools libs=shared,static arch=linux-rocky9-zen4
- -               ^ncurses@6.5%gcc@14.2.0~symlinks+termlib abi=none build_system=autotools patches=7a351bc arch=linux-rocky9-zen4
- -           ^libevent@2.1.12%gcc@14.2.0+openssl build_system=autotools arch=linux-rocky9-zen4
- -               ^openssl@3.4.0%gcc@14.2.0~docs+shared build_system=generic certs=mozilla arch=linux-rocky9-zen4
- -                   ^ca-certificates-mozilla@2023-05-30%gcc@14.2.0 build_system=generic arch=linux-rocky9-zen4
- -           ^libtool@2.4.7%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
- -               ^findutils@4.9.0%gcc@14.2.0 build_system=autotools patches=440b954 arch=linux-rocky9-zen4
- -           ^numactl@2.0.18%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
- -           ^openssh@9.9p1%gcc@14.2.0+gssapi build_system=autotools arch=linux-rocky9-zen4
- -               ^krb5@1.21.3%gcc@14.2.0+shared build_system=autotools arch=linux-rocky9-zen4
- -                   ^bison@3.8.2%gcc@14.2.0~color build_system=autotools arch=linux-rocky9-zen4
- -                   ^gettext@0.22.5%gcc@14.2.0+bzip2+curses+git~libunistring+libxml2+pic+shared+tar+xz build_system=autotools arch=linux-rocky9-zen4
- -                       ^tar@1.34%gcc@14.2.0 build_system=autotools zip=pigz arch=linux-rocky9-zen4
-[+]                          ^pigz@2.8%gcc@11.4.1 build_system=makefile arch=linux-rocky9-zen4
- -                           ^zstd@1.5.6%gcc@14.2.0+programs build_system=makefile compression=none libs=shared,static arch=linux-rocky9-zen4
- -               ^libedit@3.1-20240808%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
- -               ^libxcrypt@4.4.35%gcc@14.2.0~obsolete_api build_system=autotools patches=4885da3 arch=linux-rocky9-zen4
- -           ^perl@5.40.0%gcc@14.2.0+cpanm+opcode+open+shared+threads build_system=generic arch=linux-rocky9-zen4
- -               ^berkeley-db@18.1.40%gcc@14.2.0+cxx~docs+stl build_system=autotools patches=26090f4,b231fcc arch=linux-rocky9-zen4
- -               ^bzip2@1.0.8%gcc@14.2.0~debug~pic+shared build_system=generic arch=linux-rocky9-zen4
- -               ^gdbm@1.23%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
- -                   ^readline@8.2%gcc@14.2.0 build_system=autotools patches=bbf97f1 arch=linux-rocky9-zen4
- -           ^pkgconf@2.2.0%gcc@14.2.0 build_system=autotools arch=linux-rocky9-zen4
- -           ^pmix@5.0.3%gcc@14.2.0~munge~python~restful build_system=autotools arch=linux-rocky9-zen4
-[+]          ^zlib-ng@2.2.1%gcc@11.4.1+compat+new_strategies+opt+pic+shared build_system=autotools arch=linux-rocky9-zen4
+ -   phylobayesmpi@1.9 build_system=makefile arch=linux-rocky9-zen4 %cxx=gcc@14.2.0
+[+]      ^compiler-wrapper@1.0 build_system=generic arch=linux-rocky9-zen4 
+[e]      ^gcc@14.2.0~binutils+bootstrap~graphite~mold~nvptx~piclibs~profiled~strip build_system=autotools build_type=RelWithDebInfo languages:='c,c++,fortran' arch=linux-rocky9-zen4 
+ -       ^gcc-runtime@14.2.0 build_system=generic arch=linux-rocky9-zen4 
+[e]      ^glibc@2.34 build_system=autotools arch=linux-rocky9-zen4 
+[+]      ^gmake@4.4.1~guile build_system=generic arch=linux-rocky9-zen4 %c=gcc@11.4.1
+[e]          ^gcc@11.4.1~binutils+bootstrap~graphite~nvptx~piclibs~profiled~strip build_system=autotools build_type=RelWithDebInfo languages:='c,c++' arch=linux-rocky9-zen4 
+[+]          ^gcc-runtime@11.4.1 build_system=generic arch=linux-rocky9-zen4 
+ -       ^openmpi@5.0.8+atomics~cuda~debug+fortran~gpfs~internal-hwloc~internal-libevent~internal-pmix~ipv6~java~lustre~memchecker~openshmem~rocm~romio+rsh~static~two_level_namespace+vt+wrapper-rpath build_system=autotools fabrics:=none romio-filesystem:=none schedulers:=none arch=linux-rocky9-zen4 %c,cxx,fortran=gcc@14.2.0
+ -           ^autoconf@2.72 build_system=autotools arch=linux-rocky9-zen4 
+ -               ^m4@1.4.20+sigsegv build_system=autotools arch=linux-rocky9-zen4 %c,cxx=gcc@14.2.0
+ -                   ^diffutils@3.10 build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -                   ^libsigsegv@2.14 build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -           ^automake@1.16.5 build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -           ^hwloc@2.11.1~cairo~cuda~gl~level_zero~libudev+libxml2~nvml~opencl+pci~rocm build_system=autotools libs:=shared,static arch=linux-rocky9-zen4 %c,cxx=gcc@14.2.0
+ -               ^libpciaccess@0.17 build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -                   ^util-macros@1.20.1 build_system=autotools arch=linux-rocky9-zen4 
+ -               ^libxml2@2.13.5~http+pic~python+shared build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -                   ^libiconv@1.18 build_system=autotools libs:=shared,static arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -                   ^xz@5.6.3~pic build_system=autotools libs:=shared,static arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -               ^ncurses@6.5~symlinks+termlib abi=none build_system=autotools patches:=7a351bc arch=linux-rocky9-zen4 %c,cxx=gcc@14.2.0
+ -           ^libevent@2.1.12+openssl build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -               ^openssl@3.4.1~docs+shared build_system=generic certs=mozilla arch=linux-rocky9-zen4 %c,cxx=gcc@14.2.0
+ -                   ^ca-certificates-mozilla@2025-05-20 build_system=generic arch=linux-rocky9-zen4 
+ -           ^libtool@2.4.7 build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -               ^findutils@4.10.0 build_system=autotools patches:=440b954 arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -                   ^gettext@0.23.1+bzip2+curses+git~libunistring+libxml2+pic+shared+tar+xz build_system=autotools arch=linux-rocky9-zen4 %c,cxx=gcc@14.2.0
+ -                       ^tar@1.35 build_system=autotools zip=pigz arch=linux-rocky9-zen4 %c=gcc@14.2.0
+[+]                          ^pigz@2.8 build_system=makefile arch=linux-rocky9-zen4 %c=gcc@11.4.1
+ -                           ^zstd@1.5.7+programs build_system=makefile compression:=none libs:=shared,static arch=linux-rocky9-zen4 %c,cxx=gcc@14.2.0
+ -           ^numactl@2.0.18 build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -           ^openssh@9.9p1+gssapi build_system=autotools arch=linux-rocky9-zen4 %c,cxx=gcc@14.2.0
+ -               ^krb5@1.21.3+shared build_system=autotools arch=linux-rocky9-zen4 %c,cxx=gcc@14.2.0
+ -                   ^bison@3.8.2~color build_system=autotools arch=linux-rocky9-zen4 %c,cxx=gcc@14.2.0
+ -               ^libedit@3.1-20240808 build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -               ^libxcrypt@4.4.38~obsolete_api build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -           ^perl@5.40.0+cpanm+opcode+open+shared+threads build_system=generic arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -               ^berkeley-db@18.1.40+cxx~docs+stl build_system=autotools patches:=26090f4,b231fcc arch=linux-rocky9-zen4 %c,cxx=gcc@14.2.0
+ -               ^bzip2@1.0.8~debug~pic+shared build_system=generic arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -               ^gdbm@1.23 build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -                   ^readline@8.2 build_system=autotools patches:=1ea4349,24f587b,3d9885e,5911a5b,622ba38,6c8adf8,758e2ec,79572ee,a177edc,bbf97f1,c7b45ff,e0013d9,e065038 arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -           ^pkgconf@2.3.0 build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+ -           ^pmix@5.0.5~munge~python build_system=autotools arch=linux-rocky9-zen4 %c=gcc@14.2.0
+[+]          ^zlib-ng@2.2.4+compat+new_strategies+opt+pic+shared build_system=autotools arch=linux-rocky9-zen4 %c,cxx=gcc@11.4.1
 ```
 
 </details>
 
-You don't need to read the full spec above, but on Aire currently, this adds up to
-43 packages, which I'm sure would take a fair old amount of time to build.  So
-let's see if we can cut that down by using software already installed on my
-system.
+You don't need to read the full spec above, but on Aire currently, this adds
+up to 37 missing packages, which I'm sure would take a fair old amount of time
+to build.  So let's see if we can cut that down by using software already
+installed on my system.
 
 It can find certain software in your environment without you having to
 configure anything by hand.  So if I load an openmpi module, and run:
 
 ```bash
-$ module add openmpi/5.0.6/gcc-13.2.0_cuda-12.6.2
+$ module add openmpi/5.0.6/gcc-14.2.0
 $ spack external find openmpi
-==> The following specs have been detected on this system and added to /home/home02/me/.spack/packages.yaml
--- no arch / gcc@13.2.0 -----------------------------------------
+==> The following specs have been detected on this system and added to /users/example/spack/etc/spack/packages.yaml
+-- no arch / no compilers ---------------------------------------
 openmpi@5.0.6
 ```
 
@@ -151,11 +157,23 @@ My full packages.yaml now looks like this, if looked at with `spack config edit 
 packages:
   openmpi:
     externals:
-    - spec: openmpi@5.0.6%gcc@=13.2.0+cuda~java~memchecker~static~wrapper-rpath fabrics=ofi,psm2,ucx
-        schedulers=none
-      prefix: /opt/apps/pkg/libraries/openmpi/5.0.6/gcc-13.2.0+cuda-12.6.2
-  all:
-    compiler: [gcc@14.2.0]
+    - spec: openmpi@5.0.6~cuda~java~memchecker~rocm~static~wrapper-rpath fabrics=ofi,psm2,ucx schedulers=none
+      prefix: /opt/apps/pkg/libraries/openmpi/5.0.6/gcc-14.2.0
+  gcc:
+    externals:
+    - spec: gcc@14.2.0 languages:='c,c++,fortran'
+      prefix: /opt/apps/pkg/compilers/gcc/14.2.0
+      extra_attributes:
+        compilers:
+          c: /opt/apps/pkg/compilers/gcc/14.2.0/bin/gcc
+          cxx: /opt/apps/pkg/compilers/gcc/14.2.0/bin/g++
+          fortran: /opt/apps/pkg/compilers/gcc/14.2.0/bin/gfortran
+    - spec: gcc@11.4.1 languages:='c,c++'
+      prefix: /usr
+      extra_attributes:
+        compilers:
+          c: /usr/bin/gcc
+          cxx: /usr/bin/g++
 ```
 
 ```{admonition} OpenMPI on Red Hat oddity
@@ -177,44 +195,38 @@ look again now at building mpiwrapper, and see what that looks like:
 ```bash
 $ spack spec phylobayesmpi
 $ spack spec phylobayesmpi
- -   phylobayesmpi@1.9%gcc@13.2.0 build_system=makefile arch=linux-rocky9-zen4
- -       ^gcc-runtime@13.2.0%gcc@13.2.0 build_system=generic arch=linux-rocky9-zen4
-[e]      ^glibc@2.34%gcc@13.2.0 build_system=autotools arch=linux-rocky9-zen4
-[+]      ^gmake@4.4.1%gcc@11.4.1~guile build_system=generic arch=linux-rocky9-zen4
-[+]          ^gcc-runtime@11.4.1%gcc@11.4.1 build_system=generic arch=linux-rocky9-zen4
-[e]          ^glibc@2.34%gcc@11.4.1 build_system=autotools arch=linux-rocky9-zen4
-[e]      ^openmpi@5.0.6%gcc@13.2.0+atomics+cuda~debug~gpfs~internal-hwloc~internal-libevent~internal-pmix~java~lustre~memchecker~openshmem~romio+rsh~static~two_level_namespace+vt~wrapper-rpath build_system=autotools cuda_arch=none fabrics=ofi,psm2,ucx romio-filesystem=none schedulers=none arch=linux-rocky9-zen4
+ -   phylobayesmpi@1.9 build_system=makefile arch=linux-rocky9-zen4 %cxx=gcc@11.4.1
+[+]      ^compiler-wrapper@1.0 build_system=generic arch=linux-rocky9-zen4
+[e]      ^gcc@11.4.1~binutils+bootstrap~graphite~nvptx~piclibs~profiled~strip build_system=autotools build_type=RelWithDebInfo languages:='c,c++' arch=linux-rocky9-zen4
+[+]      ^gcc-runtime@11.4.1 build_system=generic arch=linux-rocky9-zen4
+[e]      ^glibc@2.34 build_system=autotools arch=linux-rocky9-zen4
+[+]      ^gmake@4.4.1~guile build_system=generic arch=linux-rocky9-zen4 %c=gcc@11.4.1
+[e]      ^openmpi@5.0.6+atomics~cuda~debug+fortran~gpfs~internal-hwloc~internal-libevent~internal-pmix~ipv6~java~lustre~memchecker~openshmem~rocm~romio+rsh~static~two_level_namespace+vt~wrapper-rpath build_system=autotools fabrics:=ofi,psm2,ucx romio-filesystem:=none schedulers:=none arch=linux-rocky9-zen4
 ```
 
-So now Spack believes that it can reuse my openmpi from the system and other
-than a little shim package (gcc-runtime), it's only actually going to build
-the piece of software I've asked for, rather than the huge list of
-dependencies we had before.
+So now Spack believes that it can reuse my openmpi from the system and it's
+only actually going to build the piece of software I've asked for, rather than
+the huge list of dependencies we had before.
 
 ```bash
 $ spack install phylobayesmpi
-[+] /usr (external glibc-2.34-yzotqqevluwtq3jprsigxmtetjc3s3c7)
-[+] /usr (external glibc-2.34-nuyxhw7kdup423xfoh3erg5yl7c3xrlh)
-[+] /opt/apps/pkg/libraries/openmpi/5.0.6/gcc-13.2.0+cuda-12.6.2 (external openmpi-5.0.6-73sqmyovadjm2mdbuqrmpd5vm3ihygyo)
-==> Installing gcc-runtime-13.2.0-r7anquf3s2qyszutz3dprsgfjg2baypt [4/7]
-==> No binary for gcc-runtime-13.2.0-r7anquf3s2qyszutz3dprsgfjg2baypt found: installing from source
-==> No patches needed for gcc-runtime
-==> gcc-runtime: Executing phase: 'install'
-==> gcc-runtime: Successfully installed gcc-runtime-13.2.0-r7anquf3s2qyszutz3dprsgfjg2baypt
-  Stage: 0.00s.  Install: 0.22s.  Post-install: 0.12s.  Total: 0.37s
-[+] /users/example/spack/opt/spack/linux-rocky9-zen4/gcc-13.2.0/gcc-runtime-13.2.0-r7anquf3s2qyszutz3dprsgfjg2baypt
-[+] /users/example/spack/opt/spack/linux-rocky9-zen4/gcc-11.4.1/gcc-runtime-11.4.1-7hex6dyh2ttbdeywfkq5vbsinmnhjoub
-[+] /users/example/spack/opt/spack/linux-rocky9-zen4/gcc-11.4.1/gmake-4.4.1-36fbslt63hhoisn7shlrkgd5fsb2awmz
-==> Installing phylobayesmpi-1.9-6267nytqg6se4wqmg6p37ftescnz2jpz [7/7]
-==> No binary for phylobayesmpi-1.9-6267nytqg6se4wqmg6p37ftescnz2jpz found: installing from source
+[+] /usr (external glibc-2.34-riltp4wkahjqsanksbtayyu5sz2r2xzk)
+[+] /usr (external gcc-11.4.1-jrckedbivv6kljrzsqljlem6z2dm3rge)
+[+] /users/example/spack/opt/spack/linux-zen4/compiler-wrapper-1.0-fbl56cgz34aegvfgcruvmp3cpwtbrvat
+[+] /opt/apps/pkg/libraries/openmpi/5.0.6/gcc-14.2.0 (external openmpi-5.0.6-rx6rdrwrfbirnxit5jpgoj3w3lxdni4n)
+[+] /users/example/spack/opt/spack/linux-zen4/gcc-runtime-11.4.1-nvwittl62oq7v24ksdjoitzmfcoqdzzv
+[+] /users/example/spack/opt/spack/linux-zen4/gmake-4.4.1-oqhxiah3frx4j7oy7urrlhttcg6couqx
+==> No binary for phylobayesmpi-1.9-5xt25eudmtoskw5ayr47y3n5g3cvaq2h found: installing from source
+==> Installing phylobayesmpi-1.9-5xt25eudmtoskw5ayr47y3n5g3cvaq2h [7/7]
 ==> Fetching https://mirror.spack.io/_source-cache/archive/56/567d8db995f23b2b0109c1e6088a7e5621e38fec91d6b2f27abd886b90ea31ce.tar.gz
+    [100%]  701.19 KB @    1.4 MB/s
 ==> No patches needed for phylobayesmpi
 ==> phylobayesmpi: Executing phase: 'edit'
 ==> phylobayesmpi: Executing phase: 'build'
 ==> phylobayesmpi: Executing phase: 'install'
-==> phylobayesmpi: Successfully installed phylobayesmpi-1.9-6267nytqg6se4wqmg6p37ftescnz2jpz
-  Stage: 1.18s.  Edit: 0.00s.  Build: 6.59s.  Install: 0.05s.  Post-install: 0.06s.  Total: 7.95s
-[+] /users/example/spack/opt/spack/linux-rocky9-zen4/gcc-13.2.0/phylobayesmpi-1.9-6267nytqg6se4wqmg6p37ftescnz2jpz
+==> phylobayesmpi: Successfully installed phylobayesmpi-1.9-5xt25eudmtoskw5ayr47y3n5g3cvaq2h
+  Stage: 1.08s.  Edit: 0.00s.  Build: 6.29s.  Install: 0.02s.  Post-install: 0.02s.  Total: 7.47s
+[+] /users/example/spack/opt/spack/linux-zen4/phylobayesmpi-1.9-5xt25eudmtoskw5ayr47y3n5g3cvaq2h
 ```
 
 So we've just install phylobayesmpi with Spack, using dependencies already
@@ -243,7 +255,8 @@ want it to use.
 
 ```bash
 $ spack external find openssl
-==> The following specs have been detected on this system and added to /users/example/.spack/packages.yaml
+==> The following specs have been detected on this system and added to /users/example/spack/etc/spack/packages.yaml
+-- no arch / no compilers ---------------------------------------
 openssl@3.0.7  openssl@3.3.2
 ```
 

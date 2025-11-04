@@ -13,17 +13,21 @@ Here's a minimal workflow for creating an environment:
   ```bash
   spack env create myenv
   ```
+- Activate it
+  ```bash
+  spack env activate myenv
+  ```
 
 - Add a list of software to it
 
   ```bash
-  spack -e myenv add bash@5 python py-numpy py-scipy py-matplotlib openssl@3.0.15
+  spack add bash@5 python py-numpy py-scipy py-matplotlib openssl@3.0.7
   ```
 
 - Tweak the config if required
 
   ```bash
-  spack -e myenv config edit
+  spack config edit
   ```
 
   Please review the references for more information on options here, but nothing
@@ -32,7 +36,7 @@ Here's a minimal workflow for creating an environment:
 - Validate the installation
 
   ```bash
-  spack -e myenv concretize
+  spack concretize
   ```
 
   [Concretizing](https://spack.readthedocs.io/en/latest/environments.html#spec-concretization)
@@ -42,7 +46,7 @@ Here's a minimal workflow for creating an environment:
 - Build and install the software
 
   ```bash
-  spack -e myenv install
+  spack install
   ```
 
 Note this follows the normal behaviour of Spack, reusing previously built
@@ -51,7 +55,8 @@ software, and external software you've told it to use.
 ## Using an environment
 
 Again, this feels very familiar to people used to Conda; you have to activate
-an environment before using it:
+an environment before using it (although we did actually do this earlier when
+we created it):
 
 ```bash
 spack env activate myenv
@@ -63,7 +68,7 @@ Once activated, you can confirm that it's really live:
 $ which bash
 ~/spack/var/spack/environments/myenv/.spack-env/view/bin/bash
 $ bash --version
-GNU bash, version 5.2.26(1)-release (x86_64-pc-linux-gnu)
+GNU bash, version 5.2.37(1)-release (x86_64-pc-linux-gnu)
 Copyright (C) 2022 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 

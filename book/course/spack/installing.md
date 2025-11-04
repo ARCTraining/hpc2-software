@@ -12,7 +12,7 @@ deliberately pick a specific stable version:
 
 ```bash
 $ cd spack
-$ git checkout v0.23.1
+$ git checkout v1.0.2
 $ cd ..
 ```
 
@@ -35,8 +35,10 @@ You need to make sure you have Python 3 available in your PATH, but there are
 few other [required dependencies](https://spack.readthedocs.io/en/latest/getting_started.html#system-prerequisites).
 
 Spack is now alive in your terminal, and you can query available packages, or
-look at one to see what options you have for building it.  We can now have a
-look at what packages are available to install:
+look at one to see what options you have for building it.  Note the first
+command you run might take a little while, as it also has to download the
+separate spack packages repository, which by default ends up in `~/.spack`.
+We can now have a look at what packages are available to install:
 
 ```bash
 $ spack list
@@ -53,7 +55,7 @@ abyss
 ...
 ```
 
-Now that's quite a list (8307 different pieces of software at the time of
+Now that's quite a list (8499 different pieces of software at the time of
 writing).
 
 So let's move on to look at the next section, where we install one to show how
