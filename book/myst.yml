@@ -1,0 +1,41 @@
+version: 1
+project:
+  title: 'HPC2: Installing and Managing Applications on the HPC'
+  authors:
+    - name: Research Computing Team
+      affiliation: University of Leeds
+      url: https://arc.leeds.ac.uk
+  copyright: '2025'
+  github: ARCTraining/hpc2-software
+  thebe:
+    binder:
+      repo: ARCTraining/hpc2-software
+      provider: github
+      url: https://mybinder.org
+      ref: main
+  toc:
+    - file: welcome.md
+    - file: course/theory.md
+    - file: course/conda.md
+    - file: course/autotools.md
+    - file: course/cmake.md
+    - file: course/containers.md
+    - file: course/spack.md
+      children:
+        - file: course/spack/installing.md
+        - file: course/spack/testinstall.md
+        - file: course/spack/existing.md
+        - file: course/spack/advanced.md
+        - file: course/spack/containers.md
+        - file: course/spack/environments.md
+        - file: course/spack/recipes.md
+        - file: course/spack/modules.md
+    - url: https://arc.leeds.ac.uk
+      title: Research Computing Website
+site:
+  options:
+    logo: ./assets/img/logo/logo.png
+    favicon: ./assets/img/logo/favicon-32x32.png
+    analytics_google: ''
+    folders: true
+  template: book-theme

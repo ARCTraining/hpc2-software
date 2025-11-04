@@ -115,13 +115,13 @@ cowsay Moooo!
 
 - Install cowsay
 
-   ```
+   ```bash
    spack install cowsay
    ```
 
 - Find the name of the module
 
-   ```
+   ```bash
    $ spack find cowsay
    -- linux-rocky9-zen4 / no compilers -----------------------------
    cowsay@3.04
@@ -130,13 +130,13 @@ cowsay Moooo!
 
 - Load the software
 
-   ```
-   $ spack load cowsay
+   ```bash
+   spack load cowsay
    ```
 
 - Test the software
 
-   ```
+   ```bash
    $ cowsay Moooo!
     ________ 
     < Moooo! >

@@ -31,13 +31,12 @@ $ git clone https://github.com/ARCTraining/template-jb-docs.git
 $ conda env create -f environment.yml
 ```
 
-To build the html content locally you can use the `jupyter-book` command line tool:
+To build the html content locally and serve on http://localhost:3000 you can use the `jupyter-book` command line tool:
 
 ```{bash}
 # navigate to the repository root
-$ cd template-jb-docs
-# sometimes worth running jupyter-book clean book/ to remove old files
-$ jupyter-book build book/
+$ cd book
+$ jupyter-book start
 ```
 ### Windows
 

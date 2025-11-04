@@ -319,25 +319,25 @@ You can now experiment inside this sandbox to work out what you need for your re
 ## Summary
 
 ```{important}
-- [What are containers](containers:what)?
-- [Why do I want a container](containers:why)?
-- [Can I use Docker on HPC](containers:docker-hpc)?
-- [Singularity vs Apptainer](containers:singularity-vs-apptainer)
-- [Example of running a container](containers:example) and a look into the steps involved:
-    - [Pulling a container image down from Docker Hub](containers:pulling-from-docker)
-    - [Converting it into a SIF image](containers:converting-to-sif)
-    - [Running software within a container](containers:running-within)
+- [What are containers](#containers:what)?
+- [Why do I want a container](#containers:why)?
+- [Can I use Docker on HPC](#containers:docker-hpc)?
+- [Singularity vs Apptainer](#containers:singularity-vs-apptainer)
+- [Example of running a container](#containers:example) and a look into the steps involved:
+    - [Pulling a container image down from Docker Hub](#containers:pulling-from-docker)
+    - [Converting it into a SIF image](#containers:converting-to-sif)
+    - [Running software within a container](#containers:running-within)
 - What else can I do with containers?
-  - [Access host storage within a container](containers:host-storage)
-  - [Run an alternative command within a container](containers:run-alternative-command)
-  - [Have an interactive shell inside the container](containers:shell)
-  - [Use GPUs within a container](containers:gpu)
+  - [Access host storage within a container](#containers:host-storage)
+  - [Run an alternative command within a container](#containers:run-alternative-command)
+  - [Have an interactive shell inside the container](#containers:shell)
+  - [Use GPUs within a container](#containers:gpu)
 - Building a container
-  - [Creating a recipe](containers:recipe)
-  - [Converting a Dockerfile to a Singularity recipe](containers:convert-from-dockerfile)
-  - [Generate a SIF image from a recipe](containers:generate-sif)
-  - [Test the image we've created](containers:test)
-- [Submitting jobs with containers](containers:submit-job)
+  - [Creating a recipe](#containers:recipe)
+  - [Converting a Dockerfile to a Singularity recipe](#containers:convert-from-dockerfile)
+  - [Generate a SIF image from a recipe](#containers:generate-sif)
+  - [Test the image we've created](#containers:test)
+- [Submitting jobs with containers](#containers:submit-job)
 - Bonus section
-  - [Sandboxes](containers:sandbox)
+  - [Sandboxes](#containers:sandbox)
 ```

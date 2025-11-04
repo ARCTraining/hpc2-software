@@ -70,7 +70,7 @@ One option is to simplify this a great deal, hiding a lot of that information,
 which might be appealing if you know that information is not important to you.
 So if you're using one compiler, you don't really care about the compiler used,
 you don't need the hash at the end if you're only dealing with a single variant
-(covered [later](advanced:spack:variants)), and you'd probably like the modules
+(covered [later](#advanced:spack:variants)), and you'd probably like the modules
 names more in line with how they have traditionally been named, with the
 version separate from the package name.
 

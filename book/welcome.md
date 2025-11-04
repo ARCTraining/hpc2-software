@@ -12,14 +12,14 @@ The purpose of the workshop is to introduce the application development environm
 
 At the end of this workshop, learners will be able to:
 
-1. [ ] Understand what an executable is
-2. [ ] Understand the how filesystem configuration and environment variables relate to software
-3. [ ] Develop hands on experience with:
-    1. [ ] Using Conda package manager
-    2. [ ] Building software using GNU Autotools
-    3. [ ] Building software using CMake
-    4. [ ] Using Singularity/Apptainer containers
-    5. [ ] Using Spack package manager
+- Understand what an executable is
+- Understand the how filesystem configuration and environment variables relate to software
+- Develop hands on experience with:
+  - Using Conda package manager
+  - Building software using GNU Autotools
+  - Building software using CMake
+  - Using Singularity/Apptainer containers
+  - Using Spack package manager
 
 ## Prerequisites
 

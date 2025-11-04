@@ -4,7 +4,7 @@ Content from this lesson has been inspired and adapted from a number of sources 
 - [Conda documentation](https://docs.conda.io/en/latest/)
 - [Carpentries Incubator: Introduction to Conda for data scientists](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/)
 
-(introduction)=
+(intro)=
 ## Introduction
 
 Conda is an open source package management and environment management system that runs on multiple operating systems (Windows, Linux, macOS). Its features include:
@@ -459,7 +459,7 @@ Once you have the name (and possibly version) of the package you want to install
 
 You can add new packages directly from the command line using the `install` subcommand with the format `conda install PACKAGE`, where `PACKAGE` is the name of the package you wish to install.
 
-To install packages into an existing environment we need to activate it with the [subcommand shown above](activating-environments).
+To install packages into an existing environment we need to activate it with the [subcommand shown above](#activating-environments).
 
 ```bash
 $ conda activate data-sci-env
@@ -614,7 +614,7 @@ The `--prune` argument here clears out old unused libraries and is key to keepin
 ### Removing a Conda environment
 
 It is also possible to delete a Conda environment through the `remove` subcommand.
-This [command is outlined below](removing-packages) in relation to removing specific packages but can also be used to delete an entire Conda environment.
+This [command is outlined below](#removing-packages) in relation to removing specific packages but can also be used to delete an entire Conda environment.
 
 To remove the `py39-env` we created earlier we use the command:
 
@@ -1494,19 +1494,19 @@ Again, this can also be easily done by updating our `environment.yaml` file to c
 
 ```{important}
 
-- [Introduces Conda](introduction) as a cross-platform package and environment manager
-- Highlights options for [how to install Conda](installing-conda)
+- [Introduces Conda](#intro) as a cross-platform package and environment manager
+- Highlights options for [how to install Conda](#installing-conda)
 - Introduces Conda environments for separating specific package dependencies on a project-by-project basis
-  - How to [create an environment using Conda](creating-environments)
-  - How to use a created Conda environment through [environment activation](activating-environments)
-  - Leaving an environment through [deactivation](deactivating-environments)
-  - [Listing available Conda environments](listing-current-environments)
-  - [Deleting Conda environments](removing-a-conda-environment)
-  - [Exporting and sharing Conda Environments](sharing-conda-environments)
+  - How to [create an environment using Conda](#creating-environments)
+  - How to use a created Conda environment through [environment activation](#activating-environments)
+  - Leaving an environment through [deactivation](#deactivating-environments)
+  - [Listing available Conda environments](#listing-current-environments)
+  - [Deleting Conda environments](#removing-a-conda-environment)
+  - [Exporting and sharing Conda Environments](#sharing-conda-environments)
 - Shows how Conda can be used for managing packages
-  - Using Conda to [search Conda repositories for a package](searching-for-packages)
-  - Using Conda to [install a package](installing-packages)
-  - Using Conda to [remove a package](removing-packages)
-  - Using Conda to [update a package](updating-a-package)
+  - Using Conda to [search Conda repositories for a package](#searching-for-packages)
+  - Using Conda to [install a package](#installing-packages)
+  - Using Conda to [remove a package](#removing-packages)
+  - Using Conda to [update a package](#updating-a-package)
 
 ```
