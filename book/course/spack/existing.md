@@ -1,7 +1,7 @@
 # Using existing software
 
 Spack by default will quite happily just build everything itself, as long as a
-limited number of [system requirements](https://spack.readthedocs.io/en/latest/getting_started.html#system-prerequisites)
+limited number of [system requirements](https://spack.readthedocs.io/en/latest/installing_prerequisites.html)
 are satisfied.  But you might want to use a compiler and MPI library from a
 host system.  This is often the case if packages take a long time to build, or
 if you've got access to optimised versions of software that you don't want to

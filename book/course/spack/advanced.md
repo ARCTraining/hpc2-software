@@ -319,7 +319,7 @@ confirm that it was built with UTF-8 support included.
 
 ## References
 
-- [Basic Usage](https://spack.readthedocs.io/en/latest/basic_usage.html)
+- [Basic Usage](https://spack.readthedocs.io/en/latest/package_fundamentals.html)
 - [Installing packages](https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages)
 - [Module tutorial](https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html)
 - [Spec Syntax](https://spack.readthedocs.io/en/latest/spec_syntax.html)
