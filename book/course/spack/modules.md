@@ -42,7 +42,7 @@ We can confirm now that we can see the module with the module command:
 ```bash
 $ module avail pigz
 ------ /users/example/spack/share/spack/modules/linux-rocky9-zen4 ------
-pigz/2.8-gcc-11.4.1-gqwhh2i
+pigz/2.8-gcc-11.4.1-rpmloas
 
 # Make sure Spack has no packages enabled
 $ spack unload -a
@@ -50,9 +50,9 @@ $ spack unload -a
 # On Aire, pigz is installed, but on your system you may find it's not.
 $ pigz --version
 pigz 2.5
-$ module add pigz/2.8-gcc-11.4.1-gqwhh2i
-Loading pigz/2.8-gcc-11.4.1-gqwhh2i
-  Loading requirement: glibc/2.34-gcc-11.4.1-nuyxhw7 gcc-runtime/11.4.1-gcc-11.4.1-7hex6dy zlib-ng/2.2.1-gcc-11.4.1-5rrpd7
+$ module add pigz/2.8-gcc-11.4.1-rpmloas
+Loading pigz/2.8-gcc-11.4.1-rpmloas
+  Loading requirement: glibc/2.34-none-none-z4aqp7y gcc-runtime/11.4.1-none-none-dqguk7u zlib-ng/2.2.4-gcc-11.4.1-ro6otkl
 $ pigz --version
 pigz 2.8
 ```
@@ -109,7 +109,7 @@ Testing this out now we can see all is how we wanted it:
 ```bash
 $ module avail pigz
 ------ /users/example/spack/share/spack/modules/linux-rocky9-zen4 ------
-pigz/2.8-gqwh
+pigz/2.8-rpml
 ```
 
 We now have tidier module files, named in a simpler fashion, which is probably
@@ -118,7 +118,7 @@ you would on other systems:
 
 ```bash
 $ module add pigz
-$ module add pigz/2.8-gqwh
+$ module add pigz/2.8-rpml
 ```
 
 Now you may be wondering why we bothered including this hash, as it'd clearly
@@ -129,20 +129,18 @@ in one way, but elsewhere we may have modules built with
 different compilers, dependencies and variants.  So for example:
 
 ```bash
-$ module avail zlib-ng
+$ module avail ncurses
 ------ /users/example/spack/share/spack/modules/linux-rocky9-zen4 ------
-zlib-ng/2.0.7-pjab  zlib-ng/2.2.1-5rrp  zlib-ng/2.2.1-xjlb
-$ spack find zlib-ng
--- linux-rocky9-zen4 / gcc@11.4.1 -------------------------------
-zlib-ng@2.0.7  zlib-ng@2.2.1
-
--- linux-rocky9-zen4 / gcc@14.2.0 -------------------------------
-zlib-ng@2.2.1
-==> 3 installed packages
+ncurses/6.5-20250705-lcco  ncurses/6.5-20250705-tx2b
+$ spack find -v ncurses
+-- linux-rocky9-zen4 / %c,cxx=gcc@11.4.1 ------------------------
+ncurses@6.5-20250705~symlinks~termlib abi=none build_system=autotools patches:=7a351bc  ncurses@6.5-20250705~symlinks+termlib abi=none build_system=autotools patches:=7a351bc
+==> 2 installed packages
 ```
 
-You can see here we have two versions of zlib-ng built with two different
-compilers, which would clearly class with a simpler scheme.
+You can see here we have two versions of ncurses, in this case built with the
+same compiler, but with two different variants, which would clearly class with
+a simpler scheme.
 
 If you want more complicated structures, supporting multiple compilers, MPI
 implementations, numerical libraries, this is all possible, and covered in the

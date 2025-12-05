@@ -8,7 +8,7 @@ Spack install software within.
 To define your container, you create a YAML file that describes what you want.
 Here's I'm saying I want spack to install gromacs with MPI enabled, and
 OpenMPI.  I want it to create the container for Singularity/Apptainer, and I
-want it to make sure the libgomp1 package is installed onto the OS.
+want it to make sure the libgomp package is installed onto the OS.
 
 spack.yaml:
 
@@ -21,10 +21,13 @@ spack:
 # What I want it to create
   container:
     format: singularity
+    images:
+      os: almalinux:9
+      spack: 1.1.0
 # Bonus OS packages I'd like installed
     os_packages:
       final:
-      - libgomp1
+      - libgomp
 # Additional config for the build process
   config:
     mount proc: yes
@@ -57,18 +60,10 @@ As a proof of life, let's run gromacs from within that container:
 
 ```bash
 $ apptainer run gromacs-openmpi.sif mpirun -np 4 gmx_mpi
-                    :-) GROMACS - gmx_mpi, 2024.4-spack (-:
+                    :-) GROMACS - gmx_mpi, 2025.3-spack (-:
 
-Executable:   /opt/software/linux-zen4/gromacs-2024.4-af5srsrjr7w2alftldvyek2chqu4rtls/bin/gmx_mpi
-Data prefix:  /opt/software/linux-zen4/gromacs-2024.4-af5srsrjr7w2alftldvyek2chqu4rtls
-Working dir:  /users/example/hpc2
-Command line:
-  gmx_mpi
-
-SYNOPSIS
-
-gmx [-[no]h] [-[no]quiet] [-[no]version] [-[no]copyright] [-nice <int>]
-    [-[no]backup]
+Executable:   /opt/software/linux-zen4/gromacs-2025.3-ipqq3w22geizv4y6pdroneco3hq33xkj/bin/gmx_mpi
+Data prefix:  /opt/software/linux-zen4/gromacs-2025.3-ipqq3w22geizv4y6pdroneco3hq33xkj
 ...
 ```
 
