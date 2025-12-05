@@ -4,6 +4,10 @@ Environments in Spack feel a whole lot like environments in Conda; they allow
 you to bundle up a number of different pieces of software into a single entity,
 making a single coherent collection.
 
+This is a very simple introduction, and really doesn't cover all the things
+you can do with environments, so if you're interested in these, please read
+the main documentation links in the [References](environments:references) section.
+
 ## Creating an environment
 
 Here's a minimal workflow for creating an environment:
@@ -68,8 +72,8 @@ Once activated, you can confirm that it's really live:
 $ which bash
 ~/spack/var/spack/environments/myenv/.spack-env/view/bin/bash
 $ bash --version
-GNU bash, version 5.2.37(1)-release (x86_64-pc-linux-gnu)
-Copyright (C) 2022 Free Software Foundation, Inc.
+GNU bash, version 5.3.3(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2025 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 
 This is free software; you are free to change and redistribute it.
@@ -84,6 +88,7 @@ You can leave an environment using:
 spack env deactivate
 ```
 
+(environments:references)=
 ## References
 
 - [Environment Basics](https://spack.readthedocs.io/en/latest/environments_basics.html)
