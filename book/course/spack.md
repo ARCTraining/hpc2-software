@@ -9,13 +9,13 @@ I'll introduce Spack by quoting the first paragraph of their documentation:
 > specific microarchitectures.
 
 So what does this mean in practice?  You've already learnt about build systems
-like [Autotools](autotools) and [CMake](cmake), and may be familiar with
+like [Autotools](./autotools) and [CMake](./cmake), and may be familiar with
 [module systems](https://arcdocs.leeds.ac.uk/aire/software/start.html#modules)
 as used on Aire.  You may also have worked through the section on
-[containers](containers) and wondered if there was an easier way of building a
+[containers](./containers) and wondered if there was an easier way of building a
 potentially deep stack of software for a particular project.
 
-You may have already tried [Conda](conda) and found it wonderful, but for the
+You may have already tried [Conda](./conda) and found it wonderful, but for the
 fact that the piece of software you want isn't built with the options you
 wanted, so you can't use it.  Or maybe you just can't make the conda installed
 version work with the MPI setup on the HPC cluster you're using.

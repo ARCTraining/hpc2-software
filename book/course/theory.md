@@ -27,7 +27,7 @@ Below are the key types of files:
 * **executables** - these types of files contain compiled binary code. When opened, the operating system will execute the instructions of the code to run the program.
 * **libraries** - In programming, a library contains common functions that can be reused in programs.
 
-```{Note}
+```{note}
 The term library is also used in computing for the name of a collection of related files, such as in /usr/share or as a package, eg tensorflow.
 ```
 
@@ -69,7 +69,7 @@ Software usually requires installation before it can be run. This is usually by 
 * archive with instructions of how to extract and install and run.
 * source archives with build instructions and scripts.
 
-```{Note}
+```{note}
 It's possible to have an executable program or script that can be run directly without installation.
 ```
 
@@ -132,7 +132,7 @@ They can contain options for conditional builds such as for debug and release bu
 
 ### Packaging
 
-```{Note}
+```{note}
 Users do not have sufficient permissions to install system packages on our HPC systems.
 Containers provide a mechanism for users to install system packages in a user managed environment.
 ```
@@ -165,7 +165,7 @@ They utilise an **Operating System** (eg Windows, OSX, Android Linux) to control
 
 ### Virtual Machines
 
-```{Note}
+```{note}
 Aire cannot run virtual machines.
 ```
 

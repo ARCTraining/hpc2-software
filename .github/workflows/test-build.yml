@@ -19,7 +19,7 @@ jobs:
         environment-file: environment.yml
         auto-activate-base: false
         activate-environment: arcdocs-jb
-        python-version: 3.9
+        python-version: 3.14
 
     # Build the book
     - name: Build the book
