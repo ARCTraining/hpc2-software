@@ -437,125 +437,156 @@ different packages if you know better than the defaults.</p>
 <section id="variants">
 <span id="advanced-spack-variants"></span><h2>Variants<a class="headerlink" href="#variants" title="Permalink to this heading">#</a></h2>
 <p>Variants are where the package has options how to build it.  Let’s pick on
-<code class="docutils literal notranslate"><span class="pre">libtiff</span></code> as a nice example.  You can get information on a package in Spack,
-which will tell you about how it can be built:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>info<span class="w"> </span>libtiff
-CMakePackage:<span class="w">   </span>libtiff
+<code class="docutils literal notranslate"><span class="pre">clingo</span></code> as an example.  You can get information on a package in Spack, which
+will tell you about how it can be built:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>info<span class="w"> </span>clingo
+CMakePackage:<span class="w">   </span>clingo
 
 Description:
-<span class="w">    </span>LibTIFF<span class="w"> </span>-<span class="w"> </span>Tag<span class="w"> </span>Image<span class="w"> </span>File<span class="w"> </span>Format<span class="w"> </span><span class="o">(</span>TIFF<span class="o">)</span><span class="w"> </span>Library<span class="w"> </span>and<span class="w"> </span>Utilities.
+<span class="w">    </span>Clingo:<span class="w"> </span>A<span class="w"> </span>grounder<span class="w"> </span>and<span class="w"> </span>solver<span class="w"> </span><span class="k">for</span><span class="w"> </span>logic<span class="w"> </span>programs<span class="w"> </span>Clingo<span class="w"> </span>is<span class="w"> </span>part<span class="w"> </span>of<span class="w"> </span>the
+<span class="w">    </span>Potassco<span class="w"> </span>project<span class="w"> </span><span class="k">for</span><span class="w"> </span>Answer<span class="w"> </span>Set<span class="w"> </span>Programming<span class="w"> </span><span class="o">(</span>ASP<span class="o">)</span>.<span class="w"> </span>ASP<span class="w"> </span>offers<span class="w"> </span>a<span class="w"> </span>simple
+<span class="w">    </span>and<span class="w"> </span>powerful<span class="w"> </span>modeling<span class="w"> </span>language<span class="w"> </span>to<span class="w"> </span>describe<span class="w"> </span>combinatorial<span class="w"> </span>problems<span class="w"> </span>as
+<span class="w">    </span>logic<span class="w"> </span>programs.<span class="w"> </span>The<span class="w"> </span>clingo<span class="w"> </span>system<span class="w"> </span><span class="k">then</span><span class="w"> </span>takes<span class="w"> </span>such<span class="w"> </span>a<span class="w"> </span>logic<span class="w"> </span>program<span class="w"> </span>and
+<span class="w">    </span>computes<span class="w"> </span>answer<span class="w"> </span>sets<span class="w"> </span>representing<span class="w"> </span>solutions<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span>problem.
 
-Homepage:<span class="w"> </span>http://www.simplesystems.org/libtiff/
+Homepage:<span class="w"> </span>https://potassco.org/clingo/
 
-Preferred<span class="w"> </span>version:<span class="w">  </span>
-<span class="w">    </span><span class="m">4</span>.7.0<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.7.0.tar.gz
+Preferred<span class="w"> </span>version:
+<span class="w">    </span><span class="m">5</span>.7.1<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.7.1.tar.gz
 
-Safe<span class="w"> </span>versions:<span class="w">  </span>
-<span class="w">    </span><span class="m">4</span>.7.0<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.7.0.tar.gz
+Safe<span class="w"> </span>versions:
+<span class="w">    </span>develop<span class="w">    </span><span class="o">[</span>git<span class="o">]</span><span class="w"> </span>https://github.com/potassco/clingo.git<span class="w"> </span>on<span class="w"> </span>branch<span class="w"> </span>wip-20
+<span class="w">    </span>master<span class="w">     </span><span class="o">[</span>git<span class="o">]</span><span class="w"> </span>https://github.com/potassco/clingo.git<span class="w"> </span>on<span class="w"> </span>branch<span class="w"> </span>master
+<span class="w">    </span><span class="m">5</span>.8.0<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.8.0.tar.gz
+<span class="w">    </span><span class="m">5</span>.7.1<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.7.1.tar.gz
+<span class="w">    </span><span class="m">5</span>.6.2<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.6.2.tar.gz
+<span class="w">    </span><span class="m">5</span>.5.2<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.5.2.tar.gz
+<span class="w">    </span><span class="m">5</span>.4.1<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.4.1.tar.gz
+<span class="w">    </span>spack<span class="w">      </span><span class="o">[</span>git<span class="o">]</span><span class="w"> </span>https://github.com/potassco/clingo.git<span class="w"> </span>at<span class="w"> </span>commit<span class="w"> </span>2a025667090d71b2c9dce60fe924feb6bde8f667
 
-Deprecated<span class="w"> </span>versions:<span class="w">  </span>
-<span class="w">    </span><span class="m">4</span>.6.0<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.6.0.tar.gz
-<span class="w">    </span><span class="m">4</span>.5.1<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.5.1.tar.gz
-<span class="w">    </span><span class="m">4</span>.5.0<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.5.0.tar.gz
-<span class="w">    </span><span class="m">4</span>.4.0<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.4.0.tar.gz
-<span class="w">    </span><span class="m">4</span>.3.0<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.3.0.tar.gz
-<span class="w">    </span><span class="m">4</span>.2.0<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.2.0.tar.gz
-<span class="w">    </span><span class="m">4</span>.1.0<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.1.0.tar.gz
-<span class="w">    </span><span class="m">4</span>.0.10<span class="w">    </span>https://download.osgeo.org/libtiff/tiff-4.0.10.tar.gz
-<span class="w">    </span><span class="m">4</span>.0.9<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz
-<span class="w">    </span><span class="m">4</span>.0.8<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz
-<span class="w">    </span><span class="m">4</span>.0.7<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz
-<span class="w">    </span><span class="m">4</span>.0.6<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.0.6.tar.gz
-<span class="w">    </span><span class="m">4</span>.0.5<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.0.5.tar.gz
-<span class="w">    </span><span class="m">4</span>.0.4<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-4.0.4.tar.gz
-<span class="w">    </span><span class="m">3</span>.9.7<span class="w">     </span>https://download.osgeo.org/libtiff/tiff-3.9.7.tar.gz
+Deprecated<span class="w"> </span>versions:
+<span class="w">    </span><span class="m">5</span>.7.0<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.7.0.tar.gz
+<span class="w">    </span><span class="m">5</span>.5.1<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.5.1.tar.gz
+<span class="w">    </span><span class="m">5</span>.5.0<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.5.0.tar.gz
+<span class="w">    </span><span class="m">5</span>.4.0<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.4.0.tar.gz
+<span class="w">    </span><span class="m">5</span>.3.0<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.3.0.tar.gz
+<span class="w">    </span><span class="m">5</span>.2.2<span class="w">      </span>https://github.com/potassco/clingo/archive/v5.2.2.tar.gz
 
 Variants:
-<span class="w">    </span>build_system<span class="w"> </span><span class="o">[</span>cmake<span class="o">]</span><span class="w">        </span>autotools,<span class="w"> </span>cmake
+<span class="w">    </span>apps<span class="w"> </span><span class="o">[</span>true<span class="o">]</span><span class="w">                 </span>false,<span class="w"> </span><span class="nb">true</span>
+<span class="w">        </span>build<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line<span class="w"> </span>applications
+
+<span class="w">    </span>build_system<span class="w"> </span><span class="o">[</span>cmake<span class="o">]</span><span class="w">        </span>cmake
 <span class="w">        </span>Build<span class="w"> </span>systems<span class="w"> </span>supported<span class="w"> </span>by<span class="w"> </span>the<span class="w"> </span>package
-<span class="w">    </span>ccitt<span class="w"> </span><span class="o">[</span>true<span class="o">]</span><span class="w">                </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>CCITT<span class="w"> </span>Group<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>algorithms
-<span class="w">    </span>jbig<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">                </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>use<span class="w"> </span>ISO<span class="w"> </span>JBIG<span class="w"> </span>compression
-<span class="w">    </span>jpeg<span class="w"> </span><span class="o">[</span>true<span class="o">]</span><span class="w">                 </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>use<span class="w"> </span>libjpeg
-<span class="w">    </span>logluv<span class="w"> </span><span class="o">[</span>true<span class="o">]</span><span class="w">               </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>LogLuv<span class="w"> </span>high<span class="w"> </span>dynamic<span class="w"> </span>range<span class="w"> </span>algorithm
-<span class="w">    </span>lzw<span class="w"> </span><span class="o">[</span>true<span class="o">]</span><span class="w">                  </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>LZW<span class="w"> </span>algorithm
-<span class="w">    </span>next<span class="w"> </span><span class="o">[</span>true<span class="o">]</span><span class="w">                 </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>NeXT<span class="w"> </span><span class="m">2</span>-bit<span class="w"> </span>RLE<span class="w"> </span>algorithm
-<span class="w">    </span>old-jpeg<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">            </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>Old<span class="w"> </span>JPEG<span class="w"> </span>compression
-<span class="w">    </span>packbits<span class="w"> </span><span class="o">[</span>true<span class="o">]</span><span class="w">             </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>Macintosh<span class="w"> </span>PackBits<span class="w"> </span>algorithm
-<span class="w">    </span>pic<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">                 </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>Enable<span class="w"> </span>position-independent<span class="w"> </span>code<span class="w"> </span><span class="o">(</span>PIC<span class="o">)</span>
-<span class="w">    </span>pixarlog<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">            </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>Pixar<span class="w"> </span>log-format<span class="w"> </span>algorithm
-<span class="w">    </span>shared<span class="w"> </span><span class="o">[</span>true<span class="o">]</span><span class="w">               </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>Build<span class="w"> </span>shared
-<span class="w">    </span>thunder<span class="w"> </span><span class="o">[</span>true<span class="o">]</span><span class="w">              </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>ThunderScan<span class="w"> </span><span class="m">4</span>-bit<span class="w"> </span>RLE<span class="w"> </span>algorithm
-<span class="w">    </span>zlib<span class="w"> </span><span class="o">[</span>true<span class="o">]</span><span class="w">                 </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span>use<span class="w"> </span>zlib
 
-<span class="w">    </span>when<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>cmake
-<span class="w">      </span>build_type<span class="w"> </span><span class="o">[</span>Release<span class="o">]</span><span class="w">      </span>Debug,<span class="w"> </span>MinSizeRel,<span class="w"> </span>RelWithDebInfo,<span class="w"> </span>Release
-<span class="w">          </span>CMake<span class="w"> </span>build<span class="w"> </span><span class="nb">type</span>
-<span class="w">      </span>generator<span class="w"> </span><span class="o">[</span>make<span class="o">]</span><span class="w">          </span>none
-<span class="w">          </span>the<span class="w"> </span>build<span class="w"> </span>system<span class="w"> </span>generator<span class="w"> </span>to<span class="w"> </span>use
+<span class="w">    </span>build_type<span class="w"> </span><span class="o">[</span>Release<span class="o">]</span><span class="w">        </span>Debug,<span class="w"> </span>MinSizeRel,<span class="w"> </span>RelWithDebInfo,<span class="w"> </span>Release
+<span class="w">      </span>when<span class="w">  </span><span class="nv">build_system</span><span class="o">=</span>cmake
+<span class="w">        </span>CMake<span class="w"> </span>build<span class="w"> </span><span class="nb">type</span>
 
-<span class="w">    </span>when<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>cmake<span class="w"> </span>^cmake@3.9:
-<span class="w">      </span>ipo<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">               </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">          </span>CMake<span class="w"> </span>interprocedural<span class="w"> </span>optimization
+<span class="w">    </span>docs<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">                </span>false,<span class="w"> </span><span class="nb">true</span>
+<span class="w">        </span>build<span class="w"> </span>documentation<span class="w"> </span>with<span class="w"> </span>Doxygen
 
-<span class="w">    </span>when<span class="w"> </span>@4.5,4.7:
-<span class="w">      </span>opengl<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">            </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">          </span>use<span class="w"> </span>OpenGL<span class="w"> </span><span class="o">(</span>required<span class="w"> </span><span class="k">for</span><span class="w"> </span>tiffgt<span class="w"> </span>viewer<span class="o">)</span>
+<span class="w">    </span>generator<span class="w"> </span><span class="o">[</span>make<span class="o">]</span><span class="w">            </span>none
+<span class="w">      </span>when<span class="w">  </span><span class="nv">build_system</span><span class="o">=</span>cmake
+<span class="w">        </span>the<span class="w"> </span>build<span class="w"> </span>system<span class="w"> </span>generator<span class="w"> </span>to<span class="w"> </span>use
 
-<span class="w">    </span>when<span class="w"> </span>@4.2:
-<span class="w">      </span>libdeflate<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">        </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">          </span>use<span class="w"> </span>libdeflate
+<span class="w">    </span>ipo<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">                 </span>false,<span class="w"> </span><span class="nb">true</span>
+<span class="w">      </span>when<span class="w">  </span><span class="nv">build_system</span><span class="o">=</span>cmake
+<span class="w">        </span>CMake<span class="w"> </span>interprocedural<span class="w"> </span>optimization
 
-<span class="w">    </span>when<span class="w"> </span>@4:
-<span class="w">      </span>jpeg12<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">            </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">          </span><span class="nb">enable</span><span class="w"> </span>libjpeg<span class="w"> </span><span class="m">8</span>/12-bit<span class="w"> </span>dual<span class="w"> </span>mode
-<span class="w">      </span>lzma<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">              </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">          </span>use<span class="w"> </span>liblzma
+<span class="w">    </span>python<span class="w"> </span><span class="o">[</span>true<span class="o">]</span><span class="w">               </span>false,<span class="w"> </span><span class="nb">true</span>
+<span class="w">        </span>build<span class="w"> </span>with<span class="w"> </span>python<span class="w"> </span>bindings
 
-<span class="w">    </span>when<span class="w"> </span>@4.3:
-<span class="w">      </span>lerc<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">              </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">          </span>use<span class="w"> </span>libLerc
 
-<span class="w">    </span>when<span class="w"> </span>@4.0.10:
-<span class="w">      </span>webp<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">              </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">          </span>use<span class="w"> </span>libwebp
-<span class="w">      </span>zstd<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">              </span>false,<span class="w"> </span><span class="nb">true</span>
-<span class="w">          </span>use<span class="w"> </span>libzstd
+Dependencies:
+<span class="w">    </span>bison@2.5:<span class="w">              </span>build
+<span class="w">      </span>when<span class="w"> </span>@5.6:5.8,master<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux
 
-Build<span class="w"> </span>Dependencies:
-<span class="w">    </span>cmake<span class="w">  </span>gmake<span class="w">  </span>gnuconfig<span class="w">  </span>jbigkit<span class="w">  </span>jpeg<span class="w">  </span>lerc<span class="w">  </span>libwebp<span class="w">  </span>ninja<span class="w">  </span>xz<span class="w">  </span>zlib-api<span class="w">  </span>zstd
+<span class="w">    </span>bison@2.5:<span class="w">              </span>build
+<span class="w">      </span>when<span class="w"> </span>@5.6:5.8,master<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>darwin
 
-Link<span class="w"> </span>Dependencies:
-<span class="w">    </span>jbigkit<span class="w">  </span>jpeg<span class="w">  </span>lerc<span class="w">  </span>libwebp<span class="w">  </span>xz<span class="w">  </span>zlib-api<span class="w">  </span>zstd
+<span class="w">    </span>bison@2.5:<span class="w">              </span>build
+<span class="w">      </span>when<span class="w"> </span>@5.6:5.8,master<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>freebsd
 
-Run<span class="w"> </span>Dependencies:
-<span class="w">    </span>None
+<span class="w">    </span>bison@2.5:<span class="w">              </span>build
+<span class="w">      </span>when<span class="w"> </span>@spack<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux
 
-Licenses:<span class="w"> </span>
-<span class="w">    </span>libtiff
+<span class="w">    </span>bison@2.5:<span class="w">              </span>build
+<span class="w">      </span>when<span class="w"> </span>@spack<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>darwin
+
+<span class="w">    </span>bison@2.5:<span class="w">              </span>build
+<span class="w">      </span>when<span class="w"> </span>@spack<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>freebsd
+
+<span class="w">    </span>c<span class="w">                       </span>build
+
+<span class="w">    </span>cmake@:3<span class="w">                </span>build
+<span class="w">      </span>when<span class="w"> </span>@:5.7
+
+<span class="w">    </span>cmake@3.1:<span class="w">              </span>build
+
+<span class="w">    </span>cmake@3.18:<span class="w">             </span>build
+<span class="w">      </span>when<span class="w"> </span>@5.5:
+
+<span class="w">    </span>cmake@3.22.1:<span class="w">           </span>build
+<span class="w">      </span>when<span class="w"> </span>@develop
+
+<span class="w">    </span>cxx<span class="w">                     </span>build
+
+<span class="w">    </span>doxygen<span class="w">                 </span>build
+<span class="w">      </span>when<span class="w"> </span>+docs
+
+<span class="w">    </span>gmake<span class="w">                   </span>build
+<span class="w">      </span>when<span class="w">  </span><span class="nv">build_system</span><span class="o">=</span>cmake<span class="w"> </span><span class="nv">generator</span><span class="o">=</span>make
+
+<span class="w">    </span>ninja<span class="w">                   </span>build
+<span class="w">      </span>when<span class="w">  </span><span class="nv">build_system</span><span class="o">=</span>cmake<span class="w"> </span><span class="nv">generator</span><span class="o">=</span>ninja
+
+<span class="w">    </span>py-cffi@1.14:<span class="w">           </span>build,<span class="w"> </span>run
+<span class="w">      </span>when<span class="w"> </span>@5.5:+python<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux
+
+<span class="w">    </span>py-cffi@1.14:<span class="w">           </span>build,<span class="w"> </span>run
+<span class="w">      </span>when<span class="w"> </span>@5.5:+python<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>darwin
+
+<span class="w">    </span>py-cffi@1.14:<span class="w">           </span>build,<span class="w"> </span>run
+<span class="w">      </span>when<span class="w"> </span>@5.5:+python<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>freebsd
+
+<span class="w">    </span>python@3.6:<span class="w">             </span>build,<span class="w"> </span>link,<span class="w"> </span>run
+<span class="w">      </span>when<span class="w"> </span>+python
+
+<span class="w">    </span>python-venv<span class="w">             </span>build,<span class="w"> </span>run
+<span class="w">      </span>when<span class="w"> </span>+python
+
+<span class="w">    </span>re2c@0.13:<span class="w">              </span>build
+
+<span class="w">    </span>re2c@0.13:<span class="w">              </span>build
+<span class="w">      </span>when<span class="w"> </span>@spack
+
+<span class="w">    </span>re2c@0.13:<span class="w">              </span>build
+<span class="w">      </span>when<span class="w">  </span><span class="nv">platform</span><span class="o">=</span>windows
+
+<span class="w">    </span>re2c@1.1.1:<span class="w">             </span>build
+<span class="w">      </span>when<span class="w"> </span>@5.6:5.8,master
+
+<span class="w">    </span>re2c@2:<span class="w">                 </span>build
+<span class="w">      </span>when<span class="w"> </span>@develop
+
+<span class="w">    </span>winbison@2.4.12:<span class="w">        </span>build,<span class="w"> </span>link
+<span class="w">      </span>when<span class="w">  </span><span class="nv">platform</span><span class="o">=</span>windows
+
+
+Licenses:
+<span class="w">    </span>MIT
 </pre></div>
 </div>
 <p>From this you can see that there’s lots of versions available, and there’s a
 number of variants listed, along with dependencies.  Let’s say I wanted to
-build version 4.4.0, and we want webp support to be on, jpeg support to be
-off, and a build_type of Debug.  Basically, be as awkward as possible and
-change everything:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>--deprecated<span class="w"> </span>libtiff@4.4.0<span class="w"> </span>+webp<span class="w"> </span>-jpeg<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>Debug
+build version 5.7.0, and we want to build the documentation, not build
+python bindings, and with a build_type of Debug.  Basically, be as awkward as
+possible and change everything:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>--deprecated<span class="w"> </span>clingo@5.7.0+docs~python<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>Debug
 </pre></div>
 </div>
-<p>There we’re just turned on a feature (webp), turned off a feature (jpeg), and
+<p>There we’re just turned on a feature (docs), turned off a feature (python), and
 told it we want the Debug build type.  Have a look through the references to
 get further information, but this is actually the basics of choosing variants
 of packages.</p>
@@ -569,7 +600,7 @@ sensible recommended version in the later examples!</p>
 <h2>Compilers<a class="headerlink" href="#compilers" title="Permalink to this heading">#</a></h2>
 <p>You may want to build a package with a different compiler, that you already
 have configured.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>libtiff@4.7.0<span class="w"> </span>+webp<span class="w"> </span>-jpeg<span class="w"> </span>%gcc@11.4.1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>clingo@5.7.1+docs~python<span class="w"> </span>%gcc@14.2.0
 </pre></div>
 </div>
 <p>Now Spack will happily rebuild that specific variant you’ve asked for, with the
@@ -579,28 +610,34 @@ compiler you’ve asked for.</p>
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">#</a></h2>
 <p>You can also specify particular versions and variants of dependencies.  We can
 take our previous build even further:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>libtiff@4.7.0<span class="w"> </span>+webp<span class="w"> </span>-jpeg<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>Release<span class="w"> </span>^perl@5.36.0<span class="w"> </span>%gcc@11.4.1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install<span class="w"> </span>clingo@5.7.1+docs~python<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>Release<span class="w"> </span>^bison@3.8.1<span class="w"> </span>%gcc@14.2.0
 </pre></div>
 </div>
-<p>This would build using Perl 5.36.0, without JPEG support, and with WebP
-support, using the GCC 11.4.1 compiler.  Note that we have used a ^ to say which
-version of perl we want to use because it’s a package that we depend on,
-whereas we have to use % to say which compiler to use.</p>
+<p>This would build clingo with documentation, without Python bindings, choosing the
+release build of it, using the GCC 14.2.0 compiler to build the bison
+dependency.  When selecting dependencies, there’s a subtle difference between
+<code class="docutils literal notranslate"><span class="pre">%</span></code> and <code class="docutils literal notranslate"><span class="pre">^</span></code>.  <code class="docutils literal notranslate"><span class="pre">%</span></code> means a direct dependency (build perl with the gcc&#64;14.2.0
+compiler), whereas <code class="docutils literal notranslate"><span class="pre">^</span></code> means a transitive depedency, so when building libtiff,
+and you’re satisfying dependencies, use this package.</p>
+<p>Take a look at the references for further reading on how this all works, along
+with even more ways of defining these.</p>
 </section>
 <section id="previewing-a-software-install">
 <h2>Previewing a software install<a class="headerlink" href="#previewing-a-software-install" title="Permalink to this heading">#</a></h2>
 <p>Before installing a piece of software, you can review what Spack is planning on
 doing, and which dependencies it’s going to rely on.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>spec<span class="w"> </span>atop
-<span class="w"> </span>-<span class="w">   </span>atop@2.5.0%gcc@14.2.0<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>generic<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rocky9-zen4
-<span class="o">[</span>+<span class="o">]</span><span class="w">      </span>^gcc-runtime@14.2.0%gcc@14.2.0<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>generic<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rocky9-zen4
-<span class="o">[</span>e<span class="o">]</span><span class="w">      </span>^glibc@2.34%gcc@14.2.0<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rocky9-zen4
-<span class="o">[</span>+<span class="o">]</span><span class="w">      </span>^ncurses@6.5%gcc@14.2.0~symlinks+termlib<span class="w"> </span><span class="nv">abi</span><span class="o">=</span>none<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">patches</span><span class="o">=</span>7a351bc<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rocky9-zen4
-<span class="o">[</span>+<span class="o">]</span><span class="w">          </span>^gmake@4.4.1%gcc@11.4.1~guile<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>generic<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rocky9-zen4
-<span class="o">[</span>+<span class="o">]</span><span class="w">          </span>^pkgconf@2.2.0%gcc@14.2.0<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rocky9-zen4
-<span class="o">[</span>+<span class="o">]</span><span class="w">      </span>^zlib-ng@2.2.1%gcc@11.4.1+compat+new_strategies+opt+pic+shared<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rocky9-zen4
-<span class="o">[</span>+<span class="o">]</span><span class="w">          </span>^gcc-runtime@11.4.1%gcc@11.4.1<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>generic<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rocky9-zen4
-<span class="o">[</span>e<span class="o">]</span><span class="w">          </span>^glibc@2.34%gcc@11.4.1<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">arch</span><span class="o">=</span>linux-rocky9-zen4
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>spec<span class="w"> </span>atop<span class="w"> </span>%gcc@14.2.0
+<span class="w"> </span>-<span class="w">   </span>atop@2.5.0<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>generic<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">os</span><span class="o">=</span>rocky9<span class="w"> </span><span class="nv">target</span><span class="o">=</span>zen4<span class="w"> </span>%c<span class="o">=</span>gcc@14.2.0
+<span class="o">[</span>+<span class="o">]</span><span class="w">      </span>^compiler-wrapper@1.0<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>generic<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">os</span><span class="o">=</span>rocky9<span class="w"> </span><span class="nv">target</span><span class="o">=</span>zen4
+<span class="o">[</span>e<span class="o">]</span><span class="w">      </span>^gcc@14.2.0~binutils+bootstrap~graphite~mold~nvptx~piclibs~profiled~strip<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>RelWithDebInfo<span class="w"> </span>languages:<span class="o">=</span><span class="s1">&#39;c,c++,fortran&#39;</span><span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">os</span><span class="o">=</span>rocky9<span class="w"> </span><span class="nv">target</span><span class="o">=</span>x86_64
+<span class="o">[</span>+<span class="o">]</span><span class="w">      </span>^gcc-runtime@14.2.0<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>generic<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">os</span><span class="o">=</span>rocky9<span class="w"> </span><span class="nv">target</span><span class="o">=</span>zen4
+<span class="o">[</span>e<span class="o">]</span><span class="w">      </span>^glibc@2.34<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">os</span><span class="o">=</span>rocky9<span class="w"> </span><span class="nv">target</span><span class="o">=</span>x86_64
+<span class="o">[</span>+<span class="o">]</span><span class="w">      </span>^gmake@4.4.1~guile<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>generic<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">os</span><span class="o">=</span>rocky9<span class="w"> </span><span class="nv">target</span><span class="o">=</span>zen4<span class="w"> </span>%c<span class="o">=</span>gcc@11.4.1
+<span class="o">[</span>e<span class="o">]</span><span class="w">          </span>^gcc@11.4.1~binutils+bootstrap~graphite~nvptx~piclibs~profiled~strip<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">build_type</span><span class="o">=</span>RelWithDebInfo<span class="w"> </span>languages:<span class="o">=</span><span class="s1">&#39;c,c++&#39;</span><span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">os</span><span class="o">=</span>rocky9<span class="w"> </span><span class="nv">target</span><span class="o">=</span>x86_64
+<span class="o">[</span>+<span class="o">]</span><span class="w">          </span>^gcc-runtime@11.4.1<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>generic<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">os</span><span class="o">=</span>rocky9<span class="w"> </span><span class="nv">target</span><span class="o">=</span>zen4
+<span class="o">[</span>+<span class="o">]</span><span class="w">      </span>^ncurses@6.5-20250705~symlinks+termlib<span class="w"> </span><span class="nv">abi</span><span class="o">=</span>none<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span>patches:<span class="o">=</span>7a351bc<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">os</span><span class="o">=</span>rocky9<span class="w"> </span><span class="nv">target</span><span class="o">=</span>zen4<span class="w"> </span>%c,cxx<span class="o">=</span>gcc@11.4.1
+<span class="o">[</span>+<span class="o">]</span><span class="w">          </span>^pkgconf@2.5.1<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">os</span><span class="o">=</span>rocky9<span class="w"> </span><span class="nv">target</span><span class="o">=</span>zen4<span class="w"> </span>%c<span class="o">=</span>gcc@11.4.1
+<span class="o">[</span>+<span class="o">]</span><span class="w">      </span>^zlib-ng@2.2.4+compat+new_strategies+opt+pic+shared<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">platform</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">os</span><span class="o">=</span>rocky9<span class="w"> </span><span class="nv">target</span><span class="o">=</span>zen4<span class="w"> </span>%c,cxx<span class="o">=</span>gcc@11.4.1
 </pre></div>
 </div>
 <p>This way you can verify which versions it’s expecting to use, and can adjust
@@ -613,13 +650,6 @@ doesn’t fit with what you want, and you want it to rebuild exactly as you’ve
 asked.  In that instance, you can simply add the argument <code class="docutils literal notranslate"><span class="pre">--fresh</span></code> which tells
 Spack to work out dependencies ignoring what’s already been built, and select
 what it thinks is optimal.</p>
-<p>You’ll note in our section on simplifying the modules system, we simplified it
-to the point that the naming scheme used was name/version.  This loses all
-details about variants, making it impossible to distinguish between variants.
-If you only ever build one particular instance of a module, this isn’t a
-problem, but if you’re wanting to switch between multiple variants, or with
-different compilers, you’ll either want to stick with the original scheme, or
-look at alternative naming schemes that can capture the necessary detail.</p>
 </section>
 <section id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
@@ -641,13 +671,16 @@ Description:
 
 Homepage:<span class="w"> </span>https://tmux.github.io
 
-Preferred<span class="w"> </span>version:<span class="w">  </span>
-<span class="w">    </span><span class="m">3</span>.4<span class="w">       </span>https://github.com/tmux/tmux/releases/download/3.4/tmux-3.4.tar.gz
+Preferred<span class="w"> </span>version:
+<span class="w">    </span><span class="m">3</span>.5a<span class="w">      </span>https://github.com/tmux/tmux/releases/download/3.5a/tmux-3.5a.tar.gz
 
-Safe<span class="w"> </span>versions:<span class="w">  </span>
+Safe<span class="w"> </span>versions:
 <span class="w">    </span>master<span class="w">    </span><span class="o">[</span>git<span class="o">]</span><span class="w"> </span>https://github.com/tmux/tmux.git<span class="w"> </span>on<span class="w"> </span>branch<span class="w"> </span>master
+<span class="w">    </span><span class="m">3</span>.5a<span class="w">      </span>https://github.com/tmux/tmux/releases/download/3.5a/tmux-3.5a.tar.gz
+<span class="w">    </span><span class="m">3</span>.5<span class="w">       </span>https://github.com/tmux/tmux/releases/download/3.5/tmux-3.5.tar.gz
 <span class="w">    </span><span class="m">3</span>.4<span class="w">       </span>https://github.com/tmux/tmux/releases/download/3.4/tmux-3.4.tar.gz
 <span class="w">    </span><span class="m">3</span>.3a<span class="w">      </span>https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
+<span class="w">    </span><span class="m">3</span>.3<span class="w">       </span>https://github.com/tmux/tmux/releases/download/3.3/tmux-3.3.tar.gz
 <span class="w">    </span><span class="m">3</span>.2a<span class="w">      </span>https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz
 <span class="w">    </span><span class="m">3</span>.2<span class="w">       </span>https://github.com/tmux/tmux/releases/download/3.2/tmux-3.2.tar.gz
 <span class="w">    </span><span class="m">3</span>.1c<span class="w">      </span>https://github.com/tmux/tmux/releases/download/3.1c/tmux-3.1c.tar.gz
@@ -668,27 +701,62 @@ Safe<span class="w"> </span>versions:<span class="w">  </span>
 <span class="w">    </span><span class="m">2</span>.1<span class="w">       </span>https://github.com/tmux/tmux/releases/download/2.1/tmux-2.1.tar.gz
 <span class="w">    </span><span class="m">1</span>.9a<span class="w">      </span>https://github.com/tmux/tmux/releases/download/1.9a/tmux-1.9a.tar.gz
 
-Deprecated<span class="w"> </span>versions:<span class="w">  </span>
+Deprecated<span class="w"> </span>versions:
 <span class="w">    </span>None
 
 Variants:
 <span class="w">    </span>build_system<span class="w"> </span><span class="o">[</span>autotools<span class="o">]</span><span class="w">        </span>autotools
 <span class="w">        </span>Build<span class="w"> </span>systems<span class="w"> </span>supported<span class="w"> </span>by<span class="w"> </span>the<span class="w"> </span>package
+
+<span class="w">    </span>jemalloc<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">                </span>false,<span class="w"> </span><span class="nb">true</span>
+<span class="w">      </span>when<span class="w"> </span>@3.5:
+<span class="w">        </span>Use<span class="w"> </span>jemalloc<span class="w"> </span><span class="k">for</span><span class="w"> </span>memory<span class="w"> </span>allocation
+
 <span class="w">    </span>static<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">                  </span>false,<span class="w"> </span><span class="nb">true</span>
 <span class="w">        </span>Create<span class="w"> </span>a<span class="w"> </span>static<span class="w"> </span>build
+
 <span class="w">    </span>utf8proc<span class="w"> </span><span class="o">[</span>false<span class="o">]</span><span class="w">                </span>false,<span class="w"> </span><span class="nb">true</span>
 <span class="w">        </span>Build<span class="w"> </span>with<span class="w"> </span>UTF-8<span class="w"> </span>support<span class="w"> </span>from<span class="w"> </span>utf8proc<span class="w"> </span>library
 
-Build<span class="w"> </span>Dependencies:
-<span class="w">    </span>autoconf<span class="w">  </span>automake<span class="w">  </span>gmake<span class="w">  </span>gnuconfig<span class="w">  </span>libevent<span class="w">  </span>ncurses<span class="w">  </span>pkgconfig<span class="w">  </span>utf8proc<span class="w">  </span>yacc
 
-Link<span class="w"> </span>Dependencies:
-<span class="w">    </span>autoconf<span class="w">  </span>automake<span class="w">  </span>libevent<span class="w">  </span>ncurses<span class="w">  </span>utf8proc
+Dependencies:
+<span class="w">    </span>autoconf<span class="w">         </span>build,<span class="w"> </span>link
+<span class="w">      </span>when<span class="w"> </span>@master
 
-Run<span class="w"> </span>Dependencies:
-<span class="w">    </span>None
+<span class="w">    </span>automake<span class="w">         </span>build,<span class="w"> </span>link
+<span class="w">      </span>when<span class="w"> </span>@master
 
-Licenses:<span class="w"> </span>
+<span class="w">    </span>c<span class="w">                </span>build
+
+<span class="w">    </span>gmake<span class="w">            </span>build
+<span class="w">      </span>when<span class="w">  </span><span class="nv">build_system</span><span class="o">=</span>autotools
+
+<span class="w">    </span>gnuconfig<span class="w">        </span>build
+<span class="w">      </span>when<span class="w">  </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">target</span><span class="o">=</span>ppc64le:
+
+<span class="w">    </span>gnuconfig<span class="w">        </span>build
+<span class="w">      </span>when<span class="w">  </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">target</span><span class="o">=</span>aarch64:
+
+<span class="w">    </span>gnuconfig<span class="w">        </span>build
+<span class="w">      </span>when<span class="w">  </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">target</span><span class="o">=</span>riscv64:
+
+<span class="w">    </span>jemalloc<span class="w">         </span>build,<span class="w"> </span>link
+<span class="w">      </span>when<span class="w"> </span>+jemalloc
+
+<span class="w">    </span>libevent<span class="w">         </span>build,<span class="w"> </span>link
+
+<span class="w">    </span>ncurses<span class="w">          </span>build,<span class="w"> </span>link
+
+<span class="w">    </span>pkgconfig<span class="w">        </span>build
+
+<span class="w">    </span>utf8proc<span class="w">         </span>build,<span class="w"> </span>link
+<span class="w">      </span>when<span class="w"> </span>+utf8proc
+
+<span class="w">    </span>yacc<span class="w">             </span>build
+<span class="w">      </span>when<span class="w"> </span>@3:
+
+
+Licenses:
 <span class="w">    </span>ISC
 </pre></div>
 </div>
@@ -703,8 +771,8 @@ install command of:</p>
 $<span class="w"> </span>tmux<span class="w"> </span>-V
 tmux<span class="w"> </span><span class="m">3</span>.2a
 $<span class="w"> </span>spack<span class="w"> </span>find<span class="w"> </span>-v<span class="w"> </span>tmux
---<span class="w"> </span>linux-rocky9-zen4<span class="w"> </span>/<span class="w"> </span>gcc@14.2.0<span class="w"> </span>-------------------------------
-tmux@3.2a~static+utf8proc<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span><span class="nv">patches</span><span class="o">=</span><span class="nv">c1b61a1</span>
+--<span class="w"> </span>linux-rocky9-zen4<span class="w"> </span>/<span class="w"> </span>%c<span class="o">=</span>gcc@11.4.1<span class="w"> </span>----------------------------
+tmux@3.2a~static+utf8proc<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span>patches:<span class="o">=</span><span class="nv">c1b61a1</span>
 <span class="o">==</span>&gt;<span class="w"> </span><span class="m">1</span><span class="w"> </span>installed<span class="w"> </span>package
 </pre></div>
 </div>
@@ -716,9 +784,10 @@ confirm that it was built with UTF-8 support included.</p>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://spack.readthedocs.io/en/latest/basic_usage.html">Basic Usage</a></p></li>
+<li><p><a class="reference external" href="https://spack.readthedocs.io/en/latest/package_fundamentals.html">Basic Usage</a></p></li>
 <li><p><a class="reference external" href="https://spack-tutorial.readthedocs.io/en/latest/tutorial_basics.html#installing-packages">Installing packages</a></p></li>
 <li><p><a class="reference external" href="https://spack-tutorial.readthedocs.io/en/latest/tutorial_modules.html">Module tutorial</a></p></li>
+<li><p><a class="reference external" href="https://spack.readthedocs.io/en/latest/spec_syntax.html">Spec Syntax</a></p></li>
 </ul>
 </section>
 </section>

@@ -431,7 +431,7 @@ straightforward.  It’s literally a single command:</p>
 <p>At its simplest, that’s all you need to do.  For this course we’re going to
 deliberately pick a specific stable version:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>spack
-$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>v0.23.1
+$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>v1.1.0
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
 </pre></div>
 </div>
@@ -448,10 +448,12 @@ just downloaded it as above, you can do:</p>
 </pre></div>
 </div>
 <p>You need to make sure you have Python 3 available in your PATH, but there are
-few other <a class="reference external" href="https://spack.readthedocs.io/en/latest/getting_started.html#system-prerequisites">required dependencies</a>.</p>
+few other <a class="reference external" href="https://spack.readthedocs.io/en/latest/installing_prerequisites.html">required dependencies</a>.</p>
 <p>Spack is now alive in your terminal, and you can query available packages, or
-look at one to see what options you have for building it.  We can now have a
-look at what packages are available to install:</p>
+look at one to see what options you have for building it.  Note the first
+command you run might take a little while, as it also has to download the
+separate spack packages repository, which by default ends up in <code class="docutils literal notranslate"><span class="pre">~/.spack</span></code>.
+We can now have a look at what packages are available to install:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>list
 3dtk
 3proxy
@@ -466,7 +468,7 @@ abyss
 ...
 </pre></div>
 </div>
-<p>Now that’s quite a list (8307 different pieces of software at the time of
+<p>Now that’s quite a list (8611 different pieces of software at the time of
 writing).</p>
 <p>So let’s move on to look at the next section, where we install one to show how
 a simple package install works.</p>

@@ -452,7 +452,7 @@ module command though:</p>
 <p>We can confirm now that we can see the module with the module command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>avail<span class="w"> </span>pigz
 ------<span class="w"> </span>/users/example/spack/share/spack/modules/linux-rocky9-zen4<span class="w"> </span>------
-pigz/2.8-gcc-11.4.1-gqwhh2i
+pigz/2.8-gcc-11.4.1-rpmloas
 
 <span class="c1"># Make sure Spack has no packages enabled</span>
 $<span class="w"> </span>spack<span class="w"> </span>unload<span class="w"> </span>-a
@@ -460,9 +460,9 @@ $<span class="w"> </span>spack<span class="w"> </span>unload<span class="w"> </s
 <span class="c1"># On Aire, pigz is installed, but on your system you may find it&#39;s not.</span>
 $<span class="w"> </span>pigz<span class="w"> </span>--version
 pigz<span class="w"> </span><span class="m">2</span>.5
-$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz/2.8-gcc-11.4.1-gqwhh2i
-Loading<span class="w"> </span>pigz/2.8-gcc-11.4.1-gqwhh2i
-<span class="w">  </span>Loading<span class="w"> </span>requirement:<span class="w"> </span>glibc/2.34-gcc-11.4.1-nuyxhw7<span class="w"> </span>gcc-runtime/11.4.1-gcc-11.4.1-7hex6dy<span class="w"> </span>zlib-ng/2.2.1-gcc-11.4.1-5rrpd7
+$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz/2.8-gcc-11.4.1-rpmloas
+Loading<span class="w"> </span>pigz/2.8-gcc-11.4.1-rpmloas
+<span class="w">  </span>Loading<span class="w"> </span>requirement:<span class="w"> </span>glibc/2.34-none-none-z4aqp7y<span class="w"> </span>gcc-runtime/11.4.1-none-none-dqguk7u<span class="w"> </span>zlib-ng/2.2.4-gcc-11.4.1-ro6otkl
 $<span class="w"> </span>pigz<span class="w"> </span>--version
 pigz<span class="w"> </span><span class="m">2</span>.8
 </pre></div>
@@ -509,14 +509,14 @@ to rebuild the modulefiles, and delete existing files:</p>
 <p>Testing this out now we can see all is how we wanted it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>avail<span class="w"> </span>pigz
 ------<span class="w"> </span>/users/example/spack/share/spack/modules/linux-rocky9-zen4<span class="w"> </span>------
-pigz/2.8-gqwh
+pigz/2.8-rpml
 </pre></div>
 </div>
 <p>We now have tidier module files, named in a simpler fashion, which is probably
 enough for most straightforward purposes.  They can be loaded in the same style
 you would on other systems:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz
-$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz/2.8-gqwh
+$<span class="w"> </span>module<span class="w"> </span>add<span class="w"> </span>pigz/2.8-rpml
 </pre></div>
 </div>
 <p>Now you may be wondering why we bothered including this hash, as it’d clearly
@@ -524,20 +524,18 @@ be tidier to omit it and just have <code class="docutils literal notranslate"><s
 <p>In this case, we didn’t need to include a hash, as we’ve only got pigz built
 in one way, but elsewhere we may have modules built with
 different compilers, dependencies and variants.  So for example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>avail<span class="w"> </span>zlib-ng
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>avail<span class="w"> </span>ncurses
 ------<span class="w"> </span>/users/example/spack/share/spack/modules/linux-rocky9-zen4<span class="w"> </span>------
-zlib-ng/2.0.7-pjab<span class="w">  </span>zlib-ng/2.2.1-5rrp<span class="w">  </span>zlib-ng/2.2.1-xjlb
-$<span class="w"> </span>spack<span class="w"> </span>find<span class="w"> </span>zlib-ng
---<span class="w"> </span>linux-rocky9-zen4<span class="w"> </span>/<span class="w"> </span>gcc@11.4.1<span class="w"> </span>-------------------------------
-zlib-ng@2.0.7<span class="w">  </span>zlib-ng@2.2.1
-
---<span class="w"> </span>linux-rocky9-zen4<span class="w"> </span>/<span class="w"> </span>gcc@14.2.0<span class="w"> </span>-------------------------------
-zlib-ng@2.2.1
-<span class="o">==</span>&gt;<span class="w"> </span><span class="m">3</span><span class="w"> </span>installed<span class="w"> </span>packages
+ncurses/6.5-20250705-lcco<span class="w">  </span>ncurses/6.5-20250705-tx2b
+$<span class="w"> </span>spack<span class="w"> </span>find<span class="w"> </span>-v<span class="w"> </span>ncurses
+--<span class="w"> </span>linux-rocky9-zen4<span class="w"> </span>/<span class="w"> </span>%c,cxx<span class="o">=</span>gcc@11.4.1<span class="w"> </span>------------------------
+ncurses@6.5-20250705~symlinks~termlib<span class="w"> </span><span class="nv">abi</span><span class="o">=</span>none<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span>patches:<span class="o">=</span>7a351bc<span class="w">  </span>ncurses@6.5-20250705~symlinks+termlib<span class="w"> </span><span class="nv">abi</span><span class="o">=</span>none<span class="w"> </span><span class="nv">build_system</span><span class="o">=</span>autotools<span class="w"> </span>patches:<span class="o">=</span><span class="nv">7a351bc</span>
+<span class="o">==</span>&gt;<span class="w"> </span><span class="m">2</span><span class="w"> </span>installed<span class="w"> </span>packages
 </pre></div>
 </div>
-<p>You can see here we have two versions of zlib-ng built with two different
-compilers, which would clearly class with a simpler scheme.</p>
+<p>You can see here we have two versions of ncurses, in this case built with the
+same compiler, but with two different variants, which would clearly class with
+a simpler scheme.</p>
 <p>If you want more complicated structures, supporting multiple compilers, MPI
 implementations, numerical libraries, this is all possible, and covered in the
 link below in the references.  It also supports LMod as well as the more legacy

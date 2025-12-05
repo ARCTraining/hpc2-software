@@ -429,6 +429,9 @@ document.write(`
 <p>Environments in Spack feel a whole lot like environments in Conda; they allow
 you to bundle up a number of different pieces of software into a single entity,
 making a single coherent collection.</p>
+<p>This is a very simple introduction, and really doesn’t cover all the things
+you can do with environments, so if you’re interested in these, please read
+the main documentation links in the <a class="reference internal" href="#environments-references"><span class="std std-ref">References</span></a> section.</p>
 <section id="creating-an-environment">
 <h2>Creating an environment<a class="headerlink" href="#creating-an-environment" title="Permalink to this heading">#</a></h2>
 <p>Here’s a minimal workflow for creating an environment:</p>
@@ -438,20 +441,25 @@ making a single coherent collection.</p>
 </pre></div>
 </div>
 </li>
+<li><p>Activate it</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>env<span class="w"> </span>activate<span class="w"> </span>myenv
+</pre></div>
+</div>
+</li>
 <li><p>Add a list of software to it</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>-e<span class="w"> </span>myenv<span class="w"> </span>add<span class="w"> </span>bash@5<span class="w"> </span>python<span class="w"> </span>py-numpy<span class="w"> </span>py-scipy<span class="w"> </span>py-matplotlib<span class="w"> </span>openssl@3.0.15
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>add<span class="w"> </span>bash@5<span class="w"> </span>python<span class="w"> </span>py-numpy<span class="w"> </span>py-scipy<span class="w"> </span>py-matplotlib<span class="w"> </span>openssl@3.0.7
 </pre></div>
 </div>
 </li>
 <li><p>Tweak the config if required</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>-e<span class="w"> </span>myenv<span class="w"> </span>config<span class="w"> </span>edit
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>config<span class="w"> </span>edit
 </pre></div>
 </div>
 <p>Please review the references for more information on options here, but nothing
 needs changing this time.</p>
 </li>
 <li><p>Validate the installation</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>-e<span class="w"> </span>myenv<span class="w"> </span>concretize
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>concretize
 </pre></div>
 </div>
 <p><a class="reference external" href="https://spack.readthedocs.io/en/latest/environments.html#spec-concretization">Concretizing</a>
@@ -459,7 +467,7 @@ the spec resolves all the dependecies and shows you what Spack believes is
 required to satisfy you requirements.</p>
 </li>
 <li><p>Build and install the software</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>-e<span class="w"> </span>myenv<span class="w"> </span>install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>install
 </pre></div>
 </div>
 </li>
@@ -470,7 +478,8 @@ software, and external software you’ve told it to use.</p>
 <section id="using-an-environment">
 <h2>Using an environment<a class="headerlink" href="#using-an-environment" title="Permalink to this heading">#</a></h2>
 <p>Again, this feels very familiar to people used to Conda; you have to activate
-an environment before using it:</p>
+an environment before using it (although we did actually do this earlier when
+we created it):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>env<span class="w"> </span>activate<span class="w"> </span>myenv
 </pre></div>
 </div>
@@ -478,8 +487,8 @@ an environment before using it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>which<span class="w"> </span>bash
 ~/spack/var/spack/environments/myenv/.spack-env/view/bin/bash
 $<span class="w"> </span>bash<span class="w"> </span>--version
-GNU<span class="w"> </span>bash,<span class="w"> </span>version<span class="w"> </span><span class="m">5</span>.2.26<span class="o">(</span><span class="m">1</span><span class="o">)</span>-release<span class="w"> </span><span class="o">(</span>x86_64-pc-linux-gnu<span class="o">)</span>
-Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2022</span><span class="w"> </span>Free<span class="w"> </span>Software<span class="w"> </span>Foundation,<span class="w"> </span>Inc.
+GNU<span class="w"> </span>bash,<span class="w"> </span>version<span class="w"> </span><span class="m">5</span>.3.3<span class="o">(</span><span class="m">1</span><span class="o">)</span>-release<span class="w"> </span><span class="o">(</span>x86_64-pc-linux-gnu<span class="o">)</span>
+Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2025</span><span class="w"> </span>Free<span class="w"> </span>Software<span class="w"> </span>Foundation,<span class="w"> </span>Inc.
 License<span class="w"> </span>GPLv3+:<span class="w"> </span>GNU<span class="w"> </span>GPL<span class="w"> </span>version<span class="w"> </span><span class="m">3</span><span class="w"> </span>or<span class="w"> </span>later<span class="w"> </span>&lt;http://gnu.org/licenses/gpl.html&gt;
 
 This<span class="w"> </span>is<span class="w"> </span>free<span class="w"> </span>software<span class="p">;</span><span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>free<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>and<span class="w"> </span>redistribute<span class="w"> </span>it.
@@ -495,9 +504,9 @@ There<span class="w"> </span>is<span class="w"> </span>NO<span class="w"> </span
 </section>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<span id="environments-references"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://spack.readthedocs.io/en/latest/replace_conda_homebrew.html">Using Spack to Replace Homebrew/Conda</a></p></li>
+<li><p><a class="reference external" href="https://spack.readthedocs.io/en/latest/environments_basics.html">Environment Basics</a></p></li>
 <li><p><a class="reference external" href="https://spack.readthedocs.io/en/latest/environments.html">Environments</a></p></li>
 </ul>
 </section>

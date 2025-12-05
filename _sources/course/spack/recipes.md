@@ -273,11 +273,11 @@ This way it knows to use the master branch to build a "develop" release.  This
 the leaves us with this minimal config:
 
 ```python
-# Copyright 2013-2024 Lawrence Livermore National Security, LLC and other
-# Spack Project Developers. See the top-level COPYRIGHT file for details.
+# Copyright Spack Project Developers. See COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
+from spack_repo.builtin.build_systems.cmake import CMakePackage
 from spack.package import *
 
 class CmakeTutorial(CMakePackage):
@@ -322,11 +322,11 @@ We make the same basic edits done in the Cmake section, to tell it we're using
 git, and which branch to use for the `develop` version.  This leaves us with:
 
 ```python
-# Copyright 2013-2024 Lawrence Livermore National Security, LLC and other
-# Spack Project Developers. See the top-level COPYRIGHT file for details.
+# Copyright Spack Project Developers. See COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
+from spack_repo.builtin.build_systems.autotools import AutotoolsPackage
 from spack.package import *
 
 class AutotoolsExample(AutotoolsPackage):
@@ -341,6 +341,7 @@ class AutotoolsExample(AutotoolsPackage):
     depends_on("m4", type="build")
 
     def autoreconf(self, spec, prefix):
+        # FIXME: Modify the autoreconf method as necessary
         autoreconf("--install", "--verbose", "--force")
 ```
 

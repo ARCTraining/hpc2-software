@@ -429,61 +429,82 @@ document.write(`
 <p>Let’s now try installing a simple piece of software.  Pigz seems like a
 reasonable place to start (parallel gzip), as it doesn’t have too many
 dependencies, so won’t take long to try out:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>install<span class="w"> </span>pigz
-<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/usr<span class="w"> </span><span class="o">(</span>external<span class="w"> </span>glibc-2.34-nuyxhw7kdup423xfoh3erg5yl7c3xrlh<span class="o">)</span>
-<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>gcc-runtime-11.4.1-7hex6dyh2ttbdeywfkq5vbsinmnhjoub<span class="w"> </span><span class="o">[</span><span class="m">2</span>/5<span class="o">]</span>
-<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>gcc-runtime-11.4.1-7hex6dyh2ttbdeywfkq5vbsinmnhjoub<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>install<span class="w"> </span><span class="nv">pigz</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Compilers<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>configured<span class="w"> </span>automatically<span class="w"> </span>from<span class="w"> </span>PATH<span class="w"> </span><span class="nv">inspection</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://ghcr.io/v2/spack/bootstrap-buildcache-v2.2/blobs/sha256:2010a2a50b9620c2bda7c5fa4e9ce137a115dbba35094857fecc819d9a00a789
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://ghcr.io/v2/spack/bootstrap-buildcache-v2.2/blobs/sha256:31f1649728e2d58902eb62d1c2e37b1cfc73e007089322a17463b3cb5777cb98
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span><span class="s2">&quot;clingo-bootstrap@=spack~apps~docs+ipo+optimized+python+static_libstdcpp build_system=cmake build_type=Release commit=2a025667090d71b2c9dce60fe924feb6bde8f667 generator=make patches:=bebb819,ec99431 platform=linux os=centos7 target=x86_64&quot;</span><span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>buildcache
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/usr<span class="w"> </span><span class="o">(</span>external<span class="w"> </span>gcc-11.4.1-fhj3ubjk6iqnexhdlnbcmlzjuo3iofwa<span class="o">)</span>
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/usr<span class="w"> </span><span class="o">(</span>external<span class="w"> </span>glibc-2.34-z4aqp7yhzcmlwfcydu32wbqxounooohb<span class="o">)</span>
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>compiler-wrapper-1.0-et3ejxhc3t5yoqbw74pqjv4izptvuj3q<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>compiler-wrapper-1.0-et3ejxhc3t5yoqbw74pqjv4izptvuj3q<span class="w"> </span><span class="o">[</span><span class="m">3</span>/7<span class="o">]</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/a5/a5ff4fcdbeda284a7993b87f294b6338434cffc84ced31e4d04008ed5ea389bf
+<span class="w">    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w">   </span><span class="m">30</span>.08<span class="w"> </span>KB<span class="w"> </span>@<span class="w">   </span><span class="m">14</span>.2<span class="w"> </span>MB/s
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>patches<span class="w"> </span>needed<span class="w"> </span><span class="k">for</span><span class="w"> </span>compiler-wrapper
+<span class="o">==</span>&gt;<span class="w"> </span>compiler-wrapper:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
+<span class="o">==</span>&gt;<span class="w"> </span>compiler-wrapper:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>compiler-wrapper-1.0-et3ejxhc3t5yoqbw74pqjv4izptvuj3q
+<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.10s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.01s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">0</span>.13s
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/users/example/spack/opt/spack/linux-zen4/compiler-wrapper-1.0-et3ejxhc3t5yoqbw74pqjv4izptvuj3q
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>gcc-runtime-11.4.1-dqguk7uvu3bh5ehxvi7sv4qaartrartc<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>gcc-runtime-11.4.1-dqguk7uvu3bh5ehxvi7sv4qaartrartc<span class="w"> </span><span class="o">[</span><span class="m">4</span>/7<span class="o">]</span>
 <span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>patches<span class="w"> </span>needed<span class="w"> </span><span class="k">for</span><span class="w"> </span>gcc-runtime
 <span class="o">==</span>&gt;<span class="w"> </span>gcc-runtime:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
-<span class="o">==</span>&gt;<span class="w"> </span>gcc-runtime:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>gcc-runtime-11.4.1-7hex6dyh2ttbdeywfkq5vbsinmnhjoub
-<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">0</span>.05s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.04s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">0</span>.11s
-<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/users/example/spack/opt/spack/linux-rocky9-zen4/gcc-11.4.1/gcc-runtime-11.4.1-7hex6dyh2ttbdeywfkq5vbsinmnhjoub
-<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>gmake-4.4.1-36fbslt63hhoisn7shlrkgd5fsb2awmz<span class="w"> </span><span class="o">[</span><span class="m">3</span>/5<span class="o">]</span>
-<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>gmake-4.4.1-36fbslt63hhoisn7shlrkgd5fsb2awmz<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>gcc-runtime:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>gcc-runtime-11.4.1-dqguk7uvu3bh5ehxvi7sv4qaartrartc
+<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">0</span>.03s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.01s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">0</span>.06s
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/users/example/spack/opt/spack/linux-zen4/gcc-runtime-11.4.1-dqguk7uvu3bh5ehxvi7sv4qaartrartc
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>gmake-4.4.1-2fg6qftd7dmzej4hzzydnwqwnbl65zac<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>gmake-4.4.1-2fg6qftd7dmzej4hzzydnwqwnbl65zac<span class="w"> </span><span class="o">[</span><span class="m">5</span>/7<span class="o">]</span>
 <span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/dd/dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3.tar.gz
+<span class="w">    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w">    </span><span class="m">2</span>.35<span class="w"> </span>MB<span class="w"> </span>@<span class="w">   </span><span class="m">21</span>.5<span class="w"> </span>MB/s
 <span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>patches<span class="w"> </span>needed<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">gmake</span>
 <span class="o">==</span>&gt;<span class="w"> </span>gmake:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
-<span class="o">==</span>&gt;<span class="w"> </span>gmake:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>gmake-4.4.1-36fbslt63hhoisn7shlrkgd5fsb2awmz
-<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.21s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">10</span>.08s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.02s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">10</span>.36s
-<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/users/example/spack/opt/spack/linux-rocky9-zen4/gcc-11.4.1/gmake-4.4.1-36fbslt63hhoisn7shlrkgd5fsb2awmz
-<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>zlib-ng-2.2.1-5rrpd7bzlpd7tgfp6nfw2z23dpzpcme7<span class="w"> </span><span class="o">[</span><span class="m">4</span>/5<span class="o">]</span>
-<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>zlib-ng-2.2.1-5rrpd7bzlpd7tgfp6nfw2z23dpzpcme7<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
-<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/ec/ec6a76169d4214e2e8b737e0850ba4acb806c69eeace6240ed4481b9f5c57cdf.tar.gz
+<span class="o">==</span>&gt;<span class="w"> </span>gmake:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>gmake-4.4.1-2fg6qftd7dmzej4hzzydnwqwnbl65zac
+<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.23s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">9</span>.98s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">10</span>.24s
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/users/example/spack/opt/spack/linux-zen4/gmake-4.4.1-2fg6qftd7dmzej4hzzydnwqwnbl65zac
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>zlib-ng-2.2.4-ro6otklzkonqr26ittllhxc72qpr37le<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>zlib-ng-2.2.4-ro6otklzkonqr26ittllhxc72qpr37le<span class="w"> </span><span class="o">[</span><span class="m">6</span>/7<span class="o">]</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/a7/a73343c3093e5cdc50d9377997c3815b878fd110bf6511c2c7759f2afb90f5a3.tar.gz
+<span class="w">    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w">    </span><span class="m">2</span>.42<span class="w"> </span>MB<span class="w"> </span>@<span class="w">   </span><span class="m">23</span>.8<span class="w"> </span>MB/s
 <span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>patches<span class="w"> </span>needed<span class="w"> </span><span class="k">for</span><span class="w"> </span>zlib-ng
 <span class="o">==</span>&gt;<span class="w"> </span>zlib-ng:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;autoreconf&#39;</span>
 <span class="o">==</span>&gt;<span class="w"> </span>zlib-ng:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;configure&#39;</span>
 <span class="o">==</span>&gt;<span class="w"> </span>zlib-ng:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;build&#39;</span>
 <span class="o">==</span>&gt;<span class="w"> </span>zlib-ng:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
-<span class="o">==</span>&gt;<span class="w"> </span>zlib-ng:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>zlib-ng-2.2.1-5rrpd7bzlpd7tgfp6nfw2z23dpzpcme7
-<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.18s.<span class="w">  </span>Autoreconf:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Configure:<span class="w"> </span><span class="m">2</span>.81s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">0</span>.97s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">0</span>.08s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.04s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">4</span>.18s
-<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/users/example/spack/opt/spack/linux-rocky9-zen4/gcc-11.4.1/zlib-ng-2.2.1-5rrpd7bzlpd7tgfp6nfw2z23dpzpcme7
-<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>pigz-2.8-gqwhh2itznlqmnlv7qfddsckiogws3jh<span class="w"> </span><span class="o">[</span><span class="m">5</span>/5<span class="o">]</span>
-<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>pigz-2.8-gqwhh2itznlqmnlv7qfddsckiogws3jh<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>zlib-ng:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>zlib-ng-2.2.4-ro6otklzkonqr26ittllhxc72qpr37le
+<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.22s.<span class="w">  </span>Autoreconf:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Configure:<span class="w"> </span><span class="m">2</span>.89s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">0</span>.83s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">0</span>.37s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.01s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">4</span>.39s
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/users/example/spack/opt/spack/linux-zen4/zlib-ng-2.2.4-ro6otklzkonqr26ittllhxc72qpr37le
+<span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>binary<span class="w"> </span><span class="k">for</span><span class="w"> </span>pigz-2.8-rpmloasg4nsdwdo4lvyskke7xex5nvdd<span class="w"> </span>found:<span class="w"> </span>installing<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span>
+<span class="o">==</span>&gt;<span class="w"> </span>Installing<span class="w"> </span>pigz-2.8-rpmloasg4nsdwdo4lvyskke7xex5nvdd<span class="w"> </span><span class="o">[</span><span class="m">7</span>/7<span class="o">]</span>
 <span class="o">==</span>&gt;<span class="w"> </span>Fetching<span class="w"> </span>https://mirror.spack.io/_source-cache/archive/2f/2f7f6a6986996d21cb8658535fff95f1c7107ddce22b5324f4b41890e2904706.tar.gz
+<span class="w">    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w">  </span><span class="m">128</span>.77<span class="w"> </span>KB<span class="w"> </span>@<span class="w">    </span><span class="m">3</span>.1<span class="w"> </span>MB/s
 <span class="o">==</span>&gt;<span class="w"> </span>No<span class="w"> </span>patches<span class="w"> </span>needed<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">pigz</span>
 <span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;edit&#39;</span>
 <span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;build&#39;</span>
 <span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Executing<span class="w"> </span>phase:<span class="w"> </span><span class="s1">&#39;install&#39;</span>
-<span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>pigz-2.8-gqwhh2itznlqmnlv7qfddsckiogws3jh
-<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.09s.<span class="w">  </span>Edit:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">1</span>.02s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">0</span>.01s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.03s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">1</span>.23s
-<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/users/example/spack/opt/spack/linux-rocky9-zen4/gcc-11.4.1/pigz-2.8-gqwhh2itznlqmnlv7qfddsckiogws3jh
+<span class="o">==</span>&gt;<span class="w"> </span>pigz:<span class="w"> </span>Successfully<span class="w"> </span>installed<span class="w"> </span>pigz-2.8-rpmloasg4nsdwdo4lvyskke7xex5nvdd
+<span class="w">  </span>Stage:<span class="w"> </span><span class="m">0</span>.12s.<span class="w">  </span>Edit:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Build:<span class="w"> </span><span class="m">0</span>.98s.<span class="w">  </span>Install:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Post-install:<span class="w"> </span><span class="m">0</span>.00s.<span class="w">  </span>Total:<span class="w"> </span><span class="m">1</span>.15s
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>/users/example/spack/opt/spack/linux-zen4/pigz-2.8-rpmloasg4nsdwdo4lvyskke7xex5nvdd
 </pre></div>
 </div>
-<p>That is quite wordy, but to note, it’s installed pigz, and also installed
-dependencies of it, gcc-runtime, gmake, zlib-ng and pigz.  Just asking for it
-to install that one package has led to it downloading and installing several,
-and it’s quite happy doing that without needing any guidance.</p>
+<p>That is quite wordy, but you can see that it has installed pigz, after first
+installing its dependencies, compiler-wrapper, gcc-runtime, gmake, zlib-ng.
+Just asking for it to install that one package has led to it downloading and
+installing several, and it’s quite happy doing that without needing any
+guidance.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>find<span class="w"> </span>pigz
---<span class="w"> </span>linux-rocky9-zen4<span class="w"> </span>/<span class="w"> </span>gcc@11.4.1<span class="w"> </span>-------------------------------
+--<span class="w"> </span>linux-rocky9-zen4<span class="w"> </span>/<span class="w"> </span>%c<span class="o">=</span>gcc@11.4.1<span class="w"> </span>----------------------------
 pigz@2.8
 <span class="o">==</span>&gt;<span class="w"> </span><span class="m">1</span><span class="w"> </span>installed<span class="w"> </span>package
 </pre></div>
 </div>
 <p>At this point we can see there’s a version available for pigz.  I can now load
 this, and test it to confirm it’s worked:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>spack<span class="w"> </span>load<span class="w"> </span>pigz
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pigz<span class="w"> </span>--version
+pigz<span class="w"> </span><span class="m">2</span>.5
+$<span class="w"> </span>spack<span class="w"> </span>load<span class="w"> </span>pigz
 $<span class="w"> </span>pigz<span class="w"> </span>--version
 pigz<span class="w"> </span><span class="m">2</span>.8
+$<span class="w"> </span>spack<span class="w"> </span>unload<span class="w"> </span>pigz
 </pre></div>
 </div>
 <p>Excellent.  To recap, by this stage we’ve:</p>
@@ -497,9 +518,9 @@ pigz<span class="w"> </span><span class="m">2</span>.8
 much work yet.</p>
 <section id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
-<p>Install and use the <code class="docutils literal notranslate"><span class="pre">k8</span></code> software, so we can find out the square root of 25
-using javascript.  The command you can run to test your install is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k8</span> <span class="o">-</span><span class="n">e</span> <span class="s1">&#39;print( &quot;Square root of 25 is: &quot; + Math.sqrt(25) );&#39;</span>
+<p>Install and use the <code class="docutils literal notranslate"><span class="pre">cowsay</span></code> software, to produce an ascii picture of a cow
+saying “Moooo!”.  The command you can run to test your install is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cowsay Moooo!
 </pre></div>
 </div>
 <details>
@@ -507,27 +528,35 @@ using javascript.  The command you can run to test your install is:</p>
 <section id="solution">
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
 <ul>
-<li><p>Install k8</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spack</span> <span class="n">install</span> <span class="n">k8</span>
+<li><p>Install cowsay</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spack</span> <span class="n">install</span> <span class="n">cowsay</span>
 </pre></div>
 </div>
 </li>
 <li><p>Find the name of the module</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ spack find k8
--- linux-rocky9-zen4 / gcc@11.4.1 -------------------------------
-k8@0.2.4
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ spack find cowsay
+-- linux-rocky9-zen4 / no compilers -----------------------------
+cowsay@3.04
 ==&gt; 1 installed package
 </pre></div>
 </div>
 </li>
 <li><p>Load the software</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ spack load k8
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ spack load cowsay
 </pre></div>
 </div>
 </li>
 <li><p>Test the software</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ k8 -e &#39;print( &quot;Square root of 25 is: &quot; + Math.sqrt(25) );&#39;
-Square root of 25 is: 5
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cowsay Moooo!
+ ________ 
+ &lt; Moooo! &gt;
+ -------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+$ spack unload cowsay
 </pre></div>
 </div>
 </li>
